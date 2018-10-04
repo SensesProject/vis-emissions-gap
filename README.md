@@ -1,6 +1,6 @@
-# Senses Sankey
+# Senses Storytelling
 
-![Screenshot](screenshot.png)
+Step through mulitple steps of a visualisation. Each step can have different view properties.
 
 ## Build Setup
 
