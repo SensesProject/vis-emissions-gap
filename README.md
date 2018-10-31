@@ -2,6 +2,10 @@
 
 Step through mulitple steps of a visualisation. Each step can have different view properties.
 
+![Screenshot](screenshot.png)
+
+https://friendly-williams-a07292.netlify.com
+
 ## Build Setup
 
 ``` bash
