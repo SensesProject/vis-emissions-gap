@@ -122,9 +122,10 @@
         const { elements } = this
         const xValues = extractValues(elements, '0')
         const yValues = extractValues(elements, '1')
+        const minX = Math.min(...xValues)
         const maxX = Math.max(...xValues)
         const maxY = Math.max(...yValues)
-        this.scaleX.domain([0, maxX])
+        this.scaleX.domain([minX, maxX])
         this.scaleY.domain([0, maxY])
         console.log('set scale domains to', this.scaleX.domain(), this.scaleY.domain())
       },
