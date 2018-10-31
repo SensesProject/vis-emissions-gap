@@ -72,13 +72,13 @@
         return drawArea()(data)
       },
       clipPathElements: function () {
-        const { steps, step } = this
+        const { steps, step, scaleX } = this
 
         return map(steps[step].clips, (clip, id) => {
           return {
             'clip': `clip${id}`,
             'height': 100 + '%',
-            'width': 100 * clip + '%'
+            'width': clip ? scaleX(clip) : 0
           }
         })
       },
@@ -113,10 +113,10 @@
             return scaleX(d[0])
           })
           .y1((d, i) => {
-            return scaleY(d[1])
+            return scaleY(d[2])
           })
           .y0((d, i) => {
-            return scaleY(0)
+            return scaleY(d[1])
           })
       },
       setScales: function () {

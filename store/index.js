@@ -25,45 +25,45 @@ const store = () => new Vuex.Store({
       'title': 'Step 1',
       'text': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
       clips: {
-        1: 0.4,
+        1: 2020,
         2: 0,
-        3: 0,
+        3: 2050,
         4: 0
       }
     }, {
       'title': 'Step 2',
       'text': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
       clips: {
-        1: 0.7,
-        2: 0.2,
-        3: 0,
+        1: 2030,
+        2: 2020,
+        3: 2050,
         4: 0
       }
     }, {
       'title': 'Step 3',
       'text': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
       clips: {
-        1: 0.9,
-        2: 0.4,
-        3: 0,
+        1: 2040,
+        2: 2030,
+        3: 2050,
         4: 0
       }
     }],
     elements: [
       {
+        clip: '3',
+        type: 'area',
+        data: [[2020, 0, 68], [2030, 0, 68]]
+      },
+      {
         clip: '1',
         type: 'line',
-        data: [[0, 0], [1.7, 1.2], [1.5, 2], [3.2, 3], [4, 3.5], [5, 5]]
+        data: [[2010, 50], [2015, 58], [2020, 62], [2025, 61], [2030, 60], [2035, 50], [2040, 40], [2045, 27], [2050, 18]]
       },
       {
         clip: '2',
         type: 'line',
-        data: [[0, 0], [1, 0.7], [2.2, 2], [3, 2.4], [4, 4], [5, 5]]
-      },
-      {
-        clip: '3',
-        type: 'area',
-        data: [[0, 0], [1, 0.5], [2, 0.2], [3, 1], [4, 1.2], [5, 5]]
+        data: [[2010, 50], [2015, 58], [2020, 58], [2025, 50], [2030, 43], [2035, 36], [2040, 50], [2045, 26], [2050, 18]]
       }
     ],
     step: 0
