@@ -159,6 +159,7 @@
 
   path.area {
     fill: red;
+    opacity: 0.2;
   }
 
   rect {
