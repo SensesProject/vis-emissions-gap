@@ -13,19 +13,19 @@ const store = () => new Vuex.Store({
   state: {
     ...config,
     steps: [{
-      'title': 'Einführung',
+      'title': 'Introduction',
       'text': 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
       'clips': [0, 0, 0, 0]
     }, {
-      'title': 'Schritt 1',
+      'title': 'Step 1',
       'text': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
       'clips': [0.4, 0, 0, 0]
     }, {
-      'title': 'Schritt 2',
+      'title': 'Step 2',
       'text': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
       'clips': [0.7, 0.2, 0, 0]
     }, {
-      'title': 'Schritt 3',
+      'title': 'Step 3',
       'text': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
       'clips': [0.9, 0.4, 0, 0]
     }],
