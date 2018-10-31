@@ -22,7 +22,7 @@
 
 <script>
   import { mapState } from 'vuex'
-  import { scaleLinear } from 'd3-scale'
+  import { scaleLinear, scaleTime } from 'd3-scale'
   import { area, line } from 'd3-shape'
   import map from 'lodash/map'
   import get from 'lodash/get'
@@ -38,7 +38,7 @@
 
   export default {
     data: function () {
-      const scaleX = scaleLinear()
+      const scaleX = scaleTime()
       const scaleY = scaleLinear()
 
       return {
