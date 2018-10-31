@@ -36,6 +36,7 @@
       return {
         width: 0,
         height: 0,
+        margin: [0, 0],
         scaleX,
         scaleY
       }
@@ -108,8 +109,11 @@
         const { vis: el } = this.$refs
         this.width = el.clientWidth || el.parentNode.clientWidth
         this.height = el.clientHeight || el.parentNode.clientHeight
-        this.scaleY.range([this.height, 0])
-        this.scaleX.range([0, this.width])
+        const marginVertical = this.height * 0.1
+        const marginHorizontal = this.width * 0.1
+        this.margin = [marginHorizontal, marginVertical]
+        this.scaleY.range([this.height - marginVertical, marginVertical]) // Because upside down
+        this.scaleX.range([marginHorizontal, this.width - marginHorizontal]) // Because left -> right
         console.log('set scale ranges to', this.scaleX.range(), this.scaleY.range())
       }
     }
