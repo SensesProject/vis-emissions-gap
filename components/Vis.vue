@@ -42,6 +42,7 @@
       const scaleY = scaleLinear()
 
       return {
+        marginPercent: 0.1,
         width: 0,
         height: 0,
         margin: [0, 0],
@@ -131,13 +132,16 @@
       },
       calcSizes: function () {
         const { vis: el } = this.$refs
-        this.width = el.clientWidth || el.parentNode.clientWidth
-        this.height = el.clientHeight || el.parentNode.clientHeight
-        const marginVertical = this.height * 0.1
-        const marginHorizontal = this.width * 0.1
+        const { marginPercent } = this
+        const width = el.clientWidth || el.parentNode.clientWidth
+        const height = el.clientHeight || el.parentNode.clientHeight
+        this.width = width
+        this.height = height
+        const marginVertical = height * marginPercent
+        const marginHorizontal = width * marginPercent
         this.margin = [marginHorizontal, marginVertical]
-        this.scaleY.range([this.height - marginVertical, marginVertical]) // Because upside down
-        this.scaleX.range([marginHorizontal, this.width - marginHorizontal]) // Because left -> right
+        this.scaleY.range([height - marginVertical, marginVertical]) // Because upside down
+        this.scaleX.range([marginHorizontal, width - marginHorizontal]) // Because left -> right
         console.log('set scale ranges to', this.scaleX.range(), this.scaleY.range())
       }
     }
