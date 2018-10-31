@@ -4,7 +4,7 @@
       <defs>
         <clipPath
           v-for="(el, i) in clipPathElements"
-          :id="'clip' + i">
+          :id="el.clip">
           <rect
             class="clip"
             x="0%"
@@ -14,8 +14,9 @@
         </clipPath>
       </defs>
       <g v-if="width && height">
-        <path class="area" :d="areaElement" clip-path="url(#clip1)" />
-        <path class="line" :d="lineElement" clip-path="url(#clip0)" />
+        <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
+        <!-- <path class="area" :d="areaElement" clip-path="url(#clip1)" />
+        <path class="line" :d="lineElement" clip-path="url(#clip0)" /> -->
       </g>
     </svg>
   </section>
@@ -52,7 +53,8 @@
       ...mapState([
         'step',
         'data',
-        'steps'
+        'steps',
+        'elements'
       ]),
       lineElement () {
         const { drawLine, data } = this
@@ -65,10 +67,23 @@
       clipPathElements: function () {
         const { steps, step } = this
 
-        return map(steps[step].clips, clip => {
+        return map(steps[step].clips, (clip, id) => {
           return {
+            'clip': `clip${id}`,
             'height': 100 + '%',
             'width': 100 * clip + '%'
+          }
+        })
+      },
+      visualElements () {
+        return map(this.elements, element => {
+          const { type, data, clip } = element
+          const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
+          const klass = type
+          return {
+            d,
+            klass,
+            clip: `clip${clip}`
           }
         })
       }
@@ -126,6 +141,7 @@
   path.line {
     stroke: #000;
     stroke-width: 3px;
+    fill: none;
   }
 
   path.area {

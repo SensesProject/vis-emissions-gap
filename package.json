@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "d3-axis": "^1.0.12",
     "d3-scale": "^2.1.2",
     "d3-shape": "^1.2.2",
     "lodash": "^4.17.10",
