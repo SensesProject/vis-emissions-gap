@@ -21,7 +21,6 @@ const store = () => new Vuex.Store({
         3: 0,
         4: 0
       }
-      // 'clips': [0, 0, 0, 0]
     }, {
       'title': 'Step 1',
       'text': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
@@ -31,7 +30,6 @@ const store = () => new Vuex.Store({
         3: 0,
         4: 0
       }
-      // 'clips': [0.4, 0, 0, 0]
     }, {
       'title': 'Step 2',
       'text': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
@@ -41,7 +39,6 @@ const store = () => new Vuex.Store({
         3: 0,
         4: 0
       }
-      // 'clips': [0.7, 0.2, 0, 0]
     }, {
       'title': 'Step 3',
       'text': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
@@ -51,7 +48,6 @@ const store = () => new Vuex.Store({
         3: 0,
         4: 0
       }
-      // 'clips': [0.9, 0.4, 0, 0]
     }],
     elements: [
       {
@@ -70,7 +66,6 @@ const store = () => new Vuex.Store({
         data: [[0, 0], [1, 0.5], [2, 0.2], [3, 1], [4, 1.2], [5, 5]]
       }
     ],
-    data: [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
     step: 0
   },
   mutations: {

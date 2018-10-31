@@ -15,8 +15,6 @@
       </defs>
       <g v-if="width && height">
         <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
-        <!-- <path class="area" :d="areaElement" clip-path="url(#clip1)" />
-        <path class="line" :d="lineElement" clip-path="url(#clip0)" /> -->
       </g>
     </svg>
   </section>
@@ -26,8 +24,17 @@
   import { mapState } from 'vuex'
   import { scaleLinear } from 'd3-scale'
   import { area, line } from 'd3-shape'
-  import maxBy from 'lodash/maxBy'
   import map from 'lodash/map'
+  import get from 'lodash/get'
+  import flatten from 'lodash/flatten'
+
+  function extractValues (arr, path) {
+    return flatten(map(arr, a => {
+      return map(a.data, d => {
+        return get(d, path)
+      })
+    }))
+  }
 
   export default {
     data: function () {
@@ -52,7 +59,6 @@
     computed: {
       ...mapState([
         'step',
-        'data',
         'steps',
         'elements'
       ]),
@@ -113,9 +119,11 @@
           })
       },
       setScales: function () {
-        const { data } = this
-        const maxX = maxBy(data, d => { return d[0] })[0]
-        const maxY = maxBy(data, d => { return d[1] })[1]
+        const { elements } = this
+        const xValues = extractValues(elements, '0')
+        const yValues = extractValues(elements, '1')
+        const maxX = Math.max(...xValues)
+        const maxY = Math.max(...yValues)
         this.scaleX.domain([0, maxX])
         this.scaleY.domain([0, maxY])
         console.log('set scale domains to', this.scaleX.domain(), this.scaleY.domain())
