@@ -17,13 +17,20 @@
         <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
       </g>
       <g>
-        <text v-for="tick in ticksX">{{ tick }}</text>
+        <text
+          v-for="tick in ticksX"
+          :y="tick.y + 'px'"
+          :x="tick.x + 'px'"
+          text-anchor="middle">
+          {{ tick.label }}
+        </text>
       </g>
       <g>
         <text
           v-for="tick in ticksY"
           :y="tick.y + 'px'"
-          :x="tick.x + 'px'">
+          :x="tick.x + 'px'"
+          text-anchor="start">
           {{ tick.label }}
         </text>
       </g>
@@ -60,8 +67,10 @@
         margin: [0, 0],
         scaleX,
         scaleY,
-        axisX: false,
-        axisY: false
+        ticksX: [],
+        ticksY: [],
+        clipPathElements: [],
+        visualElements: []
       }
     },
     created () {
@@ -79,49 +88,16 @@
         'step',
         'steps',
         'elements'
-      ]),
-      clipPathElements: function () {
-        const { steps, step, scaleX } = this
-
-        return map(steps[step].clips, (clip, id) => {
-          return {
-            'clip': `clip${id}`,
-            'height': 100 + '%',
-            'width': clip ? scaleX(clip) : 0
-          }
-        })
-      },
-      visualElements () {
-        return map(this.elements, element => {
-          const { type, data, clip } = element
-          const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
-          const klass = type
-          return {
-            d,
-            klass,
-            clip: `clip${clip}`
-          }
-        })
-      },
-      ticksX () {
-        return this.scaleX.ticks()
-      },
-      ticksY () {
-        const { scaleY } = this
-        console.log('ticks range:', scaleY.range())
-        return map(scaleY.ticks(), tick => {
-          return {
-            label: tick,
-            y: scaleY(tick),
-            x: 0
-          }
-        })
-      }
+      ])
     },
     watch: {
       width: function () {
         this.calcSizes()
-        // this.update()
+        this.update()
+      },
+      step: function () {
+        this.calcSizes()
+        this.update()
       }
     },
     methods: {
@@ -171,6 +147,26 @@
           }
         })
       },
+      drawTicksY: function () {
+        const { scaleY } = this
+        return map(scaleY.ticks(), tick => {
+          return {
+            label: tick,
+            y: scaleY(tick),
+            x: 0
+          }
+        })
+      },
+      drawTicksX: function () {
+        const { scaleX } = this
+        return map(scaleX.ticks(), tick => {
+          return {
+            label: tick,
+            y: this.height,
+            x: scaleX(tick)
+          }
+        })
+      },
       setScales: function () {
         const { elements } = this
         const xValues = extractValues(elements, '0')
@@ -181,7 +177,6 @@
         this.scaleX.domain([minX, maxX])
         this.scaleY.domain([0, maxY])
         console.log('set scale domains to', this.scaleX.domain(), this.scaleY.domain())
-        this.getAxis()
       },
       calcSizes: function () {
         const { vis: el } = this.$refs
@@ -197,12 +192,12 @@
         this.scaleX.range([marginHorizontal, width - marginHorizontal]) // Because left -> right
         console.log('set scale ranges to', this.scaleX.range(), this.scaleY.range())
       },
-      getAxis: function () {
-        console.log(this.scaleX.ticks())
-        console.log(this.scaleY.ticks())
-        // this.axisX = axisLeft().scale(this.scaleX)
-        // console.log(this.axisX())
-        // console.log(this.axisY = axisBottom().scale(this.scaleY))
+      update: function () {
+        console.log('update')
+        this.clipPathElements = this.drawClipPathElements()
+        this.visualElements = this.drawVisualElements()
+        this.ticksX = this.drawTicksX()
+        this.ticksY = this.drawTicksY()
       }
     }
   }
