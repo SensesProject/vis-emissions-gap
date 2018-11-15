@@ -17,6 +17,12 @@
         <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
       </g>
       <g>
+        <line
+          class="axis"
+          :x1="margin[0]"
+          :x2="width - margin[0]"
+          :y1="height - margin[1]"
+          :y2="height - margin[1]" />
         <text
           v-for="tick in ticksX"
           :y="tick.y + 'px'"
@@ -26,11 +32,17 @@
         </text>
       </g>
       <g>
+        <line
+          class="axis"
+          :x1="margin[0]"
+          :x2="margin[0]"
+          :y1="margin[1]"
+          :y2="height - margin[1]" />
         <text
           v-for="tick in ticksY"
           :y="tick.y + 'px'"
           :x="tick.x + 'px'"
-          text-anchor="start">
+          text-anchor="end">
           {{ tick.label }}
         </text>
       </g>
@@ -42,7 +54,6 @@
   import { mapState } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
   import { area, line } from 'd3-shape'
-  // import { format } from 'd3-format'
   import { timeFormat, timeParse } from 'd3-time-format'
   import map from 'lodash/map'
   import get from 'lodash/get'
@@ -97,7 +108,6 @@
         this.update()
       },
       step: function () {
-        this.calcSizes()
         this.update()
       }
     },
@@ -154,7 +164,7 @@
           return {
             label: tick,
             y: scaleY(tick),
-            x: 0
+            x: this.margin[0] / 2
           }
         })
       },
@@ -163,7 +173,7 @@
         return map(scaleX.ticks(), tick => {
           return {
             label: timeFormat('%Y')(tick),
-            y: this.height,
+            y: this.height - this.margin[1] / 2,
             x: scaleX(tick)
           }
         })
@@ -225,6 +235,13 @@
   rect {
     &.clip {
       transition-duration: 0.3s;
+    }
+  }
+
+  line {
+    &.axis {
+      stroke: #eee;
+      stroke-width: 2px;
     }
   }
 
