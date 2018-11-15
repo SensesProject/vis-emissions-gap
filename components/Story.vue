@@ -1,13 +1,15 @@
 <template>
   <section class="page-aside">
-    <div class="content">
-      <h1>{{ steps[step].title }}</h1>
-      <p>{{ steps[step].text }}</p>
-    </div>
-    <ul class="nav">
-      <li @click="previousStep">Previous</li>
-      <li @click="nextStep">Next</li>
-    </ul>
+    <section class="aside-wrapper">
+      <div class="content">
+        <h1>{{ steps[step].title }}</h1>
+        <p>{{ steps[step].text }}</p>
+      </div>
+      <ul class="nav">
+        <li @click="previousStep">Backwards</li>
+        <li @click="nextStep">Continue</li>
+      </ul>
+    </section>
   </section>
 </template>
 
@@ -33,36 +35,46 @@
 <style lang="scss" scoped>
   @import "~@/assets/style/global";
 
-  .page-aside {
+  .aside-wrapper {
+    background-color: palette(grey, 100);
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: space-between;
+    height: 100%;
+    // padding: $spacing;
+    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .page-aside {
+    height: auto;
+    margin: $spacing;
   }
 
   .content {
-    padding: 2rem 0;
+    padding: $spacing;
   }
 
   .nav {
     display: flex;
-    height: 20vh;
+    height: 10vh;
 
     & > * {
       flex: 1;
       @include center();
 
       cursor: pointer;
-      color: #2E2F3B;
-      font-weight: bold;
+      color: palette(grey, 40);
+      font-weight: $font-weight-bold;
+      font-size: $size-big;
       transition: all 0.2s;
 
       &:last-child {
-        background-color: #D2E7F0;
+        color: palette(grey, 100);
+        background-color: palette(primary, 83);
       }
 
       &:hover {
-        background-color: #2DB4E7;
+        background-color: palette(primary, 50);
         color: #fff;
       }
     }
