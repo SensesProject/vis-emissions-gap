@@ -42,15 +42,16 @@
   import { mapState } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
   import { area, line } from 'd3-shape'
-  // import { axisLeft, axisBottom } from 'd3-axis'
+  // import { format } from 'd3-format'
+  import { timeFormat, timeParse } from 'd3-time-format'
   import map from 'lodash/map'
   import get from 'lodash/get'
   import flatten from 'lodash/flatten'
 
-  function extractValues (arr, path) {
+  function extractValues (arr, path, func) {
     return flatten(map(arr, a => {
       return map(a.data, d => {
-        return get(d, path)
+        return func(get(d, path))
       })
     }))
   }
@@ -105,7 +106,7 @@
         const { scaleX, scaleY } = this
         return line()
           .x((d, i) => {
-            return scaleX(d[0])
+            return scaleX(timeParse('%Y')(d[0]))
           })
           .y((d, i) => {
             return scaleY(d[1])
@@ -115,7 +116,7 @@
         const { scaleX, scaleY } = this
         return area()
           .x((d, i) => {
-            return scaleX(d[0])
+            return scaleX(timeParse('%Y')(d[0]))
           })
           .y1((d, i) => {
             return scaleY(d[2])
@@ -131,7 +132,7 @@
           return {
             'clip': `clip${id}`,
             'height': 100 + '%',
-            'width': clip ? scaleX(clip) : 0
+            'width': clip ? scaleX(timeParse('%Y')(clip)) : 0
           }
         })
       },
@@ -161,7 +162,7 @@
         const { scaleX } = this
         return map(scaleX.ticks(), tick => {
           return {
-            label: tick,
+            label: timeFormat('%Y')(tick),
             y: this.height,
             x: scaleX(tick)
           }
@@ -169,8 +170,12 @@
       },
       setScales: function () {
         const { elements } = this
-        const xValues = extractValues(elements, '0')
-        const yValues = extractValues(elements, '1')
+        const xValues = extractValues(elements, '0', d => {
+          return timeParse('%Y')(d)
+        })
+        const yValues = extractValues(elements, '1', d => {
+          return d
+        })
         const minX = Math.min(...xValues)
         const maxX = Math.max(...xValues)
         const maxY = Math.max(...yValues)
