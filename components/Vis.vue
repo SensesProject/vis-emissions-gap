@@ -1,52 +1,54 @@
 <template>
   <section ref="vis">
-    <svg :width="width + 'px'" :height="height + 'px'">
-      <defs>
-        <clipPath
-          v-for="(el, i) in clipPathElements"
-          :id="el.clip">
-          <rect
-            class="clip"
-            x="0%"
-            y="0%"
-            :height="el.height"
-            :width="el.width" />
-        </clipPath>
-      </defs>
-      <g v-if="width && height">
-        <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
-      </g>
-      <g>
-        <line
-          class="axis"
-          :x1="margin[0]"
-          :x2="width - margin[0]"
-          :y1="height - margin[1]"
-          :y2="height - margin[1]" />
-        <text
-          v-for="tick in ticksX"
-          :y="tick.y + 'px'"
-          :x="tick.x + 'px'"
-          text-anchor="middle">
-          {{ tick.label }}
-        </text>
-      </g>
-      <g>
-        <line
-          class="axis"
-          :x1="margin[0]"
-          :x2="margin[0]"
-          :y1="margin[1]"
-          :y2="height - margin[1]" />
-        <text
-          v-for="tick in ticksY"
-          :y="tick.y + 'px'"
-          :x="tick.x + 'px'"
-          text-anchor="end">
-          {{ tick.label }}
-        </text>
-      </g>
-    </svg>
+    <transition name="fade">
+      <svg :width="width + 'px'" :height="height + 'px'" v-if="step">
+        <defs>
+          <clipPath
+            v-for="(el, i) in clipPathElements"
+            :id="el.clip">
+            <rect
+              class="clip"
+              x="0%"
+              y="0%"
+              :height="el.height"
+              :width="el.width" />
+          </clipPath>
+        </defs>
+        <g v-if="width && height">
+          <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
+        </g>
+        <g>
+          <line
+            class="axis"
+            :x1="margin[0]"
+            :x2="width - margin[0]"
+            :y1="height - margin[1]"
+            :y2="height - margin[1]" />
+          <text
+            v-for="tick in ticksX"
+            :y="tick.y + 'px'"
+            :x="tick.x + 'px'"
+            text-anchor="middle">
+            {{ tick.label }}
+          </text>
+        </g>
+        <g>
+          <line
+            class="axis"
+            :x1="margin[0]"
+            :x2="margin[0]"
+            :y1="margin[1]"
+            :y2="height - margin[1]" />
+          <text
+            v-for="tick in ticksY"
+            :y="tick.y + 'px'"
+            :x="tick.x + 'px'"
+            text-anchor="end">
+            {{ tick.label }}
+          </text>
+        </g>
+      </svg>
+    </transition>
   </section>
 </template>
 
@@ -220,6 +222,13 @@
 
 <style lang="scss" scoped>
   @import "~@/assets/style/global";
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .15s ease;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
 
   path.line {
     stroke: #000;
