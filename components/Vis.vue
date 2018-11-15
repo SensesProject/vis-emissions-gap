@@ -16,6 +16,17 @@
       <g v-if="width && height">
         <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
       </g>
+      <g>
+        <text v-for="tick in ticksX">{{ tick }}</text>
+      </g>
+      <g>
+        <text
+          v-for="tick in ticksY"
+          :y="tick.y + 'px'"
+          :x="tick.x + 'px'">
+          {{ tick.label }}
+        </text>
+      </g>
     </svg>
   </section>
 </template>
@@ -24,6 +35,7 @@
   import { mapState } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
   import { area, line } from 'd3-shape'
+  // import { axisLeft, axisBottom } from 'd3-axis'
   import map from 'lodash/map'
   import get from 'lodash/get'
   import flatten from 'lodash/flatten'
@@ -47,7 +59,9 @@
         height: 0,
         margin: [0, 0],
         scaleX,
-        scaleY
+        scaleY,
+        axisX: false,
+        axisY: false
       }
     },
     created () {
@@ -57,20 +71,15 @@
       this.calcSizes()
       window.addEventListener('resize', this.calcSizes, false)
     },
+    beforeDestroy () {
+      window.removeEventListener('resize', this.calcSizes, false)
+    },
     computed: {
       ...mapState([
         'step',
         'steps',
         'elements'
       ]),
-      lineElement () {
-        const { drawLine, data } = this
-        return drawLine()(data)
-      },
-      areaElement () {
-        const { drawArea, data } = this
-        return drawArea()(data)
-      },
       clipPathElements: function () {
         const { steps, step, scaleX } = this
 
@@ -93,6 +102,26 @@
             clip: `clip${clip}`
           }
         })
+      },
+      ticksX () {
+        return this.scaleX.ticks()
+      },
+      ticksY () {
+        const { scaleY } = this
+        console.log('ticks range:', scaleY.range())
+        return map(scaleY.ticks(), tick => {
+          return {
+            label: tick,
+            y: scaleY(tick),
+            x: 0
+          }
+        })
+      }
+    },
+    watch: {
+      width: function () {
+        this.calcSizes()
+        // this.update()
       }
     },
     methods: {
@@ -119,6 +148,29 @@
             return scaleY(d[1])
           })
       },
+      drawClipPathElements: function () {
+        const { steps, step, scaleX } = this
+
+        return map(steps[step].clips, (clip, id) => {
+          return {
+            'clip': `clip${id}`,
+            'height': 100 + '%',
+            'width': clip ? scaleX(clip) : 0
+          }
+        })
+      },
+      drawVisualElements: function () {
+        return map(this.elements, element => {
+          const { type, data, clip } = element
+          const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
+          const klass = type
+          return {
+            d,
+            klass,
+            clip: `clip${clip}`
+          }
+        })
+      },
       setScales: function () {
         const { elements } = this
         const xValues = extractValues(elements, '0')
@@ -129,20 +181,28 @@
         this.scaleX.domain([minX, maxX])
         this.scaleY.domain([0, maxY])
         console.log('set scale domains to', this.scaleX.domain(), this.scaleY.domain())
+        this.getAxis()
       },
       calcSizes: function () {
         const { vis: el } = this.$refs
-        const { marginPercent } = this
         const width = el.clientWidth || el.parentNode.clientWidth
         const height = el.clientHeight || el.parentNode.clientHeight
         this.width = width
         this.height = height
+        const { marginPercent } = this
         const marginVertical = height * marginPercent
         const marginHorizontal = width * marginPercent
         this.margin = [marginHorizontal, marginVertical]
         this.scaleY.range([height - marginVertical, marginVertical]) // Because upside down
         this.scaleX.range([marginHorizontal, width - marginHorizontal]) // Because left -> right
         console.log('set scale ranges to', this.scaleX.range(), this.scaleY.range())
+      },
+      getAxis: function () {
+        console.log(this.scaleX.ticks())
+        console.log(this.scaleY.ticks())
+        // this.axisX = axisLeft().scale(this.scaleX)
+        // console.log(this.axisX())
+        // console.log(this.axisY = axisBottom().scale(this.scaleY))
       }
     }
   }
