@@ -15,7 +15,11 @@
           </clipPath>
         </defs>
         <g v-if="width && height">
-          <path v-for="el in visualElements" :class="el.klass" :d="el.d" :clip-path="`url(#${el.clip})`" />
+          <component
+            v-for="el in visualElements"
+            v-bind:is="el.comp"
+            :el="el"
+            :visibility="steps[step].visibility" />
         </g>
         <g>
           <line
@@ -24,13 +28,20 @@
             :x2="width - margin[0]"
             :y1="height - margin[1]"
             :y2="height - margin[1]" />
-          <text
-            v-for="tick in ticksX"
-            :y="tick.y + 'px'"
-            :x="tick.x + 'px'"
-            text-anchor="middle">
-            {{ tick.label }}
-          </text>
+          <g v-for="tick in ticksX">
+            <text
+              :y="tick.y + 'px'"
+              :x="tick.x + 'px'"
+              text-anchor="middle">
+              {{ tick.label }}
+            </text>
+            <line
+              :y1="height - margin[1] + 'px'"
+              :x1="tick.x + 'px'"
+              :y2="height - margin[1] + margin[1] / 5 + 'px'"
+              :x2="tick.x + 'px'"
+              class="tick" />
+          </g>
         </g>
         <g>
           <line
@@ -39,13 +50,21 @@
             :x2="margin[0]"
             :y1="margin[1]"
             :y2="height - margin[1]" />
-          <text
-            v-for="tick in ticksY"
-            :y="tick.y + 'px'"
-            :x="tick.x + 'px'"
-            text-anchor="end">
-            {{ tick.label }}
-          </text>
+          <g v-for="tick in ticksY">
+            <text
+              :y="tick.y + 'px'"
+              :x="tick.x + 'px'"
+              text-anchor="end"
+              dominant-baseline="middle">
+              {{ tick.label }}
+            </text>
+            <line
+              :x1="margin[0] + 'px'"
+              :y1="tick.y + 'px'"
+              :x2="margin[0] - margin[0] / 5 + 'px'"
+              :y2="tick.y + 'px'"
+              class="tick" />
+          </g>
         </g>
       </svg>
     </transition>
@@ -60,6 +79,9 @@
   import map from 'lodash/map'
   import get from 'lodash/get'
   import flatten from 'lodash/flatten'
+  import VisMarker from '~/components/VisMarker.vue'
+  import VisLine from '~/components/VisLine.vue'
+  import VisArea from '~/components/VisArea.vue'
 
   function extractValues (arr, path, func) {
     return flatten(map(arr, a => {
@@ -67,6 +89,10 @@
         return func(get(d, path))
       })
     }))
+  }
+
+  function capitalizeFirstLetter (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
   export default {
@@ -137,6 +163,11 @@
             return scaleY(d[1])
           })
       },
+      drawMarker: function (data) {
+        const { scaleX, scaleY } = this
+        console.log(data)
+        return [scaleX(timeParse('%Y')(data[0])), scaleY(data[1])]
+      },
       drawClipPathElements: function () {
         const { steps, step, scaleX } = this
 
@@ -150,13 +181,27 @@
       },
       drawVisualElements: function () {
         return map(this.elements, element => {
-          const { type, data, clip } = element
-          const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
+          const { type, data, clip, id } = element
+          // const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
+          let d
+          switch (type) {
+            case 'line':
+              d = this.drawLine()(data)
+              break
+            case 'area':
+              d = this.drawArea()(data)
+              break
+            case 'marker':
+              d = this.drawMarker(data[0])
+              break
+          }
           const klass = type
           return {
             d,
             klass,
-            clip: `clip${clip}`
+            clip: `clip${clip}`,
+            comp: 'Vis' + capitalizeFirstLetter(type),
+            id
           }
         })
       },
@@ -216,6 +261,11 @@
         this.ticksX = this.drawTicksX()
         this.ticksY = this.drawTicksY()
       }
+    },
+    components: {
+      VisMarker,
+      VisLine,
+      VisArea
     }
   }
 </script>
@@ -224,34 +274,9 @@
   @import "~@/assets/style/global";
 
   .fade-enter-active, .fade-leave-active {
-    transition: opacity .15s ease;
+    transition: opacity .5s;
   }
   .fade-enter, .fade-leave-to {
     opacity: 0;
   }
-
-  path.line {
-    stroke: #000;
-    stroke-width: 3px;
-    fill: none;
-  }
-
-  path.area {
-    fill: red;
-    opacity: 0.2;
-  }
-
-  rect {
-    &.clip {
-      transition-duration: 0.3s;
-    }
-  }
-
-  line {
-    &.axis {
-      stroke: #eee;
-      stroke-width: 2px;
-    }
-  }
-
 </style>

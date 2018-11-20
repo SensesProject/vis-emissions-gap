@@ -3,11 +3,12 @@
     <section class="aside-wrapper">
       <div class="content">
         <transition name="fade" mode="out-in">
-          <h1 :key="step">{{ steps[step].title }}</h1>
+          <h1 :key="step" :class="{ intro: step === 0 }">{{ steps[step].title }}</h1>
         </transition>
         <transition name="fade" mode="out-in">
           <p :key="step">{{ steps[step].text }}</p>
         </transition>
+        {{ steps[step].visibility.indexOf('1') >= 0 }}
       </div>
       <footer>
         <ul class="progress">
@@ -60,7 +61,8 @@
     justify-content: space-between;
     height: 100%;
     // padding: $spacing;
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.03);
+    border: 1px solid palette(grey, 80);
   }
 
   .page-aside {
@@ -69,7 +71,7 @@
   }
 
   .content {
-    padding: $spacing;
+    padding: $spacing * 1.8 $spacing * 2;
   }
 
   .nav {
@@ -83,6 +85,8 @@
       cursor: pointer;
       color: palette(grey, 40);
       font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      letter-spacing: $spacing-widest;
       font-size: $size-big;
       transition: all 0.2s;
 

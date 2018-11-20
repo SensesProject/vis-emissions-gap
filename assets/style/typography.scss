@@ -4,6 +4,13 @@ hgroup {
 
 h1 {
   font-size: $size-biggest;
+  width: 80%;
+  line-height: 1.1;
+  margin-bottom: $spacing;
+
+  &.intro {
+    font-size: 4rem;
+  }
 }
 
 p {

@@ -1,0 +1,43 @@
+path.line {
+  stroke: #000;
+  stroke-width: 3px;
+  fill: none;
+}
+
+path.area {
+  fill: palette(accent, 50);
+  opacity: 0.2;
+}
+
+rect {
+  &.clip {
+    transition-duration: 0.3s;
+  }
+}
+
+line {
+  &.axis {
+    stroke: palette(grey, 70);
+    stroke-width: 1px;
+  }
+
+  &.tick {
+    stroke: palette(grey, 70);
+    stroke-width: 1px;
+  }
+}
+
+circle {
+  transition-duration: 0.3s;
+
+  &.marker {
+    stroke: $color-red;
+    fill: none;
+    stroke-width: 2px;
+    opacity: 0;
+
+    &.isVisible {
+      opacity: 1;
+    }
+  }
+}

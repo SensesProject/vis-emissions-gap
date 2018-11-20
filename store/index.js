@@ -13,50 +13,55 @@ const store = () => new Vuex.Store({
   state: {
     ...config,
     steps: [{
-      'title': 'Introduction',
-      'text': 'Are we doing enough?',
+      'title': 'Are we doing enough?',
+      'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
       clips: {
         1: 0,
         2: 0,
         3: 0,
         4: 0
-      }
+      },
+      visibility: []
     }, {
-      'title': 'Step 1',
-      'text': 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
+      'title': 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
+      'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
       clips: {
         1: 2030,
         2: 0,
         3: 2030,
         4: 0
-      }
+      },
+      visibility: []
     }, {
-      'title': 'Step 2',
-      'text': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
+      'title': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
+      'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
       clips: {
         1: 2030,
         2: 2030,
         3: 2030,
         4: 0
-      }
+      },
+      visibility: []
     }, {
-      'title': 'Step 3',
-      'text': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
+      'title': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
+      'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
       clips: {
         1: 2050,
         2: 2050,
         3: 2050,
         4: 0
-      }
+      },
+      visibility: ['1']
     }, {
-      'title': 'Step 4',
-      'text': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
+      'title': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
+      'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
       clips: {
         1: 2050,
         2: 2050,
         3: 2050,
         4: 2050
-      }
+      },
+      visibility: []
     }],
     elements: [
       {
@@ -88,6 +93,11 @@ const store = () => new Vuex.Store({
         clip: '4',
         type: 'line',
         data: [[2010, 50], [2015, 58], [2020, 58], [2025, 56], [2030, 54], [2035, 40], [2040, 30], [2045, 26], [2050, 18]]
+      },
+      {
+        id: '1',
+        type: 'marker',
+        data: [[2045, 26]]
       }
     ],
     step: 0

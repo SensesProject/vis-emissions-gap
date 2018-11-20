@@ -38,8 +38,8 @@ $palettes: (
   ),
   grey: (
     100: hsl(240, 5%, 100%),
-    90:  hsl(240, 5%, 91%),
-    80:  hsl(240, 5%, 83%),
+    90:  #F5F6F7,
+    80:  #F0F1F2,
     70:  hsl(240, 5%, 74%),
     60:  hsl(240, 5%, 65%),
     50:  hsl(240, 5%, 56%),
@@ -81,9 +81,9 @@ $size-smallest:		0.7rem !default;
 $size-smaller:		0.8rem !default;
 $size-small:			0.7rem !default;
 $size-default:		0.8rem !default;
-$size-big:				1.1rem !default;
+$size-big:				1.0rem !default;
 $size-bigger:			1.8rem !default;
-$size-biggest:		2.6rem !default;
+$size-biggest:		2.3rem !default;
 
 $spacing-default:	0.01em !default;
 $spacing-wide:		0.02em !default;
