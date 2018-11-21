@@ -41,7 +41,7 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: []
+      visibility: ['2', '3']
     }, {
       'title': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
       'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
@@ -51,7 +51,7 @@ const store = () => new Vuex.Store({
         3: 2050,
         4: 0
       },
-      visibility: ['1']
+      visibility: ['1', '2', '3']
     }, {
       'title': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
       'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
@@ -98,6 +98,18 @@ const store = () => new Vuex.Store({
         id: '1',
         type: 'marker',
         data: [[2045, 26]]
+      },
+      {
+        id: '2',
+        type: 'horizontalLine',
+        data: [[2010, 26]],
+        label: '2° C'
+      },
+      {
+        id: '3',
+        type: 'horizontalLine',
+        data: [[2010, 20]],
+        label: '1.5° C'
       }
     ],
     step: 0

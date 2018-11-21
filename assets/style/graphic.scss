@@ -1,6 +1,6 @@
 path.line {
   stroke: #000;
-  stroke-width: 3px;
+  stroke-width: 2px;
   fill: none;
 }
 
@@ -24,6 +24,30 @@ line {
   &.tick {
     stroke: palette(grey, 70);
     stroke-width: 1px;
+  }
+
+  &.horizontalLine {
+    stroke: $color-red;
+    stroke-width: 1px;
+  }
+}
+
+g {
+  &.horizontalLine {
+    transition-duration: 0.3s;
+    opacity: 0;
+
+    &.isVisible {
+      opacity: 1;
+    }
+  }
+}
+
+text {
+  &.tick {
+    fill: palette(grey, 50);
+    font-weight: $font-weight-bold;
+    font-size: $size-small;
   }
 }
 

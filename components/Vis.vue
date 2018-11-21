@@ -32,7 +32,8 @@
             <text
               :y="tick.y + 'px'"
               :x="tick.x + 'px'"
-              text-anchor="middle">
+              text-anchor="middle"
+              class="tick">
               {{ tick.label }}
             </text>
             <line
@@ -55,7 +56,8 @@
               :y="tick.y + 'px'"
               :x="tick.x + 'px'"
               text-anchor="end"
-              dominant-baseline="middle">
+              dominant-baseline="middle"
+              class="tick">
               {{ tick.label }}
             </text>
             <line
@@ -81,6 +83,7 @@
   import flatten from 'lodash/flatten'
   import VisMarker from '~/components/VisMarker.vue'
   import VisLine from '~/components/VisLine.vue'
+  import VisHorizontalLine from '~/components/VisHorizontalLine.vue'
   import VisArea from '~/components/VisArea.vue'
 
   function extractValues (arr, path, func) {
@@ -165,8 +168,12 @@
       },
       drawMarker: function (data) {
         const { scaleX, scaleY } = this
-        console.log(data)
         return [scaleX(timeParse('%Y')(data[0])), scaleY(data[1])]
+      },
+      drawHorizontalLine: function (data) {
+        const { scaleX, scaleY } = this
+        const [x1, x2] = scaleX.domain()
+        return [scaleX(x1), scaleX(x2), scaleY(data[1])]
       },
       drawClipPathElements: function () {
         const { steps, step, scaleX } = this
@@ -181,7 +188,7 @@
       },
       drawVisualElements: function () {
         return map(this.elements, element => {
-          const { type, data, clip, id } = element
+          const { type, data, clip, id, label } = element
           // const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
           let d
           switch (type) {
@@ -194,6 +201,9 @@
             case 'marker':
               d = this.drawMarker(data[0])
               break
+            case 'horizontalLine':
+              d = this.drawHorizontalLine(data[0])
+              break
           }
           const klass = type
           return {
@@ -201,6 +211,7 @@
             klass,
             clip: `clip${clip}`,
             comp: 'Vis' + capitalizeFirstLetter(type),
+            label,
             id
           }
         })
@@ -265,7 +276,8 @@
     components: {
       VisMarker,
       VisLine,
-      VisArea
+      VisArea,
+      VisHorizontalLine
     }
   }
 </script>
