@@ -103,13 +103,13 @@ const store = () => new Vuex.Store({
         id: '2',
         type: 'horizontalLine',
         data: [[2010, 26]],
-        label: '2° C'
+        label: 'Line 1'
       },
       {
         id: '3',
         type: 'horizontalLine',
         data: [[2010, 20]],
-        label: '1.5° C'
+        label: 'Line 2'
       }
     ],
     step: 0
