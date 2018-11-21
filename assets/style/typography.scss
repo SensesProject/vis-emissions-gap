@@ -17,6 +17,24 @@ p {
   font-size: $size-big;
 }
 
+span {
+  &.ndc {
+    border-bottom: 2px solid $color-violet;
+  }
+
+  &.cep {
+    border-bottom: 2px solid $color-yellow;
+  }
+
+  &.gp {
+    border-bottom: 2px solid $color-green;
+  }
+
+  &.nz {
+    border-bottom: 2px solid $color-blue;
+  }
+}
+
 tr td {
   font-size: $size-default;
 }
