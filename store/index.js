@@ -21,7 +21,8 @@ const store = () => new Vuex.Store({
         3: 0,
         4: 0
       },
-      visibility: []
+      visibility: [],
+      attributes: []
     }, {
       'title': 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
       'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
@@ -31,7 +32,8 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: []
+      visibility: [],
+      attributes: ['ndc']
     }, {
       'title': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
       'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
@@ -41,7 +43,8 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: ['2', '3']
+      visibility: ['2', '3'],
+      attributes: ['ndc', 'cep']
     }, {
       'title': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
       'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
@@ -51,7 +54,8 @@ const store = () => new Vuex.Store({
         3: 2050,
         4: 0
       },
-      visibility: ['1', '2', '3']
+      visibility: ['1', '2', '3'],
+      attributes: ['ndc', 'cep']
     }, {
       'title': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
       'text': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
@@ -61,7 +65,25 @@ const store = () => new Vuex.Store({
         3: 2050,
         4: 2050
       },
-      visibility: []
+      visibility: [],
+      attributes: ['ndc', 'cep', 'gp', 'nz']
+    }],
+    legend: [{
+      type: 'line',
+      attribute: 'ndc',
+      label: 'NDC'
+    }, {
+      type: 'line',
+      attribute: 'cep',
+      label: 'Cost-effective pricing'
+    }, {
+      type: 'line',
+      attribute: 'gp',
+      label: 'Good Pratice'
+    }, {
+      type: 'line',
+      attribute: 'nz',
+      label: 'Net Zero'
     }],
     elements: [
       {
@@ -72,12 +94,14 @@ const store = () => new Vuex.Store({
       {
         clip: '1',
         type: 'line',
-        data: [[2010, 50], [2015, 58], [2020, 62], [2025, 61], [2030, 60], [2035, 50], [2040, 40], [2045, 27], [2050, 18]]
+        data: [[2010, 50], [2015, 58], [2020, 62], [2025, 61], [2030, 60], [2035, 50], [2040, 40], [2045, 27], [2050, 18]],
+        attribute: 'ndc'
       },
       {
         clip: '2',
         type: 'line',
-        data: [[2010, 50], [2015, 58], [2020, 58], [2025, 50], [2030, 43], [2035, 36], [2040, 30], [2045, 26], [2050, 18]]
+        data: [[2010, 50], [2015, 58], [2020, 58], [2025, 50], [2030, 43], [2035, 36], [2040, 30], [2045, 26], [2050, 18]],
+        attribute: 'cep'
       },
       {
         clip: '2',
@@ -87,12 +111,14 @@ const store = () => new Vuex.Store({
       {
         clip: '4',
         type: 'line',
-        data: [[2010, 50], [2015, 58], [2020, 58], [2025, 58], [2030, 56], [2035, 46], [2040, 30], [2045, 26], [2050, 18]]
+        data: [[2010, 50], [2015, 58], [2020, 58], [2025, 58], [2030, 56], [2035, 46], [2040, 30], [2045, 26], [2050, 18]],
+        attribute: 'gp'
       },
       {
         clip: '4',
         type: 'line',
-        data: [[2010, 50], [2015, 58], [2020, 58], [2025, 56], [2030, 54], [2035, 40], [2040, 30], [2045, 26], [2050, 18]]
+        data: [[2010, 50], [2015, 58], [2020, 58], [2025, 56], [2030, 54], [2035, 40], [2040, 30], [2045, 26], [2050, 18]],
+        attribute: 'nz'
       },
       {
         id: '1',

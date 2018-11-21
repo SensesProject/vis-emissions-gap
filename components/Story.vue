@@ -8,7 +8,6 @@
         <transition name="fade" mode="out-in">
           <p :key="step">{{ steps[step].text }}</p>
         </transition>
-        {{ steps[step].visibility.indexOf('1') >= 0 }}
       </div>
       <footer>
         <ul class="progress">

@@ -1,75 +1,78 @@
 <template>
-  <section ref="vis">
-    <transition name="fade">
-      <svg :width="width + 'px'" :height="height + 'px'" v-if="step">
-        <defs>
-          <clipPath
-            v-for="(el, i) in clipPathElements"
-            :id="el.clip">
-            <rect
-              class="clip"
-              x="0%"
-              y="0%"
-              :height="el.height"
-              :width="el.width" />
-          </clipPath>
-        </defs>
-        <g v-if="width && height">
-          <component
-            v-for="el in visualElements"
-            v-bind:is="el.comp"
-            :el="el"
-            :visibility="steps[step].visibility" />
-        </g>
-        <g>
-          <line
-            class="axis"
-            :x1="margin[0]"
-            :x2="width - margin[0]"
-            :y1="height - margin[1]"
-            :y2="height - margin[1]" />
-          <g v-for="tick in ticksX">
-            <text
-              :y="tick.y + 'px'"
-              :x="tick.x + 'px'"
-              text-anchor="middle"
-              class="tick">
-              {{ tick.label }}
-            </text>
-            <line
-              :y1="height - margin[1] + 'px'"
-              :x1="tick.x + 'px'"
-              :y2="height - margin[1] + margin[1] / 5 + 'px'"
-              :x2="tick.x + 'px'"
-              class="tick" />
+  <section class="vis-wrapper">
+    <div class="vis-container" ref="vis">
+      <transition name="fade">
+        <svg :width="width + 'px'" :height="height + 'px'" class="vis">
+          <defs>
+            <clipPath
+              v-for="(el, i) in clipPathElements"
+              :id="el.clip">
+              <rect
+                class="clip"
+                x="0%"
+                y="0%"
+                :height="el.height"
+                :width="el.width" />
+            </clipPath>
+          </defs>
+          <g v-if="width && height">
+            <component
+              v-for="el in visualElements"
+              v-bind:is="el.comp"
+              :el="el"
+              :visibility="steps[step].visibility" />
           </g>
-        </g>
-        <g>
-          <line
-            class="axis"
-            :x1="margin[0]"
-            :x2="margin[0]"
-            :y1="margin[1]"
-            :y2="height - margin[1]" />
-          <g v-for="tick in ticksY">
-            <text
-              :y="tick.y + 'px'"
-              :x="tick.x + 'px'"
-              text-anchor="end"
-              dominant-baseline="middle"
-              class="tick">
-              {{ tick.label }}
-            </text>
+          <g>
             <line
-              :x1="margin[0] + 'px'"
-              :y1="tick.y + 'px'"
-              :x2="margin[0] - margin[0] / 5 + 'px'"
-              :y2="tick.y + 'px'"
-              class="tick" />
+              class="axis"
+              :x1="margin[0]"
+              :x2="width - margin[0]"
+              :y1="height - margin[1]"
+              :y2="height - margin[1]" />
+            <g v-for="tick in ticksX">
+              <text
+                :y="tick.y + 'px'"
+                :x="tick.x + 'px'"
+                text-anchor="middle"
+                class="tick">
+                {{ tick.label }}
+              </text>
+              <line
+                :y1="height - margin[1] + 'px'"
+                :x1="tick.x + 'px'"
+                :y2="height - margin[1] + margin[1] / 5 + 'px'"
+                :x2="tick.x + 'px'"
+                class="tick" />
+            </g>
           </g>
-        </g>
-      </svg>
-    </transition>
+          <g>
+            <line
+              class="axis"
+              :x1="margin[0]"
+              :x2="margin[0]"
+              :y1="margin[1]"
+              :y2="height - margin[1]" />
+            <g v-for="tick in ticksY">
+              <text
+                :y="tick.y + 'px'"
+                :x="tick.x + 'px'"
+                text-anchor="end"
+                dominant-baseline="middle"
+                class="tick">
+                {{ tick.label }}
+              </text>
+              <line
+                :x1="margin[0] + 'px'"
+                :y1="tick.y + 'px'"
+                :x2="margin[0] - margin[0] / 5 + 'px'"
+                :y2="tick.y + 'px'"
+                class="tick" />
+            </g>
+          </g>
+        </svg>
+      </transition>
+    </div>
+    <VisLegend :elements="legend" :visibility="steps[step].attributes" />
   </section>
 </template>
 
@@ -85,6 +88,7 @@
   import VisLine from '~/components/VisLine.vue'
   import VisHorizontalLine from '~/components/VisHorizontalLine.vue'
   import VisArea from '~/components/VisArea.vue'
+  import VisLegend from '~/components/VisLegend.vue'
 
   function extractValues (arr, path, func) {
     return flatten(map(arr, a => {
@@ -130,7 +134,8 @@
       ...mapState([
         'step',
         'steps',
-        'elements'
+        'elements',
+        'legend'
       ])
     },
     watch: {
@@ -188,7 +193,7 @@
       },
       drawVisualElements: function () {
         return map(this.elements, element => {
-          const { type, data, clip, id, label } = element
+          const { type, data, clip, id, label, attribute } = element
           // const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
           let d
           switch (type) {
@@ -205,7 +210,7 @@
               d = this.drawHorizontalLine(data[0])
               break
           }
-          const klass = type
+          const klass = [type, attribute].join(' ')
           return {
             d,
             klass,
@@ -277,7 +282,8 @@
       VisMarker,
       VisLine,
       VisArea,
-      VisHorizontalLine
+      VisHorizontalLine,
+      VisLegend
     }
   }
 </script>

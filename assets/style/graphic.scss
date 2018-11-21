@@ -30,6 +30,29 @@ line {
     stroke: $color-red;
     stroke-width: 1px;
   }
+
+  &.legend {
+    stroke: palette(grey, 20);
+    stroke-width: 2px;
+  }
+}
+
+line, path {
+  &.ndc {
+    stroke: $color-violet;
+  }
+
+  &.cep {
+    stroke: $color-yellow;
+  }
+
+  &.gp {
+    stroke: $color-green;
+  }
+
+  &.nz {
+    stroke: $color-blue;
+  }
 }
 
 g {

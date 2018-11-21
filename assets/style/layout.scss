@@ -8,6 +8,15 @@ body {
   flex-direction: column;
 }
 
+.vis-container {
+  flex: 1;
+}
+
+.vis-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .columns > * {
   margin-top: $spacing / 2;
   margin-bottom: $spacing / 2;
