@@ -21,6 +21,7 @@
         <ul class="progress">
           <li
             v-for="(s, i) in steps"
+            :key="i"
             :class="{ 'isPast': step > i, 'isActive': step === i }">{{ i }}</li>
         </ul>
         <ul class="nav">
