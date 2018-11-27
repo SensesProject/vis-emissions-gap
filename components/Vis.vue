@@ -49,7 +49,7 @@
                 class="tick" />
             </g>
           </g>
-          <g>
+          <g v-if="axisY">
             <line
               class="axis"
               :x1="margin[0]"
@@ -86,7 +86,10 @@
         </svg>
       </transition>
     </div>
-    <VisLegend :elements="legend" :visibility="steps[step].attributes" />
+    <footer class="vis-footer">
+      <VisLegend :elements="legend" :visibility="steps[step].attributes" />
+      <VisOptions :visibility="steps[step].visibility" />
+    </footer>
   </section>
 </template>
 
@@ -98,18 +101,21 @@
   import map from 'lodash/map'
   import get from 'lodash/get'
   import mean from 'lodash/mean'
-  import flatten from 'lodash/flatten'
+  import flattenDeep from 'lodash/flattenDeep'
   import VisMarker from '~/components/VisMarker.vue'
   import VisLine from '~/components/VisLine.vue'
   import VisHorizontalLine from '~/components/VisHorizontalLine.vue'
   import VisVerticalLine from '~/components/VisVerticalLine.vue'
   import VisArea from '~/components/VisArea.vue'
   import VisLegend from '~/components/VisLegend.vue'
+  import VisOptions from '~/components/VisOptions.vue'
 
   function extractValues (arr, path, func) {
-    return flatten(map(arr, a => {
-      return map(a.data, d => {
-        return func(get(d, path))
+    return flattenDeep(map(arr, a => {
+      return map(a.data, set => {
+        return map(set, d => {
+          return func(get(d, path))
+        })
       })
     }))
   }
@@ -131,7 +137,7 @@
         scaleX,
         scaleY,
         ticksX: [],
-        axisY: [],
+        axisY: false,
         clipPathElements: [],
         visualElements: []
       }
@@ -152,7 +158,8 @@
         'steps',
         'elements',
         'legend',
-        'axis'
+        'axis',
+        'dataset'
       ])
     },
     watch: {
@@ -161,6 +168,9 @@
         this.update()
       },
       step: function () {
+        this.update()
+      },
+      dataset: function () {
         this.update()
       }
     },
@@ -219,25 +229,26 @@
         return [scaleX(timeParse('%Y')(x)), scaleY(y)]
       },
       drawVisualElements: function () {
+        const { dataset } = this
         return map(this.elements, element => {
           const { type, data, clip, id, label, attribute, marker } = element
-          // const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
+          const datum = get(data, dataset, get(data, 0))
           let d
           switch (type) {
             case 'line':
-              d = this.drawLine()(data)
+              d = this.drawLine()(datum)
               break
             case 'area':
-              d = this.drawArea()(data)
+              d = this.drawArea()(datum)
               break
             case 'marker':
-              d = this.drawMarker(data[0])
+              d = this.drawMarker(datum[0])
               break
             case 'horizontalLine':
-              d = this.drawHorizontalLine(data[0])
+              d = this.drawHorizontalLine(datum[0])
               break
             case 'verticalLine':
-              d = this.drawVerticalLine(data[0])
+              d = this.drawVerticalLine(datum[0])
               break
           }
           const klass = [type, attribute].join(' ')
@@ -328,7 +339,8 @@
       VisArea,
       VisHorizontalLine,
       VisVerticalLine,
-      VisLegend
+      VisLegend,
+      VisOptions
     }
   }
 </script>

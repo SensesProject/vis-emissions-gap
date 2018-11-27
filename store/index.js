@@ -1,15 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VTooltip from 'v-tooltip'
-import * as data from '../data/data.json'
 const { config } = require('./../config.js')
 
 Vue.use(VTooltip)
 Vue.use(Vuex)
-
-data.forEach((datum, n) => {
-  data[n]['sum'] = datum.values.reduce((pv, cv) => pv + cv, 0)
-})
 
 const store = () => new Vuex.Store({
   state: {
@@ -62,7 +57,7 @@ const store = () => new Vuex.Store({
         3: 2050,
         4: 2050
       },
-      visibility: [],
+      visibility: ['options'],
       attributes: ['ndc', 'cep', 'gp', 'nz']
     }],
     axis: {
@@ -94,69 +89,100 @@ const store = () => new Vuex.Store({
       {
         clip: '3',
         type: 'area',
-        data: [[2020, 0, 68], [2030, 0, 68]],
+        data: [
+          [[2020, 0, 68], [2030, 0, 68]],
+          [[2020, 0, 68], [2030, 0, 68]]
+        ],
         label: 'Area of interest',
         marker: [2025, 23]
       },
       {
         clip: '1',
         type: 'line',
-        data: [[2010, 50], [2015, 57], [2020, 62], [2025, 61], [2030, 60], [2045, 27], [2050, 18]],
+        data: [
+          [[2010, 50], [2015, 57], [2020, 62], [2025, 61], [2030, 60], [2045, 27], [2050, 18]],
+          [[2010, 50], [2015, 57], [2020, 62], [2025, 61], [2030, 60], [2045, 20], [2050, 15]]
+        ],
         attribute: 'ndc'
       },
       {
         clip: '2',
         type: 'line',
-        data: [[2010, 50], [2015, 57], [2020, 58], [2025, 51], [2030, 43], [2045, 24], [2050, 19]],
+        data: [
+          [[2010, 50], [2015, 57], [2020, 58], [2025, 51], [2030, 43], [2045, 24], [2050, 19]],
+          [[2010, 50], [2015, 57], [2020, 58], [2025, 51], [2030, 43], [2045, 18], [2050, 17]]
+        ],
         attribute: 'cep'
       },
       {
         clip: '2',
         type: 'area',
-        data: [[2010, 50, 50], [2015, 57, 57], [2020, 58, 62], [2025, 51, 61], [2030, 43, 60], [2045, 24, 27], [2050, 19, 18]]
+        data: [
+          [[2010, 50, 50], [2015, 57, 57], [2020, 58, 62], [2025, 51, 61], [2030, 43, 60], [2045, 24, 27], [2050, 19, 18]],
+          [[2010, 50, 50], [2015, 57, 57], [2020, 58, 62], [2025, 51, 61], [2030, 43, 60], [2045, 18, 20], [2050, 17, 15]]
+        ]
       },
       {
         clip: '4',
         type: 'line',
-        data: [[2010, 50], [2015, 56], [2020, 58], [2030, 54], [2045, 26], [2050, 18.5]],
+        data: [
+          [[2010, 50], [2015, 56], [2020, 58], [2030, 54], [2045, 26], [2050, 18.5]],
+          [[2010, 50], [2015, 56], [2020, 58], [2030, 54], [2045, 24], [2050, 17]]
+        ],
         attribute: 'gp'
       },
       {
         clip: '4',
         type: 'line',
-        data: [[2010, 50], [2015, 56], [2020, 58], [2030, 48], [2045, 25], [2050, 18.5]],
+        data: [
+          [[2010, 50], [2015, 56], [2020, 58], [2030, 48], [2045, 25], [2050, 18.5]],
+          [[2010, 50], [2015, 56], [2020, 58], [2030, 48], [2045, 22], [2050, 17]]
+        ],
         attribute: 'nz'
       },
       {
         id: '1',
         type: 'marker',
-        data: [[2045, 26]],
+        data: [
+          [[2045, 26]],
+          [[2045, 19]]
+        ],
         label: 'Maker of interest'
       },
       {
         id: '2',
         type: 'horizontalLine',
-        data: [[2010, 26]],
+        data: [
+          [[2010, 26]]
+        ],
         label: 'Line 1'
       },
       {
         id: '3',
         type: 'horizontalLine',
-        data: [[2010, 20]],
+        data: [
+          [[2010, 20]]
+        ],
         label: 'Line 2'
       },
       {
         id: '4',
         type: 'verticalLine',
-        data: [[2030, 20]],
+        data: [
+          [[2030, 20]]
+        ],
         label: 'Line 3'
       }
     ],
-    step: 0
+    step: 0,
+    dataset: 0
   },
   mutations: {
     SET_STEP (state, value) {
       state.step = value
+    },
+    SET_DATASET (state, value) {
+      state.dataset = value
     }
   },
   actions: {
@@ -172,6 +198,10 @@ const store = () => new Vuex.Store({
       if (step > -1 && step < state.steps.length) {
         commit('SET_STEP', step)
       }
+    },
+    toggleDataset ({ commit, state }, id) {
+      const { dataset } = state
+      commit('SET_DATASET', dataset === 0 ? 1 : 0)
     }
   }
 })

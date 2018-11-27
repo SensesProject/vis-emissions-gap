@@ -15,6 +15,19 @@ body {
 .vis-wrapper {
   display: flex;
   flex-direction: column;
+
+  .vis-legend {
+    flex: 3;
+  }
+
+  .vis-options {
+    flex: 1;
+  }
+}
+
+.vis-footer {
+  display: flex;
+  flex-direction: row;
 }
 
 .columns > * {
