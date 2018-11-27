@@ -32,7 +32,7 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: [],
+      visibility: ['4'],
       attributes: ['ndc']
     }, {
       'title': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
@@ -133,6 +133,12 @@ const store = () => new Vuex.Store({
         type: 'horizontalLine',
         data: [[2010, 20]],
         label: 'Line 2'
+      },
+      {
+        id: '4',
+        type: 'verticalLine',
+        data: [[2030, 20]],
+        label: 'Line 3'
       }
     ],
     step: 0

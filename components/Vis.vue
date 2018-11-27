@@ -93,6 +93,7 @@
   import VisMarker from '~/components/VisMarker.vue'
   import VisLine from '~/components/VisLine.vue'
   import VisHorizontalLine from '~/components/VisHorizontalLine.vue'
+  import VisVerticalLine from '~/components/VisVerticalLine.vue'
   import VisArea from '~/components/VisArea.vue'
   import VisLegend from '~/components/VisLegend.vue'
 
@@ -186,6 +187,12 @@
         const [x1, x2] = scaleX.domain()
         return [scaleX(x1), scaleX(x2), scaleY(data[1])]
       },
+      drawVerticalLine: function (data) {
+        const { scaleX, scaleY } = this
+        const [y1, y2] = scaleY.domain()
+        console.log(y1, y2, scaleY(y1), scaleY(y2), data[0])
+        return [scaleY(y1), scaleY(y2), scaleX(timeParse('%Y')(data[0]))]
+      },
       drawClipPathElements: function () {
         const { steps, step, scaleX } = this
 
@@ -214,6 +221,9 @@
               break
             case 'horizontalLine':
               d = this.drawHorizontalLine(data[0])
+              break
+            case 'verticalLine':
+              d = this.drawVerticalLine(data[0])
               break
           }
           const klass = [type, attribute].join(' ')
@@ -291,6 +301,7 @@
       VisLine,
       VisArea,
       VisHorizontalLine,
+      VisVerticalLine,
       VisLegend
     }
   }
