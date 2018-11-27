@@ -18,6 +18,7 @@
           <g v-if="width && height">
             <component
               v-for="el in visualElements"
+              :key="el.i"
               v-bind:is="el.comp"
               :el="el"
               :visibility="steps[step].visibility" />
@@ -29,7 +30,9 @@
               :x2="width - margin[0]"
               :y1="height - margin[1]"
               :y2="height - margin[1]" />
-            <g v-for="tick in ticksX">
+            <g
+              v-for="tick in ticksX"
+              :key="tick.key">
               <text
                 :y="tick.y + 'px'"
                 :x="tick.x + 'px'"
@@ -52,7 +55,9 @@
               :x2="margin[0]"
               :y1="margin[1]"
               :y2="height - margin[1]" />
-            <g v-for="tick in ticksY">
+            <g
+              v-for="tick in ticksY"
+              :key="tick.key">
               <text
                 :y="tick.y + 'px'"
                 :x="tick.x + 'px'"
@@ -223,8 +228,9 @@
       },
       drawTicksY: function () {
         const { scaleY } = this
-        return map(scaleY.ticks(), tick => {
+        return map(scaleY.ticks(), (tick, i) => {
           return {
+            key: i,
             label: tick,
             y: scaleY(tick),
             x: this.margin[0] / 2
@@ -233,8 +239,9 @@
       },
       drawTicksX: function () {
         const { scaleX } = this
-        return map(scaleX.ticks(), tick => {
+        return map(scaleX.ticks(), (tick, i) => {
           return {
+            key: i,
             label: timeFormat('%Y')(tick),
             y: this.height - this.margin[1] / 2,
             x: scaleX(tick)
