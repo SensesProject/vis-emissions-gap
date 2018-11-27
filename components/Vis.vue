@@ -18,6 +18,7 @@
           <g v-if="width && height">
             <component
               v-for="el in visualElements"
+              v-tooltip="'You have new messages.'"
               :key="el.i"
               v-bind:is="el.comp"
               :el="el"
