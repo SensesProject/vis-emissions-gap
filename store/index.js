@@ -65,6 +65,14 @@ const store = () => new Vuex.Store({
       visibility: [],
       attributes: ['ndc', 'cep', 'gp', 'nz']
     }],
+    axis: {
+      x: {
+        label: 'Time'
+      },
+      y: {
+        label: 'Gt CO2eq/year'
+      }
+    },
     legend: [{
       type: 'line',
       attribute: 'ndc',

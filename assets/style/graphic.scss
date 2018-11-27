@@ -81,6 +81,12 @@ text {
   &.area {
     fill: palette(accent, 0);
   }
+
+  &.axis {
+    fill: palette(grey, 20);
+    font-weight: $font-weight-bold;
+    font-size: $size-small;
+  }
 }
 
 circle {

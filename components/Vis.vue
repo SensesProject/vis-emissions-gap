@@ -56,8 +56,16 @@
               :x2="margin[0]"
               :y1="margin[1]"
               :y2="height - margin[1]" />
+            <text
+              class="axis"
+              :x="axisY.x"
+              :y="axisY.y"
+              :transform="`rotate(-90 ${axisY.x} ${axisY.y})`"
+              text-anchor="middle">
+              {{ axisY.label }}
+            </text>
             <g
-              v-for="tick in ticksY"
+              v-for="tick in axisY.ticks"
               :key="tick.key">
               <text
                 :y="tick.y + 'px'"
@@ -89,6 +97,7 @@
   import { timeFormat, timeParse } from 'd3-time-format'
   import map from 'lodash/map'
   import get from 'lodash/get'
+  import mean from 'lodash/mean'
   import flatten from 'lodash/flatten'
   import VisMarker from '~/components/VisMarker.vue'
   import VisLine from '~/components/VisLine.vue'
@@ -122,7 +131,7 @@
         scaleX,
         scaleY,
         ticksX: [],
-        ticksY: [],
+        axisY: [],
         clipPathElements: [],
         visualElements: []
       }
@@ -142,7 +151,8 @@
         'step',
         'steps',
         'elements',
-        'legend'
+        'legend',
+        'axis'
       ])
     },
     watch: {
@@ -242,6 +252,17 @@
           }
         })
       },
+      drawAxisY: function () {
+        const { scaleY, axis, drawTicksY } = this
+        const { label } = axis.y
+        const y = scaleY(mean(scaleY.domain()))
+        return {
+          label,
+          x: 20,
+          y,
+          ticks: drawTicksY()
+        }
+      },
       drawTicksY: function () {
         const { scaleY } = this
         return map(scaleY.ticks(), (tick, i) => {
@@ -298,7 +319,7 @@
         this.clipPathElements = this.drawClipPathElements()
         this.visualElements = this.drawVisualElements()
         this.ticksX = this.drawTicksX()
-        this.ticksY = this.drawTicksY()
+        this.axisY = this.drawAxisY()
       }
     },
     components: {
