@@ -167,6 +167,10 @@
         this.calcSizes()
         this.update()
       },
+      height: function () {
+        this.calcSizes()
+        this.update()
+      },
       step: function () {
         this.update()
       },
