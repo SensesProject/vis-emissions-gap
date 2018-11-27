@@ -77,6 +77,10 @@ text {
     font-weight: $font-weight-bold;
     font-size: $size-small;
   }
+
+  &.area {
+    fill: palette(accent, 0);
+  }
 }
 
 circle {

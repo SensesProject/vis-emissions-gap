@@ -167,16 +167,15 @@
       },
       drawArea: function () {
         const { scaleX, scaleY } = this
-        const [y1, y2] = scaleY.domain()
         return area()
           .x((d, i) => {
             return scaleX(timeParse('%Y')(d[0]))
           })
           .y1((d, i) => {
-            return scaleY(y1)
+            return scaleY(d[2])
           })
           .y0((d, i) => {
-            return scaleY(y2)
+            return scaleY(d[1])
           })
       },
       drawMarker: function (data) {
@@ -204,9 +203,14 @@
           }
         })
       },
+      calcMarkerPosition: function (marker = [0, 0]) {
+        const { scaleY, scaleX } = this
+        const [x, y] = marker
+        return [scaleX(timeParse('%Y')(x)), scaleY(y)]
+      },
       drawVisualElements: function () {
         return map(this.elements, element => {
-          const { type, data, clip, id, label, attribute } = element
+          const { type, data, clip, id, label, attribute, marker } = element
           // const d = type === 'line' ? this.drawLine()(data) : this.drawArea()(data)
           let d
           switch (type) {
@@ -233,7 +237,8 @@
             clip: `clip${clip}`,
             comp: 'Vis' + capitalizeFirstLetter(type),
             label,
-            id
+            id,
+            marker: this.calcMarkerPosition(marker)
           }
         })
       },

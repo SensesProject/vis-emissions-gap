@@ -86,7 +86,9 @@ const store = () => new Vuex.Store({
       {
         clip: '3',
         type: 'area',
-        data: [[2020, 0, 68], [2030, 0, 68]]
+        data: [[2020, 0, 68], [2030, 0, 68]],
+        label: 'Area of interest',
+        marker: [2025, 23]
       },
       {
         clip: '1',
@@ -120,7 +122,8 @@ const store = () => new Vuex.Store({
       {
         id: '1',
         type: 'marker',
-        data: [[2045, 26]]
+        data: [[2045, 26]],
+        label: 'Area of interest'
       },
       {
         id: '2',
