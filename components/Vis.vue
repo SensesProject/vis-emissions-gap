@@ -167,15 +167,16 @@
       },
       drawArea: function () {
         const { scaleX, scaleY } = this
+        const [y1, y2] = scaleY.domain()
         return area()
           .x((d, i) => {
             return scaleX(timeParse('%Y')(d[0]))
           })
           .y1((d, i) => {
-            return scaleY(d[2])
+            return scaleY(y1)
           })
           .y0((d, i) => {
-            return scaleY(d[1])
+            return scaleY(y2)
           })
       },
       drawMarker: function (data) {
@@ -190,7 +191,6 @@
       drawVerticalLine: function (data) {
         const { scaleX, scaleY } = this
         const [y1, y2] = scaleY.domain()
-        console.log(y1, y2, scaleY(y1), scaleY(y2), data[0])
         return [scaleY(y1), scaleY(y2), scaleX(timeParse('%Y')(data[0]))]
       },
       drawClipPathElements: function () {
