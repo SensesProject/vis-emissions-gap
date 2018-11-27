@@ -131,7 +131,7 @@ const store = () => new Vuex.Store({
         id: '1',
         type: 'marker',
         data: [[2045, 26]],
-        label: 'Area of interest'
+        label: 'Maker of interest'
       },
       {
         id: '2',
@@ -169,7 +169,7 @@ const store = () => new Vuex.Store({
       commit('SET_STEP', nextStep)
     },
     setStep ({ commit, state }, step) {
-      if (step > 0 && step < state.steps.length) {
+      if (step > -1 && step < state.steps.length) {
         commit('SET_STEP', step)
       }
     }

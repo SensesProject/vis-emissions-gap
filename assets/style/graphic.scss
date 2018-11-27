@@ -61,8 +61,17 @@ line, path {
 }
 
 g {
+  transition-duration: 0.3s;
+
+  &.isNotVisible {
+    opacity: 0;
+  }
+
+  &.isVisible {
+    opacity: 1;
+  }
+
   &.horizontalLine {
-    transition-duration: 0.3s;
     opacity: 0;
 
     &.isVisible {
@@ -82,6 +91,12 @@ text {
     fill: palette(accent, 0);
   }
 
+  &.marker {
+    fill: palette(grey, 0);
+    font-weight: $font-weight-bold;
+    font-size: $size-default;
+  }
+
   &.axis {
     fill: palette(grey, 20);
     font-weight: $font-weight-bold;
@@ -96,10 +111,5 @@ circle {
     stroke: $color-red;
     fill: none;
     stroke-width: 2px;
-    opacity: 0;
-
-    &.isVisible {
-      opacity: 1;
-    }
   }
 }
