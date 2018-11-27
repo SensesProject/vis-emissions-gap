@@ -22,7 +22,8 @@
           <li
             v-for="(s, i) in steps"
             :key="i"
-            :class="{ 'isPast': step > i, 'isActive': step === i }">{{ i }}</li>
+            @click="setStep(i)"
+            :class="{ 'isPast': step > i, 'isActive': step === i, 'clickable': true }">{{ i }}</li>
         </ul>
         <ul class="nav">
           <li @click="previousStep">Backwards</li>
@@ -46,7 +47,8 @@
     methods: {
       ...mapActions([
         'nextStep',
-        'previousStep'
+        'previousStep',
+        'setStep'
       ])
     }
   }

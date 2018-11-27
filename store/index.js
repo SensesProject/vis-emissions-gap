@@ -153,6 +153,11 @@ const store = () => new Vuex.Store({
     previousStep ({ commit, state }) {
       const nextStep = state.step === 0 ? state.steps.length - 1 : state.step - 1
       commit('SET_STEP', nextStep)
+    },
+    setStep ({ commit, state }, step) {
+      if (step > 0 && step < state.steps.length) {
+        commit('SET_STEP', step)
+      }
     }
   }
 })
