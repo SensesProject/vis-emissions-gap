@@ -30,8 +30,6 @@
               :margin="margin"
               :height="height"
               :width="width"
-              :axisX="axisX"
-              :axisY="axisY"
               :scaleX="scaleX"
               :scaleY="scaleY" />
           </g>
@@ -79,8 +77,6 @@
         margin: [0, 0],
         scaleX,
         scaleY,
-        axisX: false,
-        axisY: false,
         clipPathElements: []
       }
     },

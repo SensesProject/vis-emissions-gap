@@ -14,7 +14,7 @@
   import { timeFormat } from 'd3-time-format'
 
   export default {
-    props: ['el', 'scaleX', 'scaleY', 'margin', 'height', 'width', 'axisX', 'axisY'],
+    props: ['el', 'scaleX', 'scaleY', 'margin', 'height', 'width'],
     computed: {
       ...mapState([
         'axis'
