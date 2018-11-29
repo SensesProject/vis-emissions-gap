@@ -26,8 +26,14 @@
                 :visibility="steps[step].visibility"
                 :dataset="dataset" />
             </g>
-            <VisAxisX :margin="margin" :height="height" :width="width" :axisX="axisX" />
-            <VisAxisY :margin="margin" :height="height" :axisY="axisY" />
+            <VisAxis
+              :margin="margin"
+              :height="height"
+              :width="width"
+              :axisX="axisX"
+              :axisY="axisY"
+              :scaleX="scaleX"
+              :scaleY="scaleY" />
           </g>
         </svg>
       </transition>
@@ -42,15 +48,13 @@
 <script>
   import { mapState } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
-  import { timeFormat, timeParse } from 'd3-time-format'
   import map from 'lodash/map'
-  import mean from 'lodash/mean'
   import get from 'lodash/get'
+  import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
   import VisLegend from '~/components/VisLegend.vue'
   import VisOptions from '~/components/VisOptions.vue'
-  import VisAxisY from '~/components/VisAxisY.vue'
-  import VisAxisX from '~/components/VisAxisX.vue'
+  import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
 
   function extractValues (arr, path, func) {
@@ -96,7 +100,6 @@
         'steps',
         'elements',
         'legend',
-        'axis',
         'dataset'
       ])
     },
@@ -140,50 +143,6 @@
           }
         })
       },
-      drawAxisY: function () {
-        const { scaleY, axis, drawTicksY } = this
-        const { label } = axis.y
-        const y = scaleY(mean(scaleY.domain()))
-        return {
-          label,
-          x: 20,
-          y,
-          ticks: drawTicksY()
-        }
-      },
-      drawTicksY: function () {
-        const { scaleY } = this
-        return map(scaleY.ticks(), (tick, i) => {
-          return {
-            key: i,
-            label: tick,
-            y: scaleY(tick),
-            x: this.margin[0] / 2
-          }
-        })
-      },
-      drawAxisX: function () {
-        const { scaleX, axis, drawTicksX, height } = this
-        const { label } = axis.x
-        const x = scaleX(mean(scaleX.domain()))
-        return {
-          label,
-          x,
-          y: height - 20,
-          ticks: drawTicksX()
-        }
-      },
-      drawTicksX: function () {
-        const { scaleX } = this
-        return map(scaleX.ticks(), (tick, i) => {
-          return {
-            key: i,
-            label: timeFormat('%Y')(tick),
-            y: this.height - this.margin[1] / 2,
-            x: scaleX(tick)
-          }
-        })
-      },
       setScales: function () {
         const { elements } = this
         const xValues = extractValues(elements, '0', d => {
@@ -217,15 +176,14 @@
         console.log('update')
         this.clipPathElements = this.drawClipPathElements()
         // this.visualElements = this.drawVisualElements()
-        this.axisX = this.drawAxisX()
-        this.axisY = this.drawAxisY()
+        // this.axisX = this.drawAxisX()
+        // this.axisY = this.drawAxisY()
       }
     },
     components: {
       VisLegend,
       VisOptions,
-      VisAxisY,
-      VisAxisX,
+      VisAxis,
       VisElement
     }
   }
