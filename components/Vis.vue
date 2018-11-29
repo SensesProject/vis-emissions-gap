@@ -24,7 +24,7 @@
               :el="el"
               :visibility="steps[step].visibility" />
           </g>
-          <VisAxisX :margin="margin" :height="height" :width="width" :axisY="axisX" />
+          <VisAxisX :margin="margin" :height="height" :width="width" :axisX="axisX" />
           <VisAxisY :margin="margin" :height="height" :axisY="axisY" />
         </svg>
       </transition>
@@ -81,7 +81,7 @@
         margin: [0, 0],
         scaleX,
         scaleY,
-        ticksX: [],
+        axisX: false,
         axisY: false,
         clipPathElements: [],
         visualElements: []
@@ -234,6 +234,17 @@
           }
         })
       },
+      drawAxisX: function () {
+        const { scaleX, axis, drawTicksX, height } = this
+        const { label } = axis.x
+        const x = scaleX(mean(scaleX.domain()))
+        return {
+          label,
+          x,
+          y: height - 20,
+          ticks: drawTicksX()
+        }
+      },
       drawTicksX: function () {
         const { scaleX } = this
         return map(scaleX.ticks(), (tick, i) => {
@@ -278,7 +289,7 @@
         console.log('update')
         this.clipPathElements = this.drawClipPathElements()
         this.visualElements = this.drawVisualElements()
-        this.ticksX = this.drawTicksX()
+        this.axisX = this.drawAxisX()
         this.axisY = this.drawAxisY()
       }
     },

@@ -7,7 +7,7 @@
       :y1="height - margin[1]"
       :y2="height - margin[1]" />
     <g
-      v-for="tick in ticksX"
+      v-for="tick in axisX.ticks"
       :key="tick.key">
       <text
         :y="tick.y + 'px'"
@@ -28,6 +28,6 @@
 
 <script>
   export default {
-    props: ['margin', 'height', 'width', 'axisY']
+    props: ['margin', 'height', 'width', 'axisX']
   }
 </script>
