@@ -16,16 +16,19 @@
             </clipPath>
           </defs>
           <g v-if="width && height">
-            <component
-              v-for="el in visualElements"
-              v-tooltip="'This is a tooltip.'"
-              :key="el.i"
-              v-bind:is="el.comp"
-              :el="el"
-              :visibility="steps[step].visibility" />
+            <g>
+              <VisElement
+                v-for="el in elements"
+                :scaleX="scaleX"
+                :scaleY="scaleY"
+                :key="el.i"
+                :el="el"
+                :visibility="steps[step].visibility"
+                :dataset="dataset" />
+            </g>
+            <VisAxisX :margin="margin" :height="height" :width="width" :axisX="axisX" />
+            <VisAxisY :margin="margin" :height="height" :axisY="axisY" />
           </g>
-          <VisAxisX :margin="margin" :height="height" :width="width" :axisX="axisX" />
-          <VisAxisY :margin="margin" :height="height" :axisY="axisY" />
         </svg>
       </transition>
     </div>
@@ -39,21 +42,16 @@
 <script>
   import { mapState } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
-  import { area, line } from 'd3-shape'
   import { timeFormat, timeParse } from 'd3-time-format'
   import map from 'lodash/map'
-  import get from 'lodash/get'
   import mean from 'lodash/mean'
+  import get from 'lodash/get'
   import flattenDeep from 'lodash/flattenDeep'
-  import VisMarker from '~/components/VisMarker.vue'
-  import VisLine from '~/components/VisLine.vue'
-  import VisHorizontalLine from '~/components/VisHorizontalLine.vue'
-  import VisVerticalLine from '~/components/VisVerticalLine.vue'
-  import VisArea from '~/components/VisArea.vue'
   import VisLegend from '~/components/VisLegend.vue'
   import VisOptions from '~/components/VisOptions.vue'
   import VisAxisY from '~/components/VisAxisY.vue'
   import VisAxisX from '~/components/VisAxisX.vue'
+  import VisElement from '~/components/VisElement.vue'
 
   function extractValues (arr, path, func) {
     return flattenDeep(map(arr, a => {
@@ -63,10 +61,6 @@
         })
       })
     }))
-  }
-
-  function capitalizeFirstLetter (string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
   export default {
@@ -83,8 +77,7 @@
         scaleY,
         axisX: false,
         axisY: false,
-        clipPathElements: [],
-        visualElements: []
+        clipPathElements: []
       }
     },
     created () {
@@ -121,46 +114,21 @@
       },
       dataset: function () {
         this.update()
+      },
+      scaleX: {
+        deep: true,
+        handler: function () {
+          this.bus.$emit('update')
+        }
+      },
+      scaleY: {
+        deep: true,
+        handler: function () {
+          this.bus.$emit('update')
+        }
       }
     },
     methods: {
-      drawLine: function () {
-        const { scaleX, scaleY } = this
-        return line()
-          .x((d, i) => {
-            return scaleX(timeParse('%Y')(d[0]))
-          })
-          .y((d, i) => {
-            return scaleY(d[1])
-          })
-      },
-      drawArea: function () {
-        const { scaleX, scaleY } = this
-        return area()
-          .x((d, i) => {
-            return scaleX(timeParse('%Y')(d[0]))
-          })
-          .y1((d, i) => {
-            return scaleY(d[2])
-          })
-          .y0((d, i) => {
-            return scaleY(d[1])
-          })
-      },
-      drawMarker: function (data) {
-        const { scaleX, scaleY } = this
-        return [scaleX(timeParse('%Y')(data[0])), scaleY(data[1])]
-      },
-      drawHorizontalLine: function (data) {
-        const { scaleX, scaleY } = this
-        const [x1, x2] = scaleX.domain()
-        return [scaleX(x1), scaleX(x2), scaleY(data[1])]
-      },
-      drawVerticalLine: function (data) {
-        const { scaleX, scaleY } = this
-        const [y1, y2] = scaleY.domain()
-        return [scaleY(y1), scaleY(y2), scaleX(timeParse('%Y')(data[0]))]
-      },
       drawClipPathElements: function () {
         const { steps, step, scaleX } = this
 
@@ -169,46 +137,6 @@
             'clip': `clip${id}`,
             'height': 100 + '%',
             'width': clip ? scaleX(timeParse('%Y')(clip)) : 0
-          }
-        })
-      },
-      calcMarkerPosition: function (marker = [0, 0]) {
-        const { scaleY, scaleX } = this
-        const [x, y] = marker
-        return [scaleX(timeParse('%Y')(x)), scaleY(y)]
-      },
-      drawVisualElements: function () {
-        const { dataset } = this
-        return map(this.elements, element => {
-          const { type, data, clip, id, label, attribute, marker } = element
-          const datum = get(data, dataset, get(data, 0))
-          let d
-          switch (type) {
-            case 'line':
-              d = this.drawLine()(datum)
-              break
-            case 'area':
-              d = this.drawArea()(datum)
-              break
-            case 'marker':
-              d = this.drawMarker(datum[0])
-              break
-            case 'horizontalLine':
-              d = this.drawHorizontalLine(datum[0])
-              break
-            case 'verticalLine':
-              d = this.drawVerticalLine(datum[0])
-              break
-          }
-          const klass = [type, attribute].join(' ')
-          return {
-            d,
-            klass,
-            clip: `clip${clip}`,
-            comp: 'Vis' + capitalizeFirstLetter(type),
-            label,
-            id,
-            marker: this.calcMarkerPosition(marker)
           }
         })
       },
@@ -288,21 +216,17 @@
       update: function () {
         console.log('update')
         this.clipPathElements = this.drawClipPathElements()
-        this.visualElements = this.drawVisualElements()
+        // this.visualElements = this.drawVisualElements()
         this.axisX = this.drawAxisX()
         this.axisY = this.drawAxisY()
       }
     },
     components: {
-      VisMarker,
-      VisLine,
-      VisArea,
-      VisHorizontalLine,
-      VisVerticalLine,
       VisLegend,
       VisOptions,
       VisAxisY,
-      VisAxisX
+      VisAxisX,
+      VisElement
     }
   }
 </script>

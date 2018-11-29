@@ -1,14 +1,14 @@
 <template>
   <g>
     <line
-      class="horizontalLine"
+      :class="el.klass"
       :x1="x1"
       :x2="x2"
       :y1="y"
       :y2="y" />
     <text
       v-if="el.label"
-      class="horizontalLine"
+      :class="el.klass"
       :x="x2 + 10"
       :y="y"
       dominant-baseline="middle"
