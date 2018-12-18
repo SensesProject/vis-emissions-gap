@@ -30,7 +30,7 @@ const store = () => new Vuex.Store({
       visibility: ['4'],
       attributes: ['ndc']
     }, {
-      'title': 'What would cost-optimal immediate action towards 2°C look like in contrast?',
+      'title': 'What would cost-optimal immediate action towards 2°C/1.5°C look like in contrast?',
       clips: {
         1: 2030,
         2: 2030,
