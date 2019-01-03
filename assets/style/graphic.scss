@@ -15,6 +15,10 @@ rect {
   }
 }
 
+.graphic-element {
+  opacity: 0;
+}
+
 line {
   &.axis {
     stroke: palette(grey, 70);

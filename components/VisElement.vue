@@ -34,6 +34,7 @@
         return [
           visibility.indexOf(id) >= 0 ? 'isVisible' : 'isNotVisible',
           'graphic',
+          'graphic-element',
           type,
           attribute
         ].join(' ')
