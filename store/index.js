@@ -10,7 +10,7 @@ const store = () => new Vuex.Store({
   state: {
     ...config,
     steps: [{
-      'title': 'Are we doing enough?',
+      title: 'Are we doing enough?',
       clips: {
         1: 0,
         2: 0,
@@ -20,7 +20,7 @@ const store = () => new Vuex.Store({
       visibility: [],
       attributes: []
     }, {
-      'title': 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
+      title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
       clips: {
         1: 2030,
         2: 0,
@@ -30,7 +30,7 @@ const store = () => new Vuex.Store({
       visibility: ['4'],
       attributes: ['ndc']
     }, {
-      'title': 'What would cost-optimal immediate action towards 2°C/1.5°C look like in contrast?',
+      title: 'What would cost-optimal immediate action towards 2°C/1.5°C look like in contrast?',
       clips: {
         1: 2030,
         2: 2030,
@@ -40,7 +40,7 @@ const store = () => new Vuex.Store({
       visibility: ['2', '3'],
       attributes: ['ndc', 'cep']
     }, {
-      'title': 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
+      title: 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
       clips: {
         1: 2050,
         2: 2050,
@@ -50,7 +50,7 @@ const store = () => new Vuex.Store({
       visibility: ['1', '2', '3'],
       attributes: ['ndc', 'cep']
     }, {
-      'title': 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
+      title: 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
       clips: {
         1: 2050,
         2: 2050,
