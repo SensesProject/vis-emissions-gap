@@ -9,7 +9,25 @@ h1 {
   margin-bottom: $spacing;
 
   &.intro {
-    font-size: 4rem;
+    font-size: 2.5rem;
+
+    @include media-query($on-tablet-landscape) {
+      & {
+        font-size: 3rem;
+      }
+    }
+
+    @include media-query($on-laptop) {
+      & {
+        font-size: 3.5rem;
+      }
+    }
+
+    @include media-query($on-desktop) {
+      & {
+        font-size: 4rem;
+      }
+    }
   }
 }
 

@@ -73,11 +73,47 @@
 
   .page-aside {
     height: auto;
-    margin: $spacing;
+    margin: $spacing * 0.4;
+
+    @include media-query($on-tablet-landscape) {
+      & {
+        margin: $spacing * 0.6;
+      }
+    }
+
+    @include media-query($on-laptop) {
+      & {
+        margin: $spacing * 0.8;
+      }
+    }
+
+    @include media-query($on-desktop) {
+      & {
+        margin: $spacing * 1.0;
+      }
+    }
   }
 
   .content {
-    padding: $spacing * 1.8 $spacing * 2;
+    padding: $spacing * 0.7 $spacing * 0.9;
+
+    @include media-query($on-tablet-landscape) {
+      & {
+        padding: $spacing * 1 $spacing * 1.3;
+      }
+    }
+
+    @include media-query($on-laptop) {
+      & {
+        padding: $spacing * 1.4 $spacing * 1.7;
+      }
+    }
+
+    @include media-query($on-desktop) {
+      & {
+        padding: $spacing * 1.8 $spacing * 2;
+      }
+    }
   }
 
   .nav {
