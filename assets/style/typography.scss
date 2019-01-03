@@ -33,6 +33,10 @@ span {
   &.nz {
     border-bottom: 2px solid $color-blue;
   }
+
+  &.info {
+    border-bottom: 1px dotted $color-violet;
+  }
 }
 
 tr td {
