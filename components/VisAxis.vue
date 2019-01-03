@@ -11,13 +11,14 @@
   import VisAxisX from '~/components/VisAxisX.vue'
   import mean from 'lodash/mean'
   import map from 'lodash/map'
+  import get from 'lodash/get'
   import { timeFormat } from 'd3-time-format'
 
   export default {
     props: ['el', 'scaleX', 'scaleY', 'margin', 'height', 'width'],
     computed: {
       ...mapState([
-        'axis'
+        'data'
       ])
     },
     data: function () {
@@ -28,8 +29,9 @@
     },
     methods: {
       drawAxisY: function () {
-        const { scaleY, axis, drawTicksY } = this
-        const { label } = axis.y
+        const { scaleY, data, drawTicksY } = this
+        console.log(get(data, 'measure'))
+        const label = get(data, 'measure') === 'GHG' ? 'Gt CO2eq/yr' : 'Gt CO2/yr'
         const y = scaleY(mean(scaleY.domain()))
         return {
           label,
@@ -50,8 +52,8 @@
         })
       },
       drawAxisX: function () {
-        const { scaleX, axis, drawTicksX, height } = this
-        const { label } = axis.x
+        const { scaleX, drawTicksX, height } = this
+        const label = 'time'
         const x = scaleX(mean(scaleX.domain()))
         return {
           label,
