@@ -2,7 +2,7 @@
   <section class="vis-wrapper">
     <div class="vis-container" ref="vis">
       <transition name="fade">
-        <svg :width="width + 'px'" :height="height + 'px'" class="vis">
+        <svg width="100%" height="100%" class="vis">
           <defs>
             <clipPath
               v-for="(el, i) in clipPathElements"
@@ -46,6 +46,7 @@
 <script>
   import { mapState } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
+  import { extent } from 'd3-array'
   import map from 'lodash/map'
   import get from 'lodash/get'
   import { timeParse } from 'd3-time-format'
@@ -67,21 +68,12 @@
 
   export default {
     data: function () {
-      const scaleX = scaleTime()
-      const scaleY = scaleLinear()
-
       return {
         marginPercent: 0.1,
         width: 0,
         height: 0,
-        margin: [0, 0],
-        scaleX,
-        scaleY,
-        clipPathElements: []
+        margin: [0, 0]
       }
-    },
-    created () {
-      this.setScales()
     },
     mounted () {
       this.calcSizes()
@@ -97,34 +89,46 @@
         'elements',
         'legend',
         'dataset'
-      ])
+      ]),
+      extentX: function () {
+        return extent(extractValues(this.elements, '0', d => {
+          return timeParse('%Y')(d)
+        }))
+      },
+      scaleX: function () {
+        return scaleTime()
+          .range([this.margin[0], this.width - this.margin[0]])
+          .domain(this.extentX)
+      },
+      extentY: function () {
+        const yValues = extractValues(this.elements, '1', d => {
+          return d
+        })
+
+        const maxY = Math.max(...yValues)
+        return [0, maxY]
+      },
+      scaleY: function () {
+        return scaleLinear()
+          .range([this.height - this.margin[1], this.margin[1]])
+          .domain(this.extentY)
+      },
+      clipPathElements: function () {
+        return map(this.steps[this.step].clips, (clip, id) => {
+          return {
+            'clip': `clip${id}`,
+            'height': 100 + '%',
+            'width': clip ? this.scaleX(timeParse('%Y')(clip)) : 0
+          }
+        })
+      }
     },
     watch: {
       width: function () {
         this.calcSizes()
-        this.update()
       },
       height: function () {
         this.calcSizes()
-        this.update()
-      },
-      step: function () {
-        this.update()
-      },
-      dataset: function () {
-        this.update()
-      },
-      scaleX: {
-        deep: true,
-        handler: function () {
-          this.bus.$emit('update')
-        }
-      },
-      scaleY: {
-        deep: true,
-        handler: function () {
-          this.bus.$emit('update')
-        }
       }
     },
     methods: {
@@ -139,21 +143,6 @@
           }
         })
       },
-      setScales: function () {
-        const { elements } = this
-        const xValues = extractValues(elements, '0', d => {
-          return timeParse('%Y')(d)
-        })
-        const yValues = extractValues(elements, '1', d => {
-          return d
-        })
-        const minX = Math.min(...xValues)
-        const maxX = Math.max(...xValues)
-        const maxY = Math.max(...yValues)
-        this.scaleX.domain([minX, maxX])
-        this.scaleY.domain([0, maxY])
-        console.log('set scale domains to', this.scaleX.domain(), this.scaleY.domain())
-      },
       calcSizes: function () {
         const { vis: el } = this.$refs
         const width = el.clientWidth || el.parentNode.clientWidth
@@ -164,16 +153,7 @@
         const marginVertical = height * marginPercent
         const marginHorizontal = width * marginPercent
         this.margin = [marginHorizontal, marginVertical]
-        this.scaleY.range([height - marginVertical, marginVertical]) // Because upside down
-        this.scaleX.range([marginHorizontal, width - marginHorizontal]) // Because left -> right
-        console.log('set scale ranges to', this.scaleX.range(), this.scaleY.range())
-      },
-      update: function () {
-        console.log('update')
-        this.clipPathElements = this.drawClipPathElements()
-        // this.visualElements = this.drawVisualElements()
-        // this.axisX = this.drawAxisX()
-        // this.axisY = this.drawAxisY()
+        // console.log('set scale ranges to', width, height, marginVertical, marginHorizontal)
       }
     },
     components: {
