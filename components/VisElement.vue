@@ -30,7 +30,7 @@
       klass: function () {
         const { visibility, el } = this
         const { type, attribute, id } = el
-        console.log('visibility', visibility)
+        // console.log('visibility', visibility)
         return [
           visibility.indexOf(id) >= 0 ? 'isVisible' : 'isNotVisible',
           'graphic',

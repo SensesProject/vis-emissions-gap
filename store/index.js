@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VTooltip from 'v-tooltip'
+import assign from 'lodash/assign'
+import get from 'lodash/get'
 const { config } = require('./../config.js')
 
 Vue.use(VTooltip)
@@ -17,8 +19,12 @@ const store = () => new Vuex.Store({
         3: 0,
         4: 0
       },
-      visibility: [],
-      attributes: []
+      visibility: ['options'],
+      attributes: [],
+      data: {
+        scenario: '2full',
+        measure: 'GHG'
+      }
     }, {
       title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
       clips: {
@@ -27,8 +33,12 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: ['4'],
-      attributes: ['ndc']
+      visibility: ['4', 'options'],
+      attributes: ['ndc'],
+      data: {
+        scenario: '2red',
+        measure: 'GHG'
+      }
     }, {
       title: 'What would cost-optimal immediate action towards 2°C/1.5°C look like in contrast?',
       clips: {
@@ -37,8 +47,12 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: ['2', '3'],
-      attributes: ['ndc', 'cep']
+      visibility: ['2', '3', 'options'],
+      attributes: ['ndc', 'cep'],
+      data: {
+        scenario: '1.5full',
+        measure: 'CO2'
+      }
     }, {
       title: 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
       clips: {
@@ -47,8 +61,12 @@ const store = () => new Vuex.Store({
         3: 2050,
         4: 0
       },
-      visibility: ['1', '2', '3'],
-      attributes: ['ndc', 'cep']
+      visibility: ['1', '2', '3', 'options'],
+      attributes: ['ndc', 'cep'],
+      data: {
+        scenario: '2full',
+        measure: 'CO"'
+      }
     }, {
       title: 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
       clips: {
@@ -58,7 +76,11 @@ const store = () => new Vuex.Store({
         4: 2050
       },
       visibility: ['options'],
-      attributes: ['ndc', 'cep', 'gp', 'nz']
+      attributes: ['ndc', 'cep', 'gp', 'nz'],
+      data: {
+        scenario: '2full',
+        measure: 'GHG'
+      }
     }],
     axis: {
       x: {
@@ -175,7 +197,11 @@ const store = () => new Vuex.Store({
       }
     ],
     step: 0,
-    dataset: 0
+    dataset: 0,
+    data: {
+      scenario: '2full',
+      measure: 'GHG'
+    }
   },
   mutations: {
     SET_STEP (state, value) {
@@ -183,25 +209,35 @@ const store = () => new Vuex.Store({
     },
     SET_DATASET (state, value) {
       state.dataset = value
+    },
+    SET_DATA (state, value) {
+      state.data = value
     }
   },
   actions: {
-    nextStep ({ commit, state }) {
-      const nextStep = state.step === state.steps.length - 1 ? 0 : state.step + 1
-      commit('SET_STEP', nextStep)
-    },
-    previousStep ({ commit, state }) {
-      const nextStep = state.step === 0 ? state.steps.length - 1 : state.step - 1
-      commit('SET_STEP', nextStep)
-    },
     setStep ({ commit, state }, step) {
       if (step > -1 && step < state.steps.length) {
         commit('SET_STEP', step)
       }
+      const data = get(state, `steps[${step}].data`, false)
+      if (data) {
+        commit('SET_DATA', assign(state.data, data))
+      }
+    },
+    nextStep ({ dispatch, state }) {
+      const nextStep = state.step === state.steps.length - 1 ? 0 : state.step + 1
+      dispatch('setStep', nextStep)
+    },
+    previousStep ({ dispatch, state }) {
+      const nextStep = state.step === 0 ? state.steps.length - 1 : state.step - 1
+      dispatch('setStep', nextStep)
     },
     toggleDataset ({ commit, state }, id) {
       const { dataset } = state
       commit('SET_DATASET', dataset === 0 ? 1 : 0)
+    },
+    setData ({ commit, state }, change) {
+      commit('SET_DATA', assign(state.data, change))
     }
   }
 })
