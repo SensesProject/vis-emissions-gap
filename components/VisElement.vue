@@ -13,6 +13,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import VisMarker from '~/components/VisMarker.vue'
   import VisLine from '~/components/VisLine.vue'
   import VisHorizontalLine from '~/components/VisHorizontalLine.vue'
@@ -27,17 +28,27 @@
   export default {
     props: ['el', 'scaleX', 'scaleY', 'visibility', 'dataset'],
     computed: {
+      ...mapState([
+        'highlight'
+      ]),
       klass: function () {
-        const { visibility, el } = this
+        const { visibility, el, highlight } = this
         const { type, attribute, id } = el
         // console.log('visibility', visibility)
-        return [
+        const klass = [
           visibility.indexOf(id) >= 0 ? 'isVisible' : 'isNotVisible',
           'graphic',
           'graphic-element',
           type,
           attribute
-        ].join(' ')
+        ]
+
+        if (highlight) {
+          klass.push(highlight === id ? 'isHighlight' : 'hasHighlight')
+          console.log(highlight, id)
+        }
+
+        return klass.join(' ')
       },
       clip: function () {
         return `url(#clip${this.el.clip})`

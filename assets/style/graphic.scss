@@ -77,6 +77,10 @@ g {
 
   &.isVisible {
     opacity: 1;
+
+    &.hasHighlight {
+      opacity: 0.2;
+    }
   }
 
   &.horizontalLine {

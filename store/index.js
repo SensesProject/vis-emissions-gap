@@ -199,7 +199,8 @@ const store = () => new Vuex.Store({
     data: {
       scenario: '2full',
       measure: 'GHG'
-    }
+    },
+    highlight: false
   },
   mutations: {
     SET_STEP (state, value) {
@@ -210,6 +211,9 @@ const store = () => new Vuex.Store({
     },
     SET_DATA (state, value) {
       state.data = value
+    },
+    SET_HIGHLIGHT (state, id) {
+      state.highlight = id
     }
   },
   actions: {
@@ -236,6 +240,9 @@ const store = () => new Vuex.Store({
     },
     setData ({ commit, state }, change) {
       commit('SET_DATA', assign(state.data, change))
+    },
+    setHighlight ({ commit, state }, id) {
+      commit('SET_HIGHLIGHT', id)
     }
   }
 })
