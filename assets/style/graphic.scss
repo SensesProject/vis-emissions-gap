@@ -16,7 +16,7 @@ rect {
 }
 
 .graphic-element {
-  opacity: 1;
+  opacity: 0;
 }
 
 line {
@@ -61,6 +61,10 @@ line, path {
 
   &.nz {
     stroke: $color-blue;
+  }
+
+  &.historic {
+    stroke: $color-dark-gray;
   }
 }
 
