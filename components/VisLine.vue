@@ -10,9 +10,9 @@
 
   export default {
     props: ['el', 'scaleX', 'scaleY', 'data'],
-    data: function () {
-      return {
-        d: 'M0 0'
+    computed: {
+      d: function () {
+        return this.drawLine()(this.data)
       }
     },
     methods: {
@@ -25,10 +25,6 @@
           .y((d, i) => {
             return scaleY(d[1])
           })
-      },
-      render: function () {
-        console.log(this.el)
-        this.d = this.drawLine()(this.data)
       }
     }
   }

@@ -24,18 +24,16 @@
     props: ['el', 'scaleX', 'scaleY', 'data'],
     data: function () {
       return {
-        x: 0,
-        y: 0,
         r: 40,
         offset: 15
       }
     },
-    methods: {
-      render: function () {
-        const { scaleX, scaleY, data } = this
-        console.log('data', data)
-        this.x = scaleX(timeParse('%Y')(data[0][0]))
-        this.y = scaleY(data[0][1])
+    computed: {
+      x: function () {
+        return this.scaleX(timeParse('%Y')(this.data[0][0]))
+      },
+      y: function () {
+        return this.scaleY(this.data[0][1])
       }
     }
   }

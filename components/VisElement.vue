@@ -57,10 +57,6 @@
       VisArea,
       VisHorizontalLine,
       VisVerticalLine
-    },
-    mounted () {
-      this.$refs.element.render()
-      // this.bus.$on('update', this.$refs.element.render)
     }
   }
 </script>

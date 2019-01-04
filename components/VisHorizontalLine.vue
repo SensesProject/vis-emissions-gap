@@ -19,20 +19,15 @@
 <script>
   export default {
     props: ['el', 'scaleX', 'scaleY', 'data'],
-    data: function () {
-      return {
-        x1: 0,
-        x2: 0,
-        y: 0
-      }
-    },
-    methods: {
-      render: function () {
-        const { scaleX, scaleY, data } = this
-        const [x1, x2] = scaleX.range()
-        this.x1 = x1
-        this.x2 = x2
-        this.y = scaleY(data[0][1])
+    computed: {
+      x1: function () {
+        return this.scaleX.range()[0]
+      },
+      x2: function () {
+        return this.scaleX.range()[1]
+      },
+      y: function () {
+        return this.scaleY(this.data[0][1])
       }
     }
   }
