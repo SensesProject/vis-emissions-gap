@@ -9,8 +9,8 @@
               :id="el.clip">
               <rect
                 class="clip"
-                x="0%"
-                y="0%"
+                x="0"
+                y="0"
                 :height="el.height"
                 :width="el.width" />
             </clipPath>
@@ -117,7 +117,7 @@
         return map(this.steps[this.step].clips, (clip, id) => {
           return {
             'clip': `clip${id}`,
-            'height': 100 + '%',
+            'height': this.height,
             'width': clip ? this.scaleX(timeParse('%Y')(clip)) : 0
           }
         })
