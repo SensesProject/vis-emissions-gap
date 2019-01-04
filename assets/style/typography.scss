@@ -4,7 +4,6 @@ hgroup {
 
 h1 {
   font-size: $size-biggest;
-  width: 80%;
   line-height: 1.1;
   margin-bottom: $spacing;
 
@@ -26,6 +25,7 @@ h1 {
     @include media-query($on-desktop) {
       & {
         font-size: 4rem;
+        width: 80%;
       }
     }
   }
