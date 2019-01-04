@@ -1,5 +1,5 @@
 <template>
-	<g v-if="axisY">
+	<g>
     <line
       class="axis"
       :x1="margin[0]"
@@ -8,14 +8,14 @@
       :y2="height - margin[1]" />
     <text
       class="axis"
-      :x="axisY.x"
-      :y="axisY.y"
-      :transform="`rotate(-90 ${axisY.x} ${axisY.y})`"
+      :x="axis.x"
+      :y="axis.y"
+      :transform="`rotate(-90 ${axis.x} ${axis.y})`"
       text-anchor="middle">
-      {{ axisY.label }}
+      {{ axis.label }}
     </text>
     <g
-      v-for="tick in axisY.ticks"
+      v-for="tick in axis.ticks"
       :key="tick.key">
       <text
         :y="tick.y + 'px'"
@@ -36,7 +36,35 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import map from 'lodash/map'
+  import mean from 'lodash/mean'
+  import get from 'lodash/get'
+
   export default {
-    props: ['margin', 'height', 'axisY']
+    props: ['margin', 'height', 'scaleY'],
+    computed: {
+      ...mapState([
+        'data'
+      ]),
+      axis: function () {
+        const { scaleY, data } = this
+        const label = get(data, 'measure') === 'GHG' ? 'Gt CO2eq/yr' : 'Gt CO2/yr'
+        const y = scaleY(mean(scaleY.domain()))
+        return {
+          label,
+          x: 20,
+          y,
+          ticks: map(scaleY.ticks(), (tick, i) => {
+            return {
+              key: i,
+              label: tick,
+              y: scaleY(tick),
+              x: this.margin[0] / 2
+            }
+          })
+        }
+      }
+    }
   }
 </script>
