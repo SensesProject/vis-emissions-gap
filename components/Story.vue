@@ -10,7 +10,8 @@
           <p v-if="step === 1">Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000-2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc">NDCs</span>), global emissions would reach a plateau from 2020-2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
           <p v-if="step === 2">Under the assumption that some strengthening of policies is achieved already in 2020 and that globally coordinated carbon pricing is in place in 2025, strong reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for mitigation technologies.</p>
           <p v-if="step === 3">If coordinated policies only start after following the NDC trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more carbon dioxide removal (CDR) would be needed in the second half of the century. Abrupt emission reductiosn would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants. CDR options include afforestation or the combination of bio-energy with carbon capture and storage. The need for those increases, as the additional emissions before the point of crossing of the two trajectories [dies könnte ja mit einem highlight in der grafik verbunden werden, über hover over...] have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.</p>
-          <p v-if="step === 4">The policy assumption in the "immediate" scenarios are very optimistic, as it currently seems unlikely that globally coordinated carbon pricing is in place in 2025. Therefore, the two additional scenario "GoodPractice" and "NetZero" show how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-optimal "immediate" scenario. In both scenarios, there are specific policies in place in all energy supply and demand sectors, such as efficiency standards, renewable quotas or target shares for electric vehicles (see table 2 in Kriegler et al) [oder noch besser, hier die Tabelle als pop-up window innerhalb der Seite einfügen]. "GoodPractice" values are based on an analysis of policy successes as already observed in some legislation, extended to all countries with some regional differentiation to account for differentiated capabilities. In "NetZero", the ambition of these policies is further increased, in view of the requirements to achive net-zero emissions in all sectors in the second half of the century.</p>
+          <p v-if="step === 4">The policy assumption in the "immediate" scenarios are very optimistic, as it currently seems unlikely that globally coordinated carbon pricing is in place in 2025. Therefore, the two additional scenario <span class="gp">"GoodPractice"</span> and <span class="nz">NetZero"</span> show how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-optimal "immediate" scenario. In both scenarios, there are specific policies in place in all energy supply and demand sectors, such as efficiency standards, renewable quotas or target shares for electric vehicles (see table 2 in <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a>) [oder noch besser, hier die Tabelle als pop-up window innerhalb der Seite einfügen].<br /><br /><span class="gp">"GoodPractice"</span> values are based on an analysis of policy successes as already observed in some legislation, extended to all countries with some regional differentiation to account for differentiated capabilities.<br /><br />In <span class="nz">NetZero"</span>, the ambition of these policies is further increased, in view of the requirements to achive net-zero emissions in all sectors in the second half of the century.</p>
+          <div v-if="step === 5"><VisOptions :visibility="steps[step].visibility" /></div>
         </transition>
       </div>
       <footer>
@@ -22,8 +23,8 @@
             :class="{ 'isPast': step > i, 'isActive': step === i, 'clickable': true }">{{ i }}</li>
         </ul>
         <ul class="nav">
-          <li @click="previousStep">Backwards</li>
-          <li @click="nextStep">Continue</li>
+          <li @click="previousStep" :class="{ inactive: step === 0 }">Backwards</li>
+          <li @click="nextStep" :class="{ inactive: step === steps.length - 1 }">Continue</li>
         </ul>
       </footer>
     </section>
@@ -32,6 +33,7 @@
 
 <script>
   import { mapState, mapActions } from 'vuex'
+  import VisOptions from '~/components/VisOptions.vue'
 
   export default {
     computed: {
@@ -46,6 +48,9 @@
         'previousStep',
         'setStep'
       ])
+    },
+    components: {
+      VisOptions
     }
   }
 </script>
@@ -140,6 +145,16 @@
       &:hover {
         background-color: palette(primary, 50);
         color: #fff;
+      }
+
+      &.inactive {
+        pointer-events: none;
+        color: palette(grey, 70);
+
+        &:last-child {
+          background-color: palette(grey, 90);
+          color: palette(grey, 70);
+        }
       }
     }
   }

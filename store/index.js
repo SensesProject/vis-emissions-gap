@@ -33,8 +33,8 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: ['4', 'options'],
-      attributes: ['ndc'],
+      visibility: ['linehistoric', 'linendc'],
+      attributes: ['historic', 'ndc'],
       data: {
         scenario: '2red',
         measure: 'GHG'
@@ -47,8 +47,8 @@ const store = () => new Vuex.Store({
         3: 2030,
         4: 0
       },
-      visibility: ['2', '3', 'options'],
-      attributes: ['ndc', 'cep'],
+      visibility: ['linehistoric', 'linendc', 'linecep'],
+      attributes: ['historic', 'ndc', 'cep'],
       data: {
         scenario: '1.5full',
         measure: 'CO2'
@@ -61,8 +61,8 @@ const store = () => new Vuex.Store({
         3: 2050,
         4: 0
       },
-      visibility: ['1', '2', '3', 'options'],
-      attributes: ['ndc', 'cep'],
+      visibility: ['linehistoric', 'linendc', 'linecep'],
+      attributes: ['historic', 'ndc', 'cep'],
       data: {
         scenario: '2full',
         measure: 'CO"'
@@ -75,8 +75,16 @@ const store = () => new Vuex.Store({
         3: 2050,
         4: 2050
       },
-      visibility: ['options'],
-      attributes: ['ndc', 'cep', 'gp', 'nz'],
+      visibility: ['linehistoric', 'linendc', 'linecep', 'linegp', 'linenz'],
+      attributes: ['historic', 'ndc', 'cep', 'gp', 'nz'],
+      data: {
+        scenario: '2full',
+        measure: 'GHG'
+      }
+    }, {
+      title: 'Explore',
+      visibility: ['linehistoric', 'linendc', 'linecep', 'linegp', 'linenz', 'options'],
+      attributes: ['historic', 'ndc', 'cep', 'gp', 'nz'],
       data: {
         scenario: '2full',
         measure: 'GHG'
@@ -131,14 +139,14 @@ const store = () => new Vuex.Store({
         id: 'linendc',
         clip: '',
         type: 'line',
-        data: [[[2010, 50], [2015, 57], [2020, 62], [2025, 61], [2030, 60], [2045, 27], [2050, 18]], [[2010, 50], [2015, 57], [2020, 62], [2025, 61], [2030, 60], [2045, 20], [2050, 15]]],
+        data: [[[2020, 62], [2025, 61], [2030, 60], [2045, 27], [2050, 18]]],
         attribute: 'ndc'
       },
       {
         id: 'linecep',
         clip: '',
         type: 'line',
-        data: [[[2010, 50], [2015, 57], [2020, 58], [2025, 51], [2030, 43], [2045, 24], [2050, 19]], [[2010, 50], [2015, 57], [2020, 58], [2025, 51], [2030, 43], [2045, 18], [2050, 17]]],
+        data: [[[2020, 58], [2025, 51], [2030, 43], [2045, 24], [2050, 19]]],
         attribute: 'cep'
       },
       {

@@ -38,7 +38,6 @@
     </div>
     <footer class="vis-footer">
       <VisLegend :elements="legend" :visibility="steps[step].attributes" />
-      <VisOptions :visibility="steps[step].visibility" />
     </footer>
   </section>
 </template>
@@ -52,7 +51,6 @@
   import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
   import VisLegend from '~/components/VisLegend.vue'
-  import VisOptions from '~/components/VisOptions.vue'
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
 
@@ -150,7 +148,6 @@
     },
     components: {
       VisLegend,
-      VisOptions,
       VisAxis,
       VisElement
     }
