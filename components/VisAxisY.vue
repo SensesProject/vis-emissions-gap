@@ -60,7 +60,7 @@
               key: i,
               label: tick,
               y: scaleY(tick),
-              x: this.margin[0] / 2
+              x: this.margin[0] / 1.5
             }
           })
         }
