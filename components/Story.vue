@@ -177,6 +177,10 @@
         background-color: palette(grey, 50);
       }
 
+      &:hover {
+        background-color: palette(grey, 70);
+      }
+
       &.isActive {
         background-color: palette(primary, 50);
       }
