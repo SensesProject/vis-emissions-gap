@@ -123,14 +123,6 @@
         })
       }
     },
-    watch: {
-      width: function () {
-        this.calcSizes()
-      },
-      height: function () {
-        this.calcSizes()
-      }
-    },
     methods: {
       drawClipPathElements: function () {
         const { steps, step, scaleX } = this
