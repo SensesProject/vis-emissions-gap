@@ -19,9 +19,9 @@ https://friendly-williams-a07292.netlify.com
     3: 0,
     4: 0
   },
-  visibility: ['options'], // Which of the elements is visible
-  attributes: [], // Which attributes are visible
-  data: { // Dataset displayed in this set
+  visibility: ['options'], // Which of the elements (id) is visible
+  attributes: [], // Which attributes are visible in the legend
+  data: { // Dataset displayed in this step
     scenario: '2full',
     measure: 'GHG'
   }
