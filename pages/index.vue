@@ -1,17 +1,17 @@
 <template>
   <div class="wrapper">
-    <Vis />
+    <Vis2 />
     <Story />
   </div>
 </template>
 
 <script>
-  import Vis from '~/components/Vis.vue'
+  import Vis2 from '~/components/Vis2.vue'
   import Story from '~/components/Story.vue'
 
   export default {
     components: {
-      Vis,
+      Vis2,
       Story
     }
   }

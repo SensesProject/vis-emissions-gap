@@ -50,8 +50,10 @@
 
   export default {
     computed: {
+      ...mapState({
+        'step': state => state.navigation.step
+      }),
       ...mapState([
-        'step',
         'steps'
       ])
     },

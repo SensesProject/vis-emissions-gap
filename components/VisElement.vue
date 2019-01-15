@@ -28,9 +28,9 @@
   export default {
     props: ['el', 'scaleX', 'scaleY', 'visibility', 'dataset'],
     computed: {
-      ...mapState([
-        'highlight'
-      ]),
+      ...mapState({
+        'highlight': state => state.highlight.highlight
+      }),
       klass: function () {
         const { visibility, el, highlight } = this
         const { type, attribute, id } = el
@@ -45,7 +45,7 @@
 
         if (highlight) {
           klass.push(highlight === id ? 'isHighlight' : 'hasHighlight')
-          console.log(highlight, id)
+          // console.log(highlight, id)
         }
 
         return klass.join(' ')
