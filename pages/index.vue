@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   import Vis2 from '~/components/Vis2.vue'
   import Story from '~/components/Story.vue'
 
@@ -13,6 +14,14 @@
     components: {
       Vis2,
       Story
+    },
+    methods: {
+      ...mapActions([
+        'loadData'
+      ])
+    },
+    created () {
+      this.loadData()
     }
   }
 </script>

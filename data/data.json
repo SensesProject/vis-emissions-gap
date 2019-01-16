@@ -1,4 +1,5 @@
-[
+{
+  "data": [
   {
     "model": "REMIND-MAgPIE 1.7-3.0",
     "scenario": "PEP_1p5C_full_eff",
@@ -649,4 +650,4 @@
       -2598.6946
     ]
   }
-]
+]}
