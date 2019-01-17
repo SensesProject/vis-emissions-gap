@@ -12,8 +12,10 @@ module.exports = {
     visibility: ['linehistoric'],
     attributes: ['historic'],
     data: {
-      scenario: '2full',
-      measure: 'GHG'
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP_1p5C_full_eff',
+      region: 'World',
+      variable: 'Emissions|Kyoto Gases'
     }
   }, {
     title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
@@ -26,8 +28,10 @@ module.exports = {
     visibility: ['linehistoric', 'linendc'],
     attributes: ['historic', 'ndc'],
     data: {
-      scenario: '2red',
-      measure: 'GHG'
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP_1p5C_full_eff',
+      region: 'World',
+      variable: 'Emissions|Kyoto Gases'
     }
   }, {
     title: 'What would cost-optimal immediate action towards 2°C/1.5°C look like in contrast?',
@@ -40,8 +44,10 @@ module.exports = {
     visibility: ['linehistoric', 'linendc', 'linecep'],
     attributes: ['historic', 'ndc', 'cep'],
     data: {
-      scenario: '1.5full',
-      measure: 'CO2'
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP_1p5C_full_eff',
+      region: 'World',
+      variable: 'Emissions|Kyoto Gases'
     }
   }, {
     title: 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
@@ -54,8 +60,10 @@ module.exports = {
     visibility: ['linehistoric', 'linendc', 'linecep'],
     attributes: ['historic', 'ndc', 'cep'],
     data: {
-      scenario: '2full',
-      measure: 'CO"'
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP_1p5C_full_eff',
+      region: 'World',
+      variable: 'Emissions|Kyoto Gases'
     }
   }, {
     title: 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
@@ -68,16 +76,20 @@ module.exports = {
     visibility: ['linehistoric', 'linendc', 'linecep', 'linegp', 'linenz'],
     attributes: ['historic', 'ndc', 'cep', 'gp', 'nz'],
     data: {
-      scenario: '2full',
-      measure: 'GHG'
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP_1p5C_full_eff',
+      region: 'World',
+      variable: 'Emissions|Kyoto Gases'
     }
   }, {
     title: 'Geführtes Explore',
     visibility: ['linehistoric', 'linendc', 'linecep', 'linegp', 'linenz', 'options'],
     attributes: ['historic', 'ndc', 'cep', 'gp', 'nz'],
     data: {
-      scenario: '2full',
-      measure: 'GHG'
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP_1p5C_full_eff',
+      region: 'World',
+      variable: 'Emissions|Kyoto Gases'
     }
   }]
 }

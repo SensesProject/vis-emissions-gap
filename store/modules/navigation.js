@@ -1,4 +1,3 @@
-import assign from 'lodash/assign'
 import get from 'lodash/get'
 
 const state = {
@@ -12,13 +11,13 @@ const mutations = {
 }
 
 const actions = {
-  setStep ({ commit, state, rootState }, step) {
+  setStep ({ commit, state, rootState, dispatch }, step) {
     if (step > -1 && step < rootState.steps.length) {
       commit('SET_STEP', step)
     }
     const data = get(rootState, `steps[${step}].data`, false)
     if (data) {
-      commit('SET_DATA', assign(rootState.data, data))
+      dispatch('setScenario', data)
     }
   },
   nextStep ({ dispatch, state, rootState }) {
