@@ -3,9 +3,15 @@
     <p>Montes est felis ea ac facilisi id doming elementum te commodo praesent ea stet condimentum, luptatum mi cum ultricies nibh erat voluptua differentiation at nonummy eum differentiated justointeger.</p>
     <ul>
       <li
-        v-for="option in options.scenarios"
-        :class="{ isActive: scenario === option }"
-        @click="setScenario({ scenario: option })">{{ option }}</li>
+        v-for="option in options.degrees"
+        :class="{ isActive: degree === option }"
+        @click="setScenario({ degree: option })">{{ option }}</li>
+    </ul>
+    <ul>
+      <li
+        v-for="option in options.parts"
+        :class="{ isActive: part === option }"
+        @click="setScenario({ part: option })">{{ option }}</li>
     </ul>
     <p>Montes est felis ea ac facilisi id doming elementum te commodo praesent ea stet condimentum, luptatum mi cum ultricies nibh erat voluptua differentiation at nonummy eum differentiated justointeger.</p>
     <ul>
@@ -24,7 +30,8 @@
     props: ['visibility'],
     computed: {
       ...mapState({
-        'scenario': state => state.scenario.scenario.scenario,
+        'degree': state => state.scenario.scenario.degree,
+        'part': state => state.scenario.scenario.part,
         'variable': state => state.scenario.scenario.variable
       }),
       ...mapState([

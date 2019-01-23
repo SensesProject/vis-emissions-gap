@@ -16,7 +16,7 @@ rect {
 }
 
 .graphic-element {
-  opacity: 0;
+  opacity: 1;
 }
 
 line {
@@ -47,24 +47,30 @@ line {
 }
 
 line, path {
-  &.ndc {
+  transition-duration: 0.3s;
+
+  &.NDC {
     stroke: $color-violet;
   }
 
-  &.cep {
+  &.eff {
     stroke: $color-yellow;
   }
 
-  &.gp {
+  &.goodpractice {
     stroke: $color-green;
   }
 
-  &.nz {
+  &.netzero {
     stroke: $color-blue;
   }
 
   &.historic {
     stroke: $color-dark-gray;
+  }
+
+  &.hasHighlight {
+    opacity: 0.2;
   }
 }
 
@@ -72,15 +78,11 @@ g {
   transition-duration: 0.3s;
 
   &.isNotVisible {
-    // opacity: 0;
+    opacity: 0;
   }
 
   &.isVisible {
     opacity: 1;
-
-    &.hasHighlight {
-      opacity: 0.2;
-    }
   }
 
   &.horizontalLine {

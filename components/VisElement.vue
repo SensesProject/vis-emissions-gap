@@ -1,6 +1,5 @@
 <template>
   <g
-    :clip-path="clip"
     :class="klass">
     <component
       ref="element"
@@ -34,7 +33,6 @@
       klass: function () {
         const { visibility, el, highlight } = this
         const { type, attribute, id } = el
-        // console.log('visibility', visibility)
         const klass = [
           visibility.indexOf(id) >= 0 ? 'isVisible' : 'isNotVisible',
           'graphic',
@@ -45,13 +43,9 @@
 
         if (highlight) {
           klass.push(highlight === id ? 'isHighlight' : 'hasHighlight')
-          // console.log(highlight, id)
         }
 
         return klass.join(' ')
-      },
-      clip: function () {
-        return `url(#clip${this.el.clip})`
       },
       comp: function () {
         return 'Vis' + capitalizeFirstLetter(this.el.type)

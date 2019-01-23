@@ -26,6 +26,14 @@
                 :visibility="steps[step].visibility"
                 :dataset="dataset" />
             </g>
+            <g>
+              <VisPolicy
+                v-for="el in lines"
+                :el="el"
+                :key="el.policy"
+                :scaleX="scaleX"
+                :scaleY="scaleY" />
+            </g>
             <VisAxis
               :margin="margin"
               :height="height"
@@ -37,13 +45,13 @@
       </transition>
     </div>
     <footer class="vis-footer">
-      <VisLegend :elements="legend" :visibility="steps[step].attributes" />
+      <VisLegend :elements="legend" :visibility="steps[step].legend" />
     </footer>
   </section>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapGetters } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
   import { extent } from 'd3-array'
   import map from 'lodash/map'
@@ -53,13 +61,12 @@
   import VisLegend from '~/components/VisLegend.vue'
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
+  import VisPolicy from '~/components/VisPolicy.vue'
 
   function extractValues (arr, path, func) {
     return flattenDeep(map(arr, a => {
-      return map(a.data, set => {
-        return map(set, d => {
-          return func(get(d, path))
-        })
+      return map(a.values, d => {
+        return func(get(d, path))
       })
     }))
   }
@@ -81,35 +88,42 @@
       window.removeEventListener('resize', this.calcSizes, false)
     },
     computed: {
+      ...mapState({
+        'step': state => state.navigation.step,
+        'data': state => state.data.data.data
+      }),
       ...mapState([
-        'step',
         'steps',
         'elements',
         'legend',
         'dataset'
       ]),
+      ...mapGetters([
+        'lines'
+      ]),
       extentX: function () {
-        return extent(extractValues(this.elements, '0', d => {
+        return extent(extractValues(this.data, '0', d => {
           return timeParse('%Y')(d)
         }))
       },
       scaleX: function () {
         return scaleTime()
           .range([this.margin[0], this.width - this.margin[0]])
-          .domain(this.extentX)
+          .domain(this.extentX).nice()
       },
       extentY: function () {
-        const yValues = extractValues(this.elements, '1', d => {
+        const yValues = extractValues(this.data, '1', d => {
           return d
         })
 
         const maxY = Math.max(...yValues)
+        // const minY = Math.min(...yValues)
         return [0, maxY]
       },
       scaleY: function () {
         return scaleLinear()
           .range([this.height - this.margin[1], this.margin[1]])
-          .domain(this.extentY)
+          .domain(this.extentY).nice()
       },
       clipPathElements: function () {
         return map(this.steps[this.step].clips, (clip, id) => {
@@ -124,7 +138,6 @@
     methods: {
       drawClipPathElements: function () {
         const { steps, step, scaleX } = this
-
         return map(steps[step].clips, (clip, id) => {
           return {
             'clip': `clip${id}`,
@@ -147,9 +160,10 @@
       }
     },
     components: {
-      VisLegend,
       VisAxis,
-      VisElement
+      VisElement,
+      VisLegend,
+      VisPolicy
     }
   }
 </script>

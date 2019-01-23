@@ -7,19 +7,19 @@ module.exports = {
     label: 'Historic'
   }, {
     type: 'line',
-    attribute: 'ndc',
+    attribute: 'NDC',
     label: 'NDC'
   }, {
     type: 'line',
-    attribute: 'cep',
+    attribute: 'eff',
     label: 'Cost-effective pricing'
   }, {
     type: 'line',
-    attribute: 'gp',
+    attribute: 'goodpractice',
     label: 'Good Pratice'
   }, {
     type: 'line',
-    attribute: 'nz',
+    attribute: 'netzero',
     label: 'Net Zero'
   }]
 }

@@ -1,6 +1,10 @@
 <template>
   <ul class="vis-legend">
-  	<li v-for="el in elements" :class="{ isVisible: visibility.indexOf(el.attribute) >= 0 }">
+  	<li
+      v-for="el in elements"
+      :class="{ isVisible: visibility.indexOf(el.attribute) >= 0 }"
+      @mouseover="setHighlight(el.attribute)"
+      @mouseleave="setHighlight(false)">
   		<svg width="10" height="10">
   			<line x1="0%" x2="100%" y1="50%" y2="50%" :class="{ legend: true, [el.attribute]: true }" />
   		</svg>
@@ -9,8 +13,15 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
-    props: ['elements', 'visibility']
+    props: ['elements', 'visibility'],
+    methods: {
+      ...mapActions([
+        'setHighlight'
+      ])
+    }
   }
 </script>
 

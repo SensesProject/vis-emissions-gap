@@ -5,6 +5,9 @@ import highlight from './modules/highlight'
 import scenario from './modules/scenario'
 import navigation from './modules/navigation'
 import data from './modules/data'
+import map from 'lodash/map'
+import find from 'lodash/find'
+import compact from 'lodash/compact'
 const { config } = require('./../config.js')
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
@@ -28,7 +31,24 @@ const store = () => new Vuex.Store({
     axis,
     legend,
     elements,
-    options
+    options,
+    policies: ['eff', 'goodpractice', 'NDC', 'netzero']
+  },
+  getters: {
+    lines: (state, getters) => {
+      const { model, scenario, degree, part, variable } = state.scenario.scenario
+      const { data } = state.data.data
+      return compact(map(state.policies, policy => {
+        return find(data, {
+          model,
+          scenario,
+          degree,
+          part,
+          policy,
+          variable
+        })
+      }))
+    }
   }
 })
 

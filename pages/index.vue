@@ -1,18 +1,18 @@
 <template>
   <div class="wrapper">
-    <Vis2 />
+    <Vis />
     <Story />
   </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex'
-  import Vis2 from '~/components/Vis2.vue'
+  import Vis from '~/components/Vis.vue'
   import Story from '~/components/Story.vue'
 
   export default {
     components: {
-      Vis2,
+      Vis,
       Story
     },
     methods: {

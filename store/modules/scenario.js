@@ -3,7 +3,9 @@ import assign from 'lodash/assign'
 const state = {
   scenario: {
     model: 'REMIND-MAgPIE 1.7-3.0',
-    scenario: 'PEP_1p5C_full_eff',
+    scenario: 'PEP',
+    degree: '1p5C',
+    part: 'full',
     region: 'World',
     variable: 'Emissions|Kyoto Gases'
   }
