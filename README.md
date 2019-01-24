@@ -2,7 +2,8 @@
 
 Step through mulitple steps of a visualisation. Each step can have different view properties.
 
-![Screenshot](screenshot.png)
+![Screenshot](before.jpg)
+![Screenshot](screenshot.jpg)
 
 https://friendly-williams-a07292.netlify.com
 
@@ -12,18 +13,22 @@ https://friendly-williams-a07292.netlify.com
 
 ```js
 {
-  title: 'Are we doing enough?', // title of the step
-  clips: { // Clips for the lines, areas, …
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0
+  title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
+  clips: { // Clips for the policy lines
+    NDC: 2030,
+    eff: 0,
+    goodpractice: 0,
+    netzero: 0
   },
-  visibility: ['options'], // Which of the elements (id) is visible
-  attributes: [], // Which attributes are visible in the legend
-  data: { // Dataset displayed in this step
-    scenario: '2full',
-    measure: 'GHG'
+  visibility: ['linehistoric', 'area2030', 'markerplateau'], // Which graphical elements are visible
+  legend: ['historic', 'NDC'], // Which legend elements are visible
+  data: { // Which dataset is selected
+    model: 'REMIND-MAgPIE 1.7-3.0',
+    scenario: 'PEP',
+    degree: '1p5C',
+    part: 'full',
+    region: 'World',
+    variable: 'Emissions|Kyoto Gases'
   }
 }
 ```
