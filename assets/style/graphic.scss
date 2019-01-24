@@ -5,7 +5,7 @@ path.line {
 }
 
 path.area {
-  fill: palette(accent, 50);
+  fill: palette(grey, 70);
   opacity: 0.2;
 }
 
@@ -116,6 +116,13 @@ text {
     font-weight: $font-weight-bold;
     font-size: $size-small;
   }
+
+  &.dot {
+    fill: palette(grey, 0);
+    font-weight: $font-weight-bold;
+    letter-spacing: $spacing-wide;
+    font-size: $size-default;
+  }
 }
 
 circle {
@@ -125,5 +132,11 @@ circle {
     stroke: $color-red;
     fill: none;
     stroke-width: 2px;
+  }
+
+  &.dot {
+    // stroke: darken($color-red, 10);
+    fill: $color-red;
+    stroke-width: 1px;
   }
 }

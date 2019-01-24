@@ -11,10 +11,10 @@
             <p>The graphs show alternative future pathways for global greenhouse gas / CO<sub>2</sub> emissions until the year 2050. The actual modeling is done out to 2100 so to guarantee adherence to the long-term climate targets, but the graphs focus on the next decades for which current actions are decisive. The long-term targets are implemented as bounds of cumulative emissions (carbon budgets) of 1000 Gt CO<sub>2</sub> for 2°C, and 400 Gt CO<sub>2</sub> for 1.5°C, from 2011&ndash;2100 respectively.</p>
           </div>
           <div v-if="step === 1">
-            <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000-2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a plateau from 2020-2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
+            <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000-2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a <strong>plateau</strong> <StoryDot /> from 2020-2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
           </div>
           <div v-if="step === 2">
-            <p>Under the assumption that some strengthening of policies is achieved already in 2020 and that globally coordinated carbon pricing is in place in 2025, strong reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for mitigation technologies.</p>
+            <p>Under the assumption that some strengthening of <span class="eff" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">policies</span> is achieved already in <StoryDot /> <strong>2020</strong> and that globally coordinated carbon pricing is in place in 2025, strong reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for mitigation technologies.</p>
           </div>
           <div v-if="step === 3">
             <p>If coordinated policies only start after following the NDC trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more carbon dioxide removal (CDR) would be needed in the second half of the century. Abrupt emission reductiosn would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants. CDR options include afforestation or the combination of bio-energy with carbon capture and storage. The need for those increases, as the additional emissions before the point of crossing of the two trajectories [dies könnte ja mit einem highlight in der grafik verbunden werden, über hover over...] have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.</p>
@@ -47,6 +47,7 @@
 <script>
   import { mapState, mapActions } from 'vuex'
   import VisOptions from '~/components/VisOptions.vue'
+  import StoryDot from '~/components/StoryDot.vue'
 
   export default {
     computed: {
@@ -66,7 +67,8 @@
       ])
     },
     components: {
-      VisOptions
+      VisOptions,
+      StoryDot
     }
   }
 </script>

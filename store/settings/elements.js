@@ -7,7 +7,7 @@ module.exports = {
       clip: '',
       type: 'area',
       data: [[[2020, 0, 65000], [2030, 0, 65000]], [[2020, 0, 65000], [2030, 0, 6500]]],
-      label: 'Plateau',
+      label: '',
       marker: [2025, 32500]
     },
     {
@@ -15,6 +15,18 @@ module.exports = {
       type: 'marker',
       data: [[[2046, 12000]], [[2046, 12000]]],
       label: 'Marker of crossing'
+    },
+    {
+      id: 'markerplateau',
+      type: 'dot',
+      data: [[[2025, 62000]]],
+      label: 'Plateau'
+    },
+    {
+      id: 'markerpolicy',
+      type: 'dot',
+      data: [[[2020, 62500]]],
+      label: 'Change'
     },
     // {
     //   id: 'linetarget2',
