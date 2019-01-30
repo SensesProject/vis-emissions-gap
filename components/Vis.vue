@@ -2,7 +2,7 @@
   <section class="vis-wrapper">
     <div class="vis-container" ref="vis">
       <transition name="fade">
-        <svg width="100%" height="100%" class="vis">
+        <svg width="100%" height="100%" class="vis" v-if="isLoaded">
           <defs>
             <clipPath
               v-for="(el, i) in clipPathElements"
@@ -102,8 +102,11 @@
       ...mapGetters([
         'lines'
       ]),
+      isLoaded: function () {
+        return !isEmpty(this.data)
+      },
       extentX: function () {
-        if (isEmpty(this.data)) {
+        if (!this.isLoaded) {
           return [timeParse('%Y')(1950), timeParse('%Y')(2100)]
         }
         return extent(extractValues(this.data, '0', d => {
@@ -116,7 +119,7 @@
           .domain(this.extentX).nice()
       },
       extentY: function () {
-        if (isEmpty(this.data)) {
+        if (!this.isLoaded) {
           return [0, 0]
         }
         const yValues = extractValues(this.data, '1', d => {
