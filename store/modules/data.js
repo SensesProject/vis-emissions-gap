@@ -50,10 +50,10 @@ const actions = {
     const status = get(dataRank, 'status', false)
     if (status !== 'loading') {
       commit('DATA_CHANGE', { status: 'loading' })
-      const url = 'https://www.jsonstore.io/e98c3b927e019d28db25b7feda39bd792d61f27b7f0a7217951b1d74ea8c5c48'
+      const url = 'https://gist.githubusercontent.com/z3to/bcd5cf832188938e27f263034e9b9107/raw/03704477b492a0076ead09b09c3a59d391d705f1/data.json'
       axios.get(url)
         .then(response => {
-          commit('DATA_CHANGE', { status: 'success', data: processData(response.data.result.data) })
+          commit('DATA_CHANGE', { status: 'success', data: processData(response.data.data) })
         })
         .catch(error => {
           console.log('error', error)
