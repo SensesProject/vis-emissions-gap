@@ -33,6 +33,11 @@
                 :key="el.policy"
                 :scaleX="scaleX"
                 :scaleY="scaleY" />
+              <VisPolicy
+                :el="historic"
+                key="historic"
+                :scaleX="scaleX"
+                :scaleY="scaleY" />
             </g>
             <VisAxis
               :margin="margin"
@@ -100,7 +105,8 @@
         'dataset'
       ]),
       ...mapGetters([
-        'lines'
+        'lines',
+        'historic'
       ]),
       isLoaded: function () {
         return !isEmpty(this.data)

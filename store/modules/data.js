@@ -6,7 +6,11 @@ import filter from 'lodash/filter'
 
 function processData (data) {
   return map(data, datum => {
-    const [scenario, degree, part, policy] = datum.scenario.split('_')
+    let [scenario, degree, part, policy] = datum.scenario.split('_')
+    if (datum.scenario === 'historic') {
+      policy = 'historic'
+      console.log(scenario, degree, part, policy)
+    }
     const values = filter(datum.values, d => {
       return d[0] <= 2050
     })
@@ -42,7 +46,7 @@ const actions = {
     const status = get(dataRank, 'status', false)
     if (status !== 'loading') {
       commit('DATA_CHANGE', { status: 'loading' })
-      const url = 'https://gist.githubusercontent.com/z3to/bcd5cf832188938e27f263034e9b9107/raw/3ea85c49b325bf8068384e0696cabb1d65017db3/data.json'
+      const url = 'https://gist.githubusercontent.com/z3to/bcd5cf832188938e27f263034e9b9107/raw/1c04910510561cfbd4e731bcfac863602d23ae7e/data.json'
       axios.get(url)
         .then(response => {
           commit('DATA_CHANGE', { status: 'success', data: processData(response.data.data) })

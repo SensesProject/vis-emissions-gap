@@ -48,6 +48,18 @@ const store = () => new Vuex.Store({
           variable
         })
       }))
+    },
+    historic: state => {
+      const { variable } = state.scenario.scenario
+      const { data } = state.data.data
+      console.log(find(data, {
+        scenario: 'historic',
+        variable
+      }))
+      return find(data, {
+        scenario: 'historic',
+        variable
+      })
     }
   }
 })
