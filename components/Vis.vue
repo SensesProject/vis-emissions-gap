@@ -33,11 +33,6 @@
                 :key="el.policy"
                 :scaleX="scaleX"
                 :scaleY="scaleY" />
-              <VisPolicy
-                :el="historic"
-                key="historic"
-                :scaleX="scaleX"
-                :scaleY="scaleY" />
             </g>
             <VisAxis
               :margin="margin"
@@ -105,8 +100,7 @@
         'dataset'
       ]),
       ...mapGetters([
-        'lines',
-        'historic'
+        'lines'
       ]),
       isLoaded: function () {
         return !isEmpty(this.data)
@@ -115,7 +109,7 @@
         if (!this.isLoaded) {
           return [timeParse('%Y')(1950), timeParse('%Y')(2100)]
         }
-        return extent(extractValues(this.data, '0', d => {
+        return extent(extractValues(this.lines, '0', d => {
           return timeParse('%Y')(d)
         }))
       },
@@ -128,13 +122,13 @@
         if (!this.isLoaded) {
           return [0, 0]
         }
-        const yValues = extractValues(this.data, '1', d => {
+        const yValues = extractValues(this.lines, '1', d => {
           return d
         })
 
         const maxY = Math.max(...yValues)
-        // const minY = Math.min(...yValues)
-        return [0, maxY]
+        let minY = Math.min(...yValues)
+        return [minY < 0 ? minY : 0, maxY]
       },
       scaleY: function () {
         return scaleLinear()

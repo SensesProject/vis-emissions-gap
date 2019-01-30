@@ -32,13 +32,19 @@ const store = () => new Vuex.Store({
     legend,
     elements,
     options,
-    policies: ['eff', 'goodpractice', 'NDC', 'netzero']
+    policies: ['historic', 'eff', 'goodpractice', 'NDC', 'netzero']
   },
   getters: {
     lines: state => {
       const { model, scenario, degree, part, variable } = state.scenario.scenario
       const { data } = state.data.data
       return compact(map(state.policies, policy => {
+        if (policy === 'historic') {
+          return find(data, {
+            scenario: 'historic',
+            variable
+          })
+        }
         return find(data, {
           model,
           scenario,
@@ -48,18 +54,6 @@ const store = () => new Vuex.Store({
           variable
         })
       }))
-    },
-    historic: state => {
-      const { variable } = state.scenario.scenario
-      const { data } = state.data.data
-      console.log(find(data, {
-        scenario: 'historic',
-        variable
-      }))
-      return find(data, {
-        scenario: 'historic',
-        variable
-      })
     }
   }
 })

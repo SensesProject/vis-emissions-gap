@@ -9,7 +9,6 @@ function processData (data) {
     let [scenario, degree, part, policy] = datum.scenario.split('_')
     if (datum.scenario === 'historic') {
       policy = 'historic'
-      console.log(scenario, degree, part, policy)
     }
     const values = filter(datum.values, d => {
       return d[0] <= 2050
