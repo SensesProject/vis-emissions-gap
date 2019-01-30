@@ -1,7 +1,6 @@
 import assign from 'lodash/assign'
 import axios from 'axios'
 import get from 'lodash/get'
-import groupBy from 'lodash/groupBy'
 import map from 'lodash/map'
 import filter from 'lodash/filter'
 
@@ -26,13 +25,6 @@ const state = {
   data: {}
 }
 
-const getters = {
-  policies: state => {
-    const data = get(state.data, 'data', [])
-    return groupBy(data, 'policy')
-  }
-}
-
 const mutations = {
   DATA_CHANGE (state, data) {
     const obj = {
@@ -50,7 +42,7 @@ const actions = {
     const status = get(dataRank, 'status', false)
     if (status !== 'loading') {
       commit('DATA_CHANGE', { status: 'loading' })
-      const url = 'https://gist.githubusercontent.com/z3to/bcd5cf832188938e27f263034e9b9107/raw/03704477b492a0076ead09b09c3a59d391d705f1/data.json'
+      const url = 'https://gist.githubusercontent.com/z3to/bcd5cf832188938e27f263034e9b9107/raw/3ea85c49b325bf8068384e0696cabb1d65017db3/data.json'
       axios.get(url)
         .then(response => {
           commit('DATA_CHANGE', { status: 'success', data: processData(response.data.data) })
@@ -65,7 +57,6 @@ const actions = {
 
 export default {
   state,
-  getters,
   mutations,
   actions
 }
