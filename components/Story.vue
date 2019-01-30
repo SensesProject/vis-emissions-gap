@@ -24,7 +24,7 @@
             <p><span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">"GoodPractice"</span> values are based on an analysis of policy successes as already observed in some legislation, extended to all countries with some regional differentiation to account for differentiated capabilities.</p>
             <p>In <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">NetZero"</span>, the ambition of these policies is further increased, in view of the requirements to achive net-zero emissions in all sectors in the second half of the century.</p>
           </div>
-          <div v-if="step === 5"><VisOptions :visibility="steps[step].visibility" /></div>
+          <div v-if="step === 5"><VisOptions /></div>
         </transition>
       </div>
       <footer>

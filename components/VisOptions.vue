@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'vis-options': true, 'isVisible': visibility.indexOf('options') >= 0 }">
+  <div class="vis-options">
     <p>Montes est felis ea ac facilisi id doming elementum te commodo praesent ea stet condimentum, luptatum mi cum ultricies nibh erat voluptua differentiation at nonummy eum differentiated justointeger.</p>
     <ul>
       <li
@@ -27,7 +27,6 @@
   import { mapState, mapActions } from 'vuex'
 
   export default {
-    props: ['visibility'],
     computed: {
       ...mapState({
         'degree': state => state.scenario.scenario.degree,
@@ -51,12 +50,7 @@
 
   .vis-options {
     line-height: 1.2;
-    opacity: 0;
     transition-duration: 0.3s;
-
-    &.isVisible {
-      opacity: 1;
-    }
 
     ul {
       text-align: center;
