@@ -56,6 +56,7 @@
   import { extent } from 'd3-array'
   import map from 'lodash/map'
   import get from 'lodash/get'
+  import isEmpty from 'lodash/isEmpty'
   import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
   import VisLegend from '~/components/VisLegend.vue'
@@ -102,6 +103,9 @@
         'lines'
       ]),
       extentX: function () {
+        if (isEmpty(this.data)) {
+          return [timeParse('%Y')(1950), timeParse('%Y')(2100)]
+        }
         return extent(extractValues(this.data, '0', d => {
           return timeParse('%Y')(d)
         }))
@@ -112,6 +116,9 @@
           .domain(this.extentX).nice()
       },
       extentY: function () {
+        if (isEmpty(this.data)) {
+          return [0, 0]
+        }
         const yValues = extractValues(this.data, '1', d => {
           return d
         })
