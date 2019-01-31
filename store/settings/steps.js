@@ -4,10 +4,10 @@ module.exports = {
   steps: [{
     title: 'Are we doing enough?',
     clips: {
-      NDC: 0,
-      eff: 0,
-      goodpractice: 0,
-      netzero: 0
+      NDC: 'start',
+      eff: 'start',
+      goodpractice: 'start',
+      netzero: 'start'
     },
     visibility: ['linehistoric'],
     legend: ['historic'],
@@ -23,9 +23,9 @@ module.exports = {
     title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
     clips: {
       NDC: 2030,
-      eff: 0,
-      goodpractice: 0,
-      netzero: 0
+      eff: 'start',
+      goodpractice: 'start',
+      netzero: 'start'
     },
     visibility: ['linehistoric', 'area2030', 'markerplateau'],
     legend: ['historic', 'NDC'],
@@ -42,8 +42,8 @@ module.exports = {
     clips: {
       NDC: 2030,
       eff: 2030,
-      goodpractice: 0,
-      netzero: 0
+      goodpractice: 'start',
+      netzero: 'start'
     },
     visibility: ['linehistoric', 'area2030', 'markerpolicy'],
     legend: ['historic', 'NDC', 'eff'],
@@ -58,10 +58,10 @@ module.exports = {
   }, {
     title: 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
     clips: {
-      NDC: 2050,
-      eff: 2050,
-      goodpractice: 0,
-      netzero: 0
+      NDC: 'end',
+      eff: 'end',
+      goodpractice: 'start',
+      netzero: 'start'
     },
     visibility: ['linehistoric', 'markercross'],
     legend: ['historic', 'NDC', 'eff'],
@@ -76,10 +76,10 @@ module.exports = {
   }, {
     title: 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
     clips: {
-      NDC: 2050,
-      eff: 2050,
-      goodpractice: 2050,
-      netzero: 2050
+      NDC: 'end',
+      eff: 'end',
+      goodpractice: 'end',
+      netzero: 'end'
     },
     visibility: ['linehistoric', 'line25'],
     legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
@@ -96,10 +96,10 @@ module.exports = {
     visibility: ['linehistoric'],
     legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
     clips: {
-      NDC: 2050,
-      eff: 2050,
-      goodpractice: 2050,
-      netzero: 2050
+      NDC: 'end',
+      eff: 'end',
+      goodpractice: 'end',
+      netzero: 'end'
     },
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',

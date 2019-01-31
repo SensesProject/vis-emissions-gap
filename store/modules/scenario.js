@@ -8,7 +8,7 @@ const state = {
     part: 'full',
     region: 'World',
     variable: 'Emissions|Kyoto Gases',
-    range: [1990, 2100]
+    range: [1990, 2050]
   }
 }
 

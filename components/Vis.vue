@@ -56,6 +56,8 @@
   import { extent } from 'd3-array'
   import map from 'lodash/map'
   import get from 'lodash/get'
+  import isNumber from 'lodash/isNumber'
+  import isString from 'lodash/isString'
   import isEmpty from 'lodash/isEmpty'
   import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
@@ -91,7 +93,8 @@
     computed: {
       ...mapState({
         'step': state => state.navigation.step,
-        'data': state => state.data.data.data
+        'data': state => state.data.data.data,
+        'range': state => state.scenario.scenario.range
       }),
       ...mapState([
         'steps',
@@ -136,11 +139,22 @@
           .domain(this.extentY).nice()
       },
       clipPathElements: function () {
+        const [l, h] = this.range
         return map(this.steps[this.step].clips, (clip, id) => {
+          let width = 0
+          if (isNumber(clip) && clip) {
+            width = this.scaleX(timeParse('%Y')(clip))
+          } else if (isString(clip)) {
+            if (clip === 'end') {
+              width = this.scaleX(timeParse('%Y')(h))
+            } else if (clip === 'start') {
+              width = this.scaleX(timeParse('%Y')(l))
+            }
+          }
           return {
             'clip': `clip${id}`,
             'height': this.height,
-            'width': clip ? this.scaleX(timeParse('%Y')(clip)) : 0
+            'width': width
           }
         })
       }
