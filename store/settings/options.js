@@ -7,6 +7,7 @@ module.exports = {
     degrees: ['1p5C', '2C'],
     parts: ['full', 'red'],
     regions: ['World'],
-    variables: ['Emissions|CO2', 'Emissions|Kyoto Gases', 'Emissions|CO2|Fossil Fuels and Industry']
+    variables: ['Emissions|CO2', 'Emissions|Kyoto Gases', 'Emissions|CO2|Fossil Fuels and Industry'],
+    range: [2050, 2100]
   }
 }

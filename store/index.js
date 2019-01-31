@@ -8,6 +8,7 @@ import data from './modules/data'
 import map from 'lodash/map'
 import find from 'lodash/find'
 import compact from 'lodash/compact'
+import filter from 'lodash/filter'
 const { config } = require('./../config.js')
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
@@ -36,9 +37,11 @@ const store = () => new Vuex.Store({
   },
   getters: {
     paths: state => {
-      const { model, scenario, degree, part, variable } = state.scenario.scenario
+      const { model, scenario, degree, part, variable, range } = state.scenario.scenario
       const { data } = state.data.data
-      return compact(map(state.policies, policy => {
+
+      // Find items in the data that match the current options
+      const paths = compact(map(state.policies, policy => {
         const obj = policy === 'historic'
           ? {
             scenario: 'historic',
@@ -54,6 +57,18 @@ const store = () => new Vuex.Store({
           }
         return find(data, obj)
       }))
+
+      // Filter the data for the given years
+      const [l, h] = range
+      return map(paths, path => {
+        const values = filter(path.values, d => {
+          return d[0] <= h && d[0] >= l
+        })
+        return {
+          ...path,
+          values
+        }
+      })
     }
   }
 })
