@@ -37,16 +37,13 @@
     methods: {
       drawArea: function () {
         const { scaleX, scaleY } = this
+        const [l, h] = this.scaleY.domain()
         return area()
           .x((d, i) => {
             return scaleX(timeParse('%Y')(d[0]))
           })
-          .y1((d, i) => {
-            return scaleY(d[2])
-          })
-          .y0((d, i) => {
-            return scaleY(d[1])
-          })
+          .y1(scaleY(l))
+          .y0(scaleY(h))
       }
     }
   }
