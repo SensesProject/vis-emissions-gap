@@ -35,16 +35,16 @@ const store = () => new Vuex.Store({
     policies: ['historic', 'eff', 'goodpractice', 'NDC', 'netzero']
   },
   getters: {
-    lines: state => {
+    paths: state => {
       const { model, scenario, degree, part, variable } = state.scenario.scenario
       const { data } = state.data.data
       return compact(map(state.policies, policy => {
-        const obj = policy === 'historic' ?
-          {
+        const obj = policy === 'historic'
+          ? {
             scenario: 'historic',
             variable
-          } :
-          {
+          }
+          : {
             model,
             scenario,
             degree,
