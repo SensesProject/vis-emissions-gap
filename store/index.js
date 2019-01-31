@@ -39,20 +39,20 @@ const store = () => new Vuex.Store({
       const { model, scenario, degree, part, variable } = state.scenario.scenario
       const { data } = state.data.data
       return compact(map(state.policies, policy => {
-        if (policy === 'historic') {
-          return find(data, {
+        const obj = policy === 'historic' ?
+          {
             scenario: 'historic',
             variable
-          })
-        }
-        return find(data, {
-          model,
-          scenario,
-          degree,
-          part,
-          policy,
-          variable
-        })
+          } :
+          {
+            model,
+            scenario,
+            degree,
+            part,
+            policy,
+            variable
+          }
+        return find(data, obj)
       }))
     }
   }
