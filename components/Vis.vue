@@ -27,8 +27,8 @@
                 :dataset="dataset" />
             </g>
             <g>
-              <VisPolicy
-                v-for="el in lines"
+              <VisPath
+                v-for="el in paths"
                 :el="el"
                 :key="el.policy"
                 :scaleX="scaleX"
@@ -62,7 +62,7 @@
   import VisLegend from '~/components/VisLegend.vue'
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
-  import VisPolicy from '~/components/VisPolicy.vue'
+  import VisPath from '~/components/VisPath.vue'
 
   function extractValues (arr, path, func) {
     return flattenDeep(map(arr, a => {
@@ -100,7 +100,7 @@
         'dataset'
       ]),
       ...mapGetters([
-        'lines'
+        'paths'
       ]),
       isLoaded: function () {
         return !isEmpty(this.data)
@@ -109,7 +109,7 @@
         if (!this.isLoaded) {
           return [timeParse('%Y')(1950), timeParse('%Y')(2100)]
         }
-        return extent(extractValues(this.lines, '0', d => {
+        return extent(extractValues(this.paths, '0', d => {
           return timeParse('%Y')(d)
         }))
       },
@@ -122,7 +122,7 @@
         if (!this.isLoaded) {
           return [0, 0]
         }
-        const yValues = extractValues(this.lines, '1', d => {
+        const yValues = extractValues(this.paths, '1', d => {
           return d
         })
 
@@ -173,7 +173,7 @@
       VisAxis,
       VisElement,
       VisLegend,
-      VisPolicy
+      VisPath
     }
   }
 </script>
