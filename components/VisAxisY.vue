@@ -39,17 +39,16 @@
   import { mapState } from 'vuex'
   import map from 'lodash/map'
   import mean from 'lodash/mean'
-  import get from 'lodash/get'
 
   export default {
     props: ['margin', 'height', 'scaleY'],
     computed: {
-      ...mapState([
-        'data'
-      ]),
+      ...mapState({
+        'variable': state => state.scenario.scenario.variable
+      }),
       axis: function () {
-        const { scaleY, data } = this
-        const label = get(data, 'measure') === 'GHG' ? 'Gt CO2eq/yr' : 'Gt CO2/yr'
+        const { scaleY, variable } = this
+        const label = variable === 'Emissions|CO2' ? 'Gt CO2/yr' : 'Gt CO2eq/yr'
         const y = scaleY(mean(scaleY.domain()))
         return {
           label,
