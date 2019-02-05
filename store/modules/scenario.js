@@ -7,7 +7,7 @@ const state = {
     degree: '1p5C',
     part: 'full',
     region: 'World',
-    variable: 'Emissions|Kyoto Gases',
+    variable: 'Kyoto Gases',
     range: [1990, 2050]
   }
 }

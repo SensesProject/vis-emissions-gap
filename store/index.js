@@ -37,7 +37,7 @@ const store = () => new Vuex.Store({
   },
   getters: {
     paths: state => {
-      const { model, scenario, degree, part, variable, range } = state.scenario.scenario
+      const { model, scenario, degree, part, variable, range, region } = state.scenario.scenario
       const { data } = state.data.data
 
       // Find items in the data that match the current options
@@ -45,6 +45,7 @@ const store = () => new Vuex.Store({
         const obj = policy === 'historic'
           ? {
             scenario: 'historic',
+            region,
             variable
           }
           : {
@@ -53,6 +54,7 @@ const store = () => new Vuex.Store({
             degree,
             part,
             policy,
+            region,
             variable
           }
         return find(data, obj)

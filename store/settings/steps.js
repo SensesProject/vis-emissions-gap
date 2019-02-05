@@ -17,7 +17,7 @@ module.exports = {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Emissions|Kyoto Gases'
+      variable: 'Kyoto Gases'
     }
   }, {
     title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
@@ -35,7 +35,7 @@ module.exports = {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Emissions|Kyoto Gases'
+      variable: 'Kyoto Gases'
     }
   }, {
     title: 'What would cost-optimal immediate action towards 2°C/1.5°C look like in contrast?',
@@ -53,7 +53,7 @@ module.exports = {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Emissions|Kyoto Gases'
+      variable: 'Kyoto Gases'
     }
   }, {
     title: 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
@@ -71,7 +71,7 @@ module.exports = {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Emissions|Kyoto Gases'
+      variable: 'Kyoto Gases'
     }
   }, {
     title: 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
@@ -89,7 +89,7 @@ module.exports = {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Emissions|Kyoto Gases'
+      variable: 'Kyoto Gases'
     }
   }, {
     title: 'Geführtes Explore',
@@ -107,7 +107,7 @@ module.exports = {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Emissions|Kyoto Gases'
+      variable: 'Kyoto Gases'
     }
   }]
 }

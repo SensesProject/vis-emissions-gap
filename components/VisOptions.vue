@@ -27,6 +27,13 @@
         :class="{ isActive: range === option }"
         @click="setScenario({ range: [1950, option] })">{{ option }}</li>
     </ul>
+    <p>Montes est felis ea ac facilisi id doming elementum te commodo praesent ea stet condimentum, luptatum mi cum ultricies nibh erat voluptua differentiation at nonummy eum differentiated justointeger.</p>
+    <ul>
+      <li
+        v-for="option in options.regions"
+        :class="{ isActive: region === option }"
+        @click="setScenario({ region: option })">{{ option }}</li>
+    </ul>
   </div>
 </template>
 
@@ -39,7 +46,8 @@
         'degree': state => state.scenario.scenario.degree,
         'part': state => state.scenario.scenario.part,
         'variable': state => state.scenario.scenario.variable,
-        'range': state => state.scenario.scenario.range[1]
+        'range': state => state.scenario.scenario.range[1],
+        'region': state => state.scenario.scenario.region
       }),
       ...mapState([
         'options'
