@@ -26,7 +26,7 @@ SCNEARIOS = [
 	'PEP_1p5C_red_netzero'
 ]
 VARIABLES = ['Emissions|CO2', 'Emissions|Kyoto Gases', 'Emissions|CO2|Fossil Fuels and Industry']
-REGIONS = ['World']
+REGIONS = ['World', 'CHN', 'USA', 'EUR', 'IND', 'RUS', 'JPN']
 
 def readCSV (file)
   CSV.read("#{file}", { encoding: "UTF-8", headers: true, col_sep: ";" }).map { |d| d.to_hash }
@@ -49,10 +49,9 @@ def format (arr)
 		{
 			model: d["﻿model"],
 			scenario: d['scenario'],
-			region: d['region'],
-			variable: d['variable'],
-			unit: d['unit'],
-			values: YEARS.map { |i| d[i.to_s].sub!(',', '.').to_f }
+			region: d['region'].sub('CHN', 'China').sub('EUR', 'EU').sub('IND', 'India').sub('RUS', 'Russia').sub('JPN', 'Japan'),
+			variable: d['variable'].sub('Emissions|', ''),
+			values: YEARS.map { |i| [i, d[i.to_s].sub(',', '.').to_f] }
 		}
 	end
 end
@@ -65,11 +64,12 @@ facet = {
 	"region": REGIONS
 }
 
-datum = get(data, facet)
+datum = format(get(data, facet))
 
-puts datum.length
+historic = JSON.parse(File.open('historic.json').read)
+datum.push(*historic)
 
 File.open('data.json', 'w') do |f|
-  f.write(JSON.pretty_generate(format(datum)))
+  f.write(JSON.pretty_generate({ data: datum }))
 end
 
