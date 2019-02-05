@@ -28,22 +28,21 @@ module.exports = {
       data: [[[2020, 62500]]],
       label: 'Change'
     },
-    // {
-    //   id: 'linetarget2',
-    //   type: 'horizontalLine',
-    //   data: [[[2010, 20]]],
-    //   label: 'Line 2'
-    // },
+    {
+      id: 'negative',
+      type: 'horizontalLine',
+      data: [[[2030, 0]]]
+    },
     {
       id: 'line30',
       type: 'verticalLine',
-      data: [[[2030, 20]]],
+      data: [[[2030, 0]]],
       label: '2030'
     },
     {
       id: 'line25',
       type: 'verticalLine',
-      data: [[[2025, 20]]],
+      data: [[[2025, 0]]],
       label: '2025'
     }
   ]

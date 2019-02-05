@@ -32,10 +32,18 @@
         'highlight': state => state.highlight.highlight
       }),
       klass: function () {
-        const { visibility, el, highlight } = this
+        const { visibility, el, highlight, scaleY } = this
         const { type, attribute, id } = el
+
+        let isVisible = visibility.indexOf(id) >= 0 ? 'isVisible' : 'isNotVisible'
+        if (id === 'negative') {
+          if (scaleY.domain()[0] < 0) {
+            isVisible = 'isVisible'
+          }
+        }
+
         const klass = [
-          visibility.indexOf(id) >= 0 ? 'isVisible' : 'isNotVisible',
+          isVisible,
           'graphic',
           'graphic-element',
           type,

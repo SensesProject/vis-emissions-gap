@@ -8,7 +8,7 @@
       :y2="y2" />
     <text
       v-if="el.label"
-      class="verticalLine"
+      class="verticalLine marker"
       :x="x"
       :y="y2 - 10"
       text-anchor="middle"

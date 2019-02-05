@@ -86,6 +86,7 @@
     mounted () {
       this.calcSizes()
       window.addEventListener('resize', this.calcSizes, false)
+      console.log(this.elements)
     },
     beforeDestroy () {
       window.removeEventListener('resize', this.calcSizes, false)
