@@ -8,9 +8,9 @@
       :y2="height - margin[1]" />
     <text
       class="axis"
-      :x="axis.x"
-      :y="axis.y"
-      :transform="`rotate(-90 ${axis.x} ${axis.y})`"
+      :x="d * 1.5 + 'px'"
+      :y="axis.y + 'px'"
+      :transform="`rotate(-90 ${d * 1.5} ${axis.y})`"
       text-anchor="middle">
       {{ axis.label }}
     </text>
@@ -19,7 +19,7 @@
       :key="tick.key">
       <text
         :y="tick.y + 'px'"
-        :x="tick.x + 'px'"
+        :x="d * 4.5 + 'px'"
         text-anchor="end"
         dominant-baseline="middle"
         class="tick">
@@ -28,7 +28,7 @@
       <line
         :x1="margin[0] + 'px'"
         :y1="tick.y + 'px'"
-        :x2="margin[0] - margin[0] / 5 + 'px'"
+        :x2="d * 5 + 'px'"
         :y2="tick.y + 'px'"
         class="tick" />
     </g>
@@ -39,6 +39,9 @@
   import { mapState } from 'vuex'
   import map from 'lodash/map'
   import mean from 'lodash/mean'
+  import { format } from 'd3-format'
+
+  const f = format(`.2s`)
 
   export default {
     props: ['margin', 'height', 'scaleY'],
@@ -46,9 +49,12 @@
       ...mapState({
         'variable': state => state.scenario.scenario.variable
       }),
+      d: function () {
+        return this.margin[0] / 6
+      },
       axis: function () {
-        const { scaleY, variable } = this
-        const label = variable === 'Emissions|CO2' ? 'Gt CO2/yr' : 'Gt CO2eq/yr'
+        const { scaleY, variable, d } = this
+        const label = variable === 'CO2' ? 'Gt CO2/yr' : 'Gt CO2eq/yr'
         const y = scaleY(mean(scaleY.domain()))
         return {
           label,
@@ -57,9 +63,9 @@
           ticks: map(scaleY.ticks(), (tick, i) => {
             return {
               key: i,
-              label: tick,
+              label: f(tick),
               y: scaleY(tick),
-              x: this.margin[0] / 1.5
+              x: d
             }
           })
         }
