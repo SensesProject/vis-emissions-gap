@@ -3,18 +3,6 @@
     <div class="vis-container" ref="vis">
       <transition name="fade">
         <svg width="100%" height="100%" class="vis" v-if="isLoaded">
-          <defs>
-            <clipPath
-              v-for="(el, i) in clipPathElements"
-              :id="el.clip">
-              <rect
-                class="clip"
-                x="0"
-                y="0"
-                :height="el.height"
-                :width="el.width" />
-            </clipPath>
-          </defs>
           <g v-if="width && height">
             <g>
               <VisElement
@@ -56,8 +44,6 @@
   import { extent } from 'd3-array'
   import map from 'lodash/map'
   import get from 'lodash/get'
-  import isNumber from 'lodash/isNumber'
-  import isString from 'lodash/isString'
   import isEmpty from 'lodash/isEmpty'
   import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
@@ -138,26 +124,6 @@
         return scaleLinear()
           .range([this.height - this.margin[1], this.margin[1]])
           .domain(this.extentY).nice()
-      },
-      clipPathElements: function () {
-        const [l, h] = this.range
-        return map(this.steps[this.step].clips, (clip, id) => {
-          let width = 0
-          if (isNumber(clip) && clip) {
-            width = this.scaleX(timeParse('%Y')(clip))
-          } else if (isString(clip)) {
-            if (clip === 'end') {
-              width = this.scaleX(timeParse('%Y')(h))
-            } else if (clip === 'start') {
-              width = this.scaleX(timeParse('%Y')(l))
-            }
-          }
-          return {
-            'clip': `clip${id}`,
-            'height': this.height,
-            'width': width
-          }
-        })
       }
     },
     methods: {
