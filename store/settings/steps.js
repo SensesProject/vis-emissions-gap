@@ -40,7 +40,7 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    title: 'What would cost-optimal immediate action towards 2°C/1.5°C look like in contrast?',
+    title: 'What would immediate action look like in contrast?',
     clips: {
       NDC: 2030,
       eff: 2030,
