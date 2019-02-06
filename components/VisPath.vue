@@ -46,7 +46,7 @@
       },
       currentLength: function () {
         const values = filter(this.el.values, value => {
-          return value[0] < this.clip
+          return value[0] <= this.clip
         })
         const path = this.drawLine()(values)
 
