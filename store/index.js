@@ -9,6 +9,8 @@ import map from 'lodash/map'
 import find from 'lodash/find'
 import compact from 'lodash/compact'
 import filter from 'lodash/filter'
+import reverse from 'lodash/reverse'
+import get from 'lodash/get'
 const { config } = require('./../config.js')
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
@@ -41,7 +43,7 @@ const store = () => new Vuex.Store({
       const { data } = state.data.data
 
       // Find items in the data that match the current options
-      const paths = compact(map(state.policies, policy => {
+      const paths = compact(map(reverse(state.policies), policy => {
         const obj = policy === 'historic'
           ? {
             scenario: 'historic',
@@ -69,6 +71,22 @@ const store = () => new Vuex.Store({
         return {
           ...path,
           values
+        }
+      })
+    },
+    currentPaths: (state, getters) => {
+      const { paths } = getters
+      const { steps } = state
+      const { step } = state.navigation
+
+      // console.log('currentPaths', paths, steps, step)
+
+      return map(paths, path => {
+        const { policy } = path
+        console.log(get(steps, `${step}.clips.${policy}`), step, policy)
+        return {
+          ...path,
+          clip: get(steps, `${step}.clips.${policy}`)
         }
       })
     }

@@ -1,27 +1,65 @@
 <template>
   <path
-    :clip-path="clip"
     :class="klass"
-    :d="d" />
+    :d="d"
+    stroke-linecap="round"
+    :style="{ strokeDasharray: `${totalLength}px`, strokeDashoffset: `${currentLength}px` }" />
 </template>
 
 <script>
   import { mapState } from 'vuex'
   import { line } from 'd3-shape'
   import { timeParse } from 'd3-time-format'
+  import isNumber from 'lodash/isNumber'
+  import isString from 'lodash/isString'
+  import isNull from 'lodash/isNull'
+  import filter from 'lodash/filter'
+  import * as pathHelper from 'svg-path-properties'
 
   export default {
     props: ['el', 'scaleX', 'scaleY'],
     computed: {
       ...mapState({
-        'highlight': state => state.highlight.highlight
+        'highlight': state => state.highlight.highlight,
+        'range': state => state.scenario.scenario.range
       }),
       d: function () {
         return this.drawLine()(this.el.values)
       },
-      clip: function () {
-        return `url(#clip${this.el.policy})`
+      totalLength: function () {
+        return pathHelper.svgPathProperties(this.d).getTotalLength()
       },
+      clip: function () {
+        const { clip } = this.el
+        const [l, h] = this.range
+        let value = h
+        if (isNumber(clip) && clip) {
+          value = clip
+        } else if (isString(clip)) {
+          if (clip === 'end') {
+            value = h
+          } else if (clip === 'start') {
+            value = l
+          }
+        }
+        return value
+      },
+      currentLength: function () {
+        const values = filter(this.el.values, value => {
+          return value[0] < this.clip
+        })
+        const path = this.drawLine()(values)
+
+        if (isNull(path)) {
+          return this.totalLength
+        }
+
+        const length = pathHelper.svgPathProperties(path).getTotalLength()
+        return this.totalLength - length
+      },
+      // clip: function () {
+      //   return `url(#clip${this.el.policy})`
+      // },
       klass: function () {
         const { el, highlight } = this
         const { policy } = el
@@ -52,3 +90,11 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "~@/assets/style/global";
+
+  path {
+    animation: all 5s linear;
+  }
+</style>

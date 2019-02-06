@@ -28,7 +28,7 @@
             </g>
             <g>
               <VisPath
-                v-for="el in paths"
+                v-for="el in currentPaths"
                 :el="el"
                 :key="el.policy"
                 :scaleX="scaleX"
@@ -104,7 +104,7 @@
         'dataset'
       ]),
       ...mapGetters([
-        'paths'
+        'currentPaths'
       ]),
       isLoaded: function () {
         return !isEmpty(this.data)
@@ -113,7 +113,7 @@
         if (!this.isLoaded) {
           return [timeParse('%Y')(1950), timeParse('%Y')(2100)]
         }
-        return extent(extractValues(this.paths, '0', d => {
+        return extent(extractValues(this.currentPaths, '0', d => {
           return timeParse('%Y')(d)
         }))
       },
@@ -126,7 +126,7 @@
         if (!this.isLoaded) {
           return [0, 0]
         }
-        const yValues = extractValues(this.paths, '1', d => {
+        const yValues = extractValues(this.currentPaths, '1', d => {
           return d
         })
 
