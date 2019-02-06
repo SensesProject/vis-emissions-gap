@@ -79,14 +79,10 @@ const store = () => new Vuex.Store({
       const { steps } = state
       const { step } = state.navigation
 
-      // console.log('currentPaths', paths, steps, step)
-
       return map(paths, path => {
-        const { policy } = path
-        console.log(get(steps, `${step}.clips.${policy}`), step, policy)
         return {
           ...path,
-          clip: get(steps, `${step}.clips.${policy}`)
+          clip: get(steps, `${step}.clips.${path.policy}`)
         }
       })
     }
