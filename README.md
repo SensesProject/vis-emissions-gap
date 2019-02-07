@@ -5,7 +5,7 @@ Step through mulitple steps of a visualisation. Each step can have different vie
 ![Screenshot](before.jpg)
 ![Screenshot](screenshot.jpg)
 
-https://friendly-williams-a07292.netlify.com
+https://senses-enough.netlify.com
 
 ## Definitions
 
