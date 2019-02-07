@@ -1,6 +1,6 @@
 <template>
   <li
-    :class="{ isActive: isEqual(current, option) }"
+    :class="{ isActive: isEqual(current, option), option: true }"
     @click="setScenario({ [slug]: option })">
     <slot />
   </li>
@@ -24,6 +24,4 @@
 <style lang="scss" scoped>
   @import "~@/assets/style/global";
 
-  .vis-option {
-  }
 </style>

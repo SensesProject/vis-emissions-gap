@@ -17,10 +17,13 @@
   @import "~@/assets/style/global";
 
   .option {
-    margin: $spacing 0;
+    margin: $spacing / 2 0;
 
     .description {
       font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      letter-spacing: $spacing-wider;
+      font-size: $size-smallest;
     }
   }
 </style>

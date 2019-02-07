@@ -63,21 +63,22 @@
   @import "~@/assets/style/global";
 
   .vis-options {
-    line-height: 1.2;
-    transition-duration: 0.3s;
-
     ul {
-      text-align: center;
+      margin-top: $spacing;
 
       li {
-        background-color: transparent;
-        padding-bottom: 2px;
+        border: 1px solid palette(grey, 80);
+        background-color: $color-bg-default;
+        padding: $spacing / 4 $spacing;
+        // padding-bottom: 2px;
         margin: 0 $spacing / 4;
         display: inline-block;
         cursor: pointer;
-        color: palette(grey, 40);
+        color: palette(grey, 60);
         font-weight: $font-weight-bold;
         font-size: $size-default;
+        border-radius: $radius-default;
+        transition: all 0.5s ease;
 
         &:first-child {
           margin-left: 0;
@@ -89,12 +90,15 @@
 
         &:hover, &:focus {
           color: palette(grey, 30);
+          border-color: palette(grey, 70);
         }
 
         &.isActive {
           color: palette(grey, 20);
           cursor: default;
-          border-bottom: 2px solid #03A6DC;
+          background-color: #fff;
+          border-color: $color-red;
+          color: $color-red;
         }
       }
     }
