@@ -104,6 +104,7 @@
         }))
       },
       scaleX: function () {
+        console.log(this.extentX)
         return scaleTime()
           .range([this.margin[0], this.width - this.margin[0]])
           .domain(this.extentX).nice()

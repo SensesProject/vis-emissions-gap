@@ -35,7 +35,7 @@ const store = () => new Vuex.Store({
     legend,
     elements,
     options,
-    policies: ['historic', 'eff', 'goodpractice', 'NDC', 'netzero']
+    policies: ['historic', 'cummulated', 'eff', 'goodpractice', 'NDC', 'netzero']
   },
   getters: {
     paths: state => {
@@ -44,9 +44,9 @@ const store = () => new Vuex.Store({
 
       // Find items in the data that match the current options
       const paths = compact(map(reverse(state.policies), policy => {
-        const obj = policy === 'historic'
+        const obj = policy === 'historic' || policy === 'cummulated'
           ? {
-            scenario: 'historic',
+            scenario: policy,
             region,
             variable
           }
@@ -64,6 +64,7 @@ const store = () => new Vuex.Store({
 
       // Filter the data for the given years
       const [l, h] = range
+      console.log(l, h)
       return map(paths, path => {
         const values = filter(path.values, d => {
           return d[0] <= h && d[0] >= l

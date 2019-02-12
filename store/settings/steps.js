@@ -9,7 +9,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric'],
+    visibility: ['linehistoric', '2degree'],
     legend: ['historic'],
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -17,8 +17,8 @@ module.exports = {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Kyoto Gases',
-      range: [1990, 2050]
+      variable: 'CO2',
+      range: [1751, 2050]
     }
   }, {
     title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',

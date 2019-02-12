@@ -34,6 +34,11 @@ module.exports = {
       data: [[[2030, 0]]]
     },
     {
+      id: '2degree',
+      type: 'horizontalLine',
+      data: [[[2030, 2366941.347]]]
+    },
+    {
       id: 'line30',
       type: 'verticalLine',
       data: [[[2030, 0]]],
