@@ -27,19 +27,6 @@
           <div v-if="step === 5"><VisOptions /></div>
         </transition>
       </div>
-      <footer>
-        <ul class="progress">
-          <li
-            v-for="(s, i) in steps"
-            :key="i"
-            @click="setStep(i)"
-            :class="{ 'isPast': step > i, 'isActive': step === i, 'clickable': true }">{{ i }}</li>
-        </ul>
-        <ul class="nav">
-          <li @click="previousStep" :class="{ inactive: step === 0 }">Backwards</li>
-          <li @click="nextStep" :class="{ inactive: step === steps.length - 1 }">Continue</li>
-        </ul>
-      </footer>
     </section>
   </section>
 </template>
@@ -60,9 +47,6 @@
     },
     methods: {
       ...mapActions([
-        'nextStep',
-        'previousStep',
-        'setStep',
         'setHighlight'
       ])
     },
@@ -84,125 +68,58 @@
   }
 
   .aside-wrapper {
-    background-color: palette(grey, 100);
+    // background-color: palette(grey, 100);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    // height: 100%;
     // padding: $spacing;
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.03);
-    border: 1px solid palette(grey, 80);
+    // box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.03);
+    // border: 1px solid palette(grey, 80);
   }
 
-  .page-aside {
-    height: auto;
-    margin: $spacing * 0.4;
+  // .page-aside {
+  //   height: auto;
+  //   margin: $spacing * 0.4;
 
-    @include media-query($on-tablet-landscape) {
-      & {
-        margin: $spacing * 0.6;
-      }
-    }
+  //   @include media-query($on-tablet-landscape) {
+  //     & {
+  //       margin: $spacing * 0.6;
+  //     }
+  //   }
 
-    @include media-query($on-laptop) {
-      & {
-        margin: $spacing * 0.8;
-      }
-    }
+  //   @include media-query($on-laptop) {
+  //     & {
+  //       margin: $spacing * 0.8;
+  //     }
+  //   }
 
-    @include media-query($on-desktop) {
-      & {
-        margin: $spacing * 1.0;
-      }
-    }
-  }
+  //   @include media-query($on-desktop) {
+  //     & {
+  //       margin: $spacing * 1.0;
+  //     }
+  //   }
+  // }
 
-  .content {
-    padding: $spacing * 0.7 $spacing * 0.9;
+  // .content {
+  //   padding: $spacing * 0.7 $spacing * 0.9;
 
-    @include media-query($on-tablet-landscape) {
-      & {
-        padding: $spacing * 1 $spacing * 1.3;
-      }
-    }
+  //   @include media-query($on-tablet-landscape) {
+  //     & {
+  //       padding: $spacing * 1 $spacing * 1.3;
+  //     }
+  //   }
 
-    @include media-query($on-laptop) {
-      & {
-        padding: $spacing * 1.4 $spacing * 1.7;
-      }
-    }
+  //   @include media-query($on-laptop) {
+  //     & {
+  //       padding: $spacing * 1.4 $spacing * 1.7;
+  //     }
+  //   }
 
-    @include media-query($on-desktop) {
-      & {
-        padding: $spacing * 1.8 $spacing * 2;
-      }
-    }
-  }
-
-  .nav {
-    display: flex;
-    height: 10vh;
-
-    & > * {
-      flex: 1;
-      @include center();
-
-      cursor: pointer;
-      color: palette(grey, 40);
-      font-weight: $font-weight-bold;
-      text-transform: uppercase;
-      letter-spacing: $spacing-widest;
-      font-size: $size-big;
-      transition: all 0.2s;
-
-      &:last-child {
-        color: palette(grey, 100);
-        background-color: palette(primary, 83);
-      }
-
-      &:hover {
-        background-color: palette(primary, 50);
-        color: #fff;
-      }
-
-      &.inactive {
-        pointer-events: none;
-        color: palette(grey, 70);
-
-        &:last-child {
-          background-color: palette(grey, 90);
-          color: palette(grey, 70);
-        }
-      }
-    }
-  }
-
-  .progress {
-    display: flex;
-    @include center();
-    justify-content: space-between;
-    width: 20%;
-    margin: $spacing auto;
-
-    & > * {
-      background-color: palette(grey, 80);
-      border-radius: 50%;
-      width: 10px;
-      height: 10px;
-      text-indent: -9999px;
-
-      &.isPast {
-        background-color: palette(grey, 50);
-      }
-
-      &:hover {
-        background-color: palette(grey, 70);
-      }
-
-      &.isActive {
-        background-color: palette(primary, 50);
-      }
-    }
-  }
-
+  //   @include media-query($on-desktop) {
+  //     & {
+  //       padding: $spacing * 1.8 $spacing * 2;
+  //     }
+  //   }
+  // }
 </style>
