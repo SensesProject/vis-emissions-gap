@@ -16,7 +16,7 @@
 	  		<hgroup>
 	  			<h6>Module</h6>
 	  			<h2>Are we doing enough?</h2>
-	  			<h4>How do decarbonization efforts relate the Paris Agreement?</h4>
+	  			<h4>How do decarbonization efforts relate to the Paris Agreement?</h4>
 	  		</hgroup>
 	  	</section>
   	</header>
