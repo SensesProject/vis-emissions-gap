@@ -4,6 +4,17 @@
   justify-content: center;
 }
 
+@mixin grid-basic($columns) {
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	grid-column-gap: 0.5vw;
+}
+
+@mixin wrapper-primary() {
+	max-width: 1400px;
+	width: 100%;
+}
+
 @mixin media-query($device) {
   @media screen and (min-width: $device) {
     @content;

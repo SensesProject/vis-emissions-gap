@@ -24,7 +24,9 @@
       <nuxt/>
     </div>
     <footer>
-    	<span>2018 – The SENSES Toolkit is part of the SENSES Project. Visit senses-project.org for more information.</span>
+    	<section class="page-footer">
+    		<span class="footer">2018 – The SENSES Toolkit is part of the SENSES Project. Visit senses-project.org for more information.</span>
+    	</section>
     </footer>
   </div>
 </template>
@@ -37,23 +39,16 @@
 		display: flex;
 		flex-direction: column;
 
-		header {
-			max-height: 20vh;
-		}
-
 		header, footer {
 			color: #fff;
-			flex: 1;
 			display: flex;
 			flex-direction: column;
 		  align-items: center;
 		  justify-content: center;
 
 			section {
-				display: grid;
-				max-width: 1400px;
-				width: 100%;
-				grid-template-columns: repeat(12, 1fr);
+				@include grid-basic(12);
+				@include wrapper-primary();
 
 				&.page-header {
 					grid-template-rows: 8vh;
@@ -61,7 +56,11 @@
 				}
 
 				&.module-header {
-					grid-template-rows: 12vh;
+					grid-template-rows: 18vh;
+				}
+
+				&.page-footer {
+					grid-template-rows: 6vh;
 				}
 
 				h1 {
@@ -81,10 +80,9 @@
 					align-self: center;
 
 					ul {
-						display: flex;
+						@include grid-basic(3);
 
 						li {
-							flex: 1;
 							text-align: right;
 						}
 					}
@@ -106,10 +104,6 @@
 			background-color: #fff;
 			width: 100vw;
 			flex: 1;
-		}
-
-		footer {
-			max-height: 5vh;
 		}
 	}
 </style>

@@ -27,6 +27,30 @@ h1 {
   }
 }
 
+h2 {
+  font-size: 34px;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+h6 {
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.4;
+}
+
+.footer {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
 p {
   font-size: $size-big;
   margin-bottom: 0.7em;
