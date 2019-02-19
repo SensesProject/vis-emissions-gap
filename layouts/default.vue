@@ -33,7 +33,6 @@
 	@import "~@/assets/style/global";
 
 	.page {
-		background-color: #2F3652;
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
