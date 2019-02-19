@@ -35,7 +35,7 @@
 	@import "~@/assets/style/global";
 
 	.page {
-		height: 100vh;
+		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
 
@@ -51,12 +51,12 @@
 				@include wrapper-primary();
 
 				&.page-header {
-					grid-template-rows: 8vh;
+					grid-template-rows: 6vh;
 					border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 				}
 
 				&.module-header {
-					grid-template-rows: 18vh;
+					grid-template-rows: 14vh;
 				}
 
 				&.page-footer {
@@ -104,6 +104,7 @@
 			background-color: #fff;
 			width: 100vw;
 			flex: 1;
+			display: flex;
 		}
 	}
 </style>

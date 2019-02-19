@@ -38,13 +38,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: space-between;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    min-height: 100%;
+    margin-top: $spacing;
 
     .wrapper {
+      height: 60vh;
       max-width: 1400px;
       width: 100%;
       display: flex;

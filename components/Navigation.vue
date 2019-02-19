@@ -48,15 +48,14 @@
 
   .nav {
     border-top: 1px solid rgba(47, 54, 82, 0.1);
-    padding-top: 1vh;
     display: flex;
-    height: 10vh;
+    height: 8vh;
     max-width: 1400px;
     width: 100%;
+    justify-content: space-between;
+    align-items: center;
 
     & > * {
-      flex: 1;
-
       cursor: pointer;
       color: palette(grey, 40);
       font-size: $size-big;
@@ -108,12 +107,12 @@
 
   .progress {
     width: 100%;
-    height: 10px;
+    height: 5px;
 
     line {
       stroke: #39C88A;
       stroke-width: 5px;
-      transition: all 0.2s;
+      transition: all 0.5s;
     }
   }
 </style>
