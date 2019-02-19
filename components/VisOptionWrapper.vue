@@ -1,5 +1,5 @@
 <template slot-scope="{signal}">
-  <section class="option">
+  <section :class="{ option: true, isWide }">
     <span class="description">{{ label }}</span>
     <ul>
       <slot />
@@ -9,7 +9,7 @@
 
 <script>
   export default {
-    props: ['label']
+    props: ['label', 'isWide']
   }
 </script>
 
@@ -17,13 +17,26 @@
   @import "~@/assets/style/global";
 
   .option {
-    margin: $spacing / 2 0;
-
     .description {
       font-weight: $font-weight-bold;
       text-transform: uppercase;
       letter-spacing: $spacing-wider;
       font-size: $size-smallest;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: $spacing / 2;
+    }
+
+    &.isWide {
+      grid-column: 1 / 3;
+
+      ul {
+        grid-template-columns: repeat(4, 1fr);
+        grid-row-gap: $spacing / 2;
+      }
     }
   }
 </style>
