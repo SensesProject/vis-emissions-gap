@@ -1,128 +1,144 @@
 <template>
   <div class="page">
-  	<header>
-  		<section class="page-header">
-	  		<h1>Senses</h1>
-	  		<span>← Back to the Toolkit overview</span>
-	  		<nav class="page-nav">
-	  			<ul>
-	  				<li><n-link to="/">Learn</n-link></li>
-	  				<li><n-link to="/explore">Explore</n-link></li>
-	  				<li><n-link to="/share">Share</n-link></li>
-	  			</ul>
-	  		</nav>
-	  	</section>
-	  	<section class="module-header">
-	  		<hgroup>
-	  			<h6>Module</h6>
-	  			<h2>Are we doing enough?</h2>
-	  			<h4>How do decarbonization efforts relate to the Paris Agreement?</h4>
-	  		</hgroup>
-	  	</section>
-  	</header>
+    <header>
+      <section class="page-header">
+        <h1><n-link to="/">Senses</n-link></h1>
+        <span><n-link to="/">← Back to the Toolkit overview</n-link></span>
+        <nav class="page-nav">
+          <ul>
+            <li><n-link to="/learn">Learn</n-link></li>
+            <li><n-link to="/explore">Explore</n-link></li>
+            <li><n-link to="/share">Share</n-link></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="module-header" v-if="isModule">
+        <hgroup>
+          <h6>Module</h6>
+          <h2>Are we doing enough?</h2>
+          <h4>How do decarbonization efforts relate to the Paris Agreement?</h4>
+        </hgroup>
+      </section>
+    </header>
     <div class="page-content" role="main">
       <nuxt/>
     </div>
     <footer>
-    	<section class="page-footer">
-    		<span class="footer">2018 – The SENSES Toolkit is part of the SENSES Project. Visit senses-project.org for more information.</span>
-    	</section>
+      <section class="page-footer">
+        <span class="footer">2018 – The SENSES Toolkit is part of the SENSES Project. Visit senses-project.org for more information.</span>
+      </section>
     </footer>
   </div>
 </template>
 
+<script>
+  import get from 'lodash/get'
+
+  export default {
+    computed: {
+      isModule: function () {
+        return get(this.$route, 'name', false) === 'module'
+      }
+    }
+  }
+</script>
+
 <style lang="scss">
-	@import "~@/assets/style/global";
+  @import "~@/assets/style/global";
 
-	.page {
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
+  .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
-		header, footer {
-			color: #fff;
-			display: flex;
-			flex-direction: column;
-		  align-items: center;
-		  justify-content: center;
+    header, footer {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-			section {
-				@include grid-basic(12);
-				@include wrapper-primary();
+      section {
+        @include grid-basic(12);
+        @include wrapper-primary();
 
-				&.page-header {
-					grid-template-rows: 100%;
-					height: 6vh;
-					min-height: 60px;
-					border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-				}
+        &.page-header {
+          grid-template-rows: 100%;
+          height: 6vh;
+          min-height: 60px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-				&.module-header {
-					grid-template-rows: 100%;
-					height: 14vh;
-					min-height: 140px;
-				}
+        &.module-header {
+          grid-template-rows: 100%;
+          height: 14vh;
+          min-height: 140px;
+        }
 
-				&.page-footer {
-					grid-template-rows: 100%;
-					height: 6vh;
-					min-height: 40px;
-				}
+        &.page-footer {
+          grid-template-rows: 100%;
+          height: 6vh;
+          min-height: 40px;
+        }
 
-				h1 {
-					grid-column: 1 / 3;
-					align-self: center;
-					display: inline;
-					margin: 0;
-				}
+        h1 {
+          grid-column: 1 / 3;
+          align-self: center;
+          display: inline;
+          margin: 0;
+        }
 
-				span {
-					grid-column: 3 / 10;
-					align-self: center;
-				}
+        span {
+          grid-column: 3 / 10;
+          align-self: center;
+        }
 
-				nav {
-					grid-column: 10 / 13;
-					align-self: center;
+        a {
+          color: rgb(255, 255, 255);
+        }
 
-					ul {
-						@include grid-basic(3);
+        nav {
+          grid-column: 10 / 13;
+          align-self: center;
 
-						li {
-							text-align: right;
+          ul {
+            @include grid-basic(3);
 
-							a {
-								color: rgba(255, 255, 255, 0.8);
+            li {
+              text-align: right;
 
-								&:hover, &.nuxt-link-exact-active {
-									color: rgb(255, 255, 255);
-								}
+              a {
+                color: rgba(255, 255, 255, 0.8);
 
-								&.nuxt-link-exact-active {
-									font-weight: 600;
-								}
-							}
-						}
-					}
-				}
+                &:hover, &.nuxt-link-exact-active {
+                  color: rgb(255, 255, 255);
+                }
 
-				hgroup {
-					grid-column: 1 / 13;
-					align-self: center;
-				}
-			}
+                &.nuxt-link-exact-active {
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
 
-			h1 {
-				font-size: 24px;
-				text-transform: uppercase;
-			}
-		}
+        hgroup {
+          grid-column: 1 / 13;
+          align-self: center;
+        }
+      }
 
-		.page-content {
-			background-color: #fff;
-			width: 100vw;
-			flex: 1;
-			display: flex;
-		}
-	}
+      h1 {
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+    }
+
+    .page-content {
+      background-color: #fff;
+      width: 100vw;
+      flex: 1;
+      display: flex;
+    }
+  }
 </style>

@@ -1,9 +1,7 @@
 <template>
   <div class="wrapper">
     <ul>
-    	<li class="learn"><n-link to="/learn">Learn</n-link></li>
-    	<li class="explore"><n-link to="/explore">Explore</n-link></li>
-    	<li class="share"><n-link to="/share">Share</n-link></li>
+    	<li><n-link to="/module">Are we doing enough?</n-link></li>
     </ul>
   </div>
 </template>
@@ -17,12 +15,12 @@
   @import "~@/assets/style/global";
 
   .wrapper {
-  	@include center();
     @include wrapper-primary();
     @include grid-basic(12);
+    margin-top: $spacing * 2;
 
     ul {
-    	grid-column: 4 / 10;
+    	grid-column: 1 / 13;
     	@include grid-basic(3);
 
     	li {

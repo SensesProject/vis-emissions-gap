@@ -24,7 +24,10 @@
             <p><span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">"GoodPractice"</span> values are based on an analysis of policy successes as already observed in some legislation, extended to all countries with some regional differentiation to account for differentiated capabilities.</p>
             <p>In <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">NetZero"</span>, the ambition of these policies is further increased, in view of the requirements to achive net-zero emissions in all sectors in the second half of the century.</p>
           </div>
-          <div v-if="step === 5"><VisOptions /></div>
+          <div v-if="step === 5">
+            <VisOptions />
+            <a class="btn" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">See this data in the IIASA Database Workspace: PEP Emissions by major economies ↗</a>
+          </div>
         </transition>
       </div>
     </section>
