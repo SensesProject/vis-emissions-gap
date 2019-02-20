@@ -51,16 +51,22 @@
 				@include wrapper-primary();
 
 				&.page-header {
-					grid-template-rows: 6vh;
+					grid-template-rows: 100%;
+					height: 6vh;
+					min-height: 60px;
 					border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 				}
 
 				&.module-header {
-					grid-template-rows: 14vh;
+					grid-template-rows: 100%;
+					height: 14vh;
+					min-height: 140px;
 				}
 
 				&.page-footer {
-					grid-template-rows: 6vh;
+					grid-template-rows: 100%;
+					height: 6vh;
+					min-height: 40px;
 				}
 
 				h1 {
