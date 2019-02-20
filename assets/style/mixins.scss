@@ -12,7 +12,8 @@
 
 @mixin wrapper-primary() {
 	max-width: 1400px;
-	width: 100%;
+  margin: 0 4vw;
+	width: calc(100% - 8vw);
 }
 
 @mixin media-query($device) {

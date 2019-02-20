@@ -32,7 +32,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~@/assets/style/variables";
+  @import "~@/assets/style/global";
 
   .module {
     display: flex;
@@ -43,13 +43,11 @@
     margin-top: $spacing;
 
     .wrapper {
-      height: 60vh;
       min-height: 550px;
-      max-width: 1400px;
-      width: 100%;
       display: flex;
       flex: 1;
       align-self: center;
+      @include wrapper-primary();
 
       & > * {
         flex: 1;

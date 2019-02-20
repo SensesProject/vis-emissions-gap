@@ -42,18 +42,17 @@
   @import "~@/assets/style/global";
 
   footer {
-    width: 100vw;
     align-self: flex-end;
+    width: 100%;
   }
 
   .nav {
     border-top: 1px solid rgba(47, 54, 82, 0.1);
     display: flex;
     height: 8vh;
-    max-width: 1400px;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
+    @include wrapper-primary();
 
     & > * {
       cursor: pointer;
