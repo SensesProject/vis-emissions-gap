@@ -44,6 +44,7 @@
 
     .wrapper {
       height: 60vh;
+      min-height: 550px;
       max-width: 1400px;
       width: 100%;
       display: flex;
