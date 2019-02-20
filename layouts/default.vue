@@ -6,9 +6,9 @@
 	  		<span>← Back to the Toolkit overview</span>
 	  		<nav class="page-nav">
 	  			<ul>
-	  				<li>Learn</li>
-	  				<li>Explore</li>
-	  				<li>Share</li>
+	  				<li><n-link to="/">Learn</n-link></li>
+	  				<li><n-link to="/explore">Explore</n-link></li>
+	  				<li><n-link to="/share">Share</n-link></li>
 	  			</ul>
 	  		</nav>
 	  	</section>
@@ -90,6 +90,18 @@
 
 						li {
 							text-align: right;
+
+							a {
+								color: rgba(255, 255, 255, 0.8);
+
+								&:hover, &.nuxt-link-exact-active {
+									color: rgb(255, 255, 255);
+								}
+
+								&.nuxt-link-exact-active {
+									font-weight: 600;
+								}
+							}
 						}
 					}
 				}
