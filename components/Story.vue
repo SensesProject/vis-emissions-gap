@@ -27,6 +27,7 @@
           <div v-if="step === 5">
             <VisOptions />
             <a class="btn" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">See this data in the IIASA Database Workspace: PEP Emissions by major economies ↗</a>
+            <a class="btn">Download static graphics from this module</a>
           </div>
         </transition>
       </div>

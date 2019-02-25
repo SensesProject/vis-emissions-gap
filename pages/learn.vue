@@ -2,6 +2,7 @@
   <div class="wrapper">
     <ul>
     	<li><n-link to="/module">Are we doing enough?</n-link></li>
+      <li><a href="https://www.climatescenarios.org/primer">Primer</a></li>
     </ul>
   </div>
 </template>
