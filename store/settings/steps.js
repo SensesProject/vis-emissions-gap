@@ -2,7 +2,6 @@
 
 module.exports = {
   steps: [{
-    title: 'Where are we coming from?',
     clips: {
       NDC: 'start',
       eff: 'start',
@@ -21,7 +20,6 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
     clips: {
       NDC: 2030,
       eff: 'start',
@@ -40,7 +38,6 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    title: 'What would immediate action look like in contrast?',
     clips: {
       NDC: 2030,
       eff: 2030,
@@ -59,7 +56,6 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    title: 'What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?',
     clips: {
       NDC: 'end',
       eff: 'end',
@@ -78,7 +74,6 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    title: 'To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?',
     clips: {
       NDC: 'end',
       eff: 'end',
@@ -97,7 +92,6 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    title: 'Geführtes Explore',
     visibility: ['linehistoric'],
     legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
     clips: {
