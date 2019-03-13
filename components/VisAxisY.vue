@@ -41,7 +41,7 @@
   import mean from 'lodash/mean'
   import { format } from 'd3-format'
 
-  const f = format(`.2s`)
+  const f = format(`.1s`)
 
   export default {
     props: ['margin', 'height', 'scaleY'],
