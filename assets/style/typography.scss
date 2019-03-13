@@ -33,6 +33,29 @@ p {
   margin-bottom: 0.7em;
 }
 
+.footnotes li {
+  color: palette(grey, 50);
+  font-size: $size-default;
+  margin-bottom: 0.7em;
+
+  &:target{
+    animation-duration: 2s;
+    animation-name: highlight;
+  }
+}
+
+@keyframes highlight {
+  0% {
+    color: palette(grey, 50);
+  }
+  50% {
+    color: palette(grey, 0);
+  }
+  100% {
+    color: palette(grey, 50);
+  }
+}
+
 span {
   &.ndc {
     border-bottom: 2px solid $color-violet;
