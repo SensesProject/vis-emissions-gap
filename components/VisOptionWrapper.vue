@@ -1,6 +1,6 @@
 <template slot-scope="{signal}">
   <section :class="{ option: true, isWide }">
-    <span class="description">{{ label }}</span>
+    <span class="description">{{ label }}</span> <span v-if="tooltip" class="detail" v-tooltip="tooltip">?</span>
     <ul>
       <slot />
     </ul>
@@ -9,7 +9,7 @@
 
 <script>
   export default {
-    props: ['label', 'isWide']
+    props: ['label', 'isWide', 'tooltip']
   }
 </script>
 
@@ -17,11 +17,16 @@
   @import "~@/assets/style/global";
 
   .option {
-    .description {
+    .description, .detail {
       font-weight: $font-weight-bold;
       text-transform: uppercase;
       letter-spacing: $spacing-wider;
       font-size: $size-smallest;
+      display: inline-block;
+    }
+
+    .detail {
+      color: palette(grey, 40);
     }
 
     ul {

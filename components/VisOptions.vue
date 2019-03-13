@@ -2,19 +2,19 @@
   <div class="vis-options">
     <p>Montes est felis ea ac facilisi id doming elementum te commodo praesent ea stet condimentum, luptatum mi cum ultricies nibh erat voluptua differentiation at nonummy eum differentiated justointeger.</p>
     <section class="options-wrapper">
-      <VisOptionWrapper label="Climate Target">
+      <VisOptionWrapper label="Climate Target" tooltip="1.5°C: carbon budget 2011-2100 of 400 Gt CO2, 2°C: carbon budget 2011-2100 of 1000 Gt CO2">
         <VisOption option="1p5C" slug="degree" :current="degree">1.5 C</VisOption>
         <VisOption option="2C" slug="degree" :current="degree">2 C</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper label="CDR Availability">
+      <VisOptionWrapper label="CDR Availability" tooltip="Carbon Dioxide Removal (CDR) is the term used for various options to actively remove CO2 from the atmosphere. Options included in this study are additional afforestation (limited to an area of 375 million ha in the “reduced availability case”) and bioenergy with carbon capture and storage (BECCS). For the latter, the yearly maximum is around 20 Gt CO2 /yr in the full availability case (corresponding to around 300 EJ of bioenergy) and 10 Gt CO2/yr in the reduced availability case.">
         <VisOption option="full" slug="part" :current="part">Full</VisOption>
         <VisOption option="red" slug="part" :current="part">Reduced</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper label="Emissions">
+      <VisOptionWrapper label="Emissions" tooltip="TODO">
         <VisOption option="CO2" slug="variable" :current="variable">CO<sub>2</sub></VisOption>
         <VisOption option="Kyoto Gases" slug="variable" :current="variable">Kyoto Gases</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper label="Timeframe">
+      <VisOptionWrapper label="Timeframe" tooltip="The long-term targets are implemented as bounds of cumulative emissions (carbon budgets) of 1000 Gt CO2 for 2°C, and 400 Gt CO2 for 1.5°C, from 2011&ndash;2100 respectively.">
         <VisOption :option="[1990, 2050]" slug="range" :current="range">Until 2050</VisOption>
         <VisOption :option="[1990, 2100]" slug="range" :current="range">Until 2100</VisOption>
       </VisOptionWrapper>
