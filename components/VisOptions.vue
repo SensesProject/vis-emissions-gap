@@ -6,7 +6,7 @@
         <VisOption option="1p5C" slug="degree" :current="degree">1.5 C</VisOption>
         <VisOption option="2C" slug="degree" :current="degree">2 C</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper label="Climate Target">
+      <VisOptionWrapper label="CDR Availability">
         <VisOption option="full" slug="part" :current="part">Full</VisOption>
         <VisOption option="red" slug="part" :current="part">Reduced</VisOption>
       </VisOptionWrapper>
