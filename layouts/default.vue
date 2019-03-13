@@ -3,7 +3,6 @@
     <header>
       <section class="page-header">
         <h1><n-link to="/">Senses</n-link></h1>
-        <span><n-link to="/">← Back to the Toolkit overview</n-link></span>
         <nav class="page-nav">
           <ul>
             <li><n-link to="/learn">Learn</n-link></li>
