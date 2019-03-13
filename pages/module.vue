@@ -41,6 +41,7 @@
     justify-content: space-between;
     min-height: 100%;
     margin-top: $spacing;
+    width: 100%;
 
     .wrapper {
       min-height: 550px;
