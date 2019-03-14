@@ -10,7 +10,7 @@
       v-if="el.label"
       class="verticalLine marker"
       :x="x"
-      :y="y2 - 10"
+      :y="y2 - 5"
       text-anchor="middle"
     >{{ el.label }}</text>
   </g>

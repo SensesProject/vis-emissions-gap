@@ -19,8 +19,14 @@ module.exports = {
     {
       id: 'markerplateau',
       type: 'dot',
-      data: [[[2025, 62000]]],
+      data: [[[2025, 57000]]],
       label: 'Plateau'
+    },
+    {
+      id: 'today',
+      type: 'verticalLine',
+      data: [[[2019, 0]]],
+      label: 'Today'
     },
     {
       id: 'markerpolicy',

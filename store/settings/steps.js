@@ -26,7 +26,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'area2030', 'markerplateau'],
+    visibility: ['linehistoric', 'today'],
     legend: ['historic', 'NDC'],
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -44,7 +44,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'area2030', 'markerpolicy'],
+    visibility: ['linehistoric', 'today'],
     legend: ['historic', 'NDC', 'eff'],
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',

@@ -1,6 +1,7 @@
 <template>
 	<g>
 	  <circle
+      v-if="false"
 	    class="dot"
 	    :cx="x + 'px'"
 	    :cy="y + 'px'"
@@ -25,7 +26,7 @@
     data: function () {
       return {
         r: 7,
-        offset: 5
+        offset: 0
       }
     },
     computed: {
