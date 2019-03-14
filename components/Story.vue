@@ -27,14 +27,25 @@
             <p>Under the assumption that some strengthening of <span class="eff" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">policies</span> is achieved already in 2020 and that globally coordinated <span class="info" v-tooltip="'The …'">carbon pricing</span> is in place in 2025, strong reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for <span class="info" v-tooltip="'The …'">mitigation technologies</span>.</p>
           </article>
           <article v-if="step === 3">
-            <h1>What strengthening of action after 2030 would be required to reach the 1.5°C and 2°C goals after targeting the NDCs by 2030?</h1>
-            <p>If coordinated policies only start after following the NDC trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more carbon dioxide removal (CDR) would be needed in the second half of the century. Abrupt emission reductiosn would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants. CDR options include afforestation or the combination of bio-energy with carbon capture and storage. The need for those increases, as the additional emissions before the point of crossing of the two trajectories [dies könnte ja mit einem highlight in der grafik verbunden werden, über hover over...] have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.</p>
+            <h1>But how can we reach the 1.5° C goal?</h1>
+            <p>If coordinated policies only start after following the NDC trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more <span class="info" v-tooltip="'The …'">carbon dioxide removal</span> (CDR) would be needed in the second half of the century.</p>
+            <p>Abrupt emission reduction would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants. CDR options include afforestation or the combination of bio-energy with carbon capture and storage.</p>
+            <p>The need for those increases, as the additional emissions before the point of crossing of the two trajectories have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.</p>
           </article>
           <article v-if="step === 4">
-            <h1>To what extent would mitigation challenges be reduced by strengthening action/NDCs before 2030?</h1>
-            <p>The policy assumption in the "immediate" scenarios are very optimistic, as it currently seems unlikely that globally coordinated carbon pricing is in place in 2025. Therefore, the two additional scenario <span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">"GoodPractice"</span> and <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">NetZero"</span> show how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-optimal "immediate" scenario. In both scenarios, there are specific policies in place in all energy supply and demand sectors, such as efficiency standards, renewable quotas or target shares for electric vehicles (see table 2 in <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a>).</p>
-            <p><span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">"GoodPractice"</span> values are based on an analysis of policy successes as already observed in some legislation, extended to all countries with some regional differentiation to account for differentiated capabilities.</p>
-            <p>In <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">NetZero"</span>, the ambition of these policies is further increased, in view of the requirements to achive net-zero emissions in all sectors in the second half of the century.</p>
+            <header>
+              <h1>What are the alternatives?</h1>
+            </header>
+            <section>
+              <p>The policy assumption in the “immediate” scenarios are very optimistic, as it currently seems unlikely that globally coordinated carbon pricing is in place in 2025. Therefore, the two additional scenario <span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">“GoodPractice”</span> and <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“NetZero”</span> show how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-optimal “immediate” scenario. In both scenarios, there are <a aria-describedby="footnotes" href="#fn-policies" id="fn-policies-ref">specific policies</a> in place in all energy supply and demand sectors, such as efficiency standards, renewable quotas or target shares for electric vehicles.</p>
+              <p><span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">“GoodPractice”</span> values are based on an analysis of policy successes as already observed in some legislation, extended to all countries with some regional differentiation to account for differentiated capabilities.</p>
+              <p>In <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“NetZero”</span>, the ambition of these policies is further increased, in view of the requirements to achive net-zero emissions in all sectors in the second half of the century.</p>
+            </section>
+            <footer id="footnotes" class="footnotes">
+              <ol>
+                <li id="fn-policies">See table 2 in <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a>.</li>
+              </ol>
+            </footer>
           </article>
           <article v-if="step === 5">
             <h1>Geführtes Explore</h1>

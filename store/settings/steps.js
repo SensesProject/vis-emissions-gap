@@ -62,7 +62,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'markercross'],
+    visibility: ['linehistoric', 'ndc'],
     legend: ['historic', 'NDC', 'eff'],
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',

@@ -29,6 +29,12 @@ module.exports = {
       label: 'Today'
     },
     {
+      id: 'ndc',
+      type: 'verticalLine',
+      data: [[[2030, 0]]],
+      label: 'Latest point of action'
+    },
+    {
       id: 'markerpolicy',
       type: 'dot',
       data: [[[2020, 62500]]],
