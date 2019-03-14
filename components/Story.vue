@@ -112,12 +112,18 @@
     flex-direction: column;
     height: 100%;
 
+    & > * {
+      width: 100%;
+    }
+
     section {
       flex: 1;
     }
 
-    footer {
+    .footnotes {
       align-self: flex-end;
+      padding-left: 1em;
+      margin-bottom: $spacing;
     }
   }
 
@@ -136,9 +142,4 @@
     margin-left: 2px;
     cursor: default;
   }
-
-  .footnotes {
-    margin-left: 1em;
-  }
-
 </style>

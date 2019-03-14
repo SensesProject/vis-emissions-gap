@@ -80,7 +80,7 @@ module.exports = {
       goodpractice: 'end',
       netzero: 'end'
     },
-    visibility: ['linehistoric', 'line25'],
+    visibility: ['linehistoric', 'ndc'],
     legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',

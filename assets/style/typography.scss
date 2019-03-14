@@ -69,19 +69,19 @@ sub {
 
 span {
   &.ndc {
-    border-bottom: 2px solid $color-violet;
+    border-bottom: 2px solid #b7005e;
   }
 
   &.eff {
-    border-bottom: 2px solid $color-yellow;
+    border-bottom: 2px solid #feae00;
   }
 
   &.gp {
-    border-bottom: 2px solid $color-green;
+    border-bottom: 2px solid #d4584e;
   }
 
   &.nz {
-    border-bottom: 2px solid $color-blue;
+    border-bottom: 2px solid #e67c3e;
   }
 
   &.info {

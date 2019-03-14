@@ -50,19 +50,19 @@ line, path {
   transition-duration: 0.3s;
 
   &.NDC {
-    stroke: $color-violet;
-  }
-
-  &.eff {
-    stroke: $color-yellow;
+    stroke: #b7005e;
   }
 
   &.goodpractice {
-    stroke: $color-green;
+    stroke: #d4584e;
   }
 
   &.netzero {
-    stroke: $color-blue;
+    stroke: #e67c3e;
+  }
+
+  &.eff {
+    stroke: #feae00;
   }
 
   &.historic {
