@@ -4,11 +4,16 @@
       <div class="content">
         <transition name="fade" mode="out-in">
           <article v-if="step === 0">
-            <h1>Where are we coming from?</h1>
-            <p>This module explores how current <span class="info" v-tooltip="'The …'">decarbonization</span> efforts relate to the long-term targets of the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">Paris Agreement</span>. It is based on a modeling of the effect of detailed countries pledges until 2030, and three scenarios with strengthening of ambition from 2020 onwards, as published in the publication <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a>. The visualization represents an interactive and more detailed version of Figure 1 of that paper.</p>
-            <p>The graphs show alternative future pathways for global greenhouse gas / CO<sub>2</sub> emissions until the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref">2050</a>.</p>
+            <header>
+              <h1>Where are we coming from?</h1>
+            </header>
+            <section>
+              <p>This module explores how current <span class="info" v-tooltip="'The …'">decarbonization</span> efforts relate to the long-term targets of the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">Paris Agreement</span>. It is based on a <a aria-describedby="footnotes" href="#fn-paper" id="fn-paper-ref">modeling</a> of the effect of detailed countries pledges until 2030, and three scenarios with strengthening of ambition from 2020 onwards.</p>
+              <p>Let’s start with the historic global greenhouse gas emissions from 1990 and see how alternative future pathways develop unter the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref">2050</a>…</p>
+            </section>
             <footer id="footnotes" class="footnotes">
               <ol>
+                <li id="fn-paper">Published in <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a> and described in Figure 1 of that paper.</li>
                 <li id="fn-year">The actual modeling is done out to 2100 so to guarantee adherence to the long-term climate targets, but the graphs focus on the next decades for which current actions are decisive. The long-term targets are implemented as bounds of cumulative emissions (carbon budgets) of 1000 Gt CO<sub>2</sub> for 2°C, and 400 Gt CO<sub>2</sub> for 1.5°C, from 2011&ndash;2100 respectively.</li>
               </ol>
             </footer>
@@ -83,10 +88,26 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
+
+    .content {
+      height: 100%;
+    }
   }
 
   article {
     counter-reset: footnotes;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    section {
+      flex: 1;
+    }
+
+    footer {
+      align-self: flex-end;
+    }
   }
 
   [aria-describedby="footnotes"] {
