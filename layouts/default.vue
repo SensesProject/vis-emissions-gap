@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <header>
+    <header class="page-head">
       <section class="page-header">
         <h1><n-link to="/">Senses</n-link></h1>
         <nav class="page-nav">
@@ -22,7 +22,7 @@
     <div class="page-content" role="main">
       <nuxt/>
     </div>
-    <footer>
+    <footer class="page-foot">
       <section class="page-footer">
         <span class="footer">2018 – The SENSES Toolkit is part of the SENSES Project. Visit senses-project.org for more information.</span>
       </section>
@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
 
-    header, footer {
+    .page-head, .page-foot {
       color: #fff;
       display: flex;
       flex-direction: column;
