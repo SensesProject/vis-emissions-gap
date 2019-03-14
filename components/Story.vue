@@ -19,8 +19,8 @@
             </footer>
           </article>
           <article v-if="step === 1">
-            <h1>What is the collective outcome of the NDCs in terms of global emissions in 2030?</h1>
-            <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000-2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a <strong>plateau</strong> <StoryDot /> from 2020-2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
+            <h1>Is the Paris Agreement making a change?</h1>
+            <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000–2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a <strong>plateau</strong> <StoryDot /> from 2020–2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
           </article>
           <article v-if="step === 2">
             <h1>What would immediate action look like in contrast?</h1>
