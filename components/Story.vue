@@ -9,7 +9,7 @@
             </header>
             <section>
               <p>This module explores how current <span class="info" v-tooltip="'The …'">decarbonization</span> efforts relate to the long-term targets of the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">Paris Agreement</span>. It is based on a <a aria-describedby="footnotes" href="#fn-paper" id="fn-paper-ref">modeling</a> of the effect of detailed countries pledges until 2030, and three scenarios with strengthening of ambition from 2020 onwards.</p>
-              <p>Let’s start with the historic global greenhouse gas emissions from 1990 and see how alternative future pathways develop unter the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref">2050</a>…</p>
+              <p>Let’s start with the historic global greenhouse gas emissions from 1990 and see how alternative future pathways develop until the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref">2050</a>…</p>
             </section>
             <footer id="footnotes" class="footnotes">
               <ol>
@@ -20,7 +20,7 @@
           </article>
           <article v-if="step === 1">
             <h1>Is the Paris Agreement making a change?</h1>
-            <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000–2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
+            <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000–2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)" v-tooltip="'Each country …'">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
           </article>
           <article v-if="step === 2">
             <h1>What would immediate action look like in contrast?</h1>
