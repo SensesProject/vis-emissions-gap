@@ -2,12 +2,18 @@
   <footer>
     <ul class="nav">
       <li @click="previousStep" :class="{ inactive: step === 0 }">
-        <span>Previous step</span>
-        <small>Title of previous step</small>
+        <section>
+          <span>Previous step</span>
+          <small>Title of previous step</small>
+        </section>
+        <i class="icon-angle-left" />
       </li>
       <li @click="nextStep" :class="{ inactive: step === steps.length - 1 }">
-        <span>Next step</span>
-        <small>Title of next step</small>
+        <section>
+          <span>Next step</span>
+          <small>Title of next step</small>
+        </section>
+        <i class="icon-angle-right" />
       </li>
     </ul>
     <svg class="progress">
@@ -61,6 +67,8 @@
       cursor: pointer;
       color: palette(grey, 40);
       font-size: $size-big;
+      display: flex;
+      align-items: center;
 
       span, small {
         display: block;
@@ -72,24 +80,25 @@
         font-weight: $font-weight-bold;
       }
 
+      i {
+        line-height: 1;
+        font-size: 1.3rem;
+      }
+
+      &:first-child {
+        flex-direction: row-reverse;
+        text-align: left;
+      }
+
       &:last-child {
         text-align: right;
 
-        span {
+        span, i {
           color: #39C88A;
         }
       }
 
-      &:first-child {
-        text-align: left;
-
-        span {
-          // color: palette(grey, 100);
-        }
-      }
-
       &:hover {
-        // background-color: palette(primary, 50);
         span, small {
           color: #2F3652;
         }
@@ -98,11 +107,6 @@
       &.inactive {
         pointer-events: none;
         color: palette(grey, 70);
-
-        // &:last-child {
-        //   background-color: palette(grey, 90);
-        //   color: palette(grey, 70);
-        // }
       }
     }
   }
