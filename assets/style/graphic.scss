@@ -9,6 +9,18 @@ path.area {
   opacity: 0.2;
 }
 
+path {
+  &.negative {
+    fill: $color-green;
+    opacity: 0.3;
+  }
+
+  &.positive {
+    fill: $color-red;
+    opacity: 0.3;
+  }
+}
+
 rect {
   &.clip {
     transition-duration: 0.3s;
@@ -20,6 +32,11 @@ rect {
 }
 
 line {
+  &.zero {
+    stroke: palette(grey, 20);
+    stroke-width: 1px;
+  }
+
   &.axis {
     stroke: palette(grey, 70);
     stroke-width: 1px;
@@ -109,6 +126,14 @@ text {
     fill: palette(grey, 40);
     // font-weight: $font-weight-bold;
     font-size: $size-default;
+
+    &.positive {
+      fill: $color-red;
+    }
+
+    &.negative {
+      fill: $color-green;
+    }
   }
 
   &.axis {

@@ -4,8 +4,8 @@
       class="axis"
       :x1="margin[0]"
       :x2="width - margin[0]"
-      :y1="height - margin[1]"
-      :y2="height - margin[1]" />
+      :y1="margin[1]"
+      :y2="margin[1]" />
     <g
       v-for="tick in axis.ticks"
       :key="tick.key">
@@ -17,9 +17,9 @@
         {{ tick.label }}
       </text>
       <line
-        :y1="height - margin[1] + 'px'"
+        :y1="margin[1] + 'px'"
         :x1="tick.x + 'px'"
-        :y2="height - margin[1] + margin[1] / 5 + 'px'"
+        :y2="margin[1] - margin[1] / 5 + 'px'"
         :x2="tick.x + 'px'"
         class="tick" />
     </g>
@@ -46,7 +46,7 @@
             return {
               key: i,
               label: timeFormat('%Y')(tick),
-              y: this.height - this.margin[1] / 2,
+              y: this.margin[1] / 2,
               x: scaleX(tick)
             }
           })

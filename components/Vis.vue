@@ -28,6 +28,13 @@
               :width="width"
               :scaleX="scaleX"
               :scaleY="scaleY" />
+            <VisZeroLine
+              :margin="margin"
+              :height="height"
+              :width="width"
+              :scaleX="scaleX"
+              :scaleY="scaleY" />
+          </g>
           </g>
         </svg>
       </transition>
@@ -51,6 +58,7 @@
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
   import VisPath from '~/components/VisPath.vue'
+  import VisZeroLine from '~/components/VisZeroLine.vue'
 
   function extractValues (arr, path, func) {
     return flattenDeep(map(arr, a => {
@@ -118,7 +126,8 @@
 
         const maxY = Math.max(...yValues)
         let minY = Math.min(...yValues)
-        return [minY < 0 ? minY : 0, maxY]
+        const buffer = -maxY * 0.1
+        return [minY < buffer ? minY : buffer, maxY]
       },
       scaleY: function () {
         return scaleLinear()
@@ -154,7 +163,8 @@
       VisAxis,
       VisElement,
       VisLegend,
-      VisPath
+      VisPath,
+      VisZeroLine
     }
   }
 </script>
