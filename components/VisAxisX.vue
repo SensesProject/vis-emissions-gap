@@ -7,7 +7,7 @@
       :y1="margin[1]"
       :y2="margin[1]" />
     <g
-      v-for="tick in axis.ticks"
+      v-for="tick in ticks"
       :key="tick.key">
       <text
         :y="tick.y + 'px'"
@@ -28,29 +28,21 @@
 
 <script>
   import map from 'lodash/map'
-  import mean from 'lodash/mean'
   import { timeFormat } from 'd3-time-format'
 
   export default {
     props: ['margin', 'height', 'width', 'scaleX'],
     computed: {
-      axis: function () {
-        const { scaleX, height } = this
-        const label = 'time'
-        const x = scaleX(mean(scaleX.domain()))
-        return {
-          label,
-          x,
-          y: height - 20,
-          ticks: map(scaleX.ticks(), (tick, i) => {
-            return {
-              key: i,
-              label: timeFormat('%Y')(tick),
-              y: this.margin[1] / 2,
-              x: scaleX(tick)
-            }
-          })
-        }
+      ticks: function () {
+        const { scaleX } = this
+        return map(scaleX.ticks(), (tick, i) => {
+          return {
+            key: i,
+            label: timeFormat('%Y')(tick),
+            y: this.margin[1] / 2,
+            x: scaleX(tick)
+          }
+        })
       }
     }
   }
