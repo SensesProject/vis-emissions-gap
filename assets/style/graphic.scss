@@ -173,4 +173,30 @@ circle {
     fill: $color-red;
     stroke-width: 1px;
   }
+
+  &.short {
+    opacity: 1;
+  }
+
+  &.long {
+    opacity: 0.5;
+  }
+}
+
+g {
+  &.NDC circle {
+    fill: #b7005e;
+  }
+
+  &.goodpractice circle {
+    fill: #d4584e;
+  }
+
+  &.netzero circle {
+    fill: #e67c3e;
+  }
+
+  &.eff circle {
+    fill: #feae00;
+  }
 }

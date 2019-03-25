@@ -5,6 +5,7 @@ import highlight from './modules/highlight'
 import scenario from './modules/scenario'
 import navigation from './modules/navigation'
 import data from './modules/data'
+import prices from './modules/prices'
 import { map, find, compact, filter, reverse, get } from 'lodash'
 const { config } = require('./../config.js')
 const { steps } = require('./settings/steps.js')
@@ -24,11 +25,12 @@ export const state = () => {
     legend,
     elements,
     options,
-    policies: ['historic', 'eff', 'goodpractice', 'NDC', 'netzero']
+    policies: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero']
   }
 }
 
 export const modules = {
+  prices,
   data,
   highlight,
   navigation,

@@ -1,0 +1,99 @@
+{
+	"prices": [{
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "1p5C",
+		"part": "full",
+		"policy": "eff",
+		"region": "World",
+		"values": [645, 441]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "1p5C",
+		"part": "full",
+		"policy": "NDC",
+		"region": "World",
+		"values": [138, 1113]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "1p5C",
+		"part": "full",
+		"policy": "goodpractice",
+		"region": "World",
+		"values": [241, 944]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "1p5C",
+		"part": "full",
+		"policy": "netzero",
+		"region": "World",
+		"values": [315, 808]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "full",
+		"policy": "eff",
+		"region": "World",
+		"values": [496, 466]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "full",
+		"policy": "NDC",
+		"region": "World",
+		"values": [138, 923]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "full",
+		"policy": "goodpractice",
+		"region": "World",
+		"values": [241, 757]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "full",
+		"policy": "netzero",
+		"region": "World",
+		"values": [315, 649]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "red",
+		"policy": "eff",
+		"region": "World",
+		"values": [589, 469]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "red",
+		"policy": "NDC",
+		"region": "World",
+		"values": [138, 1175]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "red",
+		"policy": "goodpractice",
+		"region": "World",
+		"values": [241, 996]
+	}, {
+		"model": "REMIND-MAgPIE 1.7-3.0",
+		"scenario": "PEP",
+		"degree": "2C",
+		"part": "red",
+		"policy": "netzero",
+		"region": "World",
+		"values": [315, 856]
+	}]
+}

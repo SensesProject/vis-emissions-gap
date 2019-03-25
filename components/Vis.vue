@@ -40,7 +40,7 @@
       </transition>
     </div>
     <footer class="vis-footer">
-      <VisLegend :elements="legend" :visibility="steps[step].legend" />
+      <VisPrices />
     </footer>
   </section>
 </template>
@@ -54,7 +54,7 @@
   import isEmpty from 'lodash/isEmpty'
   import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
-  import VisLegend from '~/components/VisLegend.vue'
+  import VisPrices from '~/components/VisPrices.vue'
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
   import VisPath from '~/components/VisPath.vue'
@@ -80,7 +80,6 @@
     mounted () {
       this.calcSizes()
       window.addEventListener('resize', this.calcSizes, false)
-      console.log(this.elements)
     },
     beforeDestroy () {
       window.removeEventListener('resize', this.calcSizes, false)
@@ -162,7 +161,7 @@
     components: {
       VisAxis,
       VisElement,
-      VisLegend,
+      VisPrices,
       VisPath,
       VisZeroLine
     }
