@@ -19,8 +19,10 @@ function processData (data) {
   })
 }
 
-const state = {
-  data: []
+const state = () => {
+  return {
+    data: []
+  }
 }
 
 const mutations = {

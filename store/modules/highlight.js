@@ -1,5 +1,7 @@
-const state = {
-  highlight: false
+const state = () => {
+  return {
+    highlight: false
+  }
 }
 
 const mutations = {

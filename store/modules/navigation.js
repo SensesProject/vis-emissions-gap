@@ -1,7 +1,9 @@
 import get from 'lodash/get'
 
-const state = {
-  step: 0
+const state = () => {
+  return {
+    step: 0
+  }
 }
 
 const mutations = {
