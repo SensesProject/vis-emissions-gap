@@ -26,7 +26,7 @@ module.exports = {
       id: 'today',
       type: 'verticalLine',
       data: [[[2019, 0]]],
-      label: 'Today'
+      label: ''
     },
     {
       id: 'ndc',

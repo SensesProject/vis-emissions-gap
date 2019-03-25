@@ -6,7 +6,6 @@
 
 <script>
   import { line } from 'd3-shape'
-  import { timeParse } from 'd3-time-format'
 
   export default {
     props: ['el', 'scaleX', 'scaleY', 'data'],
@@ -20,7 +19,7 @@
         const { scaleX, scaleY } = this
         return line()
           .x((d, i) => {
-            return scaleX(timeParse('%Y')(d[0]))
+            return scaleX(new Date(d[0], 1, 1))
           })
           .y((d, i) => {
             return scaleY(d[1])

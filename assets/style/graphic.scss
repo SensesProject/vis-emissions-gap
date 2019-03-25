@@ -112,10 +112,15 @@ g {
 }
 
 text {
-  &.tick {
+  &.tick, tspan.tick {
     fill: palette(grey, 50);
     font-weight: $font-weight-bold;
     font-size: $size-small;
+  }
+
+  tspan.info {
+    fill: palette(grey, 60);
+    font-size: $size-smaller;
   }
 
   &.area {

@@ -7,7 +7,7 @@
       :y1="y"
       :y2="y" />
     <VisPulse
-      :x="mx1"
+      :x="mx1 - 30"
       :y="y - 20"
     />
     <text
