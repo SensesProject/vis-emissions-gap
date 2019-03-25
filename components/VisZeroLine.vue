@@ -13,20 +13,20 @@
       class="negative"
       :d="`M${margin[0]} ${zero} H${width - margin[0]} V${zero + 5} H${margin[0]} V${zero}`" />
     <text
-      class="negative marker"
-      :x="center"
-      :y="zero + 10"
-      dominant-baseline="hanging"
-      text-anchor="middle">
-      negative
-    </text>
-    <text
       class="positive marker"
       :x="center"
       :y="zero - 10"
       dominant-baseline="baseline"
       text-anchor="middle">
-      positive
+      Emitting CO<tspan class="super" baseline-shift="super">2</tspan>
+    </text>
+    <text
+      class="negative marker"
+      :x="center"
+      :y="zero + 10"
+      dominant-baseline="hanging"
+      text-anchor="middle">
+      Extracting CO<tspan class="super" baseline-shift="super">2</tspan>
     </text>
   </g>
 </template>

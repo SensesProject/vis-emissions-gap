@@ -134,6 +134,10 @@ text {
     &.negative {
       fill: $color-green;
     }
+
+    .super {
+      font-size: $size-smaller;
+    }
   }
 
   &.axis {
