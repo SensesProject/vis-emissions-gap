@@ -4,7 +4,11 @@
       v-for="dot in dots"
       :class="dot.policy"
       :key="dot.policy">
-     <circle
+    <text
+      text-anchor="middle"
+      y="10"
+      :x="dot.x">{{ dot.policy }}</text>
+    <circle
       class="short"
       :r="dot.short"
       :cx="dot.x"
@@ -54,7 +58,7 @@
       },
       scaleR: function () {
         return scaleLinear()
-          .range([10, this.height / 2])
+          .range([1, this.height / 2 - 15])
           .domain(this.extentPrices)
       },
       dots: function () {

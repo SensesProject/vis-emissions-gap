@@ -130,7 +130,7 @@
       },
       scaleY: function () {
         return scaleLinear()
-          .range([this.height - this.margin[1], this.margin[1]])
+          .range([this.height, this.margin[1]])
           .domain(this.extentY).nice()
       }
     },
