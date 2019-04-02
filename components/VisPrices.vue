@@ -1,30 +1,33 @@
 <template>
   <svg class="vis-prices" ref="vis">
   	<g
+      v-if="isReady"
       v-for="dot in dots"
       :class="dot.policy"
       :key="dot.policy">
     <text
       text-anchor="middle"
       y="10"
-      :x="dot.x">{{ dot.policy }}</text>
-    <circle
+      :x="dot.labelX">{{ dot.policy }}</text>
+    <rect
       class="short"
-      :r="dot.short"
-      :cx="dot.x"
-      :cy="height / 2" />
-    <circle
+      :height="dot.short"
+      :width="dot.width"
+      :x="dot.x"
+      :y="height - dot.short" />
+    <rect
       class="long"
-      :r="dot.long"
-      :cx="dot.x"
-      :cy="height / 2" />
+      :height="dot.long"
+      :width="dot.width"
+      :x="dot.x"
+      :y="height - dot.long" />
     </g>
   </svg>
 </template>
 
 <script>
   import { mapState } from 'vuex'
-  import { map, pull, find, flatten, get, clone } from 'lodash'
+  import { map, find, flatten, get } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
 
@@ -32,34 +35,31 @@
     data: function () {
       return {
         width: 0,
-        height: 0
+        height: 0,
+        policies: ['NDC', 'goodpractice', 'netzero', 'eff']
       }
     },
     computed: {
       ...mapState({
         'prices': state => state.prices.prices.data,
-        'scenario': state => state.scenario.scenario,
-        'policiesRaw': state => state.policies
+        'scenario': state => state.scenario.scenario
       }),
-      policies: function () {
-        const { policiesRaw } = this
-        const policies = clone(policiesRaw)
-        pull(policies, 'historic')
-        return policies
-      },
       extentPrices: function () {
         return extent(flatten(map(this.prices, 'values')))
       },
       scaleX: function () {
         return scaleBand()
-          .paddingInner(0.05)
+          .padding(0.5)
           .rangeRound([0, this.width])
           .domain(this.policies)
       },
-      scaleR: function () {
+      scaleY: function () {
         return scaleLinear()
-          .range([1, this.height / 2 - 15])
-          .domain(this.extentPrices)
+          .range([0, this.height - 15])
+          .domain([0, this.extentPrices[1]])
+      },
+      isReady: function () {
+        return this.scaleY.domain()[1] && this.width && this.height
       },
       dots: function () {
         const { policies, scenario, prices } = this
@@ -67,14 +67,18 @@
         return map(policies, policy => {
           const item = find(prices, { policy, degree, part })
           const [short, long] = map(get(item, 'values'), value => {
-            return this.scaleR(value)
+            return this.scaleY(value)
           })
-          const x = this.scaleX(policy) + this.scaleX.bandwidth() / 2
+          const x = this.scaleX(policy)
+          const width = this.scaleX.bandwidth()
+          const labelX = x + width / 2
           return {
             short,
             long,
+            width,
             x,
-            policy
+            policy,
+            labelX
           }
         })
       }

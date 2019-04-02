@@ -173,7 +173,9 @@ circle {
     fill: $color-red;
     stroke-width: 1px;
   }
+}
 
+rect {
   &.short {
     opacity: 1;
   }
@@ -184,19 +186,19 @@ circle {
 }
 
 g {
-  &.NDC circle {
+  &.NDC rect {
     fill: #b7005e;
   }
 
-  &.goodpractice circle {
+  &.goodpractice rect {
     fill: #d4584e;
   }
 
-  &.netzero circle {
+  &.netzero rect {
     fill: #e67c3e;
   }
 
-  &.eff circle {
+  &.eff rect {
     fill: #feae00;
   }
 }
