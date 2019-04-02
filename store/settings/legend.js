@@ -11,15 +11,15 @@ module.exports = {
     label: 'NDC'
   }, {
     type: 'line',
-    attribute: 'eff',
-    label: 'Cost-effective pricing'
-  }, {
-    type: 'line',
     attribute: 'goodpractice',
     label: 'Good Pratice'
   }, {
     type: 'line',
     attribute: 'netzero',
     label: 'Net Zero'
+  }, {
+    type: 'line',
+    attribute: 'eff',
+    label: 'Cost-effective pricing'
   }]
 }
