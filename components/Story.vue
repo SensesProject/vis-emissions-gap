@@ -9,7 +9,7 @@
             </header>
             <section>
               <p>This module explores how current <span class="info" v-tooltip="'The …'">decarbonization</span> efforts relate to the long-term targets of the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">Paris Agreement</span>. It is based on a <a aria-describedby="footnotes" href="#fn-paper" id="fn-paper-ref">modeling</a> of the effect of detailed countries pledges until 2030, and three scenarios with strengthening of ambition from 2020 onwards.</p>
-              <p>Let’s start with the historic global greenhouse gas emissions from 1990 until 2016 and see how alternative future pathways develop until the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref">2050</a>…</p>
+              <p>Let’s start with the historic global greenhouse gas emissions from 1990 until 2016 [CO2 Emissionen, die zum größten Teil aus der Verbrennung von Kohle, Öl und Gas kommen, die Hauptursache für den bisherigen Temperaturanstieg von ca. 1°C sind] and see how alternative future pathways develop until the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref">2050</a>…</p>
             </section>
             <footer id="footnotes" class="footnotes">
               <ol>
@@ -20,30 +20,73 @@
           </article>
           <article v-if="step === 1">
             <header>
-              <h1>Is the Paris Agreement making a change?</h1>
+              <h1>Where do we want to go?</h1>
+            </header>
+            <section>
+              <p>Paris Agreement set the long-term target of keeping a global temperature rise this century well below 2 degrees Celsius above pre-industrial levels and to pursue efforts to limit the temperature increase even further to 1.5 degrees Celsius</p>
+              <p>For 2°C, CO2 emission have to be reduced to zero around 2075 (Pfeil Richtung Null in 2075)</p>
+              <p>For 1.5°C, CO2 emissions have to be reduced to zero around 2050 (Pfeil bis Null in 2050)</p>
+              <p>Mentioning relationship "Area under emission curve" ~ Temperature outcome?</p>
+            </section>
+          </article>
+          <article v-if="step === 2">
+            <header>
+              <h1>How do we get there?</h1>
+              <h2>Is the Paris Agreement making a change? / What are the short-term targets of the Paris Agreement?</h2>
             </header>
             <section>
               <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000–2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)" v-tooltip="'Each country …'">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
               <p>The problem is: We need to dramatically reduce emissions and not stay on the same level.</p>
             </section>
           </article>
-          <article v-if="step === 2">
-            <h1>What would immediate action look like in contrast?</h1>
+          <article v-if="step === 3">
+            <h1>How do we get there?</h1>
+            <h2>What would immediate action look like in contrast?</h2>
             <p>Under the assumption that some strengthening of <span class="eff" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">policies</span> is achieved already in 2020 and that globally coordinated <span class="info" v-tooltip="'The …'">carbon pricing</span> is in place in 2025, strong reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for <span class="info" v-tooltip="'The …'">mitigation technologies</span>.</p>
           </article>
-          <article v-if="step === 3">
-            <h1>But how can we reach the 1.5° C goal?</h1>
+          <article v-if="step === 4">
+            <h1>How do we get there?</h1>
+            <h2>But how can we reach the 1.5°C goal? / What do these short-term alternatives imply for achieving the long-term target of 1.5°C?</h2>
             <p>If coordinated policies only start after following the NDC trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more <span class="info" v-tooltip="'The …'">carbon dioxide removal</span> (CDR) would be needed in the second half of the century.</p>
             <p>Abrupt emission reduction would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants. CDR options include afforestation or the combination of bio-energy with carbon capture and storage.</p>
             <p>The need for those increases, as the additional emissions before the point of crossing of the two trajectories have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.</p>
           </article>
-          <article v-if="step === 4">
+          <article v-if="step === 5">
             <header>
-              <h1>What are the alternatives?</h1>
+              <h1>How do we get there?</h1>
+              <h2>What are the alternatives?</h2>
             </header>
             <section>
-              <p>The policy assumption in the “immediate” scenarios are very optimistic, as it currently seems unlikely that globally coordinated carbon pricing is in place in 2025. Therefore, the two additional scenario “<span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">Good Practice</span>” and “<span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Net Zero</span>” show how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-optimal “immediate” scenario. In both scenarios, there are <a aria-describedby="footnotes" href="#fn-policies" id="fn-policies-ref">specific policies</a> in place in all energy supply and demand sectors, such as efficiency standards, renewable quotas or target shares for electric vehicles.</p>
+              <p>Erstens Motivation, warum weder Eff noch NDC plausibel erscheint</p>
+              <p>The policy assumption in the “immediate” scenarios are very optimistic, as it currently seems unlikely that globally coordinated carbon pricing is in place in 2025.</p>
+            </section>
+            <footer id="footnotes" class="footnotes">
+              <ol>
+                <li id="fn-policies">See table 2 in <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a>.</li>
+              </ol>
+            </footer>
+          </article>
+          <article v-if="step === 6">
+            <header>
+              <h1>How do we get there?</h1>
+              <h2>What are the alternatives?</h2>
+            </header>
+            <section>
+              <p>Therefore, the two additional scenario “<span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">Good Practice</span>” and “<span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Net Zero</span>” show how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-optimal “immediate” scenario. In both scenarios, there are <a aria-describedby="footnotes" href="#fn-policies" id="fn-policies-ref">specific policies</a> in place in all energy supply and demand sectors, such as efficiency standards, renewable quotas or target shares for electric vehicles.</p>
               <p>“<span class="gp" @mouseover="setHighlight('goodpractice')" @mouseleave="setHighlight(false)">Good Practice</span>” values are based on an analysis of policy successes as already observed in some legislation, extended to all countries with some regional differentiation to account for differentiated capabilities.</p>
+            </section>
+            <footer id="footnotes" class="footnotes">
+              <ol>
+                <li id="fn-policies">See table 2 in <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a>.</li>
+              </ol>
+            </footer>
+          </article>
+          <article v-if="step === 7">
+            <header>
+              <h1>How do we get there?</h1>
+              <h2>What are the alternatives?</h2>
+            </header>
+            <section>
               <p>In “<span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Net Zero</span>”, the ambition of these policies is further increased, in view of the requirements to achive net-zero emissions in all sectors in the second half of the century. It represents ambitions of at least some of the actors.</p>
             </section>
             <footer id="footnotes" class="footnotes">
@@ -52,7 +95,7 @@
               </ol>
             </footer>
           </article>
-          <article v-if="step === 5">
+          <article v-if="step === 8">
             <h1>Geführtes Explore</h1>
             <VisOptions />
             <a class="btn" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">See this data in the IIASA Database Workspace: PEP Emissions by major economies ↗</a>
