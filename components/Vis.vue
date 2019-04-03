@@ -11,7 +11,7 @@
                 :scaleY="scaleY"
                 :key="el.i"
                 :el="el"
-                :visibility="steps[step].visibility"
+                :visibility="visiblity"
                 :dataset="dataset" />
             </g>
             <g>
@@ -103,6 +103,12 @@
       ...mapGetters([
         'currentPaths'
       ]),
+      visiblity: function () {
+        return get(this.steps, `${this.step}.visibility`, [])
+      },
+      clips: function () {
+        return get(this.steps, `${this.tstep}.clips`, [])
+      },
       isLoaded: function () {
         return !isEmpty(this.data)
       },
@@ -140,12 +146,11 @@
     },
     methods: {
       drawClipPathElements: function () {
-        const { steps, step, scaleX } = this
-        return map(steps[step].clips, (clip, id) => {
+        return map(this.clips, (clip, id) => {
           return {
             'clip': `clip${id}`,
             'height': 100 + '%',
-            'width': clip ? scaleX(timeParse('%Y')(clip)) : 0
+            'width': clip ? this.scaleX(timeParse('%Y')(clip)) : 0
           }
         })
       },
