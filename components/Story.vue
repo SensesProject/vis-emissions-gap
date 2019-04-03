@@ -1,5 +1,5 @@
 <template>
-  <section class="page-aside">
+  <section :class="{ 'page-aside': true, 'isLeft': step >= 3 }">
     <section class="aside-wrapper">
       <div class="content">
         <transition name="fade" mode="out-in">
@@ -8,15 +8,9 @@
               <h1>Where are we coming from?</h1>
             </header>
             <section>
-              <p>This module explores how current <span class="info" v-tooltip="'The …'">decarbonization</span> efforts relate to the long-term targets of the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">Paris Agreement</span>. It is based on a <a aria-describedby="footnotes" href="#fn-paper" id="fn-paper-ref">modeling</a> of the effect of detailed countries pledges until 2030, and three scenarios with strengthening of ambition from 2020 onwards.</p>
-              <p>Let’s start with the historic global greenhouse gas emissions from 1990 until 2016 [CO2 Emissionen, die zum größten Teil aus der Verbrennung von Kohle, Öl und Gas kommen, die Hauptursache für den bisherigen Temperaturanstieg von ca. 1°C sind] and see how alternative future pathways develop until the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref">2050</a>…</p>
+              <p>This module explores how current <span class="info" v-tooltip="'The …'">decarbonization</span> efforts relate to the long-term targets of the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">Paris Agreement</span>. It is based on a <a aria-describedby="footnotes" href="#fn-paper" id="fn-paper-ref" v-tooltip="'Published in Kriegler et al. 2018 and described in Figure 1 of that paper.'">modeling</a> of the effect of detailed countries pledges until 2030, and three scenarios with strengthening of ambition from 2020 onwards.</p>
+              <p>Let’s start with the historic global greenhouse gas emissions from 1990 until 2016 [CO2 Emissionen, die zum größten Teil aus der Verbrennung von Kohle, Öl und Gas kommen, die Hauptursache für den bisherigen Temperaturanstieg von ca. 1°C sind] and see how alternative future pathways develop until the year <a aria-describedby="footnotes" href="#fn-year" id="fn-year-ref" v-tooltip="'The actual modeling is done out to 2100 so to guarantee adherence to the long-term climate targets, but the graphs focus on the next decades for which current actions are decisive. The long-term targets are implemented as bounds of cumulative emissions (carbon budgets) of 1000 Gt CO<sub>2</sub> for 2°C, and 400 Gt CO<sub>2</sub> for 1.5°C, from 2011&ndash;2100 respectively.'">2050</a>…</p>
             </section>
-            <footer id="footnotes" class="footnotes">
-              <ol>
-                <li id="fn-paper">Published in <a href="http://iopscience.iop.org/article/10.1088/1748-9326/aac4f1">Kriegler et al. 2018</a> and described in Figure 1 of that paper.</li>
-                <li id="fn-year">The actual modeling is done out to 2100 so to guarantee adherence to the long-term climate targets, but the graphs focus on the next decades for which current actions are decisive. The long-term targets are implemented as bounds of cumulative emissions (carbon budgets) of 1000 Gt CO<sub>2</sub> for 2°C, and 400 Gt CO<sub>2</sub> for 1.5°C, from 2011&ndash;2100 respectively.</li>
-              </ol>
-            </footer>
           </article>
           <article v-if="step === 1">
             <header>
@@ -143,11 +137,29 @@
     opacity: 0;
   }
 
+  .page-aside {
+    position: absolute;
+    display: flex; // make us of Flexbox
+    align-items: center; // does vertically center the desired content
+    justify-content: flex-end; // horizontally centers single line items
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+
+    &.isLeft {
+      justify-content: flex-start;
+    }
+  }
+
   .aside-wrapper {
+    pointer-events: all;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    $padding: 50px;
+    width: calc(50% + #{$padding * 2});
+    padding: $padding;
 
     .content {
       height: 100%;

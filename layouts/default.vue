@@ -76,7 +76,7 @@
 
         &.page-footer {
           grid-template-rows: 100%;
-          height: 6vh;
+          height: 4vh;
           min-height: 40px;
         }
 

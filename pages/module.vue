@@ -49,6 +49,7 @@
       flex: 1;
       align-self: center;
       @include wrapper-primary();
+      position: relative;
 
       & > * {
         flex: 1;

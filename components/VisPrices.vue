@@ -7,22 +7,22 @@
       :key="dot.policy">
     <text
       text-anchor="middle"
-      y="10"
-      :x="dot.labelX">{{ dot.policy }}</text>
+      :x="width / 2"
+      :y="dot.labelY">{{ dot.policy }}</text>
     <rect
       v-if="goal >= 2030"
       class="short"
-      :height="dot.short"
-      :width="dot.width"
-      :x="dot.x"
-      :y="height - dot.short" />
+      :width="dot.short"
+      :height="dot.height"
+      :y="dot.y"
+      :x="0" />
     <rect
       v-if="goal >= 2050"
       class="long"
-      :height="dot.long"
-      :width="dot.width"
-      :x="dot.x"
-      :y="height - dot.long" />
+      :width="dot.long"
+      :height="dot.height"
+      :y="dot.y"
+      :x="0" />
     </g>
   </svg>
 </template>
@@ -59,19 +59,19 @@
       extentPrices: function () {
         return extent(flatten(map(this.prices, 'values')))
       },
-      scaleX: function () {
+      scaleY: function () {
         return scaleBand()
           .padding(0.5)
-          .rangeRound([0, this.width])
+          .rangeRound([0, this.height])
           .domain(this.policies)
       },
-      scaleY: function () {
+      scaleX: function () {
         return scaleLinear()
-          .range([0, this.height - 15])
+          .range([0, this.width - 15])
           .domain([0, this.extentPrices[1]])
       },
       isReady: function () {
-        return this.scaleY.domain()[1] && this.width && this.height
+        return this.scaleX.domain()[1] && this.width && this.height
       },
       dots: function () {
         const { policies, scenario, prices } = this
@@ -79,18 +79,18 @@
         return map(policies, policy => {
           const item = find(prices, { policy, degree, part })
           const [short, long] = map(get(item, 'values'), value => {
-            return this.scaleY(value)
+            return this.scaleX(value)
           })
-          const x = this.scaleX(policy)
-          const width = this.scaleX.bandwidth()
-          const labelX = x + width / 2
+          const y = this.scaleY(policy)
+          const height = this.scaleY.bandwidth()
+          const labelY = y - 20
           return {
             short,
             long,
-            width,
-            x,
+            height,
+            y,
             policy,
-            labelX
+            labelY
           }
         })
       }
@@ -119,7 +119,7 @@
 
   .vis-prices {
     width: 100%;
-  	height: 10vh;
+  	height: 100%;
     color: palette(grey, 30);
     font-weight: $font-weight-bold;
     font-size: $size-default;
