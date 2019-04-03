@@ -8,20 +8,20 @@
     </defs>
     <line
       class="zero"
-      :x1="margin[0]"
-      :x2="width - margin[0]"
+      :x1="margin.left"
+      :x2="width - margin.right"
       :y1="zero"
       :y2="zero" />
     <path
       class="positive"
-      :d="`M${margin[0]} ${zero} H${width - margin[0]} V${zero - 5} H${margin[0]} V${zero}`" />
+      :d="`M${margin.left} ${zero} H${width - margin.right} V${zero - 5} H${margin.left} V${zero}`" />
     <path
       class="negative"
-      :d="`M${margin[0]} ${zero} H${width - margin[0]} V${zero + 5} H${margin[0]} V${zero}`" />
+      :d="`M${margin.left} ${zero} H${width - margin.right} V${zero + 5} H${margin.left} V${zero}`" />
     <path
       class="negative--area"
       fill="url(#grad1)"
-      :d="`M${margin[0]} ${zero + 5} H${width - margin[0]} V${end} H${margin[0]} V${zero + 5}`" />
+      :d="`M${margin.left} ${zero + 5} H${width - margin.right} V${end} H${margin.left} V${zero + 5}`" />
     <text
       class="positive marker"
       :x="today"
@@ -47,7 +47,7 @@
     computed: {
       center: function () {
         const { width, margin } = this
-        return margin[0] + ((width - margin[0]) / 2)
+        return margin.left + ((width - margin.right) / 2)
       },
       zero: function () {
         return this.scaleY(0)

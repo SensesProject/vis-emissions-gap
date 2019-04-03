@@ -2,16 +2,17 @@
 	<g>
     <line
       class="axis"
-      :x1="margin[0]"
-      :x2="margin[0]"
-      :y1="margin[1]"
-      :y2="height - margin[1]" />
+      :x1="margin.left"
+      :x2="margin.left"
+      :y1="margin.top"
+      :y2="height - margin.bottom" />
     <text
       class="axis"
       :x="d * 1.5 + 'px'"
       :y="axis.y + 'px'"
       :transform="`rotate(-90 ${d * 1.5} ${axis.y})`"
-      text-anchor="middle">
+      text-anchor="middle"
+      dominant-baseline="baseline">
       {{ axis.label }}
     </text>
     <g
@@ -26,7 +27,7 @@
         {{ tick.label }}
       </text>
       <line
-        :x1="margin[0] + 'px'"
+        :x1="margin.left + 'px'"
         :y1="tick.y + 'px'"
         :x2="d * 5 + 'px'"
         :y2="tick.y + 'px'"
@@ -50,7 +51,7 @@
         'variable': state => state.scenario.scenario.variable
       }),
       d: function () {
-        return this.margin[0] / 6
+        return this.margin.left / 6
       },
       axis: function () {
         const { scaleY, variable, d } = this

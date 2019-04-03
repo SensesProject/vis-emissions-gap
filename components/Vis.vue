@@ -71,10 +71,14 @@
   export default {
     data: function () {
       return {
-        marginPercent: 0.1,
         width: 0,
         height: 0,
-        margin: [0, 0]
+        margin: {
+          left: 60,
+          right: 50,
+          top: 50,
+          bottom: 10
+        }
       }
     },
     mounted () {
@@ -112,7 +116,7 @@
       },
       scaleX: function () {
         return scaleTime()
-          .range([this.margin[0], this.width - this.margin[0]])
+          .range([this.margin.left, this.width - this.margin.right])
           .domain(this.extentX).nice()
       },
       extentY: function () {
@@ -130,7 +134,7 @@
       },
       scaleY: function () {
         return scaleLinear()
-          .range([this.height, this.margin[1]])
+          .range([this.height - this.margin.bottom, this.margin.top])
           .domain(this.extentY).nice()
       }
     },
@@ -151,11 +155,6 @@
         const height = el.clientHeight || el.parentNode.clientHeight
         this.width = width
         this.height = height
-        const { marginPercent } = this
-        const marginVertical = height * marginPercent
-        const marginHorizontal = width * marginPercent
-        this.margin = [marginHorizontal, marginVertical]
-        // console.log('set scale ranges to', width, height, marginVertical, marginHorizontal)
       }
     },
     components: {

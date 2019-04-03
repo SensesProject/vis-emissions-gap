@@ -1,7 +1,14 @@
 <template>
   <g>
-    <VisAxisX :margin="margin" :height="height" :width="width" :scaleX="scaleX" />
-    <VisAxisY :margin="margin" :height="height" :scaleY="scaleY" />
+    <VisAxisX
+      :margin="margin"
+      :height="height"
+      :width="width"
+      :scaleX="scaleX" />
+    <VisAxisY
+      :margin="margin"
+      :height="height"
+      :scaleY="scaleY" />
   </g>
 </template>
 

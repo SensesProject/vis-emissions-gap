@@ -2,10 +2,10 @@
   <g class="axisY">
     <line
       class="axis"
-      :x1="margin[0]"
-      :x2="width - margin[0]"
-      :y1="margin[1]"
-      :y2="margin[1]" />
+      :x1="margin.left"
+      :x2="width - margin.right"
+      :y1="margin.top"
+      :y2="margin.top" />
     <g class="lables">
       <g v-for="label in labels">
         <text
@@ -23,9 +23,9 @@
             v-html="label.year" />
         </text>
         <line
-          :y1="margin[1] + 'px'"
+          :y1="margin.top + 'px'"
           :x1="label.x + 'px'"
-          :y2="margin[1] - margin[1] / 5 + 'px'"
+          :y2="margin.top - margin.top / 5 + 'px'"
           :x2="label.x + 'px'"
           class="tick" />
       </g>
@@ -46,7 +46,7 @@
           return {
             key: i,
             label: timeFormat('%Y')(tick),
-            y: this.margin[1] / 2,
+            y: this.margin.top / 2,
             x: scaleX(tick)
           }
         })
@@ -62,7 +62,7 @@
           const [year, label] = pair
           return {
             x: this.scaleX(new Date(year, 1, 1)),
-            y: this.margin[1] / 2,
+            y: this.margin.top / 2,
             year,
             label
           }
