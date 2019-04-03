@@ -3,7 +3,7 @@
   	<g
       v-if="isReady"
       v-for="dot in dots"
-      :class="dot.policy"
+      :class="{ [dot.policy]: true, isVisible: visibility.indexOf(dot.policy) >= 0 }"
       :key="dot.policy">
     <text
       text-anchor="middle"
@@ -42,8 +42,15 @@
     computed: {
       ...mapState({
         'prices': state => state.prices.prices.data,
-        'scenario': state => state.scenario.scenario
+        'scenario': state => state.scenario.scenario,
+        'step': state => state.navigation.step
       }),
+      ...mapState([
+        'steps'
+      ]),
+      visibility: function () {
+        return get(this.steps, `${this.step}.legend`, [])
+      },
       extentPrices: function () {
         return extent(flatten(map(this.prices, 'values')))
       },
@@ -111,5 +118,13 @@
     color: palette(grey, 30);
     font-weight: $font-weight-bold;
     font-size: $size-default;
+
+    g {
+      opacity: 0;
+
+      &.isVisible {
+        opacity: 1;
+      }
+    }
   }
 </style>
