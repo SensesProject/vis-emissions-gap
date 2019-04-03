@@ -10,6 +10,7 @@ module.exports = {
     },
     visibility: ['linehistoric'],
     legend: ['historic'],
+    goal: 0,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -28,6 +29,7 @@ module.exports = {
     },
     visibility: ['linehistoric'],
     legend: ['historic'],
+    goal: 0,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -46,6 +48,7 @@ module.exports = {
     },
     visibility: ['linehistoric', 'today'],
     legend: ['historic', 'NDC'],
+    goal: 2030,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -64,6 +67,7 @@ module.exports = {
     },
     visibility: ['linehistoric', 'today'],
     legend: ['historic', 'NDC', 'eff'],
+    goal: 2030,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -82,6 +86,7 @@ module.exports = {
     },
     visibility: ['linehistoric', 'ndc'],
     legend: ['historic', 'NDC', 'eff'],
+    goal: 2050,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -95,11 +100,31 @@ module.exports = {
     clips: {
       NDC: 'end',
       eff: 'end',
-      goodpractice: 'end',
-      netzero: 'end'
+      goodpractice: 'start',
+      netzero: 'start'
     },
     visibility: ['linehistoric', 'ndc'],
-    legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
+    legend: ['historic', 'NDC', 'eff'],
+    goal: 2050,
+    data: {
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP',
+      degree: '1p5C',
+      part: 'full',
+      region: 'World',
+      variable: 'Kyoto Gases',
+      range: [1990, 2050]
+    }
+  }, {
+    visibility: ['linehistoric'],
+    legend: ['historic', 'NDC', 'eff', 'goodpractice'],
+    goal: 2050,
+    clips: {
+      NDC: 'end',
+      eff: 'end',
+      goodpractice: 'end',
+      netzero: 'start'
+    },
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -112,6 +137,7 @@ module.exports = {
   }, {
     visibility: ['linehistoric'],
     legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
+    goal: 2050,
     clips: {
       NDC: 'end',
       eff: 'end',
@@ -130,24 +156,7 @@ module.exports = {
   }, {
     visibility: ['linehistoric'],
     legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
-    clips: {
-      NDC: 'end',
-      eff: 'end',
-      goodpractice: 'end',
-      netzero: 'end'
-    },
-    data: {
-      model: 'REMIND-MAgPIE 1.7-3.0',
-      scenario: 'PEP',
-      degree: '1p5C',
-      part: 'full',
-      region: 'World',
-      variable: 'Kyoto Gases',
-      range: [1990, 2050]
-    }
-  }, {
-    visibility: ['linehistoric'],
-    legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
+    goal: 2050,
     clips: {
       NDC: 'end',
       eff: 'end',

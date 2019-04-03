@@ -10,12 +10,14 @@
       y="10"
       :x="dot.labelX">{{ dot.policy }}</text>
     <rect
+      v-if="goal >= 2030"
       class="short"
       :height="dot.short"
       :width="dot.width"
       :x="dot.x"
       :y="height - dot.short" />
     <rect
+      v-if="goal >= 2050"
       class="long"
       :height="dot.long"
       :width="dot.width"
@@ -50,6 +52,9 @@
       ]),
       visibility: function () {
         return get(this.steps, `${this.step}.legend`, [])
+      },
+      goal: function () {
+        return get(this.steps, `${this.step}.goal`, [])
       },
       extentPrices: function () {
         return extent(flatten(map(this.prices, 'values')))
