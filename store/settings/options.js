@@ -7,7 +7,7 @@ module.exports = {
     degrees: ['1p5C', '2C'],
     parts: ['full', 'red'],
     regions: ['World', 'China', 'USA', 'EU', 'India', 'Russia', 'Japan'],
-    variables: ['CO2', 'Kyoto Gases'],
+    variables: ['CO2|Energy and Industrial Processes', 'CO2|AFOLU'],
     range: [2050, 2100]
   }
 }

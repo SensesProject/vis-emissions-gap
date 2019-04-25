@@ -107,7 +107,6 @@
         return get(this.steps, `${this.step}.visibility`, [])
       },
       clips: function () {
-        console.log(this.steps)
         return get(this.steps, `${this.step}.clips`, [])
       },
       isLoaded: function () {

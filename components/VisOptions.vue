@@ -11,8 +11,8 @@
         <VisOption option="red" slug="part" :current="part">Reduced</VisOption>
       </VisOptionWrapper>
       <VisOptionWrapper label="Emissions" tooltip="TODO">
-        <VisOption option="CO2" slug="variable" :current="variable">CO<sub>2</sub></VisOption>
-        <VisOption option="Kyoto Gases" slug="variable" :current="variable">Kyoto Gases</VisOption>
+        <VisOption option="CO2|Energy and Industrial Processes" slug="variable" :current="variable">Energy and Industrial Processes</VisOption>
+        <VisOption option="CO2|AFOLU" slug="variable" :current="variable">AFOLU</VisOption>
       </VisOptionWrapper>
       <VisOptionWrapper label="Timeframe" tooltip="The long-term targets are implemented as bounds of cumulative emissions (carbon budgets) of 1000 Gt CO2 for 2°C, and 400 Gt CO2 for 1.5°C, from 2011&ndash;2100 respectively.">
         <VisOption :option="[1990, 2050]" slug="range" :current="range">Until 2050</VisOption>
