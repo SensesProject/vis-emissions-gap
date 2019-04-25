@@ -6,18 +6,12 @@
         <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
       </linearGradient>
     </defs>
-    <line
-      class="zero"
-      :x1="margin.left"
-      :x2="width - margin.right"
-      :y1="zero"
-      :y2="zero" />
-    <path
-      class="positive"
-      :d="`M${margin.left} ${zero} H${width - margin.right} V${zero - 5} H${margin.left} V${zero}`" />
     <path
       class="negative"
       :d="`M${margin.left} ${zero} H${width - margin.right} V${zero + 5} H${margin.left} V${zero}`" />
+    <path
+      class="positive"
+      :d="`M${margin.left} ${zero} H${width - margin.right} V${zero - 5} H${margin.left} V${zero}`" />
     <path
       class="negative--area"
       fill="url(#grad1)"
