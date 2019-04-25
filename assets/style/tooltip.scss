@@ -1,15 +1,16 @@
 .tooltip {
   display: block !important;
   z-index: 10000;
-  font-size: $size-smaller;
+  font-size: $size-default;
   max-width: 400px;
-  box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.1);
 
   .tooltip-inner {
-    background: $color-violet;
+    background: #222;
     color: white;
-    border-radius: 2px;
-    padding: 10px 15px 9px;
+    letter-spacing: 0.01em;
+    border-radius: 3px;
+    padding: 6px 12px 8px;
   }
 
   .tooltip-arrow {
@@ -18,7 +19,7 @@
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: $color-violet;
+    border-color: #222;
     z-index: 1;
   }
 

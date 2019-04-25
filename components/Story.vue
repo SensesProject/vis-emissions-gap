@@ -156,8 +156,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.8);
-    $padding: 50px;
+    background-color: rgba(245, 245, 245, 0.8);
+    $padding: 20px;
     width: calc(50% + #{$padding * 2});
     padding: $padding;
 
