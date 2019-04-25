@@ -6,7 +6,7 @@ import scenario from './modules/scenario'
 import navigation from './modules/navigation'
 import data from './modules/data'
 import prices from './modules/prices'
-import { map, find, compact, filter, reverse, get } from 'lodash'
+import { map, find, compact, filter, get } from 'lodash'
 const { config } = require('./../config.js')
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
@@ -43,7 +43,7 @@ export const getters = {
     const { data } = state.data.data
 
     // Find items in the data that match the current options
-    const paths = compact(map(reverse(state.policies), policy => {
+    const paths = compact(map(state.policies, policy => {
       const obj = policy === 'historic'
         ? {
           scenario: 'historic',
