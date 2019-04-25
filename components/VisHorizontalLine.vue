@@ -7,8 +7,9 @@
       :y1="y"
       :y2="y" />
     <VisPulse
-      :x="mx1 - 30"
+      :x="(x2 - x1) / 3"
       :y="y - 20"
+      label="Negative values…"
     />
     <text
       v-if="el.label"
