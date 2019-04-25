@@ -20,7 +20,7 @@
       :key="tick.key">
       <text
         :y="tick.y + 'px'"
-        :x="d * 4.5 + 'px'"
+        :x="d * 5.5 + 'px'"
         text-anchor="end"
         dominant-baseline="middle"
         class="tick">
@@ -29,7 +29,7 @@
       <line
         :x1="margin.left + 'px'"
         :y1="tick.y + 'px'"
-        :x2="d * 5 + 'px'"
+        :x2="d * 6 + 'px'"
         :y2="tick.y + 'px'"
         class="tick" />
     </g>
@@ -51,7 +51,7 @@
         'variable': state => state.scenario.scenario.variable
       }),
       d: function () {
-        return this.margin.left / 6
+        return this.margin.left / 7
       },
       axis: function () {
         const { scaleY, scaleX, variable, d } = this

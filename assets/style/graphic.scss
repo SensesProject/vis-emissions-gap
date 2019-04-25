@@ -38,7 +38,7 @@ line {
   }
 
   &.axis {
-    stroke: palette(grey, 50);
+    stroke: palette(grey, 70);
     stroke-width: 1px;
   }
 
@@ -115,10 +115,11 @@ text {
   &.tick, tspan.tick {
     fill: palette(grey, 50);
     font-weight: $font-weight-default;
-    font-size: $size-default;
+    font-size: $size-small;
 
     &.important {
       font-weight: $font-weight-bold;
+      font-size: $size-default;
     }
   }
 

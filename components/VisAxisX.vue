@@ -12,7 +12,7 @@
           :y="label.y + 'px'"
           text-anchor="middle">
           <tspan
-            class="info"
+            class="tick"
             :x="label.x + 'px'"
             dy="0"
             v-html="label.year" />
@@ -25,7 +25,7 @@
         <line
           :y1="margin.top + 'px'"
           :x1="label.x + 'px'"
-          :y2="margin.top - margin.top / 5 + 'px'"
+          :y2="margin.top - margin.top / 7 + 'px'"
           :x2="label.x + 'px'"
           class="tick" />
       </g>
@@ -46,7 +46,7 @@
           return {
             key: i,
             label: timeFormat('%Y')(tick),
-            y: this.margin.top / 4,
+            y: this.margin.top / 5,
             x: scaleX(tick)
           }
         })
@@ -66,7 +66,7 @@
           const [year, label] = pair
           return {
             x: this.scaleX(new Date(year, 0, 1)),
-            y: this.margin.top / 5 * 3,
+            y: this.margin.top / 6 * 4,
             year,
             label
           }
