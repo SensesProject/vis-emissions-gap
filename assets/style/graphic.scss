@@ -61,6 +61,12 @@ line {
     stroke: palette(grey, 20);
     stroke-width: 2px;
   }
+
+  &.arrow {
+    stroke: $color-dark-gray;
+    stroke-width: 2px;
+    stroke-dasharray: 5;
+  }
 }
 
 line, path {
