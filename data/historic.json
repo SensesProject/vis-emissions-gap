@@ -2,7 +2,7 @@
   {
     "scenario": "historic",
     "region": "World",
-    "variable": "CO2",
+    "variable": "CO2|Energy and Industrial Processes",
     "values": [
       [1990, 22500],
       [1991, 22600],
@@ -36,7 +36,7 @@
   {
     "scenario": "historic",
     "region": "World",
-    "variable": "Kyoto Gases",
+    "variable": "CO2|AFOLU",
     "values": [
       [1990, 32700],
       [1991, 32900],
@@ -70,7 +70,7 @@
   {
     "scenario": "historic",
     "region": "China",
-    "variable": "CO2",
+    "variable": "CO2|Energy and Industrial Processes",
     "values": [
       [1990, 2300],
       [1991, 2500],
@@ -104,7 +104,7 @@
   {
     "scenario": "historic",
     "region": "USA",
-    "variable": "CO2",
+    "variable": "CO2|Energy and Industrial Processes",
     "values": [
       [1990, 5000],
       [1991, 4900],
@@ -138,7 +138,7 @@
   {
     "scenario": "historic",
     "region": "EU",
-    "variable": "CO2",
+    "variable": "CO2|Energy and Industrial Processes",
     "values": [
       [1990, 4300],
       [1991, 4300],
@@ -172,7 +172,7 @@
   {
     "scenario": "historic",
     "region": "India",
-    "variable": "CO2",
+    "variable": "CO2|Energy and Industrial Processes",
     "values": [
       [1990, 700],
       [1991, 700],
@@ -206,7 +206,7 @@
   {
     "scenario": "historic",
     "region": "Russia",
-    "variable": "CO2",
+    "variable": "CO2|Energy and Industrial Processes",
     "values": [
       [1990, 2400],
       [1991, 2300],
@@ -240,7 +240,7 @@
   {
     "scenario": "historic",
     "region": "Japan",
-    "variable": "CO2",
+    "variable": "CO2|Energy and Industrial Processes",
     "values": [
       [1990, 1200],
       [1991, 1200],
@@ -274,7 +274,7 @@
   {
     "scenario": "historic",
     "region": "China",
-    "variable": "Kyoto Gases",
+    "variable": "CO2|AFOLU",
     "values": [
       [1990, 3900],
       [1991, 4000],
@@ -308,7 +308,7 @@
   {
     "scenario": "historic",
     "region": "USA",
-    "variable": "Kyoto Gases",
+    "variable": "CO2|AFOLU",
     "values": [
       [1990, 6000],
       [1991, 6000],
@@ -342,7 +342,7 @@
   {
     "scenario": "historic",
     "region": "EU",
-    "variable": "Kyoto Gases",
+    "variable": "CO2|AFOLU",
     "values": [
       [1990, 5600],
       [1991, 5500],
@@ -376,7 +376,7 @@
   {
     "scenario": "historic",
     "region": "India",
-    "variable": "Kyoto Gases",
+    "variable": "CO2|AFOLU",
     "values": [
       [1990, 1400],
       [1991, 1500],
@@ -410,7 +410,7 @@
   {
     "scenario": "historic",
     "region": "Russia",
-    "variable": "Kyoto Gases",
+    "variable": "CO2|AFOLU",
     "values": [
       [1990, 3000],
       [1991, 3000],
@@ -444,7 +444,7 @@
   {
     "scenario": "historic",
     "region": "Japan",
-    "variable": "Kyoto Gases",
+    "variable": "CO2|AFOLU",
     "values": [
       [1990, 1300],
       [1991, 1300],

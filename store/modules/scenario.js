@@ -8,7 +8,7 @@ const state = () => {
       degree: '1p5C',
       part: 'full',
       region: 'World',
-      variable: 'Kyoto Gases',
+      variable: 'CO2|Energy and Industrial Processes',
       range: [1990, 2050]
     }
   }

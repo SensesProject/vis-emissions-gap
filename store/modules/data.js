@@ -42,7 +42,7 @@ const actions = {
     const status = get(dataRank, 'status', false)
     if (status !== 'loading') {
       commit('DATA_CHANGE', { status: 'loading' })
-      const url = 'https://gist.githubusercontent.com/z3to/bcd5cf832188938e27f263034e9b9107/raw/66b782a4c265f9dda921a9ff82638be1e644a7c5/data.json'
+      const url = 'data/data.json'
       axios.get(url)
         .then(response => {
           commit('DATA_CHANGE', { status: 'success', data: processData(response.data.data) })

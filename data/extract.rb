@@ -25,7 +25,7 @@ SCNEARIOS = [
 	'PEP_1p5C_red_goodpractice',
 	'PEP_1p5C_red_netzero'
 ]
-VARIABLES = ['Emissions|CO2', 'Emissions|Kyoto Gases', 'Emissions|CO2|Fossil Fuels and Industry']
+VARIABLES = ['Emissions|CO2|Energy and Industrial Processes', 'Emissions|CO2|AFOLU']
 REGIONS = ['World', 'CHN', 'USA', 'EUR', 'IND', 'RUS', 'JPN']
 
 def readCSV (file)
