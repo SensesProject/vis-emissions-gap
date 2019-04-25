@@ -64,13 +64,15 @@ export const getters = {
 
     // Filter the data for the given years
     const [l, h] = range
+    console.log(range)
     return map(paths, path => {
       const values = filter(path.values, d => {
         return d[0] <= h && d[0] >= l
       })
       return {
         ...path,
-        values
+        values,
+        range
       }
     })
   },

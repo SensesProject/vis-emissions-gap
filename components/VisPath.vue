@@ -1,16 +1,18 @@
 <template>
-  <path
-    :class="klass"
-    :d="d"
-    stroke-linecap="round"
-    :style="{ strokeDasharray: `${totalLength}px`, strokeDashoffset: `${currentLength}px` }" />
+  <g>
+    <path
+      :class="klass"
+      :d="d"
+      stroke-linecap="round"
+      :style="{ strokeDasharray: `${totalLength}px`, strokeDashoffset: `${currentLength}px` }" />
+  </g>
 </template>
 
 <script>
   import { mapState } from 'vuex'
   import { line } from 'd3-shape'
   import { timeParse } from 'd3-time-format'
-  import isNumber from 'lodash/isNumber'
+  import { isNumber, last } from 'lodash'
   import isString from 'lodash/isString'
   import isNull from 'lodash/isNull'
   import filter from 'lodash/filter'
@@ -29,7 +31,7 @@
       totalLength: function () {
         return pathHelper.svgPathProperties(this.d).getTotalLength()
       },
-      clip: function () {
+      end: function () {
         const { clip } = this.el
         const [l, h] = this.range
         let value = h
@@ -46,7 +48,7 @@
       },
       currentLength: function () {
         const values = filter(this.el.values, value => {
-          return value[0] <= this.clip
+          return value[0] <= this.end
         })
         const path = this.drawLine()(values)
 
@@ -57,9 +59,11 @@
         const length = pathHelper.svgPathProperties(path).getTotalLength()
         return this.totalLength - length
       },
-      // clip: function () {
-      //   return `url(#clip${this.el.policy})`
-      // },
+      label: function () {
+        const lastValues = last(this.el.values)
+        console.log(this.el, lastValues, this.el.range, this.range, this.end)
+        return this.el.policy
+      },
       klass: function () {
         const { el, highlight } = this
         const { policy } = el
