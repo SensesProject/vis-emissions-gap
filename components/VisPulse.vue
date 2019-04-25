@@ -1,5 +1,5 @@
 <template>
-	<g v-tooltip="'Negative values'">
+	<g v-tooltip="label">
 	  <circle
 	    class="p1"
 	    :cx="x + 'px'"
@@ -21,7 +21,7 @@
 
 <script>
   export default {
-    props: ['x', 'y'],
+    props: ['x', 'y', 'label'],
     data: function () {
       return {
         r: 5
