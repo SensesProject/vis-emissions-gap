@@ -53,8 +53,12 @@
       },
       labels: function () {
         const labels = [
+          [1990, ''],
+          [2000, ''],
+          [2010, ''],
           [2019, 'Today'],
           [2030, 'Short term goals'],
+          [2040, ''],
           [2050, 'Long term goals']
         ]
 
