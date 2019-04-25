@@ -56,6 +56,18 @@ module.exports = {
       type: 'verticalLine',
       data: [[[2025, 0]]],
       label: '2025'
+    },
+    {
+      id: 'arrowup',
+      type: 'arrow',
+      data: [[[2075, 0]]],
+      label: 'bad'
+    },
+    {
+      id: 'arrowdown',
+      type: 'arrow',
+      data: [[[2050, 0]]],
+      label: 'good'
     }
   ]
 }

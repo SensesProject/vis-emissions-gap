@@ -19,6 +19,7 @@
   import VisVerticalLine from '~/components/VisVerticalLine.vue'
   import VisArea from '~/components/VisArea.vue'
   import VisDot from '~/components/VisDot.vue'
+  import VisArrow from '~/components/VisArrow.vue'
   import get from 'lodash/get'
 
   function capitalizeFirstLetter (string) {
@@ -70,6 +71,7 @@
       VisLine,
       VisArea,
       VisDot,
+      VisArrow,
       VisHorizontalLine,
       VisVerticalLine
     }

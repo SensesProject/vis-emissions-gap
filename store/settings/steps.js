@@ -8,7 +8,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric'],
+    visibility: ['linehistoric', 'arrowup', 'arrowdown'],
     legend: ['historic'],
     goal: 0,
     data: {
@@ -27,7 +27,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric'],
+    visibility: ['linehistoric', 'arrowup', 'arrowdown'],
     legend: ['historic'],
     goal: 0,
     data: {
