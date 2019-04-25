@@ -1,6 +1,6 @@
 path.line {
   stroke: #000;
-  stroke-width: 2px;
+  stroke-width: 3px;
   fill: none;
 }
 
@@ -38,7 +38,7 @@ line {
   }
 
   &.axis {
-    stroke: palette(grey, 70);
+    stroke: palette(grey, 50);
     stroke-width: 1px;
   }
 
@@ -114,13 +114,17 @@ g {
 text {
   &.tick, tspan.tick {
     fill: palette(grey, 50);
-    font-weight: $font-weight-bold;
-    font-size: $size-small;
+    font-weight: $font-weight-default;
+    font-size: $size-default;
+
+    &.important {
+      font-weight: $font-weight-bold;
+    }
   }
 
   tspan.info {
     fill: palette(grey, 60);
-    font-size: $size-smaller;
+    font-size: $size-small;
   }
 
   &.area {

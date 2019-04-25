@@ -8,7 +8,8 @@
     <VisAxisY
       :margin="margin"
       :height="height"
-      :scaleY="scaleY" />
+      :scaleY="scaleY"
+      :scaleX="scaleX" />
   </g>
 </template>
 

@@ -2,8 +2,8 @@
 	<g>
     <line
       class="axis"
-      :x1="margin.left"
-      :x2="margin.left"
+      :x1="axis.x"
+      :x2="axis.x"
       :y1="margin.top"
       :y2="height - margin.bottom" />
     <text
@@ -45,7 +45,7 @@
   const f = format(`.1s`)
 
   export default {
-    props: ['margin', 'height', 'scaleY'],
+    props: ['margin', 'height', 'scaleY', 'scaleX'],
     computed: {
       ...mapState({
         'variable': state => state.scenario.scenario.variable
@@ -54,12 +54,14 @@
         return this.margin.left / 6
       },
       axis: function () {
-        const { scaleY, variable, d } = this
+        const { scaleY, scaleX, variable, d } = this
         const label = variable === 'CO2' ? 'Gt CO2/yr' : 'Gt CO2eq/yr'
         const y = scaleY(mean(scaleY.domain()))
+        const x = scaleX(scaleX.domain()[0])
+        console.log(x)
         return {
           label,
-          x: 20,
+          x,
           y,
           ticks: map(scaleY.ticks(), (tick, i) => {
             return {

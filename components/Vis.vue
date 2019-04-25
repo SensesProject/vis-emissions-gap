@@ -74,9 +74,9 @@
         width: 0,
         height: 0,
         margin: {
-          left: 60,
+          left: 80,
           right: 50,
-          top: 50,
+          top: 60,
           bottom: 10
         }
       }
