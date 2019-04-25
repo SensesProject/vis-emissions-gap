@@ -46,19 +46,19 @@
 
   circle {
     &.p1 {
-      fill: $color-red;
+      fill: $color-blue;
     }
 
     &.p2 {
-      fill: $color-red;
+      fill: $color-blue;
       fill-opacity: 0.3;
-      stroke: $color-red;
+      stroke: $color-blue;
       stroke-opacity: 0.4;
     }
 
     &.p3 {
       fill: transparent;
-      stroke: $color-red;
+      stroke: $color-blue;
       stroke-opacity: 0.4;
       animation: pulse 1.5s ease infinite;
     }
