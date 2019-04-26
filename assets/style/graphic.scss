@@ -58,8 +58,13 @@ line {
   }
 
   &.legend {
-    stroke: palette(grey, 20);
-    stroke-width: 2px;
+    stroke: palette(grey, 70);
+    stroke-width: 1px;
+  }
+
+  &.label {
+    stroke: palette(grey, 70);
+    stroke-width: 1px;
   }
 
   &.arrow {
@@ -126,6 +131,17 @@ text {
     &.important {
       font-weight: $font-weight-bold;
       font-size: $size-default;
+    }
+  }
+
+  &.label {
+    fill: palette(grey, 50);
+    font-weight: $font-weight-default;
+    font-size: $size-small;
+
+    &.label--background {
+      stroke-width: 4px;
+      stroke: #fff;
     }
   }
 

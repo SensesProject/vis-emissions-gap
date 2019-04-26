@@ -14,6 +14,30 @@
         :y2="height - margin.bottom"
         class="tick" />
       <g>
+        <g v-for="item in labels">
+          <line
+            :x1="item.x"
+            :x2="item.x"
+            :y1="item.y1"
+            :y2="item.y2"
+            class="label" />
+          <text
+            :x="item.x"
+            :y="item.y"
+            text-anchor="middle"
+            class="label label--background">
+            {{ item.label }}
+          </text>
+          <text
+            :x="item.x"
+            :y="item.y"
+            text-anchor="middle"
+            class="label">
+            {{ item.label }}
+          </text>
+        </g>
+      </g>
+      <g>
         <g v-for="tick in axis.ticks">
           <line
             :x1="tick.x"
@@ -60,7 +84,7 @@
 
 <script>
   import { mapState } from 'vuex'
-  import { map, find, flatten, get, filter } from 'lodash'
+  import { map, find, flatten, get, filter, first } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
 
@@ -138,6 +162,22 @@
             label: policy.label
           }
         })
+      },
+      labels: function () {
+        const item = first(this.dots)
+        return [{
+          x: item.x + (item.short / 2),
+          y: this.scaleY(item.policy) - 50,
+          y1: this.scaleY(item.policy) - 45,
+          y2: this.scaleY(item.policy) - 5,
+          label: 'Short term'
+        }, {
+          x: item.x + (item.long / 2),
+          y: this.scaleY(item.policy) - 50,
+          y1: this.scaleY(item.policy) - 45,
+          y2: this.scaleY(item.policy) - 5,
+          label: 'Long term'
+        }]
       },
       axis: function () {
         const [x1, x2] = this.scaleX.range()
