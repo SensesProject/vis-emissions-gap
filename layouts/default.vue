@@ -2,7 +2,7 @@
   <div class="page">
     <header class="page-head">
       <section class="page-header">
-        <h1><n-link to="/">Senses</n-link></h1>
+        <h1><n-link to="/">Senses Toolkit</n-link></h1>
         <nav class="page-nav">
           <ul>
             <li><n-link to="/learn">Learn</n-link></li>
@@ -79,7 +79,7 @@
         }
 
         h1 {
-          grid-column: 1 / 3;
+          grid-column: 1 / 5;
           align-self: center;
           display: inline;
           margin: 0;
