@@ -31,7 +31,7 @@ const mutations = {
 const actions = {
   loadData ({ commit, state }) {
     commit('PRICES_CHANGE', { status: 'loading' })
-    const url = 'data/prices.json'
+    const url = `${process.env.dataURL}/data/prices.json`
     axios.get(url)
       .then(response => {
         commit('PRICES_CHANGE', { status: 'success', data: processData(response.data.prices) })

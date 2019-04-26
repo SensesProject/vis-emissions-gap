@@ -42,7 +42,7 @@ const actions = {
     const status = get(dataRank, 'status', false)
     if (status !== 'loading') {
       commit('DATA_CHANGE', { status: 'loading' })
-      const url = 'data/data.json'
+      const url = `${process.env.dataURL}/data/data.json`
       axios.get(url)
         .then(response => {
           commit('DATA_CHANGE', { status: 'success', data: processData(response.data.data) })

@@ -18,6 +18,9 @@ module.exports = {
       ...favicon()
     ]
   },
+  env: {
+    dataURL: process.env.DATA_URL || 'http://localhost:3034'
+  },
   css: [
     'normalize-scss',
     '@/assets/style/base.scss'
