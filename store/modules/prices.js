@@ -31,7 +31,7 @@ const mutations = {
 const actions = {
   loadData ({ commit, state }) {
     commit('PRICES_CHANGE', { status: 'loading' })
-    const url = 'https://gist.githubusercontent.com/z3to/9034afe96d6cccdac94859d1ac410504/raw/c2e9f26f258440f2414b948ebc43826521f4c1e9/prices.json'
+    const url = 'data/prices.json'
     axios.get(url)
       .then(response => {
         commit('PRICES_CHANGE', { status: 'success', data: processData(response.data.prices) })
