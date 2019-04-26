@@ -22,11 +22,9 @@
       ]),
       start: function () {
         const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
-        console.log(x, y)
         return [this.scaleX(timeParse('%Y')(x)), this.scaleY(y)]
       },
       x: function () {
-        console.log('Arrow:', this.data, this.el, this.currentPaths)
         return this.scaleX(timeParse('%Y')(this.data[0][0]))
       },
       y: function () {

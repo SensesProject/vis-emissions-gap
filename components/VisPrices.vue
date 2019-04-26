@@ -62,7 +62,7 @@
       scaleY: function () {
         return scaleBand()
           .padding(0.5)
-          .rangeRound([0, this.height])
+          .rangeRound([50, this.height])
           .domain(this.policies)
       },
       scaleX: function () {

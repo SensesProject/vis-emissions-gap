@@ -29,7 +29,7 @@
               <h3>Is the Paris Agreement making a change? / What are the short-term targets of the Paris Agreement?</h3>
             </header>
             <section>
-              <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000–2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)" v-tooltip="'Each country …'">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays. This plateau is the result of emissions decreasing in some countries and still growing emissions especially in fast-growing countries, so that emission trends beyond 2030 are uncertain.</p>
+              <p>Currenty, global emissions continue to rise, though at a slower rate than in the years from 2000–2014. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)" v-tooltip="'Each country …'">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays.</p>
               <p>The problem is: We need to dramatically reduce emissions and not stay on the same level.</p>
             </section>
           </article>

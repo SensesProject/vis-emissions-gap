@@ -77,7 +77,7 @@
           left: 80,
           right: 50,
           top: 60,
-          bottom: 10
+          bottom: 30
         }
       }
     },
