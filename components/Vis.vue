@@ -75,7 +75,7 @@
         height: 0,
         margin: {
           left: 80,
-          right: 50,
+          right: 100,
           top: 60,
           bottom: 30
         }

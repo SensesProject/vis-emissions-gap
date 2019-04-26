@@ -1,35 +1,66 @@
 <template>
   <svg class="vis-prices" ref="vis">
+    <g>
+      <line
+        :x1="axis.x1"
+        :x2="axis.x2"
+        :y1="axis.y"
+        :y2="axis.y"
+        class="axis" />
+      <line
+        :x1="axis.x1"
+        :x2="axis.x1"
+        :y1="axis.y"
+        :y2="height - margin.bottom"
+        class="tick" />
+      <g>
+        <g v-for="tick in axis.ticks">
+          <line
+            :x1="tick.x"
+            :x2="tick.x"
+            :y1="tick.y1"
+            :y2="tick.y2"
+            class="tick" />
+          <text
+            :x="tick.x"
+            :y="tick.y3"
+            class="tick"
+            text-anchor="middle">
+            {{ tick.label }}
+          </text>
+        </g>
+      </g>
+    </g>
   	<g
       v-if="isReady"
       v-for="dot in dots"
-      :class="{ [dot.policy]: true, isVisible: visibility.indexOf(dot.policy) >= 0 }"
+      :class="{ bar: true, [dot.policy]: true, isVisible: visibility.indexOf(dot.policy) >= 0 }"
       :key="dot.policy">
     <text
       text-anchor="middle"
       :x="width / 2"
-      :y="dot.labelY">{{ dot.policy }}</text>
+      :y="dot.labelY">{{ dot.label }}</text>
     <rect
       v-if="goal >= 2030"
       class="short"
       :width="dot.short"
       :height="dot.height"
       :y="dot.y"
-      :x="0" />
+      :x="dot.x" />
     <rect
       v-if="goal >= 2050"
       class="long"
       :width="dot.long"
       :height="dot.height"
       :y="dot.y"
-      :x="0" />
+      :x="dot.x" />
     </g>
   </svg>
 </template>
 
 <script>
   import { mapState } from 'vuex'
-  import { map, find, flatten, get } from 'lodash'
+  import { map, find, flatten, get, filter } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
 
@@ -38,7 +69,12 @@
       return {
         width: 0,
         height: 0,
-        policies: ['NDC', 'goodpractice', 'netzero', 'eff']
+        margin: {
+          left: 10,
+          right: 10,
+          top: 120,
+          bottom: 30
+        }
       }
     },
     computed: {
@@ -48,8 +84,14 @@
         'step': state => state.navigation.step
       }),
       ...mapState([
-        'steps'
+        'steps',
+        'legend'
       ]),
+      policies: function () {
+        return filter(this.legend, item => {
+          return item.attribute !== 'historic'
+        })
+      },
       visibility: function () {
         return get(this.steps, `${this.step}.legend`, [])
       },
@@ -62,13 +104,13 @@
       scaleY: function () {
         return scaleBand()
           .padding(0.5)
-          .rangeRound([50, this.height])
-          .domain(this.policies)
+          .rangeRound([this.margin.top, this.height])
+          .domain(map(this.policies, 'attribute'))
       },
       scaleX: function () {
         return scaleLinear()
-          .range([0, this.width - 15])
-          .domain([0, this.extentPrices[1]])
+          .range([this.margin.left, this.width - this.margin.right - this.margin.left])
+          .domain([0, this.extentPrices[1]]).nice(3)
       },
       isReady: function () {
         return this.scaleX.domain()[1] && this.width && this.height
@@ -77,22 +119,44 @@
         const { policies, scenario, prices } = this
         const { degree, part } = scenario
         return map(policies, policy => {
-          const item = find(prices, { policy, degree, part })
+          const item = find(prices, { policy: policy.attribute, degree, part })
           const [short, long] = map(get(item, 'values'), value => {
             return this.scaleX(value)
           })
-          const y = this.scaleY(policy)
+          const y = this.scaleY(policy.attribute)
+          const x = this.scaleX(0)
           const height = this.scaleY.bandwidth()
           const labelY = y - 20
           return {
+            x,
             short,
             long,
             height,
             y,
-            policy,
-            labelY
+            policy: policy.attribute,
+            labelY,
+            label: policy.label
           }
         })
+      },
+      axis: function () {
+        const [x1, x2] = this.scaleX.range()
+        const y = this.margin.top / 2
+        const ticks = map(this.scaleX.ticks(3), tick => {
+          return {
+            x: this.scaleX(tick),
+            y1: y,
+            y2: y - 10,
+            y3: y - 20,
+            label: tick
+          }
+        })
+        return {
+          y,
+          x1,
+          x2,
+          ticks
+        }
       }
     },
     mounted () {
@@ -124,7 +188,7 @@
     font-weight: $font-weight-bold;
     font-size: $size-default;
 
-    g {
+    g.bar {
       opacity: 0;
 
       &.isVisible {

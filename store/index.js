@@ -24,8 +24,7 @@ export const state = () => {
     axis,
     legend,
     elements,
-    options,
-    policies: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero']
+    options
   }
 }
 
@@ -43,8 +42,8 @@ export const getters = {
     const { data } = state.data.data
 
     // Find items in the data that match the current options
-    const paths = compact(map(state.policies, policy => {
-      const obj = policy === 'historic'
+    const paths = compact(map(state.legend, policy => {
+      const obj = policy.attribute === 'historic'
         ? {
           scenario: 'historic',
           region,
@@ -55,7 +54,7 @@ export const getters = {
           scenario,
           degree,
           part,
-          policy,
+          policy: policy.attribute,
           region,
           variable
         }
@@ -64,7 +63,6 @@ export const getters = {
 
     // Filter the data for the given years
     const [l, h] = range
-    console.log(range)
     return map(paths, path => {
       const values = filter(path.values, d => {
         return d[0] <= h && d[0] >= l

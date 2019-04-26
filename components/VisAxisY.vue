@@ -58,7 +58,6 @@
         const label = variable === 'CO2' ? 'Gt CO2/yr' : 'Gt CO2eq/yr'
         const y = scaleY(mean(scaleY.domain()))
         const x = scaleX(scaleX.domain()[0])
-        console.log(x)
         return {
           label,
           x,

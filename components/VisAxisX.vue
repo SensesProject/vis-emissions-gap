@@ -25,7 +25,7 @@
         <line
           :y1="margin.top + 'px'"
           :x1="label.x + 'px'"
-          :y2="margin.top - margin.top / 7 + 'px'"
+          :y2="margin.top - 10 + 'px'"
           :x2="label.x + 'px'"
           class="tick" />
       </g>
