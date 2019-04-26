@@ -46,7 +46,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'today'],
+    visibility: ['linehistoric'],
     legend: ['historic', 'NDC'],
     goal: 2030,
     data: {
@@ -65,7 +65,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'today'],
+    visibility: ['linehistoric'],
     legend: ['historic', 'NDC', 'eff'],
     goal: 2030,
     data: {
