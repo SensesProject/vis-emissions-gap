@@ -13,6 +13,12 @@
         :y1="axis.y"
         :y2="height - margin.bottom"
         class="tick" />
+      <text
+        :x="axis.labelX"
+        :y="this.margin.top / 6 * 4"
+        dy="-1.5em"
+        class="axis"
+        text-anchor="middle">Prices</text>
       <g>
         <g v-for="item in labels">
           <line
@@ -61,8 +67,8 @@
       :class="{ bar: true, [dot.policy]: true, isVisible: visibility.indexOf(dot.policy) >= 0 }"
       :key="dot.policy">
     <text
-      text-anchor="middle"
-      :x="width / 2"
+      text-anchor="start"
+      :x="dot.x + 5"
       :y="dot.labelY">{{ dot.label }}</text>
     <rect
       v-if="goal >= 2030"
@@ -84,7 +90,7 @@
 
 <script>
   import { mapState } from 'vuex'
-  import { map, find, flatten, get, filter, first } from 'lodash'
+  import { map, find, flatten, get, filter, first, mean } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
 
@@ -94,10 +100,10 @@
         width: 0,
         height: 0,
         margin: {
-          left: 10,
+          left: 20,
           right: 10,
-          top: 120,
-          bottom: 30
+          top: 60,
+          bottom: 120
         }
       }
     },
@@ -128,7 +134,7 @@
       scaleY: function () {
         return scaleBand()
           .padding(0.5)
-          .rangeRound([this.margin.top, this.height])
+          .rangeRound([this.margin.top, this.height - this.margin.bottom])
           .domain(map(this.policies, 'attribute'))
       },
       scaleX: function () {
@@ -150,7 +156,7 @@
           const y = this.scaleY(policy.attribute)
           const x = this.scaleX(0)
           const height = this.scaleY.bandwidth()
-          const labelY = y - 20
+          const labelY = y - 10
           return {
             x,
             short,
@@ -165,23 +171,32 @@
       },
       labels: function () {
         const item = first(this.dots)
-        return [{
-          x: item.x + (item.short / 2),
-          y: this.scaleY(item.policy) - 50,
-          y1: this.scaleY(item.policy) - 45,
-          y2: this.scaleY(item.policy) - 5,
-          label: 'Short term'
-        }, {
-          x: item.x + (item.long / 2),
-          y: this.scaleY(item.policy) - 50,
-          y1: this.scaleY(item.policy) - 45,
-          y2: this.scaleY(item.policy) - 5,
-          label: 'Long term'
-        }]
+        const labels = []
+        if (this.goal >= 2030) {
+          const y = this.scaleY(item.policy) + item.height
+          labels.push({
+            x: item.x + (item.short / 2),
+            y: y + 28,
+            y1: y + 16,
+            y2: y + 2,
+            label: 'Short term'
+          })
+        }
+        if (this.goal >= 2050) {
+          labels.push({
+            x: item.x + (item.long / 2),
+            y: this.scaleY(item.policy) - 28,
+            y1: this.scaleY(item.policy) - 20,
+            y2: this.scaleY(item.policy) - 2,
+            label: 'Long term'
+          })
+        }
+        return labels
       },
       axis: function () {
         const [x1, x2] = this.scaleX.range()
-        const y = this.margin.top / 2
+        const y = this.margin.top
+        const labelX = mean(this.scaleX.range())
         const ticks = map(this.scaleX.ticks(3), tick => {
           return {
             x: this.scaleX(tick),
@@ -195,7 +210,8 @@
           y,
           x1,
           x2,
-          ticks
+          ticks,
+          labelX
         }
       }
     },
