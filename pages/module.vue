@@ -39,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    min-height: 100%;
+    min-height: calc(100% - #{$spacing});
     margin-top: $spacing;
     width: 100%;
 
