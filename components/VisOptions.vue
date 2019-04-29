@@ -1,20 +1,20 @@
 <template>
   <div class="vis-options">
-    <p>Montes est felis ea ac facilisi id doming elementum te commodo praesent ea stet condimentum, luptatum mi cum ultricies nibh erat voluptua differentiation at nonummy eum differentiated justointeger.</p>
+    <p>The study has looked further into the sensitivities, exploring not only 1.5°C trajectories but also 2°C trajectories, and scenarios with alternative assumptions leading to a lower availability of carbon dioxide removal options. The fields below allow you to explore the emission profiles and investment implications of these alternative scenarios, as well as the emission profiles for major economies (both CO2 from fossil fuels and cement, and ….)</p>
     <section class="options-wrapper">
-      <VisOptionWrapper label="Climate Target" tooltip="1.5°C: carbon budget 2011-2100 of 400 Gt CO2, 2°C: carbon budget 2011-2100 of 1000 Gt CO2">
+      <VisOptionWrapper label="Climate Target" tooltip="The study Kriegler et al. 2018 implemented the 1.5°C target as a carbon budget of 400 Gt CO2 from 2011-2100 (including all anthropogenic CO2 emissions). For the 2°C, the carbon budget is 1000 Gt CO2.">
         <VisOption option="1p5C" slug="degree" :current="degree">1.5 C</VisOption>
         <VisOption option="2C" slug="degree" :current="degree">2 C</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper label="CDR Availability" tooltip="Carbon Dioxide Removal (CDR) is the term used for various options to actively remove CO2 from the atmosphere. Options included in this study are additional afforestation (limited to an area of 375 million ha in the “reduced availability case”) and bioenergy with carbon capture and storage (BECCS). For the latter, the yearly maximum is around 20 Gt CO2 /yr in the full availability case (corresponding to around 300 EJ of bioenergy) and 10 Gt CO2/yr in the reduced availability case.">
+      <VisOptionWrapper label="CDR Availability" tooltip="Under full CDR (carbon dioxide removal) availability, the existing geological reservoirs suitable for carbon storage can be filled with 1% of the overall capacity per year (which roughly equates to 16 Gt per year globally), and no explicit restrictions apply to afforestation and bio-energy. The assumptions of reduced availability are 0.5% yearly injection for the geological storage, an absolute bound of 375 million ha of area suitable for afforestation and a maximum of 100 EJ purpose-grown bioenergy per year.">
         <VisOption option="full" slug="part" :current="part">Full</VisOption>
         <VisOption option="red" slug="part" :current="part">Reduced</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper label="Emissions" tooltip="TODO">
+      <VisOptionWrapper label="Emissions" tooltip="The previous views showed CO2 emissions from fossil fuels and cement. CO2 from the land-use system also are part of the total anthropogenic emissions.">
         <VisOption option="CO2|Energy and Industrial Processes" slug="variable" :current="variable">Energy and Industrial Processes</VisOption>
         <VisOption option="CO2|AFOLU" slug="variable" :current="variable">AFOLU</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper label="Timeframe" tooltip="The long-term targets are implemented as bounds of cumulative emissions (carbon budgets) of 1000 Gt CO2 for 2°C, and 400 Gt CO2 for 1.5°C, from 2011&ndash;2100 respectively.">
+      <VisOptionWrapper label="Timeframe" tooltip="The modeling captures the entire 21st century.">
         <VisOption :option="[1990, 2050]" slug="range" :current="range">Until 2050</VisOption>
         <VisOption :option="[1990, 2100]" slug="range" :current="range">Until 2100</VisOption>
       </VisOptionWrapper>

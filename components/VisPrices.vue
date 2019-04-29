@@ -18,7 +18,7 @@
         :y="this.margin.top / 6 * 4"
         dy="-1.5em"
         class="axis"
-        text-anchor="middle">Prices</text>
+        text-anchor="middle">Average yearly low-carbon power sector investments (billion US$)</text>
       <g>
         <g v-for="item in labels">
           <line
@@ -179,7 +179,7 @@
             y: y + 28,
             y1: y + 16,
             y2: y + 2,
-            label: 'Short term'
+            label: '2020–2030'
           })
         }
         if (this.goal >= 2050) {
@@ -188,7 +188,7 @@
             y: this.scaleY(item.policy) - 28,
             y1: this.scaleY(item.policy) - 20,
             y2: this.scaleY(item.policy) - 2,
-            label: 'Long term'
+            label: '2030–2050'
           })
         }
         return labels

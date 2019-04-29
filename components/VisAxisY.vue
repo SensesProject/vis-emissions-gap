@@ -54,8 +54,8 @@
         return this.margin.left / 7
       },
       axis: function () {
-        const { scaleY, scaleX, variable, d } = this
-        const label = variable === 'CO2' ? 'Gt CO2/yr' : 'Gt CO2eq/yr'
+        const { scaleY, scaleX, d } = this
+        const label = 'Gt CO2/yr' // variable === 'CO2' ? 'Gt CO2/yr' : 'Gt CO2eq/yr'
         const y = scaleY(mean(scaleY.domain()))
         const x = scaleX(scaleX.domain()[0])
         return {
