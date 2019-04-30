@@ -32,7 +32,7 @@ module.exports = {
       id: 'ndc',
       type: 'verticalLine',
       data: [[[2030, 0]]],
-      label: 'Latest point of action'
+      label: ''
     },
     {
       id: 'markerpolicy',

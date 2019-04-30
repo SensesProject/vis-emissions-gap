@@ -6,6 +6,13 @@
       :x2="x"
       :y1="y1"
       :y2="y2" />
+    <text
+      v-if="el.label"
+      class="verticalLine marker"
+      :x="x"
+      :y="y2 - 5"
+      text-anchor="middle"
+    >{{ el.label }}</text>
   </g>
 </template>
 
