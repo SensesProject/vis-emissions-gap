@@ -97,7 +97,7 @@
         justify-content: flex-end;
 
         span, i {
-          color: #39C88A;
+          color: $color-blue;
         }
       }
 
@@ -119,7 +119,7 @@
     height: 5px;
 
     line {
-      stroke: #39C88A;
+      stroke: $color-blue;
       stroke-width: 5px;
       transition: all 0.5s;
     }

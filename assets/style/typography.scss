@@ -129,8 +129,14 @@ tr td {
   font-size: $size-default;
   border-radius: $radius-default;
   transition: all 0.5s ease;
-  background-color: $color-red;
+  background-color: $color-blue;
   color: #fff;
+
+  &.btn--inline {
+    font-weight: $font-weight-default;
+    margin-top: 0;
+    padding: $spacing / 4 $spacing / 4;
+  }
 }
 
 @font-face {

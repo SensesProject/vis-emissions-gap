@@ -1,15 +1,32 @@
 <template slot-scope="{signal}">
   <section :class="{ option: true, isWide }">
     <span class="description">{{ label }}</span> <span v-if="tooltip" class="detail" v-tooltip="tooltip">?</span>
-    <ul>
-      <slot />
-    </ul>
+    <section v-if="isDropdown">
+      <v-popover>
+        <button>{{ currentLabel }} <i class="icon-angle-right" /></button>
+        <ul slot="popover">
+          <slot />
+        </ul>
+      </v-popover>
+    </section>
+    <section v-else>
+      <ul>
+        <slot />
+      </ul>
+    </section>
   </section>
 </template>
 
 <script>
+  import { get, lowerCase, startCase } from 'lodash'
+
   export default {
-    props: ['label', 'isWide', 'tooltip']
+    props: ['label', 'isWide', 'tooltip', 'isDropdown', 'current'],
+    computed: {
+      currentLabel: function () {
+        return startCase(lowerCase(get(this, 'current', '')))
+      }
+    }
   }
 </script>
 
@@ -17,22 +34,32 @@
   @import "~@/assets/style/global";
 
   .option {
-    .description, .detail {
+    .description, .detail, button {
       font-weight: $font-weight-bold;
-      text-transform: uppercase;
-      letter-spacing: $spacing-wider;
-      font-size: $size-smallest;
+      // letter-spacing: $spacing-wider;
+      font-size: $size-smaller;
       display: inline-block;
+      border: none;
+
+      &:focus, &:active {
+        outline: 0;
+      }
     }
 
     .detail {
       color: palette(grey, 40);
     }
 
+    button {
+      font-size: $size-default;
+      color: $color-blue;
+    }
+
     ul {
+      max-width: 150px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: $spacing / 2;
+      grid-column-gap: $spacing / 6;
     }
 
     &.isWide {

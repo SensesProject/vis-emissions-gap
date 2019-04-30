@@ -176,8 +176,8 @@
           const y = this.scaleY(item.policy) + item.height
           labels.push({
             x: item.x + (item.short / 2),
-            y: y + 28,
-            y1: y + 16,
+            y: y + 22,
+            y1: y + 10,
             y2: y + 2,
             label: '2020–2030'
           })
@@ -185,8 +185,8 @@
         if (this.goal >= 2050) {
           labels.push({
             x: item.x + (item.long / 2),
-            y: this.scaleY(item.policy) - 28,
-            y1: this.scaleY(item.policy) - 20,
+            y: this.scaleY(item.policy) - 16,
+            y1: this.scaleY(item.policy) - 10,
             y2: this.scaleY(item.policy) - 2,
             label: '2030–2050'
           })

@@ -29,6 +29,10 @@ html {
   background-color: #2F3652;
 }
 
+button {
+  font: normal normal 105%/1.7 $font-family-default;
+}
+
 .mobile-invisible {
 	visibility: hidden;
   display: none;
