@@ -6,7 +6,7 @@
 		"part": "full",
 		"policy": "eff",
 		"region": "World",
-		"values": [1074, 870]
+		"values": [1074, 441]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -14,7 +14,7 @@
 		"part": "full",
 		"policy": "NDC",
 		"region": "World",
-		"values": [567, 1542]
+		"values": [567, 1113]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -22,7 +22,7 @@
 		"part": "full",
 		"policy": "goodpractice",
 		"region": "World",
-		"values": [670, 1373]
+		"values": [670, 944]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -30,7 +30,7 @@
 		"part": "full",
 		"policy": "netzero",
 		"region": "World",
-		"values": [744, 1237]
+		"values": [744, 808]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -38,7 +38,7 @@
 		"part": "full",
 		"policy": "eff",
 		"region": "World",
-		"values": [925, 895]
+		"values": [925, 466]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -46,7 +46,7 @@
 		"part": "full",
 		"policy": "NDC",
 		"region": "World",
-		"values": [567, 1352]
+		"values": [567, 923]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -54,7 +54,7 @@
 		"part": "full",
 		"policy": "goodpractice",
 		"region": "World",
-		"values": [670, 1186]
+		"values": [670, 757]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -62,7 +62,7 @@
 		"part": "full",
 		"policy": "netzero",
 		"region": "World",
-		"values": [744, 1078]
+		"values": [744, 649]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -70,7 +70,7 @@
 		"part": "red",
 		"policy": "eff",
 		"region": "World",
-		"values": [1018, 898]
+		"values": [1018, 469]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -78,7 +78,7 @@
 		"part": "red",
 		"policy": "NDC",
 		"region": "World",
-		"values": [567, 1604]
+		"values": [567, 1175]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -86,7 +86,7 @@
 		"part": "red",
 		"policy": "goodpractice",
 		"region": "World",
-		"values": [670, 1425]
+		"values": [670, 996]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
@@ -94,7 +94,7 @@
 		"part": "red",
 		"policy": "netzero",
 		"region": "World",
-		"values": [744, 1285]
+		"values": [744, 856]
 	}, {
 		"model": "REMIND-MAgPIE 1.7-3.0",
 		"scenario": "PEP",
