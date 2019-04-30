@@ -22,7 +22,7 @@
       :y="zero - 10"
       dominant-baseline="baseline"
       text-anchor="middle">
-      Adding CO<tspan class="super" baseline-shift="super">2</tspan> to the atmosphere
+      Adding CO<tspan class="super" baseline-shift="sub">2</tspan> to the atmosphere
     </text>
     <text
       class="negative marker"
@@ -30,7 +30,7 @@
       :y="zero + 10"
       dominant-baseline="hanging"
       text-anchor="middle">
-      Extracting CO<tspan class="super" baseline-shift="super">2</tspan> from the atmosphere
+      Extracting CO<tspan class="super" baseline-shift="sub">2</tspan> from the atmosphere
     </text>
   </g>
 </template>
