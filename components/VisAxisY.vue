@@ -42,7 +42,7 @@
   import mean from 'lodash/mean'
   import { format } from 'd3-format'
 
-  const f = format(`.1s`)
+  const f = format(`,.2r`)
 
   export default {
     props: ['margin', 'height', 'scaleY', 'scaleX'],
@@ -62,7 +62,7 @@
           label,
           x,
           y,
-          ticks: map(scaleY.ticks(), (tick, i) => {
+          ticks: map(scaleY.ticks(6), (tick, i) => {
             return {
               key: i,
               label: f(tick),

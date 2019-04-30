@@ -144,7 +144,7 @@
       scaleY: function () {
         return scaleLinear()
           .range([this.height - this.margin.bottom, this.margin.top])
-          .domain(this.extentY).nice()
+          .domain(this.extentY).nice(6)
       }
     },
     methods: {
