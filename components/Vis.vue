@@ -34,7 +34,9 @@
               :width="width"
               :scaleX="scaleX"
               :scaleY="scaleY" />
-          </g>
+            <ConditionalElements
+              :scaleX="scaleX"
+              :scaleY="scaleY" />
           </g>
         </svg>
       </transition>
@@ -59,6 +61,7 @@
   import VisElement from '~/components/VisElement.vue'
   import VisPath from '~/components/VisPath.vue'
   import VisZeroLine from '~/components/VisZeroLine.vue'
+  import ConditionalElements from '~/components/ConditionalElements.vue'
 
   function extractValues (arr, path, func) {
     return flattenDeep(map(arr, a => {
@@ -167,7 +170,8 @@
       VisElement,
       VisPrices,
       VisPath,
-      VisZeroLine
+      VisZeroLine,
+      ConditionalElements
     }
   }
 </script>

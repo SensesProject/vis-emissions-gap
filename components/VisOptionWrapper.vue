@@ -56,7 +56,7 @@
     }
 
     ul {
-      max-width: 150px;
+      max-width: 200px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-column-gap: $spacing / 6;
