@@ -57,9 +57,11 @@
           [2000, ''],
           [2010, ''],
           [2019, 'Today'],
-          [2030, 'Short term goals'],
+          [2030, 'Near-term plans'],
           [2040, ''],
-          [2050, 'Long term goals']
+          [2050, 'Long-term targets'],
+          [2075, ''],
+          [2100, '']
         ]
 
         return map(labels, pair => {
