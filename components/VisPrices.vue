@@ -1,6 +1,6 @@
 <template>
   <svg class="vis-prices" ref="vis">
-    <g>
+    <g v-if="goal >= 2030">
       <line
         :x1="axis.x1"
         :x2="axis.x2"
@@ -103,7 +103,7 @@
           left: 20,
           right: 10,
           top: 60,
-          bottom: 120
+          bottom: 30
         }
       }
     },

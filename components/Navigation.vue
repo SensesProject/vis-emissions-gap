@@ -1,18 +1,11 @@
 <template>
   <footer>
     <ul class="nav">
-      <li @click="previousStep" :class="{ inactive: step === 0 }">
-        <section>
-          <span>Previous step</span>
-          <small>Title of previous step</small>
-        </section>
+      <li @click="previousStep" :class="{ 'nav-item': true, inactive: step === 0 }">
         <i class="icon-angle-left" />
       </li>
-      <li @click="nextStep" :class="{ inactive: step === steps.length - 1 }">
-        <section>
-          <span>Next step</span>
-          <small>Title of next step</small>
-        </section>
+      <li class="content"><Story /></li>
+      <li @click="nextStep" :class="{ 'nav-item': true, inactive: step === steps.length - 1 }">
         <i class="icon-angle-right" />
       </li>
     </ul>
@@ -24,6 +17,7 @@
 
 <script>
   import { mapState, mapActions } from 'vuex'
+  import Story from '~/components/Story.vue'
 
   export default {
     computed: {
@@ -40,6 +34,9 @@
         'previousStep',
         'setStep'
       ])
+    },
+    components: {
+      Story
     }
   }
 </script>
@@ -56,14 +53,19 @@
   }
 
   .nav {
-    border-top: 1px solid rgba(47, 54, 82, 0.1);
+    // border-top: 1px solid rgba(47, 54, 82, 0.1);
     display: flex;
-    height: 8vh;
+    min-height: 30vh;
     justify-content: space-between;
-    align-items: center;
     @include wrapper-primary();
 
-    & > * {
+    .content {
+      flex: 10;
+      align-items: flex-start;
+    }
+
+    & > .nav-item {
+      flex: 1;
       cursor: pointer;
       color: palette(grey, 40);
       font-size: $size-big;
@@ -82,16 +84,17 @@
 
       i {
         line-height: 1;
-        font-size: 1.3rem;
+        font-size: $size-biggest;
       }
 
       &:first-child {
-        flex-direction: row-reverse;
+        // flex-direction: row-reverse;
         text-align: left;
       }
 
       &:last-child {
         text-align: right;
+        justify-content: flex-end;
 
         span, i {
           color: #39C88A;

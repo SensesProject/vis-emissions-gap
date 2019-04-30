@@ -15,9 +15,12 @@
 .vis-wrapper {
   display: flex;
   flex-direction: row;
+  @include wrapper-primary();
+  flex: 1;
 
   .vis-legend {
     flex: 3;
+    height: 100%;
   }
 
   .vis-options {

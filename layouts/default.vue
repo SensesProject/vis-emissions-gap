@@ -11,11 +11,6 @@
           </ul>
         </nav>
       </section>
-      <section class="module-header" v-if="isModule">
-        <hgroup>
-          <h2>Are we doing enough?</h2>
-        </hgroup>
-      </section>
     </header>
     <div class="page-content" role="main">
       <nuxt/>
@@ -63,7 +58,7 @@
           grid-template-rows: 100%;
           height: 6vh;
           min-height: 60px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         &.module-header {

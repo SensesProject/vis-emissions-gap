@@ -1,9 +1,6 @@
 <template>
   <div class="module">
-    <section class="wrapper">
-      <Vis />
-      <Story />
-    </section>
+    <Vis />
     <Navigation />
   </div>
 </template>
@@ -43,18 +40,18 @@
     margin-top: $spacing;
     width: 100%;
 
-    .wrapper {
-      min-height: 550px;
-      display: flex;
-      flex: 1;
-      align-self: center;
-      @include wrapper-primary();
-      position: relative;
+    // .wrapper {
+    //   min-height: 550px;
+    //   display: flex;
+    //   flex: 1;
+    //   align-self: center;
+    //   @include wrapper-primary();
+    //   position: relative;
 
-      & > * {
-        flex: 1;
-      }
-    }
+    //   & > * {
+    //     flex: 1;
+    //   }
+    // }
   }
 
 </style>
