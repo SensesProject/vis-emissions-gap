@@ -10,7 +10,7 @@
             This module explores how current <span class="info" v-tooltip="'each country has submitted a “Nationally determined contribution” (NDC), which contains – inter alia – decarbonization targets for the year 2025 or 2030'">decarbonization plans until 2030</span> relate to the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">long-term targets of the Paris Agreement</span>.
           </p>
           <p>
-            Let’s start with the historic CO2 emissions from 1990 until 2016, coming from the combustion of fossil fuels (coal, oil and natural gas) and cement production. As we can see, these emissions have increased strongly in the first decade of the 21st century, and are still on an upward trajectory.
+            Let’s start with the historic CO2 emissions from 1990 until 2016, coming from the combustion of fossil fuels (coal, oil and natural gas) and cement production. As we can see, these emissions have increased strongly in the first decade of the 21st century, and are still on an upward trajectory. Use the arrow on the right to navigate.
           </p>
         </section>
       </article>
