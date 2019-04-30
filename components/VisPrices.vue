@@ -65,7 +65,7 @@
       v-if="isReady"
       v-for="dot in dots"
       :class="{ bar: true, [dot.policy]: true, isVisible: visibility.indexOf(dot.policy) >= 0 }"
-      :key="dot.policy">
+      :key="dot.key">
     <text
       text-anchor="start"
       :x="dot.x + 5"
@@ -128,14 +128,25 @@
       goal: function () {
         return get(this.steps, `${this.step}.goal`, [])
       },
-      extentPrices: function () {
-        return extent(flatten(map(this.prices, 'values')))
-      },
       scaleY: function () {
         return scaleBand()
           .padding(0.5)
           .rangeRound([this.margin.top, this.height - this.margin.bottom])
           .domain(map(this.policies, 'attribute'))
+      },
+      bars: function () {
+        const { policies, scenario, prices } = this
+        const { degree, part } = scenario
+
+        return map(policies, policy => {
+          return {
+            ...policy,
+            ...find(prices, { policy: policy.attribute, degree, part })
+          }
+        })
+      },
+      extentPrices: function () {
+        return extent(flatten(map(this.bars, 'values')))
       },
       scaleX: function () {
         return scaleLinear()
@@ -146,14 +157,14 @@
         return this.scaleX.domain()[1] && this.width && this.height
       },
       dots: function () {
-        const { policies, scenario, prices } = this
-        const { degree, part } = scenario
-        return map(policies, policy => {
-          const item = find(prices, { policy: policy.attribute, degree, part })
+        const { bars } = this
+        // const { degree, part } = scenario
+        return map(bars, (item, i) => {
+          // const item = find(prices, { policy: policy.attribute, degree, part })
           const [short, long] = map(get(item, 'values'), value => {
             return this.scaleX(value)
           })
-          const y = this.scaleY(policy.attribute)
+          const y = this.scaleY(get(item, 'policy', ''))
           const x = this.scaleX(0)
           const height = this.scaleY.bandwidth()
           const labelY = y - 10
@@ -163,9 +174,10 @@
             long,
             height,
             y,
-            policy: policy.attribute,
+            policy: get(item, 'policy', ''),
+            key: get(item, 'policy', '') + i,
             labelY,
-            label: policy.label
+            label: get(item, 'label', '')
           }
         })
       },
