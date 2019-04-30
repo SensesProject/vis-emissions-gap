@@ -5,9 +5,9 @@
         <h1><n-link to="/">Senses Toolkit</n-link></h1>
         <nav class="page-nav">
           <ul>
-            <li><n-link to="/learn">Learn</n-link></li>
-            <li><n-link to="/explore">Explore</n-link></li>
-            <li><n-link to="/share">Share</n-link></li>
+            <li><n-link to="/">Learn</n-link></li>
+            <li><n-link to="/">Explore</n-link></li>
+            <li><n-link to="/">Share</n-link></li>
           </ul>
         </nav>
       </section>
