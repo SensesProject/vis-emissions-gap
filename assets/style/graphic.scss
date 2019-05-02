@@ -19,6 +19,11 @@ path {
     fill: $color-red;
     opacity: 0.3;
   }
+
+  &.arrow {
+    fill: palette(grey, 70);
+    opacity: 0.15;
+  }
 }
 
 rect {

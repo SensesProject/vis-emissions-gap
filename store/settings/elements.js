@@ -60,13 +60,13 @@ module.exports = {
     {
       id: 'arrowup',
       type: 'arrow',
-      data: [[[2075, 0]]],
+      data: [[[2075, 0], [2065, 0], [2080, 0]]],
       label: 'bad'
     },
     {
       id: 'arrowdown',
       type: 'arrow',
-      data: [[[2050, 0]]],
+      data: [[[2050, 0], [2045, 0], [2055, 0]]],
       label: 'good'
     }
   ]
