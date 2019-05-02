@@ -147,6 +147,10 @@ text {
     &.label--path {
       fill: #000;
       font-size: $size-default;
+
+      &.hasHighlight {
+        opacity: 0.2;
+      }
     }
   }
 

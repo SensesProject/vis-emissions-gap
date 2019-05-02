@@ -64,32 +64,34 @@
   	<g
       v-if="isReady"
       v-for="dot in dots"
-      :class="{ bar: true, [dot.policy]: true, isVisible: visibility.indexOf(dot.policy) >= 0 }"
-      :key="dot.key">
-    <text
-      text-anchor="start"
-      :x="dot.x + 5"
-      :y="dot.labelY">{{ dot.label }}</text>
-    <rect
-      v-if="goal >= 2030"
-      class="short"
-      :width="dot.short"
-      :height="dot.height"
-      :y="dot.y"
-      :x="dot.x" />
-    <rect
-      v-if="goal >= 2050"
-      class="long"
-      :width="dot.long"
-      :height="dot.height"
-      :y="dot.y"
-      :x="dot.x" />
+      :class="dot.klass"
+      :key="dot.key"
+      @mouseover="setHighlight(dot.policy)"
+      @mouseleave="setHighlight(false)">
+      <text
+        text-anchor="start"
+        :x="dot.x + 5"
+        :y="dot.labelY">{{ dot.label }}</text>
+      <rect
+        v-if="goal >= 2030"
+        class="short"
+        :width="dot.short"
+        :height="dot.height"
+        :y="dot.y"
+        :x="dot.x" />
+      <rect
+        v-if="goal >= 2050"
+        class="long"
+        :width="dot.long"
+        :height="dot.height"
+        :y="dot.y"
+        :x="dot.x" />
     </g>
   </svg>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import { map, find, flatten, get, filter, first, mean } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
@@ -111,7 +113,8 @@
       ...mapState({
         'prices': state => state.prices.prices.data,
         'scenario': state => state.scenario.scenario,
-        'step': state => state.navigation.step
+        'step': state => state.navigation.step,
+        'highlight': state => state.highlight.highlight
       }),
       ...mapState([
         'steps',
@@ -169,13 +172,28 @@
           const x = this.scaleX(0)
           const height = this.scaleY.bandwidth()
           const labelY = y - 10
+          const policy = get(item, 'policy', '')
+          const klass = [
+            'bar',
+            policy
+          ]
+
+          if (this.visibility.indexOf(policy) >= 0) {
+            klass.push('isVisible')
+          }
+          console.log(this.highlight, policy, this.highlight === policy)
+          if (this.highlight) {
+            klass.push(this.highlight === policy ? 'isHighlight' : 'hasHighlight')
+          }
+
           return {
             x,
             short,
             long,
             height,
             y,
-            policy: get(item, 'policy', ''),
+            klass: klass.join(' '),
+            policy,
             key: get(item, 'policy', '') + i,
             labelY,
             label: get(item, 'label', '')
@@ -242,7 +260,10 @@
         const height = el.clientHeight || el.parentNode.clientHeight
         this.width = width
         this.height = height
-      }
+      },
+      ...mapActions([
+        'setHighlight'
+      ])
     }
   }
 </script>
@@ -262,6 +283,10 @@
 
       &.isVisible {
         opacity: 1;
+
+        &.hasHighlight {
+          opacity: 0.2;
+        }
       }
     }
   }

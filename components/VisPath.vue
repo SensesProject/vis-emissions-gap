@@ -1,5 +1,7 @@
 <template>
-  <g>
+  <g
+    @mouseover="setHighlight(label.label)"
+    @mouseleave="setHighlight(false)">
     <path
       :class="klass"
       :d="d"
@@ -9,12 +11,12 @@
       v-if="label"
       :x="label.x"
       :y="label.y"
-      :class="label.klass">{{ label.label }}</text>
+      :class="klass">{{ label.label }}</text>
   </g>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import { line } from 'd3-shape'
   import { timeParse } from 'd3-time-format'
   import { isNumber, last } from 'lodash'
@@ -72,8 +74,7 @@
           return {
             label: this.el.policy,
             x: this.scaleX(timeParse('%Y')(lastValues[0])) + 5,
-            y: this.scaleY(lastValues[1]) + 4,
-            klass: `label label--path ${this.el.policy}`
+            y: this.scaleY(lastValues[1]) + 4
           }
         }
       },
@@ -83,6 +84,8 @@
         const klass = [
           'graphic',
           'line',
+          'label',
+          'label--path',
           policy
         ]
 
@@ -103,7 +106,10 @@
           .y((d, i) => {
             return scaleY(d[1])
           })
-      }
+      },
+      ...mapActions([
+        'setHighlight'
+      ])
     }
   }
 </script>
