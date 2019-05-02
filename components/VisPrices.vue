@@ -103,7 +103,7 @@
           left: 20,
           right: 10,
           top: 60,
-          bottom: 30
+          bottom: 0
         }
       }
     },
@@ -130,7 +130,8 @@
       },
       scaleY: function () {
         return scaleBand()
-          .padding(0.5)
+          .paddingInner(0.6)
+          .paddingOuter(0.3)
           .rangeRound([this.margin.top, this.height - this.margin.bottom])
           .domain(map(this.policies, 'attribute'))
       },
