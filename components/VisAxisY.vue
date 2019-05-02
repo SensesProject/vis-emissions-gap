@@ -13,7 +13,7 @@
       :transform="`rotate(-90 ${d * 1.5} ${axis.y})`"
       text-anchor="middle"
       dominant-baseline="baseline">
-      {{ axis.label }}
+      Gt CO<tspan class="super" baseline-shift="sub">2</tspan>/yr
     </text>
     <g
       v-for="tick in axis.ticks"
