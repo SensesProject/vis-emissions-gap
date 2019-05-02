@@ -4,6 +4,18 @@
       <transition name="fade">
         <svg width="100%" height="100%" class="vis" v-if="isLoaded">
           <g v-if="width && height">
+            <VisAxis
+              :margin="margin"
+              :height="height"
+              :width="width"
+              :scaleX="scaleX"
+              :scaleY="scaleY" />
+            <VisZeroLine
+              :margin="margin"
+              :height="height"
+              :width="width"
+              :scaleX="scaleX"
+              :scaleY="scaleY" />
             <g>
               <VisElement
                 v-for="el in elements"
@@ -23,18 +35,6 @@
                 :scaleY="scaleY"
                 :legend="legend" />
             </g>
-            <VisAxis
-              :margin="margin"
-              :height="height"
-              :width="width"
-              :scaleX="scaleX"
-              :scaleY="scaleY" />
-            <VisZeroLine
-              :margin="margin"
-              :height="height"
-              :width="width"
-              :scaleX="scaleX"
-              :scaleY="scaleY" />
             <ConditionalElements
               :scaleX="scaleX"
               :scaleY="scaleY" />
