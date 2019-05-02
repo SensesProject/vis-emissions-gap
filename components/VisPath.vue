@@ -5,6 +5,11 @@
       :d="d"
       stroke-linecap="round"
       :style="{ strokeDasharray: `${totalLength}px`, strokeDashoffset: `${currentLength}px` }" />
+    <text
+      v-if="label"
+      :x="label.x"
+      :y="label.y"
+      :class="label.klass">{{ label.label }}</text>
   </g>
 </template>
 
@@ -19,7 +24,7 @@
   import * as pathHelper from 'svg-path-properties'
 
   export default {
-    props: ['el', 'scaleX', 'scaleY'],
+    props: ['el', 'scaleX', 'scaleY', 'legend'],
     computed: {
       ...mapState({
         'highlight': state => state.highlight.highlight,
@@ -46,11 +51,13 @@
         }
         return value
       },
-      currentLength: function () {
-        const values = filter(this.el.values, value => {
+      values: function () {
+        return filter(this.el.values, value => {
           return value[0] <= this.end
         })
-        const path = this.drawLine()(values)
+      },
+      currentLength: function () {
+        const path = this.drawLine()(this.values)
 
         if (isNull(path)) {
           return this.totalLength
@@ -60,9 +67,15 @@
         return this.totalLength - length
       },
       label: function () {
-        const lastValues = last(this.el.values)
-        console.log(this.el, lastValues, this.el.range, this.range, this.end)
-        return this.el.policy
+        if (this.values.length && this.legend.indexOf(this.el.policy) >= 0) {
+          const lastValues = last(this.values)
+          return {
+            label: this.el.policy,
+            x: this.scaleX(timeParse('%Y')(lastValues[0])) + 5,
+            y: this.scaleY(lastValues[1]) + 4,
+            klass: `label label--path ${this.el.policy}`
+          }
+        }
       },
       klass: function () {
         const { el, highlight } = this

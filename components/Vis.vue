@@ -20,7 +20,8 @@
                 :el="el"
                 :key="el.policy"
                 :scaleX="scaleX"
-                :scaleY="scaleY" />
+                :scaleY="scaleY"
+                :legend="legend" />
             </g>
             <VisAxis
               :margin="margin"
@@ -80,7 +81,7 @@
           left: 80,
           right: 100,
           top: 60,
-          bottom: 30
+          bottom: 10
         }
       }
     },
@@ -108,6 +109,9 @@
       ]),
       visiblity: function () {
         return get(this.steps, `${this.step}.visibility`, [])
+      },
+      legend: function () {
+        return get(this.steps, `${this.step}.legend`, [])
       },
       clips: function () {
         return get(this.steps, `${this.step}.clips`, [])

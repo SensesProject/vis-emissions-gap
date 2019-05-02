@@ -8,7 +8,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric'],
+    visibility: [],
     legend: ['historic'],
     goal: 0,
     data: {
@@ -27,7 +27,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'arrowup', 'arrowdown'],
+    visibility: ['arrowup', 'arrowdown'],
     legend: ['historic'],
     goal: 0,
     data: {
@@ -46,8 +46,8 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric'],
-    legend: ['historic', 'NDC'],
+    visibility: [],
+    legend: ['NDC'],
     goal: 2030,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -65,8 +65,8 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric'],
-    legend: ['historic', 'NDC', 'eff'],
+    visibility: [],
+    legend: ['NDC', 'eff'],
     goal: 2030,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -84,8 +84,8 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'ndc'],
-    legend: ['historic', 'NDC', 'eff'],
+    visibility: ['ndc'],
+    legend: ['NDC', 'eff'],
     goal: 2050,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -103,8 +103,8 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['linehistoric', 'ndc'],
-    legend: ['historic', 'NDC', 'eff'],
+    visibility: ['ndc'],
+    legend: ['NDC', 'eff'],
     goal: 2050,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -116,8 +116,8 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    visibility: ['linehistoric'],
-    legend: ['historic', 'NDC', 'eff', 'goodpractice'],
+    visibility: [],
+    legend: ['NDC', 'eff', 'goodpractice'],
     goal: 2050,
     clips: {
       NDC: 'end',
@@ -135,8 +135,8 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    visibility: ['linehistoric'],
-    legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
+    visibility: [],
+    legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     goal: 2050,
     clips: {
       NDC: 'end',
@@ -154,8 +154,8 @@ module.exports = {
       range: [1990, 2050]
     }
   }, {
-    visibility: ['linehistoric'],
-    legend: ['historic', 'NDC', 'eff', 'goodpractice', 'netzero'],
+    visibility: [],
+    legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     goal: 2050,
     clips: {
       NDC: 'end',

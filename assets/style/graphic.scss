@@ -143,6 +143,11 @@ text {
       stroke-width: 4px;
       stroke: #fff;
     }
+
+    &.label--path {
+      fill: #000;
+      font-size: $size-default;
+    }
   }
 
   tspan.info {

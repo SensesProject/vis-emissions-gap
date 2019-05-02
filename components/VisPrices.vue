@@ -103,7 +103,7 @@
           left: 20,
           right: 10,
           top: 60,
-          bottom: 0
+          bottom: 10
         }
       }
     },
