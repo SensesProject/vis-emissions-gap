@@ -5,7 +5,7 @@
         <i class="icon-angle-left" />
       </li>
       <li class="content"><Story /></li>
-      <li @click="nextStep" :class="{ 'nav-item': true, inactive: step === steps.length - 1 }">
+      <li @click="nextStep" :class="{ 'nav-item': true, inactive: step === steps.length - 1, start: step === 0 }">
         <i class="icon-angle-right" />
       </li>
     </ul>
@@ -44,6 +44,18 @@
 <style lang="scss" scoped>
   @import "~@/assets/style/global";
 
+  @keyframes pulse {
+    0% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.7;
+    }
+  }
+
   footer {
     align-self: flex-end;
     width: 100%;
@@ -71,6 +83,16 @@
       font-size: $size-big;
       display: flex;
       align-items: center;
+      opacity: 0.85;
+
+      &.start {
+        animation: pulse 1.5s ease infinite;
+      }
+
+      &:hover, &:focus {
+        opacity: 1;
+        animation: none;
+      }
 
       span, small {
         display: block;
@@ -84,7 +106,7 @@
 
       i {
         line-height: 1;
-        font-size: $size-biggest;
+        font-size: 2.8rem;
       }
 
       &:first-child {
@@ -109,7 +131,10 @@
 
       &.inactive {
         pointer-events: none;
-        color: palette(grey, 70);
+
+        i {
+          color: palette(grey, 70);
+        }
       }
     }
   }

@@ -95,8 +95,12 @@ span {
   }
 
   &.info {
-    border-bottom: 1px dotted $color-violet;
+    border-bottom: 1px dashed $color-blue;
   }
+}
+
+a {
+  color: $color-blue;
 }
 
 tr td {
