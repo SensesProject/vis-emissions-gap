@@ -36,7 +36,7 @@
         return this.drawLine()(this.el.values)
       },
       totalLength: function () {
-        return pathHelper.svgPathProperties(this.d).getTotalLength()
+        return pathHelper.svgPathProperties(this.d).getTotalLength() + 1
       },
       end: function () {
         const { clip } = this.el
