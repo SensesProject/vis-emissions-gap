@@ -28,7 +28,7 @@ module.exports = {
       netzero: 'start'
     },
     visibility: ['arrowup', 'arrowdown'],
-    legend: ['historic'],
+    legend: [],
     goal: 0,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
