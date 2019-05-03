@@ -181,7 +181,6 @@
           if (this.visibility.indexOf(policy) >= 0) {
             klass.push('isVisible')
           }
-          console.log(this.highlight, policy, this.highlight === policy)
           if (this.highlight) {
             klass.push(this.highlight === policy ? 'isHighlight' : 'hasHighlight')
           }
