@@ -21,7 +21,6 @@
       :cx="x + 'px'"
       :cy="y + 'px'"
       r="10" />
-
 	</g>
 </template>
 
