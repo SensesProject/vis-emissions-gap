@@ -27,7 +27,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['arrowup', 'arrowdown'],
+    visibility: ['budget', 'arrowup', 'arrowdown'],
     legend: [],
     goal: 0,
     data: {

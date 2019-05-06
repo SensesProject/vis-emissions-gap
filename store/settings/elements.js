@@ -58,15 +58,21 @@ module.exports = {
       label: '2025'
     },
     {
+      id: 'budget',
+      type: 'area',
+      data: [[[2020, 0], [2080, 0]]],
+      label: 'Budget'
+    },
+    {
       id: 'arrowup',
       type: 'arrow',
-      data: [[[2075, 0], [2065, 0], [2080, 0]]],
+      data: [[[2020, 0], [2075, 0], [2065, 0], [2080, 0]]],
       label: '2° C'
     },
     {
       id: 'arrowdown',
       type: 'arrow',
-      data: [[[2050, 0], [2045, 0], [2055, 0]]],
+      data: [[[2020, 0], [2050, 0], [2045, 0], [2055, 0]]],
       label: '1.5° C'
     }
   ]

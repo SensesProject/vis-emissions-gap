@@ -15,15 +15,30 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import { area } from 'd3-shape'
   import { timeParse } from 'd3-time-format'
-  import get from 'lodash/get'
+  import { get, last, find, map } from 'lodash'
 
   export default {
     props: ['el', 'scaleX', 'scaleY', 'data'],
     computed: {
+      ...mapGetters([
+        'currentPaths'
+      ]),
+      today: function () {
+        const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
+        return [this.scaleX(timeParse('%Y')(x)), this.scaleY(y)]
+      },
+      area: function () {
+        const data = map(this.data, (datum, i) => {
+          return [this.scaleX(timeParse('%Y')(datum[0])), i === 0 ? this.today[1] : this.scaleY(0)]
+        })
+        const foo = [this.today, ...data]
+        return foo
+      },
       d: function () {
-        return this.drawArea()(this.data)
+        return this.drawArea()(this.area)
       },
       x: function () {
         const x = get(this.el.marker, '0', 0)
@@ -36,14 +51,15 @@
     },
     methods: {
       drawArea: function () {
-        const { scaleX, scaleY } = this
-        const [l, h] = this.scaleY.domain()
+        const { scaleY } = this
         return area()
           .x((d, i) => {
-            return scaleX(timeParse('%Y')(d[0]))
+            return d[0]
           })
-          .y1(scaleY(l))
-          .y0(scaleY(h))
+          .y1((d, i) => {
+            return d[1]
+          })
+          .y0(scaleY(0))
       }
     }
   }
