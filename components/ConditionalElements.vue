@@ -22,6 +22,12 @@
       v-if="part === 'red' && degree === '1p5C'"
       label="Achieving the very demanding emission reductions implied by the 1.5°C target with only reduced availability of CDR is only possible with the model specifications when assuming cost-effective policies already in 2025."
     />
+    <VisPulse
+      :x="year2020"
+      :y="middle"
+      v-if="step === 1"
+      label="Carbon Budget"
+    />
   </g>
 </template>
 
@@ -35,6 +41,7 @@
     computed: {
       ...mapState({
         'degree': state => state.scenario.scenario.degree,
+        'step': state => state.navigation.step,
         'part': state => state.scenario.scenario.part,
         'variable': state => state.scenario.scenario.variable,
         'range': state => state.scenario.scenario.range,
@@ -66,6 +73,9 @@
       },
       y: function () {
         return this.scaleY(0)
+      },
+      year2020: function () {
+        return this.scaleX(new Date(2020, 0, 1))
       },
       year2025: function () {
         return this.scaleX(new Date(2025, 0, 1))

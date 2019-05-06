@@ -10,12 +10,6 @@
               :width="width"
               :scaleX="scaleX"
               :scaleY="scaleY" />
-            <VisZeroLine
-              :margin="margin"
-              :height="height"
-              :width="width"
-              :scaleX="scaleX"
-              :scaleY="scaleY" />
             <g>
               <VisElement
                 v-for="el in elements"
@@ -26,6 +20,12 @@
                 :visibility="visiblity"
                 :dataset="dataset" />
             </g>
+            <VisZeroLine
+              :margin="margin"
+              :height="height"
+              :width="width"
+              :scaleX="scaleX"
+              :scaleY="scaleY" />
             <g>
               <VisPath
                 v-for="el in currentPaths"
