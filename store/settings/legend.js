@@ -11,10 +11,6 @@ module.exports = {
     label: 'NDC'
   }, {
     type: 'line',
-    attribute: 'goodpractice',
-    label: 'Good Pratice'
-  }, {
-    type: 'line',
     attribute: 'netzero',
     label: 'Net Zero'
   }, {
