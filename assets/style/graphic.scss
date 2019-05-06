@@ -20,9 +20,16 @@ path {
     opacity: 0.3;
   }
 
-  &.arrow {
+  &.arrow--area {
     fill: palette(grey, 70);
     opacity: 0.15;
+  }
+
+  &.arrow--path {
+    fill: none;
+    stroke: $color-dark-gray;
+    stroke-width: 2px;
+    stroke-dasharray: 5;
   }
 }
 
@@ -71,12 +78,6 @@ line {
     stroke: palette(grey, 70);
     stroke-width: 1px;
   }
-
-  &.arrow {
-    stroke: $color-dark-gray;
-    stroke-width: 2px;
-    stroke-dasharray: 5;
-  }
 }
 
 line, path {
@@ -100,6 +101,7 @@ line, path {
 
   &.historic {
     stroke: $color-dark-gray;
+    stroke-width: 2px;
   }
 
   &.hasHighlight {
