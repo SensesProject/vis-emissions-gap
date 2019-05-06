@@ -40,20 +40,20 @@
       },
       start: function () {
         const [, y] = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
-        return [this.scaleX(timeParse('%Y')(2020)), this.scaleY(y)]
+        return [this.scaleX(timeParse('%Y')(this.data[0][0])), this.scaleY(y)]
       },
       x: function () {
-        return this.scaleX(timeParse('%Y')(this.data[0][0]))
+        return this.scaleX(timeParse('%Y')(this.data[1][0]))
       },
       y: function () {
-        return this.scaleY(this.data[0][1])
+        return this.scaleY(this.data[1][1])
       },
       path: function () {
         return `M${this.today.join(' ')} L ${this.start.join(' ')} L ${this.x} ${this.y}`
       },
       area: function () {
-        const x1 = this.scaleX(timeParse('%Y')(this.data[1][0]))
-        const x2 = this.scaleX(timeParse('%Y')(this.data[2][0]))
+        const x1 = this.scaleX(timeParse('%Y')(this.data[2][0]))
+        const x2 = this.scaleX(timeParse('%Y')(this.data[3][0]))
         return `M${this.start.join(' ')} L ${x1} ${this.y} L ${x2} ${this.y} Z`
       },
       center: function () {
