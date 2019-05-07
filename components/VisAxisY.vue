@@ -28,8 +28,8 @@
     <g>
       <rect
         class="background"
-        x="0"
-        :width="boxMaxWidth"
+        :x="scaleX.range()[0] - 1"
+        :width="2"
         :height="boxHeight + boxMargin"
         :y="boxY - boxOffset" />
       <text
