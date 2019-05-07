@@ -28,13 +28,19 @@
       v-if="step === 1"
       label="Carbon Budget"
     />
+    <VisPulse
+      :x="trajectoriesMiddle[0]"
+      :y="trajectoriesMiddle[1]"
+      v-if="step === 1"
+      label="Trajectories…"
+    />
   </g>
 </template>
 
 <script>
   import VisPulse from '~/components/VisPulse.vue'
-  import { mapState } from 'vuex'
-  import { mean } from 'lodash'
+  import { mapState, mapGetters } from 'vuex'
+  import { mean, get, last, find } from 'lodash'
 
   export default {
     props: ['margin', 'height', 'width', 'scaleX', 'scaleY'],
@@ -47,6 +53,9 @@
         'range': state => state.scenario.scenario.range,
         'region': state => state.scenario.scenario.region
       }),
+      ...mapGetters([
+        'currentPaths'
+      ]),
       middle: function () {
         return mean([this.scaleY(0), this.scaleY.range()[1]])
       },
@@ -85,6 +94,12 @@
       },
       year2075: function () {
         return this.scaleX(new Date(2075, 0, 1))
+      },
+      trajectoriesMiddle: function () {
+        const x1 = mean([2020, 2050])
+        const x2 = mean([2020, 2075])
+        const [, y] = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
+        return [this.scaleX(new Date(mean([x1, x2]), 0, 1)), this.scaleY(mean([y || 0, 0]))]
       }
     },
     components: {
