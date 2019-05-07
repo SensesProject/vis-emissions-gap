@@ -7,7 +7,7 @@
     />
     <VisPulse
       v-if="region !== 'World'"
-      :x="year2030"
+      :x="year2035"
       :y="middle"
       label="The cost-effective pathway assumes that marginal abatement costs are equalized across regions. This leads to higher mitigation costs (in %-point of baseline GDP or consumption) in developing regions, as these tend to have higher emission intensities of GDP and furthermore still need to complete the emission intensive build-up of infrastructure. Therefore, this cost-effective pathway represent a fair burden sharing only when transfers from richer to poorer regions offset these higher losses. If these transfers turn out to be impossible for political reasons, emission reductions in developed regions under cost-effective policies might need to be faster."
     />
@@ -80,7 +80,7 @@
       year2025: function () {
         return this.scaleX(new Date(2025, 0, 1))
       },
-      year2030: function () {
+      year2035: function () {
         return this.scaleX(new Date(2035, 0, 1))
       },
       year2075: function () {

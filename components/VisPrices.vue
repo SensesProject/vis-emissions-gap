@@ -126,7 +126,7 @@
         })
       },
       visibility: function () {
-        return get(this.steps, `${this.step}.legend`, [])
+        return get(this.steps, `${this.step}.clips`, [])
       },
       goal: function () {
         return get(this.steps, `${this.step}.goal`, [])
@@ -178,7 +178,7 @@
             policy
           ]
 
-          if (this.visibility.indexOf(policy) >= 0) {
+          if (get(this.visibility, policy, false) !== 'start') {
             klass.push('isVisible')
           }
           if (this.highlight) {
@@ -279,8 +279,12 @@
 
     g.bar {
       opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
 
       &.isVisible {
+        visibility: visible;
+        pointer-events: all;
         opacity: 1;
 
         &.hasHighlight {

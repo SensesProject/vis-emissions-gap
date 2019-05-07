@@ -74,6 +74,12 @@ module.exports = {
       type: 'arrow',
       data: [[[2020, 0], [2050, 0], [2045, 0], [2055, 0]]],
       label: '1.5° C'
+    },
+    {
+      id: 'bracket',
+      type: 'bracket',
+      data: [[[2020, 0]]],
+      label: 'Emissions gap'
     }
   ]
 }

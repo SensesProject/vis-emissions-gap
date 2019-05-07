@@ -65,8 +65,8 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: [],
-    legend: ['NDC', 'eff'],
+    visibility: ['bracket'],
+    legend: [],
     goal: 2030,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',

@@ -31,6 +31,12 @@ path {
     stroke-width: 2px;
     stroke-dasharray: 5;
   }
+
+  &.bracket {
+    stroke: $color-dark-gray;
+    stroke-width: 1px;
+    fill: none;
+  }
 }
 
 rect {
