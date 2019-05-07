@@ -8,7 +8,8 @@
       :y2="height - margin.bottom" />
     <g
       v-for="tick in axis.ticks"
-      :key="tick.key">
+      :key="tick.key"
+      v-if="tick.isVisible">
       <text
         :y="tick.y + 'px'"
         :x="d * 5.5 + 'px'"
@@ -29,8 +30,8 @@
         class="background"
         x="0"
         :width="boxMaxWidth"
-        :height="boxHeight + 20"
-        :y="boxY - 5" />
+        :height="boxHeight + boxMargin"
+        :y="boxY - boxOffset" />
       <text
         v-for="group in ['label label--background', 'axis']"
         :class="`${group} axis--reading`"
@@ -57,7 +58,7 @@
 
 <script>
   import { mapState, mapGetters } from 'vuex'
-  import { map, mean, last, find, get } from 'lodash'
+  import { map, mean, last, find, get, inRange } from 'lodash'
   import { format } from 'd3-format'
 
   const f = format(`,.2r`)
@@ -69,7 +70,9 @@
         boxY: 0,
         boxWidth: 0,
         boxHeight: 0,
-        boxMaxWidth: 0
+        boxMaxWidth: 0,
+        boxOffset: 5,
+        boxMargin: 20
       }
     },
     computed: {
@@ -93,10 +96,14 @@
           x,
           y,
           ticks: map(scaleY.ticks(6), (tick, i) => {
+            const y = scaleY(tick)
+            const threshold = 10
+            const isVisible = !inRange(y, this.boxY - this.boxOffset - threshold, this.boxY + this.boxHeight + this.boxMargin + threshold)
             return {
               key: i,
               label: f(tick),
-              y: scaleY(tick),
+              y,
+              isVisible,
               x: d
             }
           })
