@@ -84,6 +84,12 @@ line {
     stroke: palette(grey, 70);
     stroke-width: 1px;
   }
+
+  &.swoop {
+    stroke: palette(grey, 70);
+    stroke-width: 1px;
+    stroke-dasharray: 5;
+  }
 }
 
 line, path {
@@ -174,6 +180,17 @@ text {
     }
   }
 
+  &.axis--reading {
+    tspan:first-child, tspan:nth-child(3) {
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+
+    tspan:nth-child(2) {
+      font-size: 1.1rem;
+    }
+  }
+
   tspan.info {
     fill: palette(grey, 60);
     font-size: $size-small;
@@ -238,6 +255,10 @@ rect {
 
   &.long {
     opacity: 0.5;
+  }
+
+  &.background {
+    fill: #fff;
   }
 }
 
