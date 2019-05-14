@@ -3,7 +3,7 @@ import axios from 'axios'
 
 function processData (data) {
   return map(data, datum => {
-    const values = [datum.values[0], datum.values[0] + datum.values[1]]
+    const values = [datum.values[0], datum.values[1]]
     return {
       ...datum,
       values

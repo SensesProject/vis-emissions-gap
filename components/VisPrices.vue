@@ -63,29 +63,29 @@
     </g>
   	<g
       v-if="isReady"
-      v-for="dot in dots"
-      :class="dot.klass"
-      :key="dot.key"
-      @mouseover="setHighlight(dot.policy)"
+      v-for="bar in elements"
+      :class="bar.klass"
+      :key="bar.key"
+      @mouseover="setHighlight(bar.policy)"
       @mouseleave="setHighlight(false)">
       <text
         text-anchor="start"
-        :x="dot.x + 5"
-        :y="dot.labelY">{{ dot.label }}</text>
+        :x="bar.x + 5"
+        :y="bar.labelY">{{ bar.label }}</text>
       <rect
         v-if="goal >= 2030"
         class="short"
-        :width="dot.short"
-        :height="dot.height"
-        :y="dot.y"
-        :x="dot.x" />
+        :width="bar.x1"
+        :height="bar.height"
+        :y="bar.y1"
+        :x="bar.x" />
       <rect
         v-if="goal >= 2050"
         class="long"
-        :width="dot.long"
-        :height="dot.height"
-        :y="dot.y"
-        :x="dot.x" />
+        :width="bar.x2"
+        :height="bar.height"
+        :y="bar.y2"
+        :x="bar.x" />
     </g>
   </svg>
 </template>
@@ -133,10 +133,17 @@
       },
       scaleY: function () {
         return scaleBand()
-          .paddingInner(0.6)
+          .paddingInner(0.4)
           .paddingOuter(0.3)
           .rangeRound([this.margin.top, this.height - this.margin.bottom])
           .domain(map(this.policies, 'attribute'))
+      },
+      scaleY1: function () {
+        return scaleBand()
+          .paddingInner(0.2)
+          .paddingOuter(0.1)
+          .rangeRound([0, this.scaleY.bandwidth()])
+          .domain([0, 1])
       },
       bars: function () {
         const { policies, scenario, prices } = this
@@ -160,17 +167,17 @@
       isReady: function () {
         return this.scaleX.domain()[1] && this.width && this.height
       },
-      dots: function () {
+      elements: function () {
         const { bars } = this
-        // const { degree, part } = scenario
         return map(bars, (item, i) => {
-          // const item = find(prices, { policy: policy.attribute, degree, part })
-          const [short, long] = map(get(item, 'values'), value => {
-            return this.scaleX(value)
-          })
           const y = this.scaleY(get(item, 'policy', ''))
+          const [short, long] = map(get(item, 'values'), (value, i) => {
+            return [y + this.scaleY1(i), this.scaleX(value)]
+          })
+          const [y1, x1] = short
+          const [y2, x2] = long
           const x = this.scaleX(0)
-          const height = this.scaleY.bandwidth()
+          const height = this.scaleY1.bandwidth()
           const labelY = y - 10
           const policy = get(item, 'policy', '')
           const klass = [
@@ -186,11 +193,12 @@
           }
 
           return {
-            x,
-            short,
-            long,
             height,
-            y,
+            x,
+            x1,
+            y1,
+            x2,
+            y2,
             klass: klass.join(' '),
             policy,
             key: get(item, 'policy', '') + i,
@@ -200,24 +208,24 @@
         })
       },
       labels: function () {
-        const item = first(this.dots)
+        const item = first(this.elements)
         const labels = []
         if (this.goal >= 2030) {
-          const y = this.scaleY(item.policy) + item.height
+          const y = this.scaleY(item.policy) - this.scaleY1(0)
           labels.push({
-            x: item.x + (item.short / 2),
-            y: y + 22,
-            y1: y + 10,
-            y2: y + 2,
+            x: item.x + (item.x1 * 0.9),
+            y: y - 6,
+            y1: y - 2,
+            y2: y + 6,
             label: '2020–2030'
           })
         }
         if (this.goal >= 2050) {
           labels.push({
-            x: item.x + (item.long / 2),
-            y: this.scaleY(item.policy) - 16,
-            y1: this.scaleY(item.policy) - 10,
-            y2: this.scaleY(item.policy) - 2,
+            x: item.x + (item.x2 * 0.62),
+            y: this.scaleY(item.policy) + this.scaleY1(1) + item.height + 22,
+            y1: this.scaleY(item.policy) + this.scaleY1(1) + item.height + 10,
+            y2: this.scaleY(item.policy) + this.scaleY1(1) + item.height + 2,
             label: '2030–2050'
           })
         }
