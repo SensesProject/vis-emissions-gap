@@ -29,12 +29,6 @@ module.exports = {
       label: ''
     },
     {
-      id: 'ndc',
-      type: 'verticalLine',
-      data: [[[2030, 0]]],
-      label: ''
-    },
-    {
       id: 'markerpolicy',
       type: 'dot',
       data: [[[2020, 62500]]],
