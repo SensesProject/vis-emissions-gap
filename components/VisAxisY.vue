@@ -101,7 +101,7 @@
             const isVisible = !inRange(y, this.boxY - this.boxOffset - threshold, this.boxY + this.boxHeight + this.boxMargin + threshold)
             return {
               key: i,
-              label: f(tick),
+              label: f(tick / 1000),
               y,
               isVisible,
               x: d
@@ -112,7 +112,7 @@
       label: function () {
         const today = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
         const x = this.scaleX(this.scaleX.domain()[0])
-        const texts = [`${format(`,.3r`)(today[1])} Gt`, `CO2/year (${this.region})`, `from ${this.variable}`]
+        const texts = [`${format(`.2`)(today[1] / 1000)} Gt`, `CO2/year (${this.region})`, `from ${this.variable}`]
 
         return {
           today: [this.scaleX(new Date(today[0], 0, 1)), this.scaleY(today[1])],
