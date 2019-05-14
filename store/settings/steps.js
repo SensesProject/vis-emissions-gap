@@ -84,7 +84,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['ndc'],
+    visibility: [],
     legend: ['NDC', 'eff'],
     goal: 2050,
     data: {
@@ -103,7 +103,7 @@ module.exports = {
       goodpractice: 'start',
       netzero: 'start'
     },
-    visibility: ['ndc'],
+    visibility: [],
     legend: ['NDC', 'eff'],
     goal: 2050,
     data: {
