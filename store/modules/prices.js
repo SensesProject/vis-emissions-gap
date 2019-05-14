@@ -1,15 +1,5 @@
-import { assign, map } from 'lodash'
+import { assign } from 'lodash'
 import axios from 'axios'
-
-function processData (data) {
-  return map(data, datum => {
-    const values = [datum.values[0], datum.values[1]]
-    return {
-      ...datum,
-      values
-    }
-  })
-}
 
 const state = () => {
   return {
@@ -34,7 +24,7 @@ const actions = {
     const url = `${process.env.dataURL}/data/prices.json`
     axios.get(url)
       .then(response => {
-        commit('PRICES_CHANGE', { status: 'success', data: processData(response.data.prices) })
+        commit('PRICES_CHANGE', { status: 'success', data: response.data.prices })
       })
       .catch(error => {
         console.log(error)

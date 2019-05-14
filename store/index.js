@@ -11,7 +11,6 @@ const { config } = require('./../config.js')
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
 const { elements } = require('./settings/elements.js')
-const { axis } = require('./settings/axis.js')
 const { options } = require('./settings/options.js')
 
 Vue.use(VTooltip)
@@ -21,7 +20,6 @@ export const state = () => {
   return {
     ...config,
     steps,
-    axis,
     legend,
     elements,
     options

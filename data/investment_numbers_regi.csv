@@ -1,0 +1,190 @@
+﻿id;region;target;policy;variable;period;value
+2;CHN;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);baseline;187,1612
+184;CHN;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;147,9209
+186;CHN;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;205,421875
+188;CHN;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;237,5056
+190;CHN;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;269,975225
+192;CHN;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;147,9209
+194;CHN;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;205,421875
+196;CHN;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;237,5056
+198;CHN;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;275,256225
+200;CHN;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;147,9209
+202;CHN;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;205,421875
+204;CHN;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;237,5056
+206;CHN;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;295,0435
+208;CHN;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;267,74475
+366;CHN;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;325,099525
+368;CHN;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;312,8395625
+370;CHN;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;306,292275
+372;CHN;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;298,67015
+374;CHN;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;262,1269
+376;CHN;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;269,7389125
+378;CHN;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;266,74695
+380;CHN;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;277,3646625
+382;CHN;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;313,898525
+384;CHN;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;303,4778125
+386;CHN;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;299,808425
+388;CHN;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;293,3671
+390;CHN;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;190,33675
+28;EUR;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);baseline;48,2612
+210;EUR;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;87,850475
+212;EUR;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;84,774725
+214;EUR;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;86,0676
+216;EUR;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;100,754425
+218;EUR;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;87,850475
+220;EUR;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;84,774725
+222;EUR;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;86,0676
+224;EUR;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;111,0454
+226;EUR;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;87,850475
+228;EUR;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;84,774725
+230;EUR;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;86,0676
+232;EUR;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;117,054825
+234;EUR;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;162,02245
+392;EUR;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;142,6783375
+394;EUR;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;136,7525625
+396;EUR;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;126,958575
+398;EUR;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;131,511175
+400;EUR;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;183,3598875
+402;EUR;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;173,14505
+404;EUR;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;161,0337875
+406;EUR;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;145,4367125
+408;EUR;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;161,57245
+410;EUR;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;157,3904125
+412;EUR;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;144,845175
+414;EUR;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;143,252825
+416;EUR;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;185,282125
+54;IND;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);baseline;12,2376
+236;IND;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;49,874575
+238;IND;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;55,55165
+240;IND;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;67,4774
+242;IND;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;98,701475
+244;IND;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;49,874575
+246;IND;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;55,55165
+248;IND;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;67,4774
+250;IND;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;113,1664
+252;IND;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;49,874575
+254;IND;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;55,55165
+256;IND;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;67,4774
+258;IND;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;117,44305
+260;IND;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;141,728625
+418;IND;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;222,12665
+420;IND;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;201,3585375
+422;IND;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;204,3349375
+424;IND;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;213,0548875
+426;IND;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;279,84235
+428;IND;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;266,62245
+430;IND;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;257,9471625
+432;IND;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;236,82785
+434;IND;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;249,3909125
+436;IND;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;237,8754
+438;IND;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;237,189275
+440;IND;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;233,4873875
+442;IND;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;303,5996875
+80;JPN;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);baseline;32,209
+262;JPN;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;8,948875
+264;JPN;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;13,13785
+266;JPN;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;14,6223
+268;JPN;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;19,947525
+270;JPN;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;8,948875
+272;JPN;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;13,13785
+274;JPN;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;14,6223
+276;JPN;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;24,1848
+278;JPN;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;8,948875
+280;JPN;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;13,13785
+282;JPN;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;14,6223
+284;JPN;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;25,1441
+286;JPN;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;42,1845
+444;JPN;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;37,361
+446;JPN;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;34,8996875
+448;JPN;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;34,1677125
+450;JPN;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;33,4738375
+452;JPN;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;50,4615625
+454;JPN;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;46,728025
+456;JPN;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;44,29375
+458;JPN;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;40,87385
+460;JPN;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;46,5307875
+462;JPN;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;43,951725
+464;JPN;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;42,1600875
+466;JPN;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;38,7034625
+468;JPN;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;51,524525
+106;RUS;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);baseline;11,1706
+288;RUS;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;10,74805
+290;RUS;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;17,72505
+292;RUS;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;24,4965
+294;RUS;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;28,7382
+296;RUS;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;10,74805
+298;RUS;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;17,72505
+300;RUS;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;24,4965
+302;RUS;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;34,243475
+304;RUS;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;10,74805
+306;RUS;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;17,72505
+308;RUS;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;24,4965
+310;RUS;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;34,682025
+312;RUS;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;45,51955
+470;RUS;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;38,6724875
+472;RUS;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;36,0156125
+474;RUS;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;32,7315875
+476;RUS;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;32,7442875
+478;RUS;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;48,1062625
+480;RUS;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;42,726225
+482;RUS;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;38,2340125
+484;RUS;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;34,1784625
+486;RUS;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;45,9648375
+488;RUS;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;41,9006375
+490;RUS;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;37,361025
+492;RUS;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;34,18425
+494;RUS;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;38,1137625
+132;USA;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);baseline;32,6056
+314;USA;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;81,278275
+316;USA;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;83,607625
+318;USA;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;87,58125
+320;USA;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;111,9916
+322;USA;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;81,278275
+324;USA;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;83,607625
+326;USA;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;87,58125
+328;USA;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;128,898275
+330;USA;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;81,278275
+332;USA;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;83,607625
+334;USA;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;87,58125
+336;USA;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;139,70305
+338;USA;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;198,68605
+496;USA;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;163,7782875
+498;USA;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;152,827775
+500;USA;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;142,2970875
+502;USA;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;149,94445
+504;USA;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;200,361375
+506;USA;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;187,1843625
+508;USA;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;175,3598625
+510;USA;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;166,4114375
+512;USA;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;191,5307875
+514;USA;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;178,1020375
+516;USA;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;162,5770375
+518;USA;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;167,67785
+520;USA;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;201,0993375
+158;World;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);baseline;428,7827
+340;World;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;567,688775
+342;World;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;670,54565
+344;World;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;744,2733
+346;World;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;925,225625
+348;World;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;567,688775
+350;World;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;670,54565
+352;World;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;744,2733
+354;World;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;1017,944725
+356;World;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;567,688775
+358;World;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;670,54565
+360;World;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;744,2733
+362;World;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;1074,772675
+364;World;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2020-2030;1347,086375
+522;World;2°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1491,45405
+524;World;2°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1428,42195
+526;World;2°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1393,297513
+528;World;2°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1391,694688
+530;World;2°C, red. CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1743,180913
+532;World;2°C, red. CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1667,240063
+534;World;2°C, red. CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1600,879638
+536;World;2°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1487,177088
+538;World;1.5°C, full CDR;NDCs;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1681,246963
+540;World;1.5°C, full CDR;Good Practice;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1614,638588
+542;World;1.5°C, full CDR;Net Zero;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1553,19545
+544;World;1.5°C, full CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1515,907838
+546;World;1.5°C, red. CDR;Cost-effective pricing;Low-carbon (renewables, nuclear, fossils with CCS);2030-2050;1735,273425

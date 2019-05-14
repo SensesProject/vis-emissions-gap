@@ -1,5 +1,5 @@
 <template>
-  <g>
+  <g v-if="dataNDC && dataEFF">
     <VisPulse
       :x="pulse[0]"
       :y="pulse[1]"
@@ -36,12 +36,18 @@
       year2035: function () {
         return this.scaleX(new Date(2035, 0, 1))
       },
+      dataNDC: function () {
+        return find(get(find(this.currentPaths, { policy: 'NDC' }), 'values', []), [0, 2030])
+      },
+      dataEFF: function () {
+        return find(get(find(this.currentPaths, { policy: 'eff' }), 'values', []), [0, 2030])
+      },
       ndc: function () {
-        const [x, y] = find(get(find(this.currentPaths, { policy: 'NDC' }), 'values', []), [0, 2030])
+        const [x, y] = this.dataNDC
         return [this.scaleX(timeParse('%Y')(x)) + this.d, this.scaleY(y)]
       },
       eff: function () {
-        const [x, y] = find(get(find(this.currentPaths, { policy: 'eff' }), 'values', []), [0, 2030])
+        const [x, y] = this.dataEFF
         return [this.scaleX(timeParse('%Y')(x)) + this.d, this.scaleY(y)]
       },
       andc: function () {

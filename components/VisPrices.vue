@@ -92,7 +92,7 @@
 
 <script>
   import { mapState, mapActions } from 'vuex'
-  import { map, find, flatten, get, filter, first, mean } from 'lodash'
+  import { map, find, flatten, get, filter, first, mean, compact, isUndefined } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
 
@@ -147,14 +147,18 @@
       },
       bars: function () {
         const { policies, scenario, prices } = this
-        const { degree, part } = scenario
+        const { degree, part, region } = scenario
 
-        return map(policies, policy => {
+        return compact(map(policies, policy => {
+          const data = find(prices, { policy: policy.attribute, degree, part, region })
+          if (isUndefined(data)) {
+            return false
+          }
           return {
             ...policy,
-            ...find(prices, { policy: policy.attribute, degree, part })
+            ...find(prices, { policy: policy.attribute, degree, part, region })
           }
-        })
+        }))
       },
       extentPrices: function () {
         return extent(flatten(map(this.bars, 'values')))
@@ -170,8 +174,9 @@
       elements: function () {
         const { bars } = this
         return map(bars, (item, i) => {
-          const y = this.scaleY(get(item, 'policy', ''))
-          const [short, long] = map(get(item, 'values'), (value, i) => {
+          const policy = get(item, 'policy', '')
+          const y = this.scaleY(policy)
+          const [short, long] = map(get(item, 'values', [0, 0]), (value, i) => {
             return [y + this.scaleY1(i), this.scaleX(value)]
           })
           const [y1, x1] = short
@@ -179,7 +184,6 @@
           const x = this.scaleX(0)
           const height = this.scaleY1.bandwidth()
           const labelY = y - 10
-          const policy = get(item, 'policy', '')
           const klass = [
             'bar',
             policy
