@@ -12,7 +12,7 @@ module.exports = {
   }, {
     type: 'line',
     attribute: 'netzero',
-    label: 'Net Zero'
+    label: 'Strengthened action'
   }, {
     type: 'line',
     attribute: 'eff',
