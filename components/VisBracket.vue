@@ -1,10 +1,5 @@
 <template>
   <g v-if="dataNDC && dataEFF">
-    <VisPulse
-      :x="pulse[0]"
-      :y="pulse[1]"
-      label="Emissions gap"
-    />
     <path
       class="bracket"
       :d="bracket" />

@@ -70,6 +70,7 @@
     min-height: 30vh;
     justify-content: space-between;
     @include wrapper-primary();
+    min-height: 270px;
 
     .content {
       flex: 10;

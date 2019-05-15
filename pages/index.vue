@@ -37,21 +37,7 @@
     align-items: center;
     justify-content: space-between;
     min-height: calc(100% - #{$spacing});
-    margin-top: $spacing;
     width: 100%;
-
-    // .wrapper {
-    //   min-height: 550px;
-    //   display: flex;
-    //   flex: 1;
-    //   align-self: center;
-    //   @include wrapper-primary();
-    //   position: relative;
-
-    //   & > * {
-    //     flex: 1;
-    //   }
-    // }
   }
 
 </style>

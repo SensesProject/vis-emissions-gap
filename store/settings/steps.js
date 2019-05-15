@@ -117,25 +117,6 @@ module.exports = {
     }
   }, {
     visibility: [],
-    legend: ['NDC', 'eff', 'goodpractice'],
-    goal: 2050,
-    clips: {
-      NDC: 'end',
-      eff: 'end',
-      goodpractice: 'end',
-      netzero: 'start'
-    },
-    data: {
-      model: 'REMIND-MAgPIE 1.7-3.0',
-      scenario: 'PEP',
-      degree: '1p5C',
-      part: 'full',
-      region: 'World',
-      variable: 'CO2|Energy and Industrial Processes',
-      range: [1990, 2050]
-    }
-  }, {
-    visibility: [],
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     goal: 2050,
     clips: {
@@ -170,7 +151,26 @@ module.exports = {
       part: 'full',
       region: 'World',
       variable: 'CO2|Energy and Industrial Processes',
-      range: [1990, 2050]
+      range: [1990, 2100]
+    }
+  }, {
+    visibility: [],
+    legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
+    goal: 2050,
+    clips: {
+      NDC: 'end',
+      eff: 'end',
+      goodpractice: 'end',
+      netzero: 'end'
+    },
+    data: {
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP',
+      degree: '1p5C',
+      part: 'full',
+      region: 'World',
+      variable: 'CO2|Energy and Industrial Processes',
+      range: [1990, 2100]
     }
   }]
 }

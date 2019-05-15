@@ -53,6 +53,8 @@
     button {
       font-size: $size-default;
       color: $color-blue;
+      line-height: 1.1;
+      padding: 0;
     }
 
     ul {

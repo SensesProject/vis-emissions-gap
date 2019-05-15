@@ -1,6 +1,6 @@
 <template>
   <div class="vis-options">
-    <p>The study has looked further into the sensitivities, exploring not only 1.5°C trajectories but also 2°C trajectories, and scenarios with alternative assumptions leading to a lower availability of carbon dioxide removal options. The fields below allow you to explore the emission profiles and investment implications of these alternative scenarios, as well as the emission profiles for major economies (both CO2 from fossil fuels and cement, and ….)</p>
+    <p>The study has looked further into the sensitivities, exploring not only 1.5°C trajectories but also 2°C trajectories, and scenarios with alternative assumptions leading to a lower availability of carbon dioxide removal options. The fields below allow you to explore the emission profiles and investment implications of these alternative scenarios, as well as the emission profiles for major economies (both CO2 from fossil fuels and cement, and from land-use).</p>
     <section class="options-wrapper">
       <VisOptionWrapper label="Climate Target" tooltip="The study Kriegler et al. 2018 implemented the 1.5°C target as a carbon budget of 400 Gt CO2 from 2011-2100 (including all anthropogenic CO2 emissions). For the 2°C, the carbon budget is 1000 Gt CO2.">
         <VisOption option="1p5C" slug="degree" :current="degree">1.5° C</VisOption>
@@ -27,7 +27,7 @@
         <VisOption option="Russia" slug="region" :current="region">Russia</VisOption>
         <VisOption option="Japan" slug="region" :current="region">Japan</VisOption>
       </VisOptionWrapper>
-      <a class="btn btn--inline" target="_blank" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">See this data in the IIASA Database Workspace: PEP Emissions by major economies ↗</a>
+      <a class="btn btn--inline btn--center" target="_blank" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">See this data in the IIASA Database</a>
     </section>
   </div>
 </template>
@@ -70,7 +70,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: $spacing / 2;
-      grid-row-gap: $spacing / 2;
+      grid-row-gap: $spacing / 4;
     }
 
     ul {

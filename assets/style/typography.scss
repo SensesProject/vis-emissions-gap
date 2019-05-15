@@ -9,7 +9,7 @@ h2 {
 }
 
 h3 {
-  font-size: $size-bigger;
+  font-size: $size-big;
   margin-bottom: $spacing / 4;
 }
 
@@ -40,7 +40,8 @@ h6 {
 
 p {
   font-size: $size-big;
-  margin-bottom: 0.7em;
+  line-height: 1.6;
+  margin-bottom: 0.2em;
 }
 
 sup, sub {
@@ -140,6 +141,10 @@ tr td {
   transition: all 0.5s ease;
   background-color: $color-blue;
   color: #fff;
+
+  &.btn--center {
+    @include center();
+  }
 
   &.btn--inline {
     font-weight: $font-weight-default;
