@@ -8,14 +8,14 @@
     </defs>
     <path
       class="negative"
-      :d="`M${margin.left} ${zero} H${width - margin.right} V${zero + 5} H${margin.left} V${zero}`" />
+      :d="`M${margin.left} ${zero} H${width} V${zero + 5} H${margin.left} V${zero}`" />
     <path
       class="positive"
-      :d="`M${margin.left} ${zero} H${width - margin.right} V${zero - 5} H${margin.left} V${zero}`" />
+      :d="`M${margin.left} ${zero} H${width} V${zero - 5} H${margin.left} V${zero}`" />
     <path
       class="negative--area"
       fill="url(#grad1)"
-      :d="`M${margin.left} ${zero + 5} H${width - margin.right} V${end} H${margin.left} V${zero + 5}`" />
+      :d="`M${margin.left} ${zero + 5} H${width} V${end} H${margin.left} V${zero + 5}`" />
     <text
       class="positive marker"
       :x="today"

@@ -56,7 +56,12 @@ export const getters = {
           region,
           variable
         }
-      return find(data, obj)
+      const datum = find(data, obj)
+      return {
+        ...datum,
+        ...policy,
+        label: policy.attribute === 'historic' ? 'Historic' : policy.label
+      }
     }))
 
     // Filter the data for the given years

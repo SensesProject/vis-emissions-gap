@@ -9,6 +9,7 @@
                 v-for="el in elements"
                 :scaleX="scaleX"
                 :scaleY="scaleY"
+                :width="width"
                 :key="el.i"
                 :el="el"
                 :visibility="visiblity"
@@ -79,7 +80,7 @@
         height: 0,
         margin: {
           left: 80,
-          right: 100,
+          right: 150,
           top: 60,
           bottom: 10
         }

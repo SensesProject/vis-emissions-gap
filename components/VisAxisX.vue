@@ -3,7 +3,7 @@
     <line
       class="axis"
       :x1="margin.left"
-      :x2="width - margin.right"
+      :x2="width"
       :y1="margin.top"
       :y2="margin.top" />
     <g class="lables">

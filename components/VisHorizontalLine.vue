@@ -21,7 +21,7 @@
   import VisPulse from '~/components/VisPulse.vue'
 
   export default {
-    props: ['el', 'scaleX', 'scaleY', 'data'],
+    props: ['el', 'scaleX', 'scaleY', 'data', 'width'],
     data: function () {
       return {
         r: 7,
@@ -33,7 +33,7 @@
         return this.scaleX.range()[0]
       },
       x2: function () {
-        return this.scaleX.range()[1]
+        return this.width
       },
       y: function () {
         return this.scaleY(this.data[0][1])

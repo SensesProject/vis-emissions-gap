@@ -1,6 +1,6 @@
 <template>
   <g
-    @mouseover="setHighlight(label.label)"
+    @mouseover="setHighlight(label.policy)"
     @mouseleave="setHighlight(false)">
     <path
       :class="klass"
@@ -72,7 +72,8 @@
         if (this.values.length && this.legend.indexOf(this.el.policy) >= 0) {
           const lastValues = last(this.values)
           return {
-            label: this.el.policy,
+            label: this.el.label,
+            policy: this.el.policy,
             x: this.scaleX(timeParse('%Y')(lastValues[0])) + 5,
             y: this.scaleY(lastValues[1]) + 4
           }

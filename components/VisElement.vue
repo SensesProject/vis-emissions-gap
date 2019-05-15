@@ -7,6 +7,7 @@
       :el="el"
       :scaleX="scaleX"
       :scaleY="scaleY"
+      :width="width"
       :data="data" />
   </g>
 </template>
@@ -28,7 +29,7 @@
   }
 
   export default {
-    props: ['el', 'scaleX', 'scaleY', 'visibility', 'dataset'],
+    props: ['el', 'scaleX', 'scaleY', 'visibility', 'dataset', 'width'],
     computed: {
       ...mapState({
         'highlight': state => state.highlight.highlight
