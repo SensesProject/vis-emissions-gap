@@ -1,37 +1,8 @@
-# Senses Storytelling
+# Senses Global Stocktake
 
 Step through mulitple steps of a visualisation. Each step can have different view properties.
 
-![Screenshot](before.jpg)
-![Screenshot](screenshot.jpg)
-
 https://senses-enough.netlify.com
-
-## Definitions
-
-### Step
-
-```js
-{
-  title: 'What is the collective outcome of the NDCs in terms of global emissions in 2030?',
-  clips: { // Clips for the policy lines
-    NDC: 2030,
-    eff: 0,
-    goodpractice: 0,
-    netzero: 0
-  },
-  visibility: ['linehistoric', 'area2030', 'markerplateau'], // Which graphical elements are visible
-  legend: ['historic', 'NDC'], // Which legend elements are visible
-  data: { // Which dataset is selected
-    model: 'REMIND-MAgPIE 1.7-3.0',
-    scenario: 'PEP',
-    degree: '1p5C',
-    part: 'full',
-    region: 'World',
-    variable: 'Emissions|Kyoto Gases'
-  }
-}
-```
 
 ## Build Setup
 

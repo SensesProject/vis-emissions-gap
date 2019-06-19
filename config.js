@@ -5,8 +5,8 @@ module.exports = {
     page: {
       title: {
         main: 'Senses Project',
-        subtitle: 'Storytelling',
-        full: 'Senses Project – Storytelling'
+        subtitle: 'Global Stocktake',
+        full: 'Senses Project – Global Stocktake'
       },
       lang: 'en-GB',
       description: 'The Senses Toolkit helps you understand and communicate climate change scenarios',
