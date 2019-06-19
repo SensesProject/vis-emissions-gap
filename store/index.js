@@ -7,7 +7,6 @@ import navigation from './modules/navigation'
 import data from './modules/data'
 import prices from './modules/prices'
 import { map, find, compact, filter, get } from 'lodash'
-const { config } = require('./../config.js')
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
 const { elements } = require('./settings/elements.js')
@@ -18,7 +17,6 @@ Vue.use(Vuex)
 
 export const state = () => {
   return {
-    ...config,
     steps,
     legend,
     elements,

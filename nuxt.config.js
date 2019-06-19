@@ -1,26 +1,17 @@
-const { favicon, msapplication } = require('./assets/js/favicon.js')
-const { seo } = require('./assets/js/seo.js')
-const { config } = require('./config.js')
-
 module.exports = {
   head: {
-    title: config.page.title.full,
+    title: 'Senses Project – Global Stocktake',
     htmlAttrs: {
-      lang: config.page.lang,
+      lang: 'en-GB',
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      ...seo(config),
-      ...msapplication()
-    ],
-    link: [
-      ...favicon()
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ]
   },
-  env: {
-    dataURL: process.env.DATA_URL || 'http://localhost:3034'
-  },
+  // env: {
+  //   dataURL: './'
+  // },
   css: [
     'normalize-scss',
     '@/assets/style/base.scss'
@@ -30,7 +21,10 @@ module.exports = {
       style: 'assets/style'
     }
   },
-  loading: { color: config.page.color },
+  // router: {
+  //   base: '/stocktake/'
+  // },
+  loading: { color: '#4e40b2' },
   build: {
     extend (config, ctx) {
       if (ctx.isDev && ctx.isClient) {
