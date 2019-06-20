@@ -78,10 +78,14 @@
     computed: {
       ...mapState({
         'variable': state => state.scenario.scenario.variable,
-        'region': state => state.scenario.scenario.region
+        'region': state => state.scenario.scenario.region,
+        'step': state => state.navigation.step
       }),
       ...mapGetters([
         'currentPaths'
+      ]),
+      ...mapState([
+        'steps'
       ]),
       d: function () {
         return this.margin.left / 7
@@ -109,8 +113,11 @@
           })
         }
       },
+      yLabel: function () {
+        return get(this.steps, `${this.step}.yLabel`, 'historic')
+      },
       label: function () {
-        const today = last(get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', []))
+        const today = last(get(find(this.currentPaths, { scenario: this.yLabel }), 'values', []))
         const x = this.scaleX(this.scaleX.domain()[0])
         const texts = [`${format(`.2`)(today[1] / 1000)} Gt`, `CO2/year (${this.region})`, `from ${this.variable}`]
 
