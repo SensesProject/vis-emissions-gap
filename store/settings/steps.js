@@ -7,10 +7,11 @@ module.exports = {
       eff: 'start',
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 2030
+      'historic-landuse': 'start'
     },
     visibility: [],
     legend: ['historic'],
+    yLabel: 'historic',
     goal: 0,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -31,6 +32,7 @@ module.exports = {
     },
     visibility: ['budget', 'arrowup', 'arrowdown'],
     legend: [],
+    yLabel: 'historic-landuse',
     goal: 0,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -46,10 +48,12 @@ module.exports = {
       NDC: 2030,
       eff: 'start',
       goodpractice: 'start',
-      netzero: 'start'
+      netzero: 'start',
+      'historic-landuse': 'start'
     },
     visibility: [],
     legend: ['NDC'],
+    yLabel: 'historic',
     goal: 2030,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -65,10 +69,12 @@ module.exports = {
       NDC: 2030,
       eff: 2030,
       goodpractice: 'start',
-      netzero: 'start'
+      netzero: 'start',
+      'historic-landuse': 'start'
     },
     visibility: ['bracket'],
     legend: [],
+    yLabel: 'historic',
     goal: 2030,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -84,10 +90,12 @@ module.exports = {
       NDC: 'end',
       eff: 'end',
       goodpractice: 'start',
-      netzero: 'start'
+      netzero: 'start',
+      'historic-landuse': 'start'
     },
     visibility: [],
     legend: ['NDC', 'eff'],
+    yLabel: 'historic',
     goal: 2050,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -103,10 +111,12 @@ module.exports = {
       NDC: 'end',
       eff: 'end',
       goodpractice: 'start',
-      netzero: 'start'
+      netzero: 'start',
+      'historic-landuse': 'start'
     },
     visibility: [],
     legend: ['NDC', 'eff'],
+    yLabel: 'historic',
     goal: 2050,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -120,12 +130,14 @@ module.exports = {
   }, {
     visibility: [],
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
+    yLabel: 'historic',
     goal: 2050,
     clips: {
       NDC: 'end',
       eff: 'end',
       goodpractice: 'end',
-      netzero: 'end'
+      netzero: 'end',
+      'historic-landuse': 'start'
     },
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -139,12 +151,14 @@ module.exports = {
   }, {
     visibility: [],
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
+    yLabel: 'historic',
     goal: 2050,
     clips: {
       NDC: 'end',
       eff: 'end',
       goodpractice: 'end',
-      netzero: 'end'
+      netzero: 'end',
+      'historic-landuse': 'start'
     },
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
@@ -158,12 +172,14 @@ module.exports = {
   }, {
     visibility: [],
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
+    yLabel: 'historic',
     goal: 2050,
     clips: {
       NDC: 'end',
       eff: 'end',
       goodpractice: 'end',
-      netzero: 'end'
+      netzero: 'end',
+      'historic-landuse': 'start'
     },
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
