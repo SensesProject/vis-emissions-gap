@@ -110,7 +110,7 @@
         }
       },
       label: function () {
-        const today = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
+        const today = last(get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', []))
         const x = this.scaleX(this.scaleX.domain()[0])
         const texts = [`${format(`.2`)(today[1] / 1000)} Gt`, `CO2/year (${this.region})`, `from ${this.variable}`]
 

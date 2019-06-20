@@ -116,6 +116,11 @@ line, path {
     stroke-width: 2px;
   }
 
+  &.historic-landuse {
+    stroke: green;
+    stroke-width: 2px;
+  }
+
   &.hasHighlight {
     opacity: 0.2;
   }

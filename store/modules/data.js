@@ -8,6 +8,8 @@ function processData (data) {
     let [scenario, degree, part, policy] = datum.scenario.split('_')
     if (datum.scenario === 'historic') {
       policy = 'historic'
+    } else if (datum.scenario === 'historic-landuse') {
+      policy = 'historic-landuse'
     }
     return {
       ...datum,

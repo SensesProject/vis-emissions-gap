@@ -27,7 +27,7 @@
         'currentPaths'
       ]),
       today: function () {
-        const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
+        const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', []))
         return [this.scaleX(timeParse('%Y')(x)), this.scaleY(y)]
       },
       area: function () {

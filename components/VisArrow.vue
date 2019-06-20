@@ -35,11 +35,11 @@
         'currentPaths'
       ]),
       today: function () {
-        const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
+        const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', []))
         return [this.scaleX(timeParse('%Y')(x)), this.scaleY(y)]
       },
       start: function () {
-        const [, y] = last(get(find(this.currentPaths, { scenario: 'historic' }), 'values', []))
+        const [, y] = last(get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', []))
         return [this.scaleX(timeParse('%Y')(this.data[0][0])), this.scaleY(y)]
       },
       x: function () {

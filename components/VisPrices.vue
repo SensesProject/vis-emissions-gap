@@ -122,7 +122,7 @@
       ]),
       policies: function () {
         return filter(this.legend, item => {
-          return item.attribute !== 'historic'
+          return item.attribute !== 'historic' && item.attribute !== 'historic-landuse'
         })
       },
       visibility: function () {

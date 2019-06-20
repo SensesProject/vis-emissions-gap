@@ -36,16 +36,25 @@ export const getters = {
   paths: state => {
     const { model, scenario, degree, part, variable, range, region } = state.scenario.scenario
     const { data } = state.data.data
-
     // Find items in the data that match the current options
     const paths = compact(map(state.legend, policy => {
-      const obj = policy.attribute === 'historic'
-        ? {
+      let obj
+      let label = policy.label
+      if (policy.attribute === 'historic') {
+        obj = {
           scenario: 'historic',
           region,
           variable
         }
-        : {
+        label = 'Historic'
+      } else if (policy.attribute === 'historic-landuse') {
+        obj = {
+          scenario: 'historic-landuse',
+          region
+        }
+        label = 'Historic Land Use'
+      } else {
+        obj = {
           model,
           scenario,
           degree,
@@ -54,11 +63,12 @@ export const getters = {
           region,
           variable
         }
+      }
       const datum = find(data, obj)
       return {
         ...datum,
         ...policy,
-        label: policy.attribute === 'historic' ? 'Historic' : policy.label
+        label
       }
     }))
 

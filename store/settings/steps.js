@@ -6,7 +6,8 @@ module.exports = {
       NDC: 'start',
       eff: 'start',
       goodpractice: 'start',
-      netzero: 'start'
+      netzero: 'start',
+      'historic-landuse': 2030
     },
     visibility: [],
     legend: ['historic'],
@@ -25,7 +26,8 @@ module.exports = {
       NDC: 'start',
       eff: 'start',
       goodpractice: 'start',
-      netzero: 'start'
+      netzero: 'start',
+      'historic-landuse': 2030
     },
     visibility: ['budget', 'arrowup', 'arrowdown'],
     legend: [],
