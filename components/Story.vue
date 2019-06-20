@@ -89,10 +89,7 @@
     computed: {
       ...mapState({
         'step': state => state.navigation.step
-      }),
-      ...mapState([
-        'steps'
-      ])
+      })
     },
     methods: {
       ...mapActions([
