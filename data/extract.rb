@@ -69,6 +69,28 @@ datum = format(get(data, facet))
 historic = JSON.parse(File.open('historic.json').read)
 datum.push(*historic)
 
+def merge (arr, sources)
+	arr.map do |a|
+		source = sources.find do |s|
+			a["region"] === s["region"]
+		end
+		if source
+			values = a["values"].each_with_index.map do |value, index|
+				base = source["values"][index]
+				[value[0], value[1] + base[1]]
+			end
+			a["values"] = values
+			a
+		end
+	end
+end
+
+landuse = JSON.parse(File.open('historic-landuse.json').read)
+
+# ap landuse
+
+datum.push(*merge(landuse, historic))
+
 File.open('data.json', 'w') do |f|
   f.write(JSON.pretty_generate({ data: datum }))
 end
