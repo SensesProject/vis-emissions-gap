@@ -9,7 +9,6 @@ const state = () => {
       part: 'full',
       region: 'World',
       variable: 'CO2|Energy and Industrial Processes',
-      yLabel: 'historic',
       range: [1990, 2050]
     }
   }
