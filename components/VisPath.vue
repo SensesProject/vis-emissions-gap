@@ -77,6 +77,8 @@
             x: this.scaleX(timeParse('%Y')(lastValues[0])) + 5,
             y: this.scaleY(lastValues[1]) + 4
           }
+        } else {
+          return {}
         }
       },
       klass: function () {
