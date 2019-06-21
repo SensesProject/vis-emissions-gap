@@ -30,7 +30,7 @@ module.exports = {
       netzero: 'start',
       'historic-landuse': 2030
     },
-    visibility: ['budget', 'arrowup', 'arrowdown'],
+    visibility: ['budget', 'arrowup', 'arrowdown', 'landuse'],
     legend: [],
     yLabel: 'historic-landuse',
     goal: 0,
