@@ -34,8 +34,7 @@
         const data = map(this.data, (datum, i) => {
           return [this.scaleX(timeParse('%Y')(datum[0])), i === 0 ? this.today[1] : this.scaleY(0)]
         })
-        const foo = [this.today, ...data]
-        return foo
+        return [this.today, ...data]
       },
       d: function () {
         return this.drawArea()(this.area)
