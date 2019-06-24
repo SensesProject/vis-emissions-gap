@@ -42,7 +42,7 @@ export const getters = {
       let label = policy.label
       if (policy.attribute === 'historic') {
         obj = {
-          scenario: 'historic',
+          scenario: variable === 'CO2|AFOLU' ? 'historic-landuse' : 'historic',
           region,
           variable
         }
@@ -50,7 +50,8 @@ export const getters = {
       } else if (policy.attribute === 'historic-landuse') {
         obj = {
           scenario: 'historic-landuse',
-          region
+          region,
+          variable: 'CO2|AFOLU'
         }
         label = 'Historic Land Use'
       } else {

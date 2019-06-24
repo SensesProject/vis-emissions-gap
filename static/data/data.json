@@ -15523,8 +15523,7 @@
       "model": "CEDS",
       "scenario": "historic-landuse",
       "region": "China",
-      "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
-      "unit": "Mt CO2/yr",
+      "variable": "CO2|AFOLU",
       "values": [
         [
           1990,
@@ -15636,8 +15635,7 @@
       "model": "CEDS",
       "scenario": "historic-landuse",
       "region": "EU",
-      "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
-      "unit": "Mt CO2/yr",
+      "variable": "CO2|AFOLU",
       "values": [
         [
           1990,
@@ -15749,8 +15747,7 @@
       "model": "CEDS",
       "scenario": "historic-landuse",
       "region": "India",
-      "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
-      "unit": "Mt CO2/yr",
+      "variable": "CO2|AFOLU",
       "values": [
         [
           1990,
@@ -15862,8 +15859,7 @@
       "model": "CEDS",
       "scenario": "historic-landuse",
       "region": "Japan",
-      "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
-      "unit": "Mt CO2/yr",
+      "variable": "CO2|AFOLU",
       "values": [
         [
           1990,
@@ -15975,8 +15971,7 @@
       "model": "CEDS",
       "scenario": "historic-landuse",
       "region": "Russia",
-      "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
-      "unit": "Mt CO2/yr",
+      "variable": "CO2|AFOLU",
       "values": [
         [
           1990,
@@ -16088,8 +16083,7 @@
       "model": "CEDS",
       "scenario": "historic-landuse",
       "region": "USA",
-      "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
-      "unit": "Mt CO2/yr",
+      "variable": "CO2|AFOLU",
       "values": [
         [
           1990,
@@ -16201,8 +16195,7 @@
       "model": "CEDS",
       "scenario": "historic-landuse",
       "region": "World",
-      "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
-      "unit": "Mt CO2/yr",
+      "variable": "CO2|AFOLU",
       "values": [
         [
           1990,
