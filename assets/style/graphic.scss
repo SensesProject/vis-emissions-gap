@@ -122,7 +122,7 @@ line, path {
   }
 
   &.historic-landuse {
-    stroke: green;
+    stroke: $color-green;
     stroke-width: 2px;
   }
 
@@ -191,9 +191,13 @@ text {
   }
 
   &.axis--reading {
-    tspan:first-child, tspan:nth-child(3) {
+    tspan:first-child, tspan:nth-child(3), tspan:nth-child(4) {
       font-size: 0.8rem;
       font-weight: 400;
+    }
+
+    tspan:nth-child(4) {
+      fill: $color-green;
     }
 
     tspan:nth-child(2) {
