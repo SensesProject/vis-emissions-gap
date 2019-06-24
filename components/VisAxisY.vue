@@ -44,6 +44,7 @@
           ref="texts"
           :x="0 + 'px'"
           :dy="i === 0 ? '' : '1.5em'"
+          v-if="text"
           v-html="text" />
       </text>
       <line
@@ -62,6 +63,10 @@
   import { format } from 'd3-format'
 
   const f = format(`,.2r`)
+
+  const replacements = {
+    'CO2|Energy and Industrial Processes': 'fossil fuels and industry'
+  }
 
   export default {
     props: ['margin', 'height', 'scaleY', 'scaleX'],
@@ -119,7 +124,12 @@
       label: function () {
         const today = last(get(find(this.currentPaths, { scenario: this.yLabel }), 'values', []))
         const x = this.scaleX(this.scaleX.domain()[0])
-        const texts = [`${format(`.2`)(today[1] / 1000)} Gt`, `CO2/year (${this.region})`, `from ${this.variable}`]
+        const texts = [
+          `${format(`.2`)(today[1] / 1000)} Gt`,
+          `${this.region === 'World' ? 'Global' : this.region} CO₂ emissions (Gt CO₂/yr) `,
+          `from ${get(replacements, this.variable, this.variable)}`,
+          this.yLabel === 'historic-landuse' ? `and additionally from land-use` : false
+        ]
 
         return {
           today: [this.scaleX(new Date(today[0], 0, 1)), this.scaleY(today[1])],
