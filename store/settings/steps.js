@@ -7,11 +7,11 @@ module.exports = {
       eff: 'start',
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 'start'
+      'historic-landuse': 2030
     },
-    visibility: [],
-    legend: ['historic'],
-    yLabel: 'historic',
+    visibility: ['landuse'],
+    legend: ['historic', 'landuse'],
+    yLabel: 'historic-landuse',
     goal: 0,
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
