@@ -18,7 +18,7 @@
         :y="this.margin.top / 6 * 4"
         dy="-1.5em"
         class="axis"
-        text-anchor="middle">{{ variable }}</text>
+        text-anchor="middle">{{ title }}</text>
       <g>
         <g v-for="item in labels">
           <line
@@ -111,6 +111,13 @@
     return [anchor, translate]
   }
 
+  const replacements = {
+    'investment': 'Average yearly low-carbon power sector investments (billion US$)',
+    'landuse': 'Area for bioenergy and afforestation in 2050 (million ha)',
+    'strandedAssests': 'Maximum idle coal capacity (GW)',
+    'temperature': 'Increase in global mean temparature (2030, rel. to 2015, in °C)'
+  }
+
   export default {
     data: function () {
       return {
@@ -150,6 +157,9 @@
         // Defines which data is shown; e.g. temperature, investments, …
         return get(this.steps, `${this.step}.aside`, false)
       },
+      title: function () {
+        return get(replacements, this.variable, this.variable)
+      },
       goal: function () {
         // Defines which year is shown. This decides which bar is shown
         return get(this.steps, `${this.step}.goal`, [])
@@ -175,9 +185,7 @@
         // Create an array of displayed graphs
         const { policies, scenario, data, variable } = this
         const { degree, part } = scenario
-        // console.log({ data })
         return compact(map(policies, policy => {
-          // console.log({policy, degree, part})
           // Based on the policy, degree, part, region and variable a fitting data set is selected
           const datum = find(data, { policy, degree, part, region: 'World', variable })
           if (isUndefined(datum)) {
