@@ -13,6 +13,7 @@ module.exports = {
     legend: ['historic', 'landuse'],
     yLabel: 'historic-landuse',
     goal: 0,
+    aside: 'temperature',
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -34,6 +35,7 @@ module.exports = {
     legend: [],
     yLabel: 'historic-landuse',
     goal: 0,
+    aside: 'temperature',
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -55,6 +57,7 @@ module.exports = {
     legend: ['NDC'],
     yLabel: 'historic',
     goal: 2030,
+    aside: 'temperature',
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -76,6 +79,7 @@ module.exports = {
     legend: [],
     yLabel: 'historic',
     goal: 2030,
+    aside: 'temperature',
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -97,6 +101,7 @@ module.exports = {
     legend: ['NDC', 'eff'],
     yLabel: 'historic',
     goal: 2050,
+    aside: 'temperature',
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -118,6 +123,7 @@ module.exports = {
     legend: ['NDC', 'eff'],
     yLabel: 'historic',
     goal: 2050,
+    aside: 'strandedAssests',
     data: {
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
@@ -132,6 +138,7 @@ module.exports = {
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     yLabel: 'historic',
     goal: 2050,
+    aside: 'strandedAssests',
     clips: {
       NDC: 'end',
       eff: 'end',
@@ -153,6 +160,7 @@ module.exports = {
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     yLabel: 'historic',
     goal: 2050,
+    aside: 'landuse',
     clips: {
       NDC: 'end',
       eff: 'end',
@@ -174,6 +182,7 @@ module.exports = {
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     yLabel: 'historic',
     goal: 2050,
+    aside: 'investment',
     clips: {
       NDC: 'end',
       eff: 'end',

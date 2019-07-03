@@ -5,7 +5,7 @@ import highlight from './modules/highlight'
 import scenario from './modules/scenario'
 import navigation from './modules/navigation'
 import data from './modules/data'
-import prices from './modules/prices'
+import aside from './modules/aside'
 import { map, find, compact, filter, get } from 'lodash'
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
@@ -25,7 +25,7 @@ export const state = () => {
 }
 
 export const modules = {
-  prices,
+  aside,
   data,
   highlight,
   navigation,

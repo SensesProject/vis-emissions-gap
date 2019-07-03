@@ -1,8 +1,6 @@
 {
-  "prices": [
+  "data": [
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
@@ -10,11 +8,10 @@
       "values": [
         147.9209,
         325.099525
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "goodpractice",
@@ -22,11 +19,10 @@
       "values": [
         205.421875,
         312.8395625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "netzero",
@@ -34,11 +30,10 @@
       "values": [
         237.5056,
         306.292275
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "eff",
@@ -46,11 +41,10 @@
       "values": [
         269.975225,
         298.67015
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "NDC",
@@ -58,11 +52,10 @@
       "values": [
         147.9209,
         262.1269
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "goodpractice",
@@ -70,11 +63,10 @@
       "values": [
         205.421875,
         269.7389125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "netzero",
@@ -82,11 +74,10 @@
       "values": [
         237.5056,
         266.74695
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "eff",
@@ -94,11 +85,10 @@
       "values": [
         275.256225,
         277.3646625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
@@ -106,11 +96,10 @@
       "values": [
         147.9209,
         313.898525
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "goodpractice",
@@ -118,11 +107,10 @@
       "values": [
         205.421875,
         303.4778125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "netzero",
@@ -130,11 +118,10 @@
       "values": [
         237.5056,
         299.808425
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "eff",
@@ -142,11 +129,10 @@
       "values": [
         295.0435,
         293.3671
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "red",
       "policy": "eff",
@@ -154,11 +140,10 @@
       "values": [
         267.74475,
         190.33675
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
@@ -166,11 +151,10 @@
       "values": [
         87.850475,
         142.6783375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "goodpractice",
@@ -178,11 +162,10 @@
       "values": [
         84.774725,
         136.7525625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "netzero",
@@ -190,11 +173,10 @@
       "values": [
         86.0676,
         126.958575
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "eff",
@@ -202,11 +184,10 @@
       "values": [
         100.754425,
         131.511175
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "NDC",
@@ -214,11 +195,10 @@
       "values": [
         87.850475,
         183.3598875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "goodpractice",
@@ -226,11 +206,10 @@
       "values": [
         84.774725,
         173.14505
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "netzero",
@@ -238,11 +217,10 @@
       "values": [
         86.0676,
         161.0337875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "eff",
@@ -250,11 +228,10 @@
       "values": [
         111.0454,
         145.4367125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
@@ -262,11 +239,10 @@
       "values": [
         87.850475,
         161.57245
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "goodpractice",
@@ -274,11 +250,10 @@
       "values": [
         84.774725,
         157.3904125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "netzero",
@@ -286,11 +261,10 @@
       "values": [
         86.0676,
         144.845175
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "eff",
@@ -298,11 +272,10 @@
       "values": [
         117.054825,
         143.252825
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "red",
       "policy": "eff",
@@ -310,11 +283,10 @@
       "values": [
         162.02245,
         185.282125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
@@ -322,11 +294,10 @@
       "values": [
         49.874575,
         222.12665
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "goodpractice",
@@ -334,11 +305,10 @@
       "values": [
         55.55165,
         201.3585375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "netzero",
@@ -346,11 +316,10 @@
       "values": [
         67.4774,
         204.3349375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "eff",
@@ -358,11 +327,10 @@
       "values": [
         98.701475,
         213.0548875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "NDC",
@@ -370,11 +338,10 @@
       "values": [
         49.874575,
         279.84235
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "goodpractice",
@@ -382,11 +349,10 @@
       "values": [
         55.55165,
         266.62245
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "netzero",
@@ -394,11 +360,10 @@
       "values": [
         67.4774,
         257.9471625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "eff",
@@ -406,11 +371,10 @@
       "values": [
         113.1664,
         236.82785
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
@@ -418,11 +382,10 @@
       "values": [
         49.874575,
         249.3909125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "goodpractice",
@@ -430,11 +393,10 @@
       "values": [
         55.55165,
         237.8754
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "netzero",
@@ -442,11 +404,10 @@
       "values": [
         67.4774,
         237.189275
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "eff",
@@ -454,11 +415,10 @@
       "values": [
         117.44305,
         233.4873875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "red",
       "policy": "eff",
@@ -466,11 +426,10 @@
       "values": [
         141.728625,
         303.5996875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
@@ -478,11 +437,10 @@
       "values": [
         8.948875,
         37.361
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "goodpractice",
@@ -490,11 +448,10 @@
       "values": [
         13.13785,
         34.8996875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "netzero",
@@ -502,11 +459,10 @@
       "values": [
         14.6223,
         34.1677125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "eff",
@@ -514,11 +470,10 @@
       "values": [
         19.947525,
         33.4738375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "NDC",
@@ -526,11 +481,10 @@
       "values": [
         8.948875,
         50.4615625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "goodpractice",
@@ -538,11 +492,10 @@
       "values": [
         13.13785,
         46.728025
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "netzero",
@@ -550,11 +503,10 @@
       "values": [
         14.6223,
         44.29375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "eff",
@@ -562,11 +514,10 @@
       "values": [
         24.1848,
         40.87385
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
@@ -574,11 +525,10 @@
       "values": [
         8.948875,
         46.5307875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "goodpractice",
@@ -586,11 +536,10 @@
       "values": [
         13.13785,
         43.951725
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "netzero",
@@ -598,11 +547,10 @@
       "values": [
         14.6223,
         42.1600875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "eff",
@@ -610,11 +558,10 @@
       "values": [
         25.1441,
         38.7034625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "red",
       "policy": "eff",
@@ -622,11 +569,10 @@
       "values": [
         42.1845,
         51.524525
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
@@ -634,11 +580,10 @@
       "values": [
         10.74805,
         38.6724875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "goodpractice",
@@ -646,11 +591,10 @@
       "values": [
         17.72505,
         36.0156125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "netzero",
@@ -658,11 +602,10 @@
       "values": [
         24.4965,
         32.7315875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "eff",
@@ -670,11 +613,10 @@
       "values": [
         28.7382,
         32.7442875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "NDC",
@@ -682,11 +624,10 @@
       "values": [
         10.74805,
         48.1062625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "goodpractice",
@@ -694,11 +635,10 @@
       "values": [
         17.72505,
         42.726225
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "netzero",
@@ -706,11 +646,10 @@
       "values": [
         24.4965,
         38.2340125
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "eff",
@@ -718,11 +657,10 @@
       "values": [
         34.243475,
         34.1784625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
@@ -730,11 +668,10 @@
       "values": [
         10.74805,
         45.9648375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "goodpractice",
@@ -742,11 +679,10 @@
       "values": [
         17.72505,
         41.9006375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "netzero",
@@ -754,11 +690,10 @@
       "values": [
         24.4965,
         37.361025
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "eff",
@@ -766,11 +701,10 @@
       "values": [
         34.682025,
         34.18425
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "red",
       "policy": "eff",
@@ -778,11 +712,10 @@
       "values": [
         45.51955,
         38.1137625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
@@ -790,11 +723,10 @@
       "values": [
         81.278275,
         163.7782875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "goodpractice",
@@ -802,11 +734,10 @@
       "values": [
         83.607625,
         152.827775
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "netzero",
@@ -814,11 +745,10 @@
       "values": [
         87.58125,
         142.2970875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "eff",
@@ -826,11 +756,10 @@
       "values": [
         111.9916,
         149.94445
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "NDC",
@@ -838,11 +767,10 @@
       "values": [
         81.278275,
         200.361375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "goodpractice",
@@ -850,11 +778,10 @@
       "values": [
         83.607625,
         187.1843625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "netzero",
@@ -862,11 +789,10 @@
       "values": [
         87.58125,
         175.3598625
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "eff",
@@ -874,11 +800,10 @@
       "values": [
         128.898275,
         166.4114375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
@@ -886,11 +811,10 @@
       "values": [
         81.278275,
         191.5307875
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "goodpractice",
@@ -898,11 +822,10 @@
       "values": [
         83.607625,
         178.1020375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "netzero",
@@ -910,11 +833,10 @@
       "values": [
         87.58125,
         162.5770375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "eff",
@@ -922,11 +844,10 @@
       "values": [
         139.70305,
         167.67785
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "red",
       "policy": "eff",
@@ -934,11 +855,10 @@
       "values": [
         198.68605,
         201.0993375
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
@@ -946,11 +866,10 @@
       "values": [
         567.688775,
         1491.45405
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "goodpractice",
@@ -958,11 +877,10 @@
       "values": [
         670.54565,
         1428.42195
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "netzero",
@@ -970,11 +888,10 @@
       "values": [
         744.2733,
         1393.297513
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "full",
       "policy": "eff",
@@ -982,11 +899,10 @@
       "values": [
         925.225625,
         1391.694688
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "NDC",
@@ -994,11 +910,10 @@
       "values": [
         567.688775,
         1743.180913
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "goodpractice",
@@ -1006,11 +921,10 @@
       "values": [
         670.54565,
         1667.240063
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "netzero",
@@ -1018,11 +932,10 @@
       "values": [
         744.2733,
         1600.879638
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "2C",
       "part": "red",
       "policy": "eff",
@@ -1030,11 +943,10 @@
       "values": [
         1017.944725,
         1487.177088
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
@@ -1042,11 +954,10 @@
       "values": [
         567.688775,
         1681.246963
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "goodpractice",
@@ -1054,11 +965,10 @@
       "values": [
         670.54565,
         1614.638588
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "netzero",
@@ -1066,11 +976,10 @@
       "values": [
         744.2733,
         1553.19545
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "full",
       "policy": "eff",
@@ -1078,11 +987,10 @@
       "values": [
         1074.772675,
         1515.907838
-      ]
+      ],
+      "variable": "investment"
     },
     {
-      "model": "REMIND-MAgPIE 1.7-3.0",
-      "scenario": "PEP",
       "degree": "1p5C",
       "part": "red",
       "policy": "eff",
@@ -1090,7 +998,411 @@
       "values": [
         1347.086375,
         1735.273425
-      ]
+      ],
+      "variable": "investment"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        557174.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        5328273.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        504194.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        4366523.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        5455509.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        536009.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        525167.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        5063247.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        9092515.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        8392777.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        774729.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        6614761.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "1p5C",
+      "part": "red",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        0.0
+      ],
+      "variable": "landuse"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        9846062.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        8204333.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        8124962.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        976413.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        9847071.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        8205098.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        8137262.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        1050763.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        9846868.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        8204893.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        8137248.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        1050897.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "1p5C",
+      "part": "red",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        0.0
+      ],
+      "variable": "strandedAssests"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        0.496055738,
+        0.869920458
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        0.477784191,
+        0.808145845
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        0.479780404,
+        0.779327419
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        0.474316218,
+        0.724052374
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        0.495162494,
+        0.792535297
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        0.477289085,
+        0.738433582
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        0.47876653,
+        0.719552491
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        0.469564071,
+        0.639349191
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        0.495702194,
+        0.797225137
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "goodpractice",
+      "region": "World",
+      "values": [
+        0.47753291,
+        0.741905589
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        0.479660947,
+        0.724219809
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "1p5C",
+      "part": "full",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        0.468645807,
+        0.628751015
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "1p5C",
+      "part": "red",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        0.442972642,
+        0.485402653
+      ],
+      "variable": "temperature"
     }
   ]
 }

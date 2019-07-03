@@ -25,7 +25,7 @@
               <VisPath
                 v-for="el in currentPaths"
                 :el="el"
-                :key="el.policy"
+                :key="`${el.policy}-${el.variable}`"
                 :scaleX="scaleX"
                 :scaleY="scaleY"
                 :legend="legend" />
@@ -44,7 +44,7 @@
       </transition>
     </div>
     <footer class="vis-footer">
-      <VisPrices />
+      <VisAside />
     </footer>
   </section>
 </template>
@@ -58,7 +58,7 @@
   import isEmpty from 'lodash/isEmpty'
   import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
-  import VisPrices from '~/components/VisPrices.vue'
+  import VisAside from '~/components/VisAside.vue'
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
   import VisPath from '~/components/VisPath.vue'
@@ -173,7 +173,7 @@
     components: {
       VisAxis,
       VisElement,
-      VisPrices,
+      VisAside,
       VisPath,
       VisZeroLine,
       ConditionalElements

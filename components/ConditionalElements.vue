@@ -24,7 +24,7 @@
     <VisPulse
       :x="middleHistoric[0]"
       :y="middleHistoric[1]"
-      v-if="step === 1"
+      v-if="step === 0"
       key="landUse"
       label="Land Use added…"
     />
