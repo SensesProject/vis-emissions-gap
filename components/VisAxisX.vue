@@ -18,7 +18,7 @@
             v-html="label.year" />
           <tspan
             :x="label.x + 'px'"
-            dy="-1.5em"
+            dy="-2.4em"
             class="tick important"
             v-html="label.label" />
         </text>

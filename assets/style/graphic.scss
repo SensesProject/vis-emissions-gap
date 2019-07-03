@@ -160,6 +160,7 @@ text {
     font-size: $size-small;
 
     &.important {
+      fill: palette(grey, 20);
       font-weight: $font-weight-bold;
       font-size: $size-default;
     }
@@ -235,7 +236,13 @@ text {
   &.axis {
     fill: palette(grey, 20);
     font-weight: $font-weight-bold;
-    font-size: $size-small;
+    font-size: $size-default;
+
+    &.small {
+      font-size: $size-small;
+      font-weight: $font-weight-default;
+      fill: palette(grey, 50);
+    }
   }
 
   &.dot {

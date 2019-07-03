@@ -15,9 +15,10 @@
         class="tick" />
       <text
         :x="axis.labelX"
-        :y="this.margin.top / 6 * 4"
-        dy="-1.5em"
-        class="axis"
+        :y="margin.top / 6 * 4"
+        v-for="(title, i) in titles"
+        :dy="i ? '-1.2em' : '-2.4em'"
+        :class="i ? 'axis small' : 'axis'"
         text-anchor="middle">{{ title }}</text>
       <g>
         <g v-for="item in labels">
@@ -112,10 +113,10 @@
   }
 
   const replacements = {
-    'investment': 'Average yearly low-carbon power sector investments (billion US$)',
-    'landuse': 'Area for bioenergy and afforestation in 2050 (million ha)',
-    'strandedAssests': 'Maximum idle coal capacity (GW)',
-    'temperature': 'Increase in global mean temparature (2030, rel. to 2015, in °C)'
+    'investment': ['Average yearly low-carbon power sector investments', '(billion US$)'],
+    'landuse': ['Area for bioenergy and afforestation in 2050', '(million ha)'],
+    'strandedAssests': ['Maximum idle coal capacity', '(GW)'],
+    'temperature': ['Increase in global mean temparature', '(2030, rel. to 2015, in °C)']
   }
 
   export default {
@@ -126,7 +127,7 @@
         margin: {
           left: 20,
           right: 10,
-          top: 60,
+          top: 80,
           bottom: 10
         },
         labelSizes: []
@@ -157,7 +158,7 @@
         // Defines which data is shown; e.g. temperature, investments, …
         return get(this.steps, `${this.step}.aside`, false)
       },
-      title: function () {
+      titles: function () {
         return get(replacements, this.variable, this.variable)
       },
       goal: function () {
@@ -280,7 +281,7 @@
               y: y - 14,
               y1: y - 10,
               y2: y - 4,
-              label: `2020–2030 ${this.scaleYBar.bandwidth()}`,
+              label: '2020–2030',
               translate: translate1
             })
           }
