@@ -1,7 +1,8 @@
 <template>
   <g
     @mouseover="setHighlight(label.policy)"
-    @mouseleave="setHighlight(false)">
+    @mouseleave="setHighlight(false)"
+    v-if="isVisible">
     <path
       :class="klass"
       :d="d"
@@ -35,8 +36,15 @@
       d: function () {
         return this.drawLine()(this.el.values)
       },
+      isVisible: function () {
+        return !isNull(this.d)
+      },
       totalLength: function () {
-        return pathHelper.svgPathProperties(this.d).getTotalLength() + 1
+        if (this.isVisible) {
+          return pathHelper.svgPathProperties(this.d).getTotalLength() + 1
+        } else {
+          return 0
+        }
       },
       end: function () {
         const { clip } = this.el

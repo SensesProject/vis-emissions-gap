@@ -25,7 +25,7 @@
               <VisPath
                 v-for="el in currentPaths"
                 :el="el"
-                :key="`${el.policy}-${el.variable}`"
+                :key="`${el.policy}-${el.variable}-${el.attribute}`"
                 :scaleX="scaleX"
                 :scaleY="scaleY"
                 :legend="legend" />
