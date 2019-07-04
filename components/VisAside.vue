@@ -116,7 +116,7 @@
     'investment': ['Average yearly low-carbon power sector investments', '(billion US$)'],
     'landuse': ['Area for bioenergy and afforestation in 2050', '(million ha)'],
     'strandedAssests': ['Maximum idle coal capacity', '(GW)'],
-    'temperature': ['Increase in global mean temparature', '(2030, rel. to 2015, in °C)']
+    'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C)']
   }
 
   export default {
@@ -138,7 +138,9 @@
         'data': state => state.aside.data.data,
         'scenario': state => state.scenario.scenario,
         'step': state => state.navigation.step,
-        'highlight': state => state.highlight.highlight
+        'highlight': state => state.highlight.highlight,
+        // Defines which data is shown; e.g. temperature, investments, …
+        'variable': state => state.scenario.scenario.aside
       }),
       ...mapState([
         'steps',
@@ -153,10 +155,6 @@
       visibility: function () {
         // Defines which bar is shown
         return get(this.steps, `${this.step}.clips`, [])
-      },
-      variable: function () {
-        // Defines which data is shown; e.g. temperature, investments, …
-        return get(this.steps, `${this.step}.aside`, false)
       },
       titles: function () {
         return get(replacements, this.variable, this.variable)
@@ -264,7 +262,6 @@
       },
       labels: function () {
         const [low, high] = this.scaleX.range()
-
         const item = head(this.elements)
         const labels = []
         const yPolicy = this.scaleYPolicy(item.policy)
