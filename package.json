@@ -1,8 +1,8 @@
 {
-  "name": "senses-storytelling",
+  "name": "senses-global-stocktake",
   "version": "0.0.1",
-  "description": "Senses - Storytelling",
-  "author": "Jonas <parnow@fh-potsdam.de>",
+  "description": "Senses - Global Stocktake",
+  "author": "Jonas Parnow <parnow@fh-potsdam.de>",
   "private": true,
   "scripts": {
     "dev": "PORT=3034 nuxt",
