@@ -1,92 +1,105 @@
 <template>
-  <svg class="vis-aside" ref="vis">
-    <g v-if="goal >= 2030">
-      <line
-        :x1="axis.x1"
-        :x2="axis.x2"
-        :y1="axis.y"
-        :y2="axis.y"
-        class="axis" />
-      <line
-        :x1="axis.x1"
-        :x2="axis.x1"
-        :y1="axis.y"
-        :y2="height - margin.bottom"
-        class="tick" />
-      <text
-        :x="axis.labelX"
-        :y="margin.top / 6 * 4"
-        v-for="(title, i) in titles"
-        :dy="i ? '-1.2em' : '-2.4em'"
-        :class="i ? 'axis small' : 'axis'"
-        text-anchor="middle">{{ title }}</text>
-      <g>
-        <g v-for="item in labels">
+  <div :class="{ 'vis-footer-wrapper': true, 'vis-footer-wrapper--visible': goal >= 2030 }">
+    <header class="vis-footer-header">
+      <h1>Disruption</h1>
+      <ul class="tabs tabs-disruptions">
+        <li :class="{ 'tab': true, 'tab--active': this.variable === 'temperature' }">Temperature</li>
+        <li :class="{ 'tab': true, 'tab--active': this.variable === 'strandedAssests' }">Stranded Assests</li>
+        <li :class="{ 'tab': true, 'tab--active': this.variable === 'landuse' }">Land Use</li>
+        <li :class="{ 'tab': true, 'tab--active': this.variable === 'investment' }">Investment</li>
+      </ul>
+    </header>
+    <div class="vis-aside-wrapper">
+      <svg class="vis-aside" ref="vis">
+        <g v-if="goal >= 2030">
           <line
-            :x1="item.x"
-            :x2="item.x"
-            :y1="item.y1"
-            :y2="item.y2"
-            class="label" />
-          <text
-            :x="item.x"
-            :y="item.y"
-            :text-anchor="item.anchor"
-            class="label label--background"
-            :transform="`translate(${item.translate}, 0)`">
-            {{ item.label }}
-          </text>
-          <text
-            ref="labels"
-            :x="item.x"
-            :y="item.y"
-            :text-anchor="item.anchor"
-            class="label"
-            :transform="`translate(${item.translate}, 0)`">
-            {{ item.label }}
-          </text>
-        </g>
-      </g>
-      <g>
-        <g v-for="tick in axis.ticks">
+            :x1="axis.x1"
+            :x2="axis.x2"
+            :y1="axis.y"
+            :y2="axis.y"
+            class="axis" />
           <line
-            :x1="tick.x"
-            :x2="tick.x"
-            :y1="tick.y1"
-            :y2="tick.y2"
+            :x1="axis.x1"
+            :x2="axis.x1"
+            :y1="axis.y"
+            :y2="height - margin.bottom"
             class="tick" />
           <text
-            :x="tick.x"
-            :y="tick.y3"
-            class="tick"
-            text-anchor="middle">
-            {{ tick.label }}
-          </text>
+            :x="axis.labelX"
+            :y="margin.top / 6 * 4"
+            v-for="(title, i) in titles"
+            :dy="i ? '-1.2em' : '-2.4em'"
+            :class="i ? 'axis small' : 'axis'"
+            text-anchor="middle">{{ title }}</text>
+          <g>
+            <g v-for="item in labels">
+              <line
+                :x1="item.x"
+                :x2="item.x"
+                :y1="item.y1"
+                :y2="item.y2"
+                class="label" />
+              <text
+                :x="item.x"
+                :y="item.y"
+                :text-anchor="item.anchor"
+                class="label label--background"
+                :transform="`translate(${item.translate}, 0)`">
+                {{ item.label }}
+              </text>
+              <text
+                ref="labels"
+                :x="item.x"
+                :y="item.y"
+                :text-anchor="item.anchor"
+                class="label"
+                :transform="`translate(${item.translate}, 0)`">
+                {{ item.label }}
+              </text>
+            </g>
+          </g>
+          <g>
+            <g v-for="tick in axis.ticks">
+              <line
+                :x1="tick.x"
+                :x2="tick.x"
+                :y1="tick.y1"
+                :y2="tick.y2"
+                class="tick" />
+              <text
+                :x="tick.x"
+                :y="tick.y3"
+                class="tick"
+                text-anchor="middle">
+                {{ tick.label }}
+              </text>
+            </g>
+          </g>
         </g>
-      </g>
-    </g>
-  	<g
-      v-if="isReady"
-      v-for="group in elements"
-      :class="group.klass"
-      :key="group.key"
-      @mouseover="setHighlight(group.policy)"
-      @mouseleave="setHighlight(false)">
-      <text
-        text-anchor="start"
-        :x="group.x + 5"
-        :y="group.labelY">{{ group.label }}</text>
-      <g v-for="bar in group.bars">
-        <rect
-          v-if="goal >= bar.year"
-          :class="`bar-${bar.year}`"
-          :width="bar.x"
-          :height="group.singleBarHeight"
-          :y="bar.y"
-          :x="group.x" />
-      </g>
-    </g>
-  </svg>
+      	<g
+          v-if="isReady"
+          v-for="group in elements"
+          :class="group.klass"
+          :key="group.key"
+          @mouseover="setHighlight(group.policy)"
+          @mouseleave="setHighlight(false)">
+          <text
+            text-anchor="start"
+            :x="group.x + 5"
+            :y="group.labelY">{{ group.label }}</text>
+          <g v-for="bar in group.bars">
+            <rect
+              v-if="goal >= bar.year"
+              :class="`bar-${bar.year}`"
+              :width="bar.x"
+              :height="group.singleBarHeight"
+              :y="bar.y"
+              :x="group.x" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -128,7 +141,7 @@
           left: 20,
           right: 10,
           top: 80,
-          bottom: 10
+          bottom: 0
         },
         labelSizes: []
       }
@@ -354,6 +367,23 @@
 
 <style lang="scss" scoped>
   @import "~@/assets/style/global";
+
+  .vis-footer-wrapper {
+    background-color: rgba(0, 0, 0, 0.04);
+    opacity: 0;
+    visibility: hidden;
+    animation: 1s all;
+
+    &.vis-footer-wrapper--visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .vis-aside-wrapper {
+    height: auto;
+    margin-bottom: $spacing / 2;
+  }
 
   .vis-aside {
     width: 100%;

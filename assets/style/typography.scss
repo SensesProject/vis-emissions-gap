@@ -55,6 +55,30 @@ sub {
   top: 0.4em;
 }
 
+.tabs {
+  font-size: $size-small;
+  line-height: 1.2;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  .tab {
+    text-align: center;
+    padding: 0 $spacing / 4 $spacing / 4;
+    color: palette(grey, 60);
+    cursor: pointer;
+
+    &.tab--active, &:hover, &:focus {
+      color: palette(grey, 0);
+    }
+
+    &.tab--active {
+      cursor: default;
+      border-bottom: 2px solid $color-blue;
+      margin-bottom: -2px;
+    }
+  }
+}
+
 .footnotes li {
   color: palette(grey, 50);
   font-size: $size-default;

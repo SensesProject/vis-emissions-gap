@@ -18,7 +18,7 @@
             v-html="label.year" />
           <tspan
             :x="label.x + 'px'"
-            dy="-2.4em"
+            dy="-1.4em"
             class="tick important"
             v-html="label.label" />
         </text>
@@ -46,7 +46,7 @@
           return {
             key: i,
             label: timeFormat('%Y')(tick),
-            y: this.margin.top / 5,
+            y: this.margin.top / 10,
             x: scaleX(tick)
           }
         })

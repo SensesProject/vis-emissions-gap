@@ -29,8 +29,27 @@
 }
 
 .vis-footer {
-  display: flex;
-  flex-direction: row;
+  margin-top: $spacing / 2;
+  margin-left: $spacing / 2;
+
+  .vis-footer-wrapper {
+    height: calc(100% - #{$spacing / 2});
+    display: flex;
+    flex-direction: column;
+
+    .vis-footer-header {
+      margin: $spacing / 2;
+
+      .tabs-disruptions {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .vis-aside-wrapper {
+      flex: 1;
+    }
+  }
 }
 
 .columns > * {

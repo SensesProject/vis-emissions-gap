@@ -81,7 +81,7 @@
         margin: {
           left: 80,
           right: 150,
-          top: 80,
+          top: 70,
           bottom: 10
         }
       }
