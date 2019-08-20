@@ -29,11 +29,11 @@
       label="Land Use added…"
     />
     <VisPulse
-      :x="year2020"
-      :y="middle"
+      :x="year2045"
+      :y="lowerThird"
       v-if="step === 1"
       key="budget"
-      label="The IPCC special report on 1.5°C scenarios states that the median for the remaining budget for limiting warming to 1.5°C is 580 Gt CO2 from 2018 until the time of net-zero. Assuming that roughly 120 Gt are still emitted in the 3 years 2018-2020, this roughly leaves 460 Gt. This equates to a triangle that represents linear reduction from 40 Gt per year to 0 within 23 years. On the other hand, various uncertainties are in the order of magnitude of 200 Gt, which equates to an uncertainty in the timing of reaching net-zero of 5 years."
+      label="The IPCC special report on 1.5°C scenarios states that the median for the remaining budget for limiting warming to 1.5°C is 580 Gt CO2 from 2018 until the time of net-zero. Assuming that roughly 120 Gt are still emitted in the 3 years 2018–2020, this roughly leaves 460 Gt. This equates to a triangle that represents linear reduction from 40 Gt per year to 0 within 23 years. On the other hand, various uncertainties are in the order of magnitude of 200 Gt, which equates to an uncertainty in the timing of reaching net-zero of 5 years."
     />
   </g>
 </template>
@@ -59,6 +59,9 @@
       ]),
       middle: function () {
         return mean([this.scaleY(0), this.scaleY.range()[1]])
+      },
+      lowerThird: function () {
+        return mean([this.scaleY(0), this.scaleY(0), this.scaleY.range()[1]])
       },
       top: function () {
         return mean([this.scaleY(0), this.scaleY.range()[1], this.scaleY.range()[1]])
@@ -92,6 +95,9 @@
       },
       year2035: function () {
         return this.scaleX(new Date(2035, 0, 1))
+      },
+      year2045: function () {
+        return this.scaleX(new Date(2045, 0, 1))
       },
       year2075: function () {
         return this.scaleX(new Date(2075, 0, 1))

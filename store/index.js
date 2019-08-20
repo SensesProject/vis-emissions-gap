@@ -6,10 +6,10 @@ import scenario from './modules/scenario'
 import navigation from './modules/navigation'
 import data from './modules/data'
 import aside from './modules/aside'
+import { elements } from './settings/elements.js'
 import { map, find, compact, filter, get } from 'lodash'
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
-const { elements } = require('./settings/elements.js')
 const { options } = require('./settings/options.js')
 
 Vue.use(VTooltip)
