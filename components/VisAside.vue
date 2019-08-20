@@ -125,11 +125,18 @@
     return [anchor, translate]
   }
 
-  const replacements = {
+  const titles = {
+    'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C)'],
     'investment': ['Average yearly low-carbon power sector investments', '(billion US$)'],
     'landuse': ['Area for bioenergy and afforestation in 2050', '(million ha)'],
-    'strandedAssests': ['Maximum idle coal capacity', '(GW)'],
-    'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C)']
+    'strandedAssests': ['Maximum idle coal capacity', '(GW)']
+  }
+
+  const barLabels = {
+    'temperature': ['2030', '2050'],
+    'investment': ['2020–2030', '2030–2050'],
+    'landuse': false,
+    'strandedAssests': false
   }
 
   export default {
@@ -170,7 +177,10 @@
         return get(this.steps, `${this.step}.clips`, [])
       },
       titles: function () {
-        return get(replacements, this.variable, this.variable)
+        return get(titles, this.variable, this.variable)
+      },
+      barLabels: function () {
+        return get(barLabels, this.variable, this.variable)
       },
       goal: function () {
         // Defines which year is shown. This decides which bar is shown
@@ -278,7 +288,8 @@
         const item = head(this.elements)
         const labels = []
         const yPolicy = this.scaleYPolicy(item.policy)
-        if (this.goal >= 2030) {
+        const label = get(this.barLabels, [0])
+        if (this.goal >= 2030 && label) {
           const bar2030 = get(item, 'bars[0]', false)
           if (bar2030) {
             const bar2030Width = get(this, 'labelSizes[0]', 0)
@@ -291,14 +302,15 @@
               y: y - 14,
               y1: y - 10,
               y2: y - 4,
-              label: '2020–2030',
+              label: label,
               translate: translate1
             })
           }
         }
         if (this.goal >= 2050) {
           const bar2050 = get(item, 'bars[1]', false)
-          if (bar2050) {
+          const label = get(this.barLabels, [1])
+          if (bar2050 && label) {
             const bar2050Width = get(this, 'labelSizes[1]', 0)
             const x2 = item.x + (bar2050.x * 0.5)
             const [anchor, translate2] = placeLabel(x2, [low, high], bar2050Width)
@@ -310,7 +322,7 @@
               y: y + 22,
               y1: y + 10,
               y2: y + 2,
-              label: '2030–2050',
+              label: label,
               translate: translate2
             })
           }
