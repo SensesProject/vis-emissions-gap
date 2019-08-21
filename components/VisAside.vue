@@ -3,10 +3,11 @@
     <header class="vis-footer-header">
       <h1>Disruption</h1>
       <ul class="tabs tabs-disruptions">
-        <li :class="{ 'tab': true, 'tab--active': this.variable === 'temperature' }">Temperature</li>
-        <li :class="{ 'tab': true, 'tab--active': this.variable === 'strandedAssests' }">Stranded Assests</li>
-        <li :class="{ 'tab': true, 'tab--active': this.variable === 'landuse' }">Land Use</li>
-        <li :class="{ 'tab': true, 'tab--active': this.variable === 'investment' }">Investment</li>
+        <li
+          v-for="tab in tabs"
+          :class="{ 'tab': true, 'tab--active': variable === tab[0] }"
+          @click="setScenario({ aside: tab[0] })"
+          v-html="tab[1]" />
       </ul>
     </header>
     <div class="vis-aside-wrapper">
@@ -139,6 +140,13 @@
     'landuse': false,
     'strandedAssests': false
   }
+
+  const tabs = [
+    ['temperature', 'Temperature'],
+    ['strandedAssests', 'Stranded Assests'],
+    ['landuse', 'Land Use'],
+    ['investment', 'Investment']
+  ]
 
   export default {
     data: function () {
@@ -351,6 +359,9 @@
           ticks,
           labelX
         }
+      },
+      tabs: function () {
+        return tabs
       }
     },
     mounted () {
@@ -373,7 +384,8 @@
         this.height = height
       },
       ...mapActions([
-        'setHighlight'
+        'setHighlight',
+        'setScenario'
       ])
     }
   }
