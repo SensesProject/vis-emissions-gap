@@ -91,7 +91,7 @@
             <rect
               v-if="goal >= bar.year"
               :class="`bar-${bar.year}`"
-              :width="bar.x"
+              :width="bar.width"
               :height="group.singleBarHeight"
               :y="bar.y"
               :x="group.x"
@@ -147,7 +147,7 @@
         height: 0,
         margin: {
           left: 20,
-          right: 10,
+          right: 20,
           top: 80,
           bottom: 0
         },
@@ -230,7 +230,7 @@
       scaleX: function () {
         // Scale for the x-axis
         return scaleLinear()
-          .range([this.margin.left, this.width - this.margin.right - this.margin.left])
+          .range([this.margin.left, this.width - this.margin.right])
           .domain([0, this.extentValues[1]]).nice(3)
       },
       isReady: function () {
@@ -252,7 +252,7 @@
             const [year, value] = datum
             return {
               year,
-              x: this.scaleX(value),
+              width: this.scaleX(value) - this.scaleX(0),
               y: yPolicy + this.scaleYBar(i),
               value,
               policy
@@ -295,7 +295,7 @@
           const bar2030 = get(item, 'bars[0]', false)
           if (bar2030) {
             const bar2030Width = get(this, 'labelSizes[0]', 0)
-            const x1 = item.x + (bar2030.x * 0.5)
+            const x1 = item.x + (bar2030.width * 0.5)
             const [anchor, translate1] = placeLabel(x1, [low, high], bar2030Width)
             const y = yPolicy + this.scaleYBar(0)
             labels.push({
@@ -314,7 +314,7 @@
           const label = get(this.barLabels, [1])
           if (bar2050 && label) {
             const bar2050Width = get(this, 'labelSizes[1]', 0)
-            const x2 = item.x + (bar2050.x * 0.5)
+            const x2 = item.x + (bar2050.width * 0.5)
             const [anchor, translate2] = placeLabel(x2, [low, high], bar2050Width)
             const yBar = this.scaleYBar(1)
             const y = yPolicy + yBar + item.singleBarHeight
