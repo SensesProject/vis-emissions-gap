@@ -27,12 +27,6 @@
         <VisOption option="Russia" slug="region" :current="region">Russia</VisOption>
         <VisOption option="Japan" slug="region" :current="region">Japan</VisOption>
       </VisOptionWrapper>
-      <VisOptionWrapper :isDropdown="true" label="Disruption" :current="aside" tooltip="…">
-        <VisOption option="temperature" slug="aside" :current="aside">Temperature</VisOption>
-        <VisOption option="strandedAssests" slug="aside" :current="aside">Stranded Assests</VisOption>
-        <VisOption option="landuse" slug="aside" :current="aside">Land Use</VisOption>
-        <VisOption option="investment" slug="aside" :current="aside">Investment</VisOption>
-      </VisOptionWrapper>
       <a class="btn btn--inline btn--center" target="_blank" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">See this data in the IIASA Explorer</a>
       <a class="btn btn--inline btn--center" href="#">Download graphics</a>
     </section>

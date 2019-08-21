@@ -64,11 +64,19 @@ sub {
   .tab {
     text-align: center;
     padding: 0 $spacing / 4 $spacing / 4;
-    color: palette(grey, 60);
+    color: palette(grey, 50);
     cursor: pointer;
 
     &.tab--active, &:hover, &:focus {
       color: palette(grey, 0);
+    }
+
+    &.tab--disabled {
+      cursor: default;
+      border-bottom: none;
+      margin-bottom: 0;
+      color: palette(grey, 70);
+      pointer-events: none;
     }
 
     &.tab--active {

@@ -5,7 +5,11 @@
       <ul class="tabs tabs-disruptions">
         <li
           v-for="tab in tabs"
-          :class="{ 'tab': true, 'tab--active': variable === tab[0] }"
+          :class="{
+            'tab': true,
+            'tab--active': variable === tab[0],
+            'tab--disabled': !tab[2]
+          }"
           @click="setScenario({ aside: tab[0] })"
           v-html="tab[1]" />
       </ul>
@@ -106,7 +110,7 @@
 
 <script>
   import { mapState, mapActions } from 'vuex'
-  import { map, find, flatten, get, head, mean, compact, isUndefined, times } from 'lodash'
+  import { map, find, flatten, get, head, mean, compact, isUndefined, times, slice, some } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
 
@@ -361,7 +365,13 @@
         }
       },
       tabs: function () {
-        return tabs
+        // Check if aside option has been present in any of the previous steps
+        const previousSteps = slice(this.steps, 0, this.step + 1)
+        return map(tabs, tab => {
+          return [...tab, some(previousSteps, step => {
+            return get(step, ['data', 'aside']) === tab[0]
+          })]
+        })
       }
     },
     mounted () {
