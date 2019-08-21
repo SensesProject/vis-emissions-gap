@@ -94,7 +94,8 @@
               :width="bar.x"
               :height="group.singleBarHeight"
               :y="bar.y"
-              :x="group.x" />
+              :x="group.x"
+              v-tooltip="{ content: `${bar.policy} ${bar.value}`, offset: 5 }" />
           </g>
         </g>
       </svg>
@@ -253,7 +254,8 @@
               year,
               x: this.scaleX(value),
               y: yPolicy + this.scaleYBar(i),
-              value
+              value,
+              policy
             }
           })
           const x = this.scaleX(0)
