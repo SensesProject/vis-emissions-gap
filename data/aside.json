@@ -1555,7 +1555,7 @@
       "values": [
         [
           2030,
-          557174.0
+          557.174
         ]
       ],
       "variable": "landuse"
@@ -1568,7 +1568,7 @@
       "values": [
         [
           2030,
-          5328273.0
+          532.8273
         ]
       ],
       "variable": "landuse"
@@ -1581,7 +1581,7 @@
       "values": [
         [
           2030,
-          504194.0
+          504.194
         ]
       ],
       "variable": "landuse"
@@ -1594,7 +1594,7 @@
       "values": [
         [
           2030,
-          4366523.0
+          436.6523
         ]
       ],
       "variable": "landuse"
@@ -1607,7 +1607,7 @@
       "values": [
         [
           2030,
-          5455509.0
+          545.5509
         ]
       ],
       "variable": "landuse"
@@ -1620,7 +1620,7 @@
       "values": [
         [
           2030,
-          536009.0
+          536.009
         ]
       ],
       "variable": "landuse"
@@ -1633,7 +1633,7 @@
       "values": [
         [
           2030,
-          525167.0
+          525.167
         ]
       ],
       "variable": "landuse"
@@ -1646,7 +1646,7 @@
       "values": [
         [
           2030,
-          5063247.0
+          506.3247
         ]
       ],
       "variable": "landuse"
@@ -1659,7 +1659,7 @@
       "values": [
         [
           2030,
-          9092515.0
+          909.2515
         ]
       ],
       "variable": "landuse"
@@ -1672,7 +1672,7 @@
       "values": [
         [
           2030,
-          8392777.0
+          839.2777
         ]
       ],
       "variable": "landuse"
@@ -1685,7 +1685,7 @@
       "values": [
         [
           2030,
-          774729.0
+          774.729
         ]
       ],
       "variable": "landuse"
@@ -1698,7 +1698,7 @@
       "values": [
         [
           2030,
-          6614761.0
+          661.4761
         ]
       ],
       "variable": "landuse"
@@ -1724,7 +1724,7 @@
       "values": [
         [
           2030,
-          9846062.0
+          984.6062
         ]
       ],
       "variable": "strandedAssests"
@@ -1737,7 +1737,7 @@
       "values": [
         [
           2030,
-          8204333.0
+          820.4333
         ]
       ],
       "variable": "strandedAssests"
@@ -1750,7 +1750,7 @@
       "values": [
         [
           2030,
-          8124962.0
+          812.4962
         ]
       ],
       "variable": "strandedAssests"
@@ -1763,7 +1763,7 @@
       "values": [
         [
           2030,
-          976413.0
+          976.413
         ]
       ],
       "variable": "strandedAssests"
@@ -1776,7 +1776,7 @@
       "values": [
         [
           2030,
-          9847071.0
+          984.7071
         ]
       ],
       "variable": "strandedAssests"
@@ -1789,7 +1789,7 @@
       "values": [
         [
           2030,
-          8205098.0
+          820.5098
         ]
       ],
       "variable": "strandedAssests"
@@ -1802,7 +1802,7 @@
       "values": [
         [
           2030,
-          8137262.0
+          813.7262
         ]
       ],
       "variable": "strandedAssests"
@@ -1815,7 +1815,7 @@
       "values": [
         [
           2030,
-          1050763.0
+          1050.763
         ]
       ],
       "variable": "strandedAssests"
@@ -1828,7 +1828,7 @@
       "values": [
         [
           2030,
-          9846868.0
+          984.6868
         ]
       ],
       "variable": "strandedAssests"
@@ -1841,7 +1841,7 @@
       "values": [
         [
           2030,
-          8204893.0
+          820.4893
         ]
       ],
       "variable": "strandedAssests"
@@ -1854,7 +1854,7 @@
       "values": [
         [
           2030,
-          8137248.0
+          813.7248
         ]
       ],
       "variable": "strandedAssests"
@@ -1867,7 +1867,7 @@
       "values": [
         [
           2030,
-          1050897.0
+          1050.897
         ]
       ],
       "variable": "strandedAssests"

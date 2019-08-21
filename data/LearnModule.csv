@@ -1,16 +1,16 @@
 ﻿id;policy;target;value;period;variable
-1;NDCs;2°C Full CDR;9846062;2050;Stranded assests
-2;Good Practice;2°C Full CDR;8204333;2050;Stranded assests
-3;Net Zero;2°C Full CDR;8124962;2050;Stranded assests
-4;Cost-effective;2°C Full CDR;976413;2050;Stranded assests
-5;NDCs;2°C Red CDR;9847071;2050;Stranded assests
-6;Good Practice;2°C Red CDR;8205098;2050;Stranded assests
-7;Net Zero;2°C Red CDR;8137262;2050;Stranded assests
-8;Cost-effective;2°C Red CDR;1050763;2050;Stranded assests
-9;NDCs;1.5°C Full CDR;9846868;2050;Stranded assests
-10;Good Practice;1.5°C Full CDR;8204893;2050;Stranded assests
-11;Net Zero;1.5°C Full CDR;8137248;2050;Stranded assests
-12;Cost-effective;1.5°C Full CDR;1050897;2050;Stranded assests
+1;NDCs;2°C Full CDR;984.6062;2050;Stranded assests
+2;Good Practice;2°C Full CDR;820.4333;2050;Stranded assests
+3;Net Zero;2°C Full CDR;812.4962;2050;Stranded assests
+4;Cost-effective;2°C Full CDR;976.413;2050;Stranded assests
+5;NDCs;2°C Red CDR;984.7071;2050;Stranded assests
+6;Good Practice;2°C Red CDR;820.5098;2050;Stranded assests
+7;Net Zero;2°C Red CDR;813.7262;2050;Stranded assests
+8;Cost-effective;2°C Red CDR;1050.763;2050;Stranded assests
+9;NDCs;1.5°C Full CDR;984.6868;2050;Stranded assests
+10;Good Practice;1.5°C Full CDR;820.4893;2050;Stranded assests
+11;Net Zero;1.5°C Full CDR;813.7248;2050;Stranded assests
+12;Cost-effective;1.5°C Full CDR;1050.897;2050;Stranded assests
 13;Cost-effective;1.5°C Red CDR;0;2050;Stranded assests
 14;NDCs;2°C Full CDR;0.496055738;2030;Temperature
 15;Good Practice;2°C Full CDR;0.477784191;2030;Temperature
@@ -38,16 +38,16 @@
 37;Net Zero;1.5°C Full CDR;0.724219809;2050;Temperature
 38;Cost-effective;1.5°C Full CDR;0.628751015;2050;Temperature
 39;Cost-effective;1.5°C Red CDR;0.485402653;2050;Temperature
-40;NDCs;2°C Full CDR;557174;2050;Land area used
-41;Good Practice;2°C Full CDR;5328273;2050;Land area used
-42;Net Zero;2°C Full CDR;504194;2050;Land area used
-43;Cost-effective;2°C Full CDR;4366523;2050;Land area used
-44;NDCs;2°C Red CDR;5455509;2050;Land area used
-45;Good Practice;2°C Red CDR;536009;2050;Land area used
-46;Net Zero;2°C Red CDR;525167;2050;Land area used
-47;Cost-effective;2°C Red CDR;5063247;2050;Land area used
-48;NDCs;1.5°C Full CDR;9092515;2050;Land area used
-49;Good Practice;1.5°C Full CDR;8392777;2050;Land area used
-50;Net Zero;1.5°C Full CDR;774729;2050;Land area used
-51;Cost-effective;1.5°C Full CDR;6614761;2050;Land area used
+40;NDCs;2°C Full CDR;557.174;2050;Land area used
+41;Good Practice;2°C Full CDR;532.8273;2050;Land area used
+42;Net Zero;2°C Full CDR;504.194;2050;Land area used
+43;Cost-effective;2°C Full CDR;436.6523;2050;Land area used
+44;NDCs;2°C Red CDR;545.5509;2050;Land area used
+45;Good Practice;2°C Red CDR;536.009;2050;Land area used
+46;Net Zero;2°C Red CDR;525.167;2050;Land area used
+47;Cost-effective;2°C Red CDR;506.3247;2050;Land area used
+48;NDCs;1.5°C Full CDR;909.2515;2050;Land area used
+49;Good Practice;1.5°C Full CDR;839.2777;2050;Land area used
+50;Net Zero;1.5°C Full CDR;774.729;2050;Land area used
+51;Cost-effective;1.5°C Full CDR;661.4761;2050;Land area used
 52;Cost-effective;1.5°C Red CDR;0;2050;Land area used
