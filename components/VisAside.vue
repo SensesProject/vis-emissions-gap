@@ -127,10 +127,10 @@
   }
 
   const titles = {
-    'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C)'],
+    'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C, global)'],
     'investment': ['Average yearly low-carbon power sector investments', '(billion US$)'],
-    'landuse': ['Area for bioenergy and afforestation in 2050', '(million ha)'],
-    'strandedAssests': ['Maximum idle coal capacity', '(GW)']
+    'landuse': ['Area for bioenergy and afforestation in 2050', '(million ha, global)'],
+    'strandedAssests': ['Maximum idle coal capacity', '(GW, global)']
   }
 
   const barLabels = {
