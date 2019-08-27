@@ -79,15 +79,12 @@
   }
 
   function moveEls (els, direction) {
-    for (let i = 0; i < els.length; i++) {
-      if (i !== 0) {
-        const previous = els[i - 1]
-        const current = els[i]
-        const min = direction ? (previous.y + previous.height - 3) : (previous.y - previous.height + 3)
-        if ((direction && current.y < min) || (!direction && current.y > min)) {
-          // console.log(current.y, '->', min, els[i].el.innerHTML)
-          els[i].y = min
-        }
+    for (let i = 1; i < els.length; i++) {
+      const previous = els[i - 1]
+      const current = els[i]
+      const min = direction ? (previous.y + previous.height - 3) : (previous.y - previous.height + 3)
+      if ((direction && current.y < min) || (!direction && current.y > min)) {
+        els[i].y = min
       }
     }
     return els
