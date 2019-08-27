@@ -8,10 +8,12 @@
           :class="{
             'tab': true,
             'tab--active': variable === tab[0],
-            'tab--disabled': !tab[2]
+            'tab--disabled': !tab[3]
           }"
-          @click="setScenario({ aside: tab[0] })"
-          v-html="tab[1]" />
+          @click="setScenario({ aside: tab[0] })">
+          <img :src="require(`~/assets/img/${tab[2]}.png`)" />
+          {{ tab[1] }}
+        </li>
       </ul>
     </header>
     <div class="vis-aside-wrapper">
@@ -146,10 +148,10 @@
   }
 
   const tabs = [
-    ['temperature', 'Temperature'],
-    ['strandedAssests', 'Stranded Assests'],
-    ['landuse', 'Land Use'],
-    ['investment', 'Investment']
+    ['temperature', 'Temperature', 'icon-temperature'],
+    ['strandedAssests', 'Stranded Assests', 'icon-assets'],
+    ['landuse', 'Land Use', 'icon-landuse'],
+    ['investment', 'Investment', 'icon-investment']
   ]
 
   export default {

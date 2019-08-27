@@ -66,9 +66,23 @@ sub {
     padding: 0 $spacing / 4 $spacing / 4;
     color: palette(grey, 50);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    img {
+      align-self: center;
+      max-height: 1.5rem;
+      opacity: 0.6;
+    }
 
     &.tab--active, &:hover, &:focus {
       color: palette(grey, 0);
+
+      img {
+        opacity: 1;
+      }
     }
 
     &.tab--disabled {
@@ -77,12 +91,17 @@ sub {
       margin-bottom: 0;
       color: palette(grey, 70);
       pointer-events: none;
+
+      img {
+        opacity: 0.2;
+      }
     }
 
     &.tab--active {
       cursor: default;
       border-bottom: 2px solid $color-blue;
       margin-bottom: -2px;
+      height: calc(100% + 2px);
     }
   }
 }
