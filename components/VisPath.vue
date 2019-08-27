@@ -12,7 +12,8 @@
       v-if="label"
       :x="label.x"
       :y="label.y"
-      :class="klass">{{ label.label }}</text>
+      :class="klass"
+      :data-y="label.y">{{ label.label }}</text>
   </g>
 </template>
 

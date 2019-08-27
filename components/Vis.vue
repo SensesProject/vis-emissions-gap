@@ -22,8 +22,14 @@
               :scaleX="scaleX"
               :scaleY="scaleY" />
             <g>
+              <VisLabels
+                :els="currentPaths"
+                :scaleX="scaleX"
+                :scaleY="scaleY"
+                :legend="legend" />
               <VisPath
                 v-for="el in currentPaths"
+                ref="path"
                 :el="el"
                 :key="`${el.policy}-${el.variable}-${el.attribute}`"
                 :scaleX="scaleX"
@@ -53,15 +59,14 @@
   import { mapState, mapGetters } from 'vuex'
   import { scaleLinear, scaleTime } from 'd3-scale'
   import { extent } from 'd3-array'
-  import map from 'lodash/map'
-  import get from 'lodash/get'
-  import isEmpty from 'lodash/isEmpty'
+  import { map, get, isEmpty, filter, sortBy, forEach, slice } from 'lodash'
   import { timeParse } from 'd3-time-format'
   import flattenDeep from 'lodash/flattenDeep'
   import VisAside from '~/components/VisAside.vue'
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
   import VisPath from '~/components/VisPath.vue'
+  import VisLabels from '~/components/VisLabels.vue'
   import VisZeroLine from '~/components/VisZeroLine.vue'
   import ConditionalElements from '~/components/ConditionalElements.vue'
 
@@ -71,6 +76,21 @@
         return func(get(d, path))
       })
     }))
+  }
+
+  function moveEls (els, direction) {
+    for (let i = 0; i < els.length; i++) {
+      if (i !== 0) {
+        const previous = els[i - 1]
+        const current = els[i]
+        const min = direction ? (previous.y + previous.height - 3) : (previous.y - previous.height + 3)
+        if ((direction && current.y < min) || (!direction && current.y > min)) {
+          // console.log(current.y, '->', min, els[i].el.innerHTML)
+          els[i].y = min
+        }
+      }
+    }
+    return els
   }
 
   export default {
@@ -85,13 +105,6 @@
           bottom: 10
         }
       }
-    },
-    mounted () {
-      this.calcSizes()
-      window.addEventListener('resize', this.calcSizes, false)
-    },
-    beforeDestroy () {
-      window.removeEventListener('resize', this.calcSizes, false)
     },
     computed: {
       ...mapState({
@@ -168,7 +181,44 @@
         const height = el.clientHeight || el.parentNode.clientHeight
         this.width = width
         this.height = height
+      },
+      positionLabels: function () {
+        let labels = sortBy(filter(map(this.$refs.path, path => {
+          const el = get(path, '$el').getElementsByTagName('text')[0]
+          const y = parseFloat(el.getAttribute('data-y'))
+          const { height } = el.getBBox()
+          return { height, y, el }
+        }), label => {
+          return label.height && label.y
+        }), label => {
+          return label.y
+        })
+
+        if (labels.length > 1) {
+          if (labels.length === 2) {
+            labels = moveEls(labels, true)
+          } else {
+            const middle = Math.floor(labels.length / 2)
+            const topLabels = slice(labels, 0, middle + 1)
+            const bottomLabels = slice(labels, middle, labels.length)
+            labels = [...moveEls(topLabels, true), ...moveEls(bottomLabels, true)]
+          }
+
+          forEach(labels, label => {
+            label.el.setAttribute('y', label.y)
+          })
+        }
       }
+    },
+    mounted () {
+      this.calcSizes()
+      window.addEventListener('resize', this.calcSizes, false)
+    },
+    updated () {
+      this.positionLabels()
+    },
+    beforeDestroy () {
+      window.removeEventListener('resize', this.calcSizes, false)
     },
     components: {
       VisAxis,
@@ -176,7 +226,8 @@
       VisAside,
       VisPath,
       VisZeroLine,
-      ConditionalElements
+      ConditionalElements,
+      VisLabels
     }
   }
 </script>
