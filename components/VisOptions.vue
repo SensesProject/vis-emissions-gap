@@ -1,23 +1,6 @@
 <template>
   <div class="vis-options">
-    <p>The study has looked further into the sensitivities, exploring not only <VisOptionInlineWrapper :current="degree">
-        <VisOption option="1p5C" slug="degree" :current="degree">1.5° C</VisOption>
-        <VisOption option="2C" slug="degree" :current="degree">2° C</VisOption>
-      </VisOptionInlineWrapper> trajectories for <VisOptionInlineWrapper :current="region">
-        <VisOption option="World" slug="region" :current="region">World</VisOption>
-        <VisOption option="China" slug="region" :current="region">China</VisOption>
-        <VisOption option="USA" slug="region" :current="region">USA</VisOption>
-        <VisOption option="EU" slug="region" :current="region">EU</VisOption>
-        <VisOption option="India" slug="region" :current="region">India</VisOption>
-        <VisOption option="Russia" slug="region" :current="region">Russia</VisOption>
-        <VisOption option="Japan" slug="region" :current="region">Japan</VisOption>
-      </VisOptionInlineWrapper> and scenarios with alternative assumptions leading to a <VisOptionInlineWrapper :current="part">
-        <VisOption option="full" slug="part" :current="part">Full</VisOption>
-        <VisOption option="red" slug="part" :current="part">Reduced</VisOption>
-      </VisOptionInlineWrapper> availability of carbon dioxide removal options, but also <VisOptionInlineWrapper :current="variable">
-        <VisOption option="CO2|Energy and Industrial Processes" slug="variable" :current="variable">Energy and Industrial Processes</VisOption>
-        <VisOption option="CO2|AFOLU" slug="variable" :current="variable">AFOLU</VisOption>
-      </VisOptionInlineWrapper> emissions. To explore the data even further head over to the <a target="_blank" class="bold" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">IIASA Explorer</a> and <a class="bold" href="#">download static graphics</a> of this module.</p>
+    <p>The study has looked further into the sensitivities, exploring not only <VisOptionInlineWrapper slug="degree" :options="optionsDegree" :current="degree" /> trajectories for <VisOptionInlineWrapper :options="optionsRegion" slug="region" :current="region" /> and scenarios with alternative assumptions leading to a <VisOptionInlineWrapper slug="part" :options="optionsPart" :current="part" /> availability of carbon dioxide removal options, but also <VisOptionInlineWrapper slug="variable" :options="optionsVariable" :current="variable" /> emissions. To explore the data even further head over to the <a target="_blank" class="bold" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">IIASA Explorer</a> and <a class="bold" href="#">download static graphics</a> of this module.</p>
   </div>
 </template>
 
@@ -27,7 +10,41 @@
   import VisOptionWrapper from '~/components/VisOptionWrapper.vue'
   import VisOption from '~/components/VisOption.vue'
 
+  const optionsDegree = [
+    ['1p5C', '1.5° C'],
+    ['2C', '2.0° C']
+  ]
+
+  const optionsRegion = [
+    ['World', 'World'],
+    ['China', 'China'],
+    ['China', 'China'],
+    ['USA', 'USA'],
+    ['EU', 'EU'],
+    ['India', 'India'],
+    ['Russia', 'Russia'],
+    ['Japan', 'Japan']
+  ]
+
+  const optionsPart = [
+    ['full', 'full'],
+    ['red', 'reduced']
+  ]
+
+  const optionsVariable = [
+    ['CO2|Energy and Industrial Processes', 'Energy and Industrial Processes'],
+    ['CO2|AFOLU', 'AFOLU']
+  ]
+
   export default {
+    data: function () {
+      return {
+        optionsDegree,
+        optionsRegion,
+        optionsPart,
+        optionsVariable
+      }
+    },
     computed: {
       ...mapState({
         'degree': state => state.scenario.scenario.degree,

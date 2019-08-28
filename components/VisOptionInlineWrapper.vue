@@ -1,23 +1,45 @@
 <template slot-scope="{signal}">
   <section class="option">
     <v-popover>
-      <button class="inline">{{ currentLabel }} <i class="icon-angle-right" /></button>
+      <button class="inline"><span v-bind:style="{ 'min-width': minWidth }">{{ currentLabel }}</span> <i class="icon-angle-right" /></button>
       <ul class="list" slot="popover">
-        <slot />
+        <li
+          v-for="option in options"
+          :class="{ isActive: isEqual(current, option[0]), 'option': true }"
+          @click="setScenario({ [slug]: option[0] })">
+          {{ option[1] }}
+        </li>
       </ul>
     </v-popover>
   </section>
 </template>
 
 <script>
-  import { get, lowerCase, startCase } from 'lodash'
+  import { mapActions } from 'vuex'
+  import { get, isEqual, find, map } from 'lodash'
 
   export default {
-    props: ['label', 'isWide', 'tooltip', 'isDropdown', 'current'],
+    props: ['options', 'current', 'slug'],
     computed: {
       currentLabel: function () {
-        return startCase(lowerCase(get(this, 'current', '')))
+        return get(find(this.options, option => {
+          return option[0] === this.current
+        }), '1', this.current)
+      },
+      minWidth: function () {
+        const max = Math.max(...map(this.options, option => {
+          return option[1].length
+        }))
+        console.log({max})
+
+        return `${max * 9}px`
       }
+    },
+    methods: {
+      ...mapActions([
+        'setScenario'
+      ]),
+      isEqual
     }
   }
 </script>
@@ -41,6 +63,10 @@
 
       &:focus, &:active {
         outline: 0;
+      }
+
+      span {
+        display: inline-block;
       }
 
       i::before {
