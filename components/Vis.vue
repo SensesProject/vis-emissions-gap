@@ -200,9 +200,9 @@
             labels = moveEls(labels, true)
           } else {
             const middle = Math.floor(labels.length / 2)
-            const topLabels = slice(labels, 0, middle + 1)
+            const topLabels = slice(labels, 0, middle + 1).reverse()
             const bottomLabels = slice(labels, middle, labels.length)
-            labels = [...moveEls(topLabels, true), ...moveEls(bottomLabels, true)]
+            labels = [...moveEls(topLabels, false), ...moveEls(bottomLabels, true)]
           }
 
           forEach(labels, label => {
