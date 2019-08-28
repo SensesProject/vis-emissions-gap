@@ -22,11 +22,6 @@
               :scaleX="scaleX"
               :scaleY="scaleY" />
             <g>
-              <VisLabels
-                :els="currentPaths"
-                :scaleX="scaleX"
-                :scaleY="scaleY"
-                :legend="legend" />
               <VisPath
                 v-for="el in currentPaths"
                 ref="path"
@@ -66,7 +61,6 @@
   import VisAxis from '~/components/VisAxis.vue'
   import VisElement from '~/components/VisElement.vue'
   import VisPath from '~/components/VisPath.vue'
-  import VisLabels from '~/components/VisLabels.vue'
   import VisZeroLine from '~/components/VisZeroLine.vue'
   import ConditionalElements from '~/components/ConditionalElements.vue'
 
@@ -227,8 +221,7 @@
       VisAside,
       VisPath,
       VisZeroLine,
-      ConditionalElements,
-      VisLabels
+      ConditionalElements
     }
   }
 </script>
