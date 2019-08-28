@@ -9,6 +9,7 @@
       stroke-linecap="round"
       :style="{ strokeDasharray: `${totalLength}px`, strokeDashoffset: `${currentLength}px` }" />
     <line
+      v-if="label"
       class="lead"
       :x1="label.x + 3"
       :x2="label.x + 5"
@@ -93,7 +94,7 @@
             y: this.scaleY(lastValues[1])
           }
         } else {
-          return {}
+          return false
         }
       },
       klass: function () {

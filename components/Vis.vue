@@ -147,7 +147,7 @@
         })
 
         const maxY = Math.max(...yValues)
-        let minY = Math.min(...yValues)
+        const minY = Math.min(...yValues)
         const buffer = -maxY * 0.1
         return [minY < buffer ? minY : buffer, maxY]
       },
@@ -180,9 +180,13 @@
             const ref = get(path, '$el')
             const el = ref.getElementsByTagName('text')[0]
             const line = ref.getElementsByTagName('line')[0]
-            const y = parseFloat(el.getAttribute('data-y'))
-            const { height } = el.getBBox()
-            return { height, y, el, line }
+            if (el && line) {
+              const y = parseFloat(el.getAttribute('data-y'))
+              const { height } = el.getBBox()
+              return { height, y, el, line }
+            } else {
+              return false
+            }
           } else { // Return false if path is not visible
             return false
           }
