@@ -4,7 +4,7 @@
     <section v-if="isDropdown">
       <v-popover>
         <button>{{ currentLabel }} <i class="icon-angle-right" /></button>
-        <ul slot="popover">
+        <ul class="list" slot="popover">
           <slot />
         </ul>
       </v-popover>
@@ -30,7 +30,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "~@/assets/style/global";
 
   .option {
@@ -70,6 +70,23 @@
       ul {
         grid-template-columns: repeat(4, 1fr);
         grid-row-gap: $spacing / 2;
+      }
+    }
+  }
+
+  .list {
+    li {
+      font-weight: $font-weight-bold;
+      color: palette(grey, 60);
+      cursor: pointer;
+
+      &:hover, &:focus {
+        color: palette(grey, 30);
+      }
+
+      &.isActive {
+        cursor: default;
+        color: $color-blue;
       }
     }
   }
