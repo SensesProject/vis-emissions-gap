@@ -1,9 +1,9 @@
-<template slot-scope="{signal}">
+<template slot-scope="{ signal }">
   <section :class="{ option: true, isWide }">
     <span class="description">{{ label }}</span> <span v-if="tooltip" class="detail" v-tooltip="tooltip">?</span>
     <section v-if="isDropdown">
       <v-popover>
-        <button>{{ currentLabel }} <i class="icon-angle-right" /></button>
+        <button class="block">{{ currentLabel }} <i class="icon-angle-right" /></button>
         <ul class="list" slot="popover">
           <slot />
         </ul>
@@ -30,11 +30,11 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "~@/assets/style/global";
 
   .option {
-    .description, .detail, button {
+    .description, .detail, button.block {
       font-weight: $font-weight-bold;
       // letter-spacing: $spacing-wider;
       font-size: $size-smaller;
@@ -50,7 +50,7 @@
       color: palette(grey, 40);
     }
 
-    button {
+    button.block {
       font-size: $size-default;
       color: $color-blue;
       line-height: 1.1;
@@ -70,23 +70,6 @@
       ul {
         grid-template-columns: repeat(4, 1fr);
         grid-row-gap: $spacing / 2;
-      }
-    }
-  }
-
-  .list {
-    li {
-      font-weight: $font-weight-bold;
-      color: palette(grey, 60);
-      cursor: pointer;
-
-      &:hover, &:focus {
-        color: palette(grey, 30);
-      }
-
-      &.isActive {
-        cursor: default;
-        color: $color-blue;
       }
     }
   }

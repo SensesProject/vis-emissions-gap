@@ -38,7 +38,7 @@ h6 {
   opacity: 0.6;
 }
 
-p {
+p, button.inline {
   font-size: $size-big;
   line-height: 1.6;
   margin-bottom: 0.2em;
@@ -153,6 +153,11 @@ span {
 
 a {
   color: $color-blue;
+
+  &.bold {
+    text-decoration: underline;
+    font-weight: $font-weight-bold;
+  }
 }
 
 tr td {
