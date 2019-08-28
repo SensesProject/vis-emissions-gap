@@ -28,7 +28,6 @@
         <VisOption option="Japan" slug="region" :current="region">Japan</VisOption>
       </VisOptionWrapper>
       <a class="btn btn--inline btn--center" target="_blank" href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">See this data in the IIASA Explorer</a>
-      <a class="btn btn--inline btn--center" href="#">Download graphics</a>
     </section>
   </div>
 </template>
