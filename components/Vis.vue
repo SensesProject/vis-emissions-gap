@@ -181,12 +181,16 @@
       },
       positionLabels: function () {
         let labels = sortBy(filter(map(this.$refs.path, path => {
-          const el = get(path, '$el').getElementsByTagName('text')[0]
-          const y = parseFloat(el.getAttribute('data-y'))
-          const { height } = el.getBBox()
-          return { height, y, el }
+          if (path.isVisible) { // Is the path currently visible
+            const el = get(path, '$el').getElementsByTagName('text')[0]
+            const y = parseFloat(el.getAttribute('data-y'))
+            const { height } = el.getBBox()
+            return { height, y, el }
+          } else { // Return false if path is not visible
+            return false
+          }
         }), label => {
-          return label.height && label.y
+          return label && label.height && label.y
         }), label => {
           return label.y
         })
