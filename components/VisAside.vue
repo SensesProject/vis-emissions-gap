@@ -1,7 +1,6 @@
 <template>
   <div :class="{ 'vis-footer-wrapper': true, 'vis-footer-wrapper--visible': goal >= 2030 }">
     <header class="vis-footer-header">
-      <h1>Disruption</h1>
       <ul class="tabs tabs-disruptions">
         <li
           v-for="tab in tabs"
