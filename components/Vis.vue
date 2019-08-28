@@ -73,10 +73,11 @@
   }
 
   function moveEls (els, direction) {
+    const lineHeight = 3
     for (let i = 1; i < els.length; i++) {
       const previous = els[i - 1]
       const current = els[i]
-      const min = direction ? (previous.y + previous.height - 3) : (previous.y - previous.height + 3)
+      const min = direction ? (previous.y + previous.height - lineHeight) : (previous.y - previous.height + lineHeight)
       if ((direction && current.y < min) || (!direction && current.y > min)) {
         els[i].y = min
       }
@@ -176,10 +177,12 @@
       positionLabels: function () {
         let labels = sortBy(filter(map(this.$refs.path, path => {
           if (path.isVisible) { // Is the path currently visible
-            const el = get(path, '$el').getElementsByTagName('text')[0]
+            const ref = get(path, '$el')
+            const el = ref.getElementsByTagName('text')[0]
+            const line = ref.getElementsByTagName('line')[0]
             const y = parseFloat(el.getAttribute('data-y'))
             const { height } = el.getBBox()
-            return { height, y, el }
+            return { height, y, el, line }
           } else { // Return false if path is not visible
             return false
           }
@@ -189,6 +192,12 @@
           return label.y
         })
 
+        // Move labels to correct y position based on height
+        for (let i = 0; i < labels.length; i++) {
+          labels[i].y = labels[i].y + labels[i].height * 0.25
+        }
+
+        // Reposition labels based on surrounding elements
         if (labels.length > 1) {
           if (labels.length === 2) {
             labels = moveEls(labels, true)
@@ -198,11 +207,19 @@
             const bottomLabels = slice(labels, middle, labels.length)
             labels = [...moveEls(topLabels, false), ...moveEls(bottomLabels, true)]
           }
-
-          forEach(labels, label => {
-            label.el.setAttribute('y', label.y)
-          })
         }
+
+        forEach(labels, label => {
+          label.el.setAttribute('y', label.y)
+          const lineY1 = label.line.getAttribute('y1')
+          const lineY2 = label.y - label.height * 0.25
+          label.line.setAttribute('y2', lineY2)
+          if (Math.abs(lineY2 - lineY1) > 5) {
+            label.line.setAttribute('style', 'opacity: 1;')
+          } else {
+            label.line.setAttribute('style', 'opacity: 0;')
+          }
+        })
       }
     },
     mounted () {

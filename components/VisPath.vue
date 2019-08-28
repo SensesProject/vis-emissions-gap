@@ -8,9 +8,15 @@
       :d="d"
       stroke-linecap="round"
       :style="{ strokeDasharray: `${totalLength}px`, strokeDashoffset: `${currentLength}px` }" />
+    <line
+      class="lead"
+      :x1="label.x + 3"
+      :x2="label.x + 5"
+      :y1="label.y"
+      :y2="label.y" />
     <text
       v-if="label"
-      :x="label.x"
+      :x="label.x + 7"
       :y="label.y"
       :class="klass"
       :data-y="label.y">{{ label.label }}</text>
@@ -83,8 +89,8 @@
           return {
             label: this.el.label,
             policy: this.el.policy,
-            x: this.scaleX(timeParse('%Y')(lastValues[0])) + 5,
-            y: this.scaleY(lastValues[1]) + 4
+            x: this.scaleX(timeParse('%Y')(lastValues[0])),
+            y: this.scaleY(lastValues[1])
           }
         } else {
           return {}

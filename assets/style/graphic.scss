@@ -95,6 +95,11 @@ line {
     stroke-width: 1px;
     stroke-dasharray: 5;
   }
+
+  &.lead {
+    stroke: palette(grey, 70);
+    stroke-width: 1px;
+  }
 }
 
 line, path {
