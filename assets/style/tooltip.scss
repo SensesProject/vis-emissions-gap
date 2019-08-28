@@ -5,6 +5,10 @@
   max-width: 400px;
   box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.1);
 
+  &:focus {
+    outline: none;
+  }
+
   .tooltip-inner {
     background: #222;
     color: white;
