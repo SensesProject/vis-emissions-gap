@@ -32,10 +32,10 @@
             class="tick" />
           <text
             :x="axis.labelX"
-            :y="margin.top / 6 * 4"
+            :y="0"
             v-for="(title, i) in titles"
-            :dy="i ? '-1.2em' : '-2.4em'"
-            :class="i ? 'axis small' : 'axis'"
+            :dy="`${i * 1.2 + (i === titles.length - 1 ? 2.2 : 1.2)}em`"
+            :class="i === titles.length - 1 ? 'axis small' : 'axis'"
             text-anchor="middle">{{ title }}</text>
           <g>
             <g v-for="item in labels">
@@ -134,8 +134,8 @@
 
   const titles = {
     'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C, global)'],
-    'investment': ['Average yearly low-carbon power sector investments', '(billion US$)'],
-    'landuse': ['Area for bioenergy and afforestation in 2050', '(million ha, global)'],
+    'investment': ['Average yearly low-carbon', 'power sector investments', '(billion US$)'],
+    'landuse': ['Area for bioenergy and afforestation', '(2050, million ha, global)'],
     'strandedAssests': ['Maximum idle coal capacity', '(GW, global)']
   }
 
@@ -161,7 +161,7 @@
         margin: {
           left: 20,
           right: 20,
-          top: 80,
+          top: 120,
           bottom: 0
         },
         labelSizes: []
