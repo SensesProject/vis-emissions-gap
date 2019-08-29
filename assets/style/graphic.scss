@@ -176,11 +176,6 @@ text {
     font-weight: $font-weight-bold;
     font-size: $size-small;
 
-    &.label--background {
-      stroke-width: 4px;
-      stroke: #fff;
-    }
-
     &.label--path {
       fill: #000;
       font-size: $size-default;

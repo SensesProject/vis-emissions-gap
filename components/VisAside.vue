@@ -46,14 +46,6 @@
                 :y2="item.y2"
                 class="label" />
               <text
-                :x="item.x"
-                :y="item.y"
-                :text-anchor="item.anchor"
-                class="label label--background"
-                :transform="`translate(${item.translate}, 0)`">
-                {{ item.label }}
-              </text>
-              <text
                 ref="labels"
                 :x="item.x"
                 :y="item.y"
