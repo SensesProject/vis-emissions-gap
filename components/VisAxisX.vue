@@ -17,10 +17,11 @@
             dy="0"
             v-html="label.year" />
           <tspan
+            v-if="label.label"
             :x="label.x + 'px'"
             dy="-1.4em"
             class="tick important"
-            v-html="label.label" />
+            v-html="label.label + (!isLongTerm && label.long ? label.long : '')" />
         </text>
         <line
           :y1="margin.top + 'px'"
@@ -51,26 +52,30 @@
           }
         })
       },
+      isLongTerm: function () {
+        return new Date(2050, 0, 1) < this.scaleX.domain()[1]
+      },
       labels: function () {
         const labels = [
-          [1990, ''],
-          [2000, ''],
-          [2010, ''],
+          [1990],
+          [2000],
+          [2010],
           [2019, 'Today'],
-          [2030, 'Near-term plans'],
-          [2040, ''],
-          [2050, 'Long-term targets'],
-          [2075, ''],
-          [2100, '']
+          [2030, 'Near-term', ' plans'],
+          [2040],
+          [2050, 'Long-term', ' targets'],
+          [2075],
+          [2100]
         ]
 
         return map(labels, pair => {
-          const [year, label] = pair
+          const [year, label, long] = pair
           return {
             x: this.scaleX(new Date(year, 0, 1)),
             y: this.margin.top / 6 * 4,
             year,
-            label
+            label,
+            long
           }
         })
       }
