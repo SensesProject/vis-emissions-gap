@@ -60,9 +60,16 @@
       margin: 0;
       display: inline-block;
       border: none;
+      cursor: pointer;
+      background-color: rgba($color-blue, 0.05);
+      border: 1px solid rgba($color-blue, 0.1);
+      line-height: 1.4;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
 
-      &:focus, &:active {
+      &:focus, &:active, &:hover {
         outline: 0;
+        background-color: #fff;
       }
 
       span {
