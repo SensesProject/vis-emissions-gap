@@ -38,7 +38,7 @@
             :class="i === titles.length - 1 ? 'axis small' : 'axis'"
             text-anchor="middle">{{ title }}</text>
           <g>
-            <g v-for="item in labels">
+            <!-- <g v-for="item in labels">
               <line
                 :x1="item.x"
                 :x2="item.x"
@@ -54,7 +54,7 @@
                 :transform="`translate(${item.translate}, 0)`">
                 {{ item.label }}
               </text>
-            </g>
+            </g> -->
           </g>
           <g>
             <g v-for="tick in axis.ticks">
@@ -93,7 +93,20 @@
               :height="group.singleBarHeight"
               :y="bar.y"
               :x="group.x"
-              v-tooltip="{ content: `${bar.policy} ${bar.value}`, offset: 5 }" />
+              v-tooltip="{ content: `${bar.policyLabel}: ${bar.valueLabel}`, offset: 5 }" />
+            <g v-if="bar.label">
+              <line
+                :x1="bar.label.x"
+                :x2="bar.label.x"
+                :y1="bar.label.y1"
+                :y2="bar.label.y2"
+                class="label" />
+              <text
+                :text-anchor="bar.label.anchor"
+                class="label"
+                :x="bar.label.xLabel"
+                :y="bar.label.y">{{ bar.label.label }}</text>
+            </g>
           </g>
         </g>
       </svg>
@@ -103,26 +116,27 @@
 
 <script>
   import { mapState, mapActions } from 'vuex'
-  import { map, find, flatten, get, head, mean, compact, isUndefined, times, slice, some } from 'lodash'
+  import { map, find, flatten, get, mean, compact, isUndefined, times, slice, some } from 'lodash'
   import { scaleLinear, scaleBand } from 'd3-scale'
   import { extent } from 'd3-array'
+  import { format } from 'd3-format'
 
-  function placeLabel (val, [low, high], bar2030Width) {
-    const bar2030WidthHalf = bar2030Width / 2
-    let anchor = 'middle'
-    let translate = 0
-    const d = 3
+  // function placeLabel (val, [low, high], bar2030Width) {
+  //   const bar2030WidthHalf = bar2030Width / 2
+  //   let anchor = 'middle'
+  //   let translate = 0
+  //   const d = 3
 
-    if (val - bar2030WidthHalf < low) {
-      anchor = 'start'
-      translate = -val + low + d
-    } else if (val + bar2030WidthHalf > high) {
-      anchor = 'end'
-      translate = high - val - d
-    }
+  //   if (val - bar2030WidthHalf < low) {
+  //     anchor = 'start'
+  //     translate = -val + low + d
+  //   } else if (val + bar2030WidthHalf > high) {
+  //     anchor = 'end'
+  //     translate = high - val - d
+  //   }
 
-    return [anchor, translate]
-  }
+  //   return [anchor, translate]
+  // }
 
   const titles = {
     'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C, global)'],
@@ -144,6 +158,15 @@
     ['landuse', 'Land Use', 'icon-landuse'],
     ['investment', 'Investment', 'icon-investment']
   ]
+
+  const policies = {
+    'NDC': 'NDC',
+    'netzero': 'Strengthened action',
+    'eff': 'Cost-effective pricing'
+  }
+
+  const f = format('.0f')
+  const f2 = format('.2f')
 
   export default {
     data: function () {
@@ -243,28 +266,61 @@
         return this.scaleX.domain()[1] && this.width && this.height
       },
       elements: function () {
-        // Setting up the properties of the single objects
+        // Custom labels might be present for this variable
+        const labelsX = this.barLabels
+        const hasLabel = !!labelsX
+
+        // Label line length
+        const d1 = 10
+        const d2 = 2
+
+        // Starting x positions on the left hand side
+        const x = this.scaleX(0)
+
+        // These are the bar groups which consist of one or two bars
+        // Setting up the properties of each group
         return map(this.bars, (item, i) => {
-          // Get the current policy
+          // Get the current policy for the y position
           const policy = get(item, 'policy', '')
+          const policyLabel = get(policies, policy, policy)
           const yPolicy = this.scaleYPolicy(policy)
           // Get the current values. The default is one bar with the value 0
           const values = get(item, 'values', [0])
-          // Redefines the domain according to the number of values for this policy
+          // Redefines the domain of the inner-group-y-scale according to the number of values for this policy
           this.scaleYBar.domain(times(values.length, Number))
-          // Calculate the sizes for each bar
-          const bars = map(values, (datum, i) => {
+          // Calculate the properties for each bar
+          const singleBarHeight = Math.min(this.scaleYBar.bandwidth(), 25)
+          const bars = map(values, (datum, n) => {
+            const isTop = n === 0
             const [year, value] = datum
+            const valueLabel = f2(value)
+            const labelText = get(labelsX, n, f(value))
+            const width = this.scaleX(value) - x
+            const y = yPolicy + this.scaleYBar(n)
+            const centerX = x + (hasLabel ? width / 2 : width)
+            const labelY = y + (isTop ? 0 : singleBarHeight)
+            // Maybe use this additionally:
+            // const [anchor, translate1] = placeLabel(x1, [leftBorder, rightBorder], bar2030Width)
+            const label = (hasLabel && i === 0) || !hasLabel ? {
+              x: centerX + (hasLabel ? 0 : -10),
+              xLabel: centerX,
+              y: labelY + (isTop ? -14 : 22),
+              label: `${hasLabel ? '' : policyLabel + ': '}${labelText}`,
+              y1: labelY + (isTop ? -d1 : d1),
+              y2: labelY + (isTop ? -d2 : d2),
+              anchor: hasLabel ? 'middle' : 'end'
+            } : false
             return {
               year,
-              width: this.scaleX(value) - this.scaleX(0),
-              y: yPolicy + this.scaleYBar(i),
+              width,
+              y,
               value,
-              policy
+              policy,
+              label,
+              policyLabel,
+              valueLabel
             }
           })
-          const x = this.scaleX(0)
-          const singleBarHeight = this.scaleYBar.bandwidth()
           const labelY = yPolicy - 10
           const klass = [
             'bar',
@@ -289,52 +345,6 @@
             label: get(item, 'label', '')
           }
         })
-      },
-      labels: function () {
-        const [low, high] = this.scaleX.range()
-        const item = head(this.elements)
-        const labels = []
-        const yPolicy = this.scaleYPolicy(item.policy)
-        const label = get(this.barLabels, [0])
-        if (this.goal >= 2030 && label) {
-          const bar2030 = get(item, 'bars[0]', false)
-          if (bar2030) {
-            const bar2030Width = get(this, 'labelSizes[0]', 0)
-            const x1 = item.x + (bar2030.width * 0.5)
-            const [anchor, translate1] = placeLabel(x1, [low, high], bar2030Width)
-            const y = yPolicy + this.scaleYBar(0)
-            labels.push({
-              anchor,
-              x: x1,
-              y: y - 14,
-              y1: y - 10,
-              y2: y - 4,
-              label: label,
-              translate: translate1
-            })
-          }
-        }
-        if (this.goal >= 2050) {
-          const bar2050 = get(item, 'bars[1]', false)
-          const label = get(this.barLabels, [1])
-          if (bar2050 && label) {
-            const bar2050Width = get(this, 'labelSizes[1]', 0)
-            const x2 = item.x + (bar2050.width * 0.5)
-            const [anchor, translate2] = placeLabel(x2, [low, high], bar2050Width)
-            const yBar = this.scaleYBar(1)
-            const y = yPolicy + yBar + item.singleBarHeight
-            labels.push({
-              anchor,
-              x: x2,
-              y: y + 22,
-              y1: y + 10,
-              y2: y + 2,
-              label: label,
-              translate: translate2
-            })
-          }
-        }
-        return labels
       },
       axis: function () {
         const [x1, x2] = this.scaleX.range()
