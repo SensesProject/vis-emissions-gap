@@ -4,34 +4,29 @@
       class="p2"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="12" />
+      r="12px" />
 	  <circle
 	    class="p1"
 	    :cx="x + 'px'"
 	    :cy="y + 'px'"
-	    r="4" />
+	    r="4px" />
     <circle
       class="p3"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="10" />
+      r="10px" />
     <circle
       :style="{ transformOrigin: `${x}px ${y}px`}"
       class="p4"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="10" />
+      r="15px" />
 	</g>
 </template>
 
 <script>
   export default {
-    props: ['x', 'y', 'label'],
-    data: function () {
-      return {
-        r: 5
-      }
-    }
+    props: ['x', 'y', 'label']
   }
 </script>
 
