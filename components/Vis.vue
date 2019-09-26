@@ -2,7 +2,7 @@
   <section class="vis-wrapper">
     <div class="vis-container" ref="vis">
       <transition name="fade">
-        <svg width="100%" height="100%" class="vis" v-if="isLoaded">
+        <svg class="vis" v-if="isLoaded" :width="width + 'px'" :height="height + 'px'" :viewBox="`0 0 ${width} ${height}`" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g v-if="width && height">
             <g>
               <VisElement
@@ -169,10 +169,12 @@
       },
       calcSizes: function () {
         const { vis: el } = this.$refs
-        const width = el.clientWidth || el.parentNode.clientWidth
-        const height = el.clientHeight || el.parentNode.clientHeight
-        this.width = width
-        this.height = height
+        if (el !== 'undefined' && this.width === 0 && this.height === 0) {
+          const width = el.clientWidth || el.parentNode.clientWidth
+          const height = el.clientHeight || el.parentNode.clientHeight
+          this.width = width
+          this.height = height
+        }
       },
       positionLabels: function () {
         let labels = sortBy(filter(map(this.$refs.path, path => {
@@ -231,6 +233,7 @@
       window.addEventListener('resize', this.calcSizes, false)
     },
     updated () {
+      this.calcSizes()
       this.positionLabels()
     },
     beforeDestroy () {
