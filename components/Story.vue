@@ -7,10 +7,10 @@
         </header>
         <section>
           <p>
-            This module explores how current <span class="info" v-tooltip="'Each country has submitted a “Nationally determined contribution” (NDC), which contains - inter alia - decarbonization targets for the year 2025 or 2030'">decarbonization plans until 2030</span> relate to the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">long-term targets of the Paris Agreement</span>.
+            This module explores how current <span class="info" v-tooltip="'Each country has submitted a “Nationally determined contribution” (NDC), which contains - among other things - decarbonization targets for the year 2025 or 2030'">decarbonization plans until 2030</span> relate to the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">long-term targets of the Paris Agreement</span>.
           </p>
           <p>
-            Let’s start with the historic CO2 emissions from 1990 until 2016, coming from the combustion of fossil fuels (coal, oil and natural gas) and cement production, and from land-use. As we can see, these emissions have increased strongly in the first decade of the 21st century, and are still on an upward trajectory.
+            Let’s start with the historical CO₂ emissions from 1990 until 2016, coming from the combustion of fossil fuels (coal, oil and natural gas) and cement production, and from land-use. As we can see, these emissions have increased sharply in the first decade of the 21st century, and are still on an upward trajectory.
           </p>
         </section>
       </article>
@@ -20,7 +20,7 @@
         </header>
         <section>
           <p>Paris Agreement set the long-term target of keeping a global temperature rise this century well below 2 degrees Celsius above pre-industrial levels and to pursue efforts to limit the temperature increase even further to 1.5 degrees Celsius.</p>
-          <p>From climate physics, we know that reaching these targets implies limiting the cumulative CO2 emissions to a very tight <span class="info" v-tooltip="'The cumulative emissions correspond to the area below the emissions curve in the graph. Obviously, this area can only be limited to a restricted size by reducing emissions to zero'">carbon budget</span>. The latest <a href="https://www.ipcc.ch/sr15/" target="_blank">IPCC report</a> has shown that therefore the 2°C target implies that CO2 emission have to be reduced to zero around 2075. For limiting warming to 1.5°C, CO2 emissions have to be reduced to zero around 2050.</p>
+          <p>From climate physics, we know that reaching these targets implies limiting the cumulative CO₂ emissions to a very tight <span class="info" v-tooltip="'The cumulative emissions correspond to the area below the emissions curve in the graph. Obviously, this area can only be limited to a restricted size by reducing emissions to zero'">carbon budget</span>. The latest <a href="https://www.ipcc.ch/sr15/" target="_blank">IPCC report</a> has shown that therefore the 2°C target means that CO₂ emission has to be reduced to zero around 2075. For limiting warming to 1.5°C, CO₂ emissions have to be reduced to zero around 2050.</p>
         </section>
       </article>
       <article v-if="step === 2" key="step2">
@@ -42,7 +42,7 @@
       <article v-if="step === 4" key="step4">
         <h1>How do we get there?</h1>
         <h3>What do these short-term alternatives imply for achieving the long-term target of 1.5°C?</h3>
-        <p>If coordinated policies only start after following the <span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDC</span> trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more <span class="info" v-tooltip="'Combining bioenergy with carbon capture and storage leads to a removal of CO2 from the atmosphere, as the CO2 that plants take up during growth is eventually stored in geological reservoirs. Similarly, active afforestation can reduce the concentration of CO2 in the atmosphere, by increasing the stock of CO2 bound within standing trees. The need for CDR is higher in the NDC scenario than in the cost-effective one, as the additional emissions before the point of crossing of the two trajectories have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.'">carbon dioxide removal</span> (CDR) would be needed in the second half of the century.</p>
+        <p>If coordinated policies only start after following the <span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDC</span> trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more <span class="info" v-tooltip="'Combining bioenergy with carbon capture and storage leads to a removal of CO₂ from the atmosphere, as the CO₂ that plants take up during growth is eventually stored in geological reservoirs. Similarly, active afforestation can reduce the concentration of CO₂ in the atmosphere, by increasing the stock of CO₂ bound within standing trees. The need for CDR is higher in the NDC scenario than in the cost-effective one, as the additional emissions before the point of crossing of the two trajectories have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.'">carbon dioxide removal</span> (CDR) would be needed in the second half of the century.</p>
       </article>
       <article v-if="step === 5" key="step5">
         <header>
@@ -69,7 +69,7 @@
           <h1>Looking at the full century</h1>
         </header>
         <section>
-          <p>The 1.5°C scenario shown here belongs to the class of 1.5°C scenarios with high overshoot within the IPCC report on 1.5°C scenarios. “Overshoot” means that the allowable carbon budget is temporarily exceeded, which is compensated by net negative CO2 emissions in the second half of the century. Scenarios with lower overshoot (as e.g. the 1.5°C with lower CDR that you can select in the next frame) need less of such negative emissions in the 2nd half of the century, but then need even faster emissions reductions in the next decades.</p>
+          <p>The 1.5°C scenario shown here belongs to the class of 1.5°C scenarios with high overshoot within the IPCC report on 1.5°C scenarios. “Overshoot” means that the allowable carbon budget is temporarily exceeded, which is compensated by net negative CO₂ emissions in the second half of the century. Scenarios with lower overshoot (as e.g. the 1.5°C with lower CDR that you can select in the next frame) need less of such negative emissions in the 2nd half of the century, but then need even faster emissions reductions in the next decades.</p>
         </section>
       </article>
       <article v-if="step === 8" key="step8">
