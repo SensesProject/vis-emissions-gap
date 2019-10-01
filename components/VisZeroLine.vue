@@ -1,5 +1,5 @@
 <template>
-  <g class="zeroLine" :style="{ transform: `translateY(${zero}px)` }"">
+  <g class="zeroLine" :style="{ transform: `translateY(${zero}px)` }">
     <defs>
       <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" style="stop-color:rgb(55, 200, 137);stop-opacity:0.05" />
