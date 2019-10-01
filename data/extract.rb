@@ -70,7 +70,7 @@ historic = JSON.parse(File.open('historic.json').read)
 datum.push(*historic)
 
 def merge (arr, sources)
-	arr.map do |a|
+	Marshal.load(Marshal.dump(arr)).map do |a|
 		source = sources.find do |s|
 			a["region"] === s["region"]
 		end
@@ -80,6 +80,7 @@ def merge (arr, sources)
 				[value[0], value[1] + base[1]]
 			end
 			a["values"] = values
+			a["scenario"] = "historic-landuse-addition"
 			a
 		end
 	end
@@ -88,7 +89,7 @@ end
 landuse = JSON.parse(File.open('historic-landuse.json').read)
 
 # ap landuse
-
+datum.push(*landuse)
 datum.push(*merge(landuse, historic))
 
 File.open('data.json', 'w') do |f|

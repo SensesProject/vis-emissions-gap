@@ -164,7 +164,7 @@
       policies: function () {
         // Get a list of policies to be displayed
         return map(this.legend, 'attribute').filter(value => {
-          return value !== 'historic' && value !== 'historic-landuse'
+          return value !== 'historic' && value !== 'historic-landuse' && value !== 'historic-landuse-addition'
         })
       },
       visibility: function () {

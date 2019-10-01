@@ -110,7 +110,7 @@
       },
       middleHistoric: function () {
         const historic = get(find(this.currentPaths, { scenario: 'historic' }), 'values', [])
-        const historicLandUse = get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', [])
+        const historicLandUse = get(find(this.currentPaths, { scenario: 'historic-landuse-addition' }), 'values', [])
 
         const i = Math.floor(historic.length / 2)
 

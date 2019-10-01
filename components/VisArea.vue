@@ -1,5 +1,5 @@
 <template>
-	<g>
+	<g v-if="isUsed">
   	<path
       class="area"
       :d="d" />
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapState, mapGetters } from 'vuex'
   import { area } from 'd3-shape'
   import { timeParse } from 'd3-time-format'
   import { get, last, find, map } from 'lodash'
@@ -23,11 +23,17 @@
   export default {
     props: ['el', 'scaleX', 'scaleY', 'data'],
     computed: {
+      ...mapState({
+        variable: state => state.scenario.scenario.variable
+      }),
       ...mapGetters([
         'currentPaths'
       ]),
+      isUsed: function () { // Will hide some elements
+        return this.variable === 'CO2|Energy and Industrial Processes'
+      },
       today: function () {
-        const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', []))
+        const [x, y] = last(get(find(this.currentPaths, { scenario: 'historic-landuse-addition' }), 'values', []))
         return [this.scaleX(timeParse('%Y')(x)), this.scaleY(y)]
       },
       area: function () {

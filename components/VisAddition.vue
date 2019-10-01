@@ -19,11 +19,15 @@
         'currentPaths'
       ]),
       data: function () {
-        const top = get(find(this.currentPaths, { scenario: 'historic-landuse' }), 'values', [])
+        const top = get(find(this.currentPaths, { scenario: 'historic-landuse-addition' }), 'values', [])
         const bottom = get(find(this.currentPaths, { scenario: 'historic' }), 'values', [])
-        return map(top, (t, i) => {
-          return [timeParse('%Y')(t[0]), t[1], bottom[i][1]]
-        })
+        if (top.length && bottom.length) {
+          return map(top, (t, i) => {
+            return [timeParse('%Y')(t[0]), t[1], bottom[i][1]]
+          })
+        } else {
+          return []
+        }
       },
       d: function () {
         return this.drawArea()(this.data)

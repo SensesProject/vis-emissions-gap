@@ -21,9 +21,9 @@ module.exports = {
       style: 'assets/style'
     }
   },
-  // router: {
-  //   base: '/stocktake/'
-  // },
+  router: {
+    base: '/stocktake/'
+  },
   loading: { color: '#4e40b2' },
   build: {
     extend (config, ctx) {

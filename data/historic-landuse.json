@@ -3,7 +3,7 @@
    "model": "CEDS",
    "scenario": "historic-landuse",
    "region": "China",
-   "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
+   "variable": "CO2|AFOLU",
    "unit": "Mt CO2/yr",
    "values": [
       [1990, 77.37946],
@@ -38,7 +38,7 @@
    "model": "CEDS",
    "scenario": "historic-landuse",
    "region": "EU",
-   "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
+   "variable": "CO2|AFOLU",
    "unit": "Mt CO2/yr",
    "values": [
       [1990, 24.26164],
@@ -73,7 +73,7 @@
    "model": "CEDS",
    "scenario": "historic-landuse",
    "region": "India",
-   "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
+   "variable": "CO2|AFOLU",
    "unit": "Mt CO2/yr",
    "values": [
       [1990, 51.64849],
@@ -108,7 +108,7 @@
    "model": "CEDS",
    "scenario": "historic-landuse",
    "region": "Japan",
-   "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
+   "variable": "CO2|AFOLU",
    "unit": "Mt CO2/yr",
    "values": [
       [1990, 2.53863],
@@ -143,7 +143,7 @@
    "model": "CEDS",
    "scenario": "historic-landuse",
    "region": "Russia",
-   "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
+   "variable": "CO2|AFOLU",
    "unit": "Mt CO2/yr",
    "values": [
       [1990, 558.26086],
@@ -178,7 +178,7 @@
    "model": "CEDS",
    "scenario": "historic-landuse",
    "region": "USA",
-   "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
+   "variable": "CO2|AFOLU",
    "unit": "Mt CO2/yr",
    "values": [
       [1990, 80.37321],
@@ -213,7 +213,7 @@
    "model": "CEDS",
    "scenario": "historic-landuse",
    "region": "World",
-   "variable": "Emi|CO2|Land Use|Emi|CO2|Land Use|Agriculture and Biomass Burning",
+   "variable": "CO2|AFOLU",
    "unit": "Mt CO2/yr",
    "values": [
       [1990, 6897.93521],

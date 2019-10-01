@@ -126,7 +126,7 @@ line, path {
     stroke-width: 2px;
   }
 
-  &.historic-landuse {
+  &.historic-landuse-addition, &.historic-landuse {
     stroke: $color-green;
     stroke-width: 2px;
   }

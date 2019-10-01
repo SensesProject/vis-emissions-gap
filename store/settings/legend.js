@@ -7,6 +7,10 @@ module.exports = {
     label: 'Historic'
   }, {
     type: 'line',
+    attribute: 'historic-landuse-addition',
+    label: 'Historic landuse'
+  }, {
+    type: 'line',
     attribute: 'historic-landuse',
     label: 'Historic landuse'
   }, {

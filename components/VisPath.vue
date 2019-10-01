@@ -105,6 +105,7 @@
           'line',
           'label',
           'label--path',
+          'outline',
           policy
         ]
 

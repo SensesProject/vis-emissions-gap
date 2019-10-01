@@ -41,13 +41,29 @@ export const getters = {
       let obj
       let label = policy.label
       if (policy.attribute === 'historic') {
+        if (variable === 'CO2|AFOLU') { // Leave out normal land use for AFOLU as it stretches the y-scale too much
+          return false
+        }
         obj = {
-          scenario: variable === 'CO2|AFOLU' ? 'historic-landuse' : 'historic',
+          scenario: 'historic',
           region,
           variable
         }
         label = 'Historic'
+      } else if (policy.attribute === 'historic-landuse-addition') {
+        if (variable === 'CO2|AFOLU') { // Leave out normal land use for AFOLU as it stretches the y-scale too much
+          return false
+        }
+        obj = {
+          scenario: 'historic-landuse-addition',
+          region,
+          variable: 'CO2|AFOLU'
+        }
+        label = 'Historic Land Use'
       } else if (policy.attribute === 'historic-landuse') {
+        if (variable !== 'CO2|AFOLU') { // Leave out normal land use for AFOLU as it stretches the y-scale too much
+          return false
+        }
         obj = {
           scenario: 'historic-landuse',
           region,

@@ -7,11 +7,12 @@ module.exports = {
       eff: 'start',
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 2030
+      'historic-landuse-addition': 2030,
+      'historic-landuse': 'end'
     },
     visibility: ['landuse'],
     legend: ['historic', 'landuse'],
-    yLabel: 'historic-landuse',
+    yLabel: 'historic-landuse-addition',
     goal: 0,
     data: {
       aside: 'temperature',
@@ -29,11 +30,12 @@ module.exports = {
       eff: 'start',
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 2030
+      'historic-landuse-addition': 2030,
+      'historic-landuse': 'end'
     },
     visibility: ['budget', 'arrowup', 'arrowdown', 'landuse'],
     legend: [],
-    yLabel: 'historic-landuse',
+    yLabel: 'historic-landuse-addition',
     goal: 0,
     data: {
       aside: 'temperature',
@@ -51,7 +53,8 @@ module.exports = {
       eff: 'start',
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 'start'
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
     },
     visibility: [],
     legend: ['NDC'],
@@ -73,7 +76,8 @@ module.exports = {
       eff: 2030,
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 'start'
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
     },
     visibility: ['bracket'],
     legend: [],
@@ -95,7 +99,8 @@ module.exports = {
       eff: 'end',
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 'start'
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
     },
     visibility: [],
     legend: ['NDC', 'eff'],
@@ -117,7 +122,8 @@ module.exports = {
       eff: 'end',
       goodpractice: 'start',
       netzero: 'start',
-      'historic-landuse': 'start'
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
     },
     visibility: [],
     legend: ['NDC', 'eff'],
@@ -143,7 +149,8 @@ module.exports = {
       eff: 'end',
       goodpractice: 'end',
       netzero: 'end',
-      'historic-landuse': 'start'
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
     },
     data: {
       aside: 'strandedAssests',
@@ -165,7 +172,8 @@ module.exports = {
       eff: 'end',
       goodpractice: 'end',
       netzero: 'end',
-      'historic-landuse': 'start'
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
     },
     data: {
       aside: 'landuse',
@@ -187,7 +195,8 @@ module.exports = {
       eff: 'end',
       goodpractice: 'end',
       netzero: 'end',
-      'historic-landuse': 'start'
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
     },
     data: {
       aside: 'investment',

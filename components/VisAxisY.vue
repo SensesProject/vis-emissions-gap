@@ -67,7 +67,8 @@
   const f = format(`,.2r`)
 
   const replacements = {
-    'CO2|Energy and Industrial Processes': 'fossil fuels and industry'
+    'CO2|Energy and Industrial Processes': 'fossil fuels and industry',
+    'CO2|AFOLU': 'Agriculture, Forestry and Other Land Use'
   }
 
   export default {
@@ -124,7 +125,13 @@
         return get(this.steps, `${this.step}.yLabel`, 'historic')
       },
       label: function () {
-        const today = last(get(find(this.currentPaths, { scenario: this.yLabel }), 'values', []))
+        const today = last(get(find(this.currentPaths, path => {
+          if (this.yLabel === 'historic') {
+            return path.scenario === 'historic' || path.scenario === 'historic-landuse' || path.scenario === 'historic-landuse-addition'
+          } else {
+            return path.scenario === this.yLabel
+          }
+        }), 'values', []))
         const x = this.scaleX(this.scaleX.domain()[0])
         const texts = [
           `${format(`.2`)(today[1] / 1000)} Gt`,

@@ -30,8 +30,6 @@
         const max = Math.max(...map(this.options, option => {
           return option[1].length
         }))
-        console.log({max})
-
         return `${max * 9}px`
       }
     },

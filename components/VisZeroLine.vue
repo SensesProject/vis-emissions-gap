@@ -13,10 +13,12 @@
       class="positive"
       :d="`M${margin.left} ${0} H${width} V${0 - 5} H${margin.left} V${0}`" />
     <path
+      v-if="isUsed"
       class="negative--area"
       fill="url(#grad1)"
       :d="`M${margin.left} ${0 + 5} H${width} V${end} H${margin.left} V${0 + 5}`" />
     <text
+      v-if="isUsed"
       class="positive marker"
       :x="today"
       :y="0 - 10"
@@ -25,6 +27,7 @@
       Adding CO₂ to the atmosphere
     </text>
     <text
+      v-if="isUsed"
       class="negative marker"
       :x="today"
       :y="0 + 10"
@@ -36,9 +39,17 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     props: ['margin', 'height', 'width', 'scaleX', 'scaleY'],
     computed: {
+      ...mapState({
+        variable: state => state.scenario.scenario.variable
+      }),
+      isUsed: function () { // Will hide some elements
+        return this.variable === 'CO2|Energy and Industrial Processes'
+      },
       center: function () {
         const { width, margin } = this
         return margin.left + ((width - margin.right) / 2)

@@ -18,7 +18,6 @@
   const optionsRegion = [
     ['World', 'World'],
     ['China', 'China'],
-    ['China', 'China'],
     ['USA', 'USA'],
     ['EU', 'EU'],
     ['India', 'India'],

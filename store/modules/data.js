@@ -10,6 +10,8 @@ function processData (data) {
       policy = 'historic'
     } else if (datum.scenario === 'historic-landuse') {
       policy = 'historic-landuse'
+    } else if (datum.scenario === 'historic-landuse-addition') {
+      policy = 'historic-landuse-addition'
     }
     return {
       ...datum,
