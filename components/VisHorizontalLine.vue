@@ -1,16 +1,16 @@
 <template>
-  <g>
+  <g :style="{ transform: `translateY(${y}px)` }">
     <line
       class="horizontalLine"
       :x1="x1"
       :x2="x2"
-      :y1="y"
-      :y2="y" />
+      :y1="0"
+      :y2="0" />
     <text
       v-if="el.label"
       class="horizontalLine marker"
       :x="x2 + 10"
-      :y="y"
+      :y="0"
       dominant-baseline="middle"
     >{{ el.label }}</text>
   </g>
