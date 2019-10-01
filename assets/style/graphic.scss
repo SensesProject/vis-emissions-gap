@@ -159,6 +159,10 @@ g {
 }
 
 text {
+  &.outline, &.outline tspan {
+    text-shadow: 1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff, 1px 0px 0 #fff, 0px 1px 0 #fff, -1px 0px 0 #fff, 0px -1px 0 #fff;
+  }
+
   &.tick, tspan.tick {
     fill: palette(grey, 50);
     font-weight: $font-weight-default;

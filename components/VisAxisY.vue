@@ -36,7 +36,7 @@
         :y="boxY - boxOffset" />
       <text
         v-for="group in ['label label--background', 'axis']"
-        :class="`${group} axis--reading`"
+        :class="`${group} axis--reading outline`"
         :y="label.today[1] + 'px'"
         text-anchor="start"
         ref="text">
