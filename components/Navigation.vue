@@ -47,12 +47,15 @@
   @keyframes pulse {
     0% {
       opacity: 0.7;
+      transform: scale(1);
     }
     50% {
       opacity: 1;
+      transform: scale(1.2);
     }
     100% {
       opacity: 0.7;
+      transform: scale(1);
     }
   }
 
@@ -87,7 +90,7 @@
       opacity: 0.85;
 
       &.start {
-        animation: pulse 1.5s ease infinite;
+        animation: pulse 2.5s ease infinite;
       }
 
       &:hover, &:focus {

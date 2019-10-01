@@ -7,29 +7,31 @@
       :y1="margin.top"
       :y2="margin.top" />
     <g class="lables">
-      <g v-for="label in labels">
-        <text
-          :y="label.y + 'px'"
-          text-anchor="middle">
-          <tspan
-            class="tick"
-            :x="label.x + 'px'"
-            dy="0"
-            v-html="label.year" />
-          <tspan
-            v-if="label.label"
-            :x="label.x + 'px'"
-            dy="-1.4em"
-            class="tick important"
-            v-html="label.label + (!isLongTerm && label.long ? label.long : '')" />
-        </text>
-        <line
-          :y1="margin.top + 'px'"
-          :x1="label.x + 'px'"
-          :y2="margin.top - 10 + 'px'"
-          :x2="label.x + 'px'"
-          class="tick" />
-      </g>
+      <transition-group name="fade" tag="g">
+        <g v-for="label in labels" :key="label.year">
+          <text
+            :y="label.y + 'px'"
+            text-anchor="middle">
+            <tspan
+              class="tick"
+              :x="label.x + 'px'"
+              dy="0"
+              v-html="label.year" />
+            <tspan
+              v-if="label.label"
+              :x="label.x + 'px'"
+              dy="-1.4em"
+              class="tick important"
+              v-html="label.label + (!isLongTerm && label.long ? label.long : '')" />
+          </text>
+          <line
+            :y1="margin.top + 'px'"
+            :x1="label.x + 'px'"
+            :y2="margin.top - 10 + 'px'"
+            :x2="label.x + 'px'"
+            class="tick" />
+        </g>
+      </transition-group>
     </g>
   </g>
 </template>

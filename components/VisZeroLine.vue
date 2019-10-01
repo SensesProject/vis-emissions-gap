@@ -1,5 +1,5 @@
 <template>
-  <g>
+  <g class="zeroLine" :style="{ transform: `translateY(${zero}px)` }"">
     <defs>
       <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" style="stop-color:rgb(55, 200, 137);stop-opacity:0.05" />
@@ -8,18 +8,18 @@
     </defs>
     <path
       class="negative"
-      :d="`M${margin.left} ${zero} H${width} V${zero + 5} H${margin.left} V${zero}`" />
+      :d="`M${margin.left} ${0} H${width} V${0 + 5} H${margin.left} V${0}`" />
     <path
       class="positive"
-      :d="`M${margin.left} ${zero} H${width} V${zero - 5} H${margin.left} V${zero}`" />
+      :d="`M${margin.left} ${0} H${width} V${0 - 5} H${margin.left} V${0}`" />
     <path
       class="negative--area"
       fill="url(#grad1)"
-      :d="`M${margin.left} ${zero + 5} H${width} V${end} H${margin.left} V${zero + 5}`" />
+      :d="`M${margin.left} ${0 + 5} H${width} V${end} H${margin.left} V${0 + 5}`" />
     <text
       class="positive marker"
       :x="today"
-      :y="zero - 10"
+      :y="0 - 10"
       dominant-baseline="baseline"
       text-anchor="middle">
       Adding CO₂ to the atmosphere
@@ -27,7 +27,7 @@
     <text
       class="negative marker"
       :x="today"
-      :y="zero + 10"
+      :y="0 + 10"
       dominant-baseline="hanging"
       text-anchor="middle">
       Extracting CO₂ from the atmosphere

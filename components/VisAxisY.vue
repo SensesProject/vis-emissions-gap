@@ -6,25 +6,27 @@
       :x2="axis.x"
       :y1="margin.top"
       :y2="height - margin.bottom" />
-    <g
-      v-for="tick in axis.ticks"
-      :key="tick.key"
-      v-if="tick.isVisible">
-      <text
-        :y="tick.y + 'px'"
-        :x="d * 5.5 + 'px'"
-        text-anchor="end"
-        dominant-baseline="middle"
-        class="tick">
-        {{ tick.label }}
-      </text>
-      <line
-        :x1="margin.left + 'px'"
-        :y1="tick.y + 'px'"
-        :x2="d * 6 + 'px'"
-        :y2="tick.y + 'px'"
-        class="tick" />
-    </g>
+    <transition-group name="fade" tag="g">
+      <g
+        v-for="tick in axis.ticks"
+        :key="tick.key"
+        v-if="tick.isVisible">
+        <text
+          :y="tick.y + 'px'"
+          :x="d * 5.5 + 'px'"
+          text-anchor="end"
+          dominant-baseline="middle"
+          class="tick">
+          {{ tick.label }}
+        </text>
+        <line
+          :x1="margin.left + 'px'"
+          :y1="tick.y + 'px'"
+          :x2="d * 6 + 'px'"
+          :y2="tick.y + 'px'"
+          class="tick" />
+      </g>
+    </transition-group>
     <g>
       <rect
         class="background"

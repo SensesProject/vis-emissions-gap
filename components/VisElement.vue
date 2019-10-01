@@ -1,14 +1,16 @@
 <template>
   <g
     :class="klass">
-    <component
-      ref="element"
-      v-bind:is="comp"
-      :el="el"
-      :scaleX="scaleX"
-      :scaleY="scaleY"
-      :width="width"
-      :data="data" />
+    <transition name="fade">
+      <component
+        ref="element"
+        v-bind:is="comp"
+        :el="el"
+        :scaleX="scaleX"
+        :scaleY="scaleY"
+        :width="width"
+        :data="data" />
+    </transition>
   </g>
 </template>
 

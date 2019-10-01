@@ -1,5 +1,5 @@
 <template>
-  <g>
+  <transition-group name="fade" tag="g">
     <VisPulse
       :x="(x2 - x1) / 3"
       :y="y - 20"
@@ -35,7 +35,7 @@
       key="budget"
       label="The IPCC special report on 1.5°C scenarios states that the median for the remaining budget for limiting warming to 1.5°C is 580 Gt CO2 from 2018 until the time of net-zero. Assuming that roughly 120 Gt are still emitted in the 3 years 2018–2020, this roughly leaves 460 Gt. This equates to a triangle that represents linear reduction from 40 Gt per year to 0 within 23 years. On the other hand, various uncertainties are in the order of magnitude of 200 Gt, which equates to an uncertainty in the timing of reaching net-zero of 5 years."
     />
-  </g>
+  </transition-group>
 </template>
 
 <script>
