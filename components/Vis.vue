@@ -173,7 +173,7 @@
           const width = el.clientWidth || el.parentNode.clientWidth
           const height = el.clientHeight || el.parentNode.clientHeight
           this.width = width
-          this.height = height
+          this.height = Math.max(height, 500)
         }
       },
       positionLabels: function () {
