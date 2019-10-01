@@ -37,27 +37,8 @@
             :dy="`${i * 1.2 + (i === titles.length - 1 ? 2.2 : 1.2)}em`"
             :class="i === titles.length - 1 ? 'axis small' : 'axis'"
             text-anchor="middle">{{ title }}</text>
-          <g>
-            <!-- <g v-for="item in labels">
-              <line
-                :x1="item.x"
-                :x2="item.x"
-                :y1="item.y1"
-                :y2="item.y2"
-                class="label" />
-              <text
-                ref="labels"
-                :x="item.x"
-                :y="item.y"
-                :text-anchor="item.anchor"
-                class="label"
-                :transform="`translate(${item.translate}, 0)`">
-                {{ item.label }}
-              </text>
-            </g> -->
-          </g>
-          <g>
-            <g v-for="tick in axis.ticks">
+          <transition-group name="fade" tag="g">
+            <g v-for="tick in axis.ticks" :key="tick.label">
               <line
                 :x1="tick.x"
                 :x2="tick.x"
@@ -72,43 +53,45 @@
                 {{ tick.label }}
               </text>
             </g>
-          </g>
+          </transition-group>
         </g>
-      	<g
-          v-if="isReady"
-          v-for="group in elements"
-          :class="group.klass"
-          :key="group.key"
-          @mouseover="setHighlight(group.policy)"
-          @mouseleave="setHighlight(false)">
-          <text
-            text-anchor="start"
-            :x="group.x + 5"
-            :y="group.labelY">{{ group.label }}</text>
-          <g v-for="bar in group.bars">
-            <rect
-              v-if="goal >= bar.year"
-              :class="`bar-${bar.year}`"
-              :width="bar.width"
-              :height="group.singleBarHeight"
-              :y="bar.y"
-              :x="group.x"
-              v-tooltip="{ content: `${bar.policyLabel}: ${bar.valueLabel}`, offset: 5 }" />
-            <g v-if="bar.label">
-              <line
-                :x1="bar.label.x"
-                :x2="bar.label.x"
-                :y1="bar.label.y1"
-                :y2="bar.label.y2"
-                class="label" />
-              <text
-                :text-anchor="bar.label.anchor"
-                class="label"
-                :x="bar.label.xLabel"
-                :y="bar.label.y">{{ bar.label.label }}</text>
+        <transition-group name="fade" tag="g">
+        	<g
+            v-if="isReady"
+            v-for="group in elements"
+            :class="group.klass"
+            :key="group.key"
+            @mouseover="setHighlight(group.policy)"
+            @mouseleave="setHighlight(false)">
+            <text
+              text-anchor="start"
+              :x="group.x + 5"
+              :y="group.labelY">{{ group.label }}</text>
+            <g v-for="bar in group.bars">
+              <rect
+                v-if="goal >= bar.year"
+                :class="`bar-${bar.year}`"
+                :width="bar.width"
+                :height="group.singleBarHeight"
+                :y="bar.y"
+                :x="group.x"
+                v-tooltip="{ content: `${bar.policyLabel}: ${bar.valueLabel}`, offset: 5 }" />
+              <g v-if="bar.label && goal >= bar.year">
+                <line
+                  :x1="bar.label.x"
+                  :x2="bar.label.x"
+                  :y1="bar.label.y1"
+                  :y2="bar.label.y2"
+                  class="label" />
+                <text
+                  :text-anchor="bar.label.anchor"
+                  class="label"
+                  :x="bar.label.xLabel"
+                  :y="bar.label.y">{{ bar.label.label }}</text>
+              </g>
             </g>
           </g>
-        </g>
+        </transition-group>
       </svg>
     </div>
   </div>
@@ -121,26 +104,9 @@
   import { extent } from 'd3-array'
   import { format } from 'd3-format'
 
-  // function placeLabel (val, [low, high], bar2030Width) {
-  //   const bar2030WidthHalf = bar2030Width / 2
-  //   let anchor = 'middle'
-  //   let translate = 0
-  //   const d = 3
-
-  //   if (val - bar2030WidthHalf < low) {
-  //     anchor = 'start'
-  //     translate = -val + low + d
-  //   } else if (val + bar2030WidthHalf > high) {
-  //     anchor = 'end'
-  //     translate = high - val - d
-  //   }
-
-  //   return [anchor, translate]
-  // }
-
   const titles = {
     'temperature': ['Increase in global mean temparature', '(rel. to 2015, in °C, global)'],
-    'investment': ['Average yearly low-carbon', 'power sector investments', '(billion US$)'],
+    'investment': ['Average yearly low-carbon', 'power sector investments', '(billion US$, rel. to 2015: 474bn US$)'],
     'landuse': ['Area for bioenergy and afforestation', '(2050, million ha, global)'],
     'strandedAssests': ['Maximum idle coal capacity', '(GW, global)']
   }
