@@ -33,7 +33,7 @@
   	flex-direction: row;
   	align-content: space-around;
   	height: 10vh;
-    color: palette(grey, 30);
+    color: getColor(gray, 30);
     font-weight: $font-weight-bold;
     font-size: $size-default;
 

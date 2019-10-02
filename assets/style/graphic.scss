@@ -26,7 +26,7 @@ path {
   }
 
   &.arrow--area {
-    fill: palette(grey, 70);
+    fill: getColor(gray, 70);
     opacity: 0.15;
   }
 
@@ -56,17 +56,17 @@ rect {
 
 line {
   &.zero {
-    stroke: palette(grey, 20);
+    stroke: getColor(gray, 20);
     stroke-width: 1px;
   }
 
   &.axis {
-    stroke: palette(grey, 70);
+    stroke: getColor(gray, 70);
     stroke-width: 1px;
   }
 
   &.tick {
-    stroke: palette(grey, 70);
+    stroke: getColor(gray, 70);
     stroke-width: 1px;
   }
 
@@ -76,28 +76,28 @@ line {
   }
 
   &.verticalLine {
-    stroke: palette(grey, 70);
+    stroke: getColor(gray, 70);
     stroke-width: 1px;
   }
 
   &.legend {
-    stroke: palette(grey, 70);
+    stroke: getColor(gray, 70);
     stroke-width: 1px;
   }
 
   &.label {
-    stroke: palette(grey, 70);
+    stroke: getColor(gray, 70);
     stroke-width: 1px;
   }
 
   &.swoop {
-    stroke: palette(grey, 70);
+    stroke: getColor(gray, 70);
     stroke-width: 1px;
     stroke-dasharray: 5;
   }
 
   &.lead {
-    stroke: palette(grey, 70);
+    stroke: getColor(gray, 70);
     stroke-width: 1px;
   }
 }
@@ -164,19 +164,19 @@ text {
   }
 
   &.tick, tspan.tick {
-    fill: palette(grey, 50);
+    fill: getColor(gray, 50);
     font-weight: $font-weight-default;
     font-size: $size-small;
 
     &.important {
-      fill: palette(grey, 20);
+      fill: getColor(gray, 20);
       font-weight: $font-weight-bold;
       font-size: $size-default;
     }
   }
 
   &.label {
-    fill: palette(grey, 50);
+    fill: getColor(gray, 50);
     font-weight: $font-weight-bold;
     font-size: $size-small;
 
@@ -211,16 +211,16 @@ text {
   }
 
   tspan.info {
-    fill: palette(grey, 60);
+    fill: getColor(gray, 60);
     font-size: $size-small;
   }
 
   &.area {
-    fill: palette(accent, 0);
+    fill: $color-green;
   }
 
   &.marker {
-    fill: palette(grey, 40);
+    fill: getColor(gray, 40);
     // font-weight: $font-weight-bold;
     font-size: $size-default;
 
@@ -238,19 +238,19 @@ text {
   }
 
   &.axis {
-    fill: palette(grey, 20);
+    fill: getColor(gray, 20);
     font-weight: $font-weight-bold;
     font-size: $size-default;
 
     &.small {
       font-size: $size-small;
       font-weight: $font-weight-default;
-      fill: palette(grey, 50);
+      fill: getColor(gray, 50);
     }
   }
 
   &.dot {
-    fill: palette(grey, 0);
+    fill: getColor(gray, 0);
     // font-weight: $font-weight-bold;
     letter-spacing: $spacing-wide;
     font-size: $size-default;

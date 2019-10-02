@@ -83,7 +83,7 @@
     & > .nav-item {
       flex: 1;
       cursor: pointer;
-      color: palette(grey, 40);
+      color: getColor(gray, 40);
       font-size: $size-big;
       display: flex;
       align-items: center;
@@ -137,7 +137,7 @@
         pointer-events: none;
 
         i {
-          color: palette(grey, 70);
+          color: getColor(gray, 70);
         }
       }
     }

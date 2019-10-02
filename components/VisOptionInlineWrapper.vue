@@ -83,12 +83,12 @@
   .list {
     li {
       font-weight: $font-weight-bold;
-      color: palette(grey, 60);
+      color: getColor(gray, 60);
       cursor: pointer;
       display: block;
 
       &:hover, &:focus {
-        color: palette(grey, 30);
+        color: getColor(gray, 30);
       }
 
       &.isActive {

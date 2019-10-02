@@ -64,7 +64,7 @@ sub {
   .tab {
     text-align: center;
     padding: 0 $spacing / 4 $spacing / 4;
-    color: palette(grey, 50);
+    color: getColor(gray, 50);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -78,7 +78,7 @@ sub {
     }
 
     &.tab--active, &:hover, &:focus {
-      color: palette(grey, 0);
+      color: getColor(gray, 0);
 
       img {
         opacity: 1;
@@ -89,7 +89,7 @@ sub {
       cursor: default;
       border-bottom: none;
       margin-bottom: 0;
-      color: palette(grey, 70);
+      color: getColor(gray, 70);
       pointer-events: none;
 
       img {
@@ -107,7 +107,7 @@ sub {
 }
 
 .footnotes li {
-  color: palette(grey, 50);
+  color: getColor(gray, 50);
   font-size: $size-default;
   margin-bottom: 0.7em;
 
@@ -119,13 +119,13 @@ sub {
 
 @keyframes highlight {
   0% {
-    color: palette(grey, 50);
+    color: getColor(gray, 50);
   }
   50% {
-    color: palette(grey, 0);
+    color: getColor(gray, 0);
   }
   100% {
-    color: palette(grey, 50);
+    color: getColor(gray, 50);
   }
 }
 
@@ -190,7 +190,7 @@ tr td {
   display: inline-block;
   text-align: center;
   cursor: pointer;
-  color: palette(grey, 60);
+  color: getColor(gray, 60);
   font-weight: $font-weight-bold;
   font-size: $size-default;
   border-radius: $radius-default;

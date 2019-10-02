@@ -393,7 +393,7 @@
   .vis-aside {
     width: 100%;
   	height: 100%;
-    color: palette(grey, 30);
+    color: getColor(gray, 30);
     font-weight: $font-weight-bold;
     font-size: $size-default;
 
