@@ -5,14 +5,14 @@
       :y="y - 20"
       v-if="step === 0"
       key="negativeEmission"
-      label="Due to the long lifetime of CO2 in the atmosphere, the concentration of CO2 which causes the warming effect will increase as long as yearly emissions are positive. This means that yearly emissions have to be reduced to zero in order to stability the concentration in the atmosphere and thus warming. If net negative emissions are reached by employing more carbon dioxide removal than residual positive emissions, the concentration of CO2 in the atmosphere can be reduced and thus the warming reduced."
+      label="Due to the long lifetime of CO₂ in the atmosphere, the concentration of CO₂, which causes the warming effect will increase as long as yearly emissions are positive. This means that yearly emissions have to be reduced to zero in order to stabilize the concentration in the atmosphere and thus warming. If net negative emissions are reached by employing more carbon dioxide removal than positive residual emissions, the concentration of CO₂ in the atmosphere can be reduced and thus the warming reduced."
     />
     <VisPulse
       v-if="region !== 'World'"
       :x="year2035"
       :y="middle"
       key="nonWorld"
-      label="The cost-effective pathway assumes that marginal abatement costs are equalized across regions. This leads to higher mitigation costs (in %-point of baseline GDP or consumption) in developing regions, as these tend to have higher emission intensities of GDP and furthermore still need to complete the emission intensive build-up of infrastructure. Therefore, this cost-effective pathway represent a fair burden sharing only when transfers from richer to poorer regions offset these higher losses. If these transfers turn out to be impossible for political reasons, emission reductions in developed regions under cost-effective policies might need to be faster."
+      label="The cost-effective pathway assumes that marginal abatement costs are equalized across regions. This leads to higher mitigation costs (in %-point of baseline GDP or consumption) in developing regions, as these tend to have higher emission intensities of GDP and furthermore still need to complete the emission-intensive build-up of infrastructure. Therefore, this cost-effective pathway represents a fair burden-sharing only when transfers from richer to poorer regions offset these higher losses. If these transfers turn out to be impossible for political reasons, emission reductions in developed regions under cost-effective policies might need to be faster."
     />
     <VisPulse
       :x="year2025"
@@ -33,7 +33,7 @@
       :y="lowerThird"
       v-if="step === 1"
       key="budget"
-      label="The IPCC special report on 1.5°C scenarios states that the median for the remaining budget for limiting warming to 1.5°C is 580 Gt CO2 from 2018 until the time of net-zero. Assuming that roughly 120 Gt are still emitted in the 3 years 2018–2020, this roughly leaves 460 Gt. This equates to a triangle that represents linear reduction from 40 Gt per year to 0 within 23 years. On the other hand, various uncertainties are in the order of magnitude of 200 Gt, which equates to an uncertainty in the timing of reaching net-zero of 5 years."
+      label="The IPCC special report on 1.5°C scenarios states that the median for the remaining budget for limiting warming to 1.5°C is 580 Gt CO₂ from 2018 until the time of net-zero. Assuming that roughly 120 Gt is still emitted in the three years 2018–2020, this roughly leaves 460 Gt. This equates to a triangle that represents a linear reduction from 40 Gt per year to 0 within 23 years. On the other hand, various uncertainties are in the order of magnitude of 200 Gt, which equates to uncertainty in the timing of reaching net-zero of 5 years."
     />
   </transition-group>
 </template>

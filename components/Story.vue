@@ -7,7 +7,7 @@
         </header>
         <section>
           <p>
-            This module explores how current <span class="info" v-tooltip="'Each country has submitted a “Nationally determined contribution” (NDC), which contains - among other things - decarbonization targets for the year 2025 or 2030'">decarbonization plans until 2030</span> relate to the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels'">long-term targets of the Paris Agreement</span>.
+            This module explores how current <span class="info" v-tooltip="'Each country has submitted a “Nationally determined contribution” (NDC), which contains - among other things - decarbonization targets for the year 2025 or 2030'">decarbonization plans until 2030</span> relate to the <span class="info" v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels.'">long-term targets of the Paris Agreement</span>.
           </p>
           <p>
             Let’s start with the historical CO₂ emissions from 1990 until 2016, coming from the combustion of fossil fuels (coal, oil and natural gas) and cement production, and from land-use. As we can see, these emissions have increased sharply in the first decade of the 21st century, and are still on an upward trajectory.
@@ -20,7 +20,7 @@
         </header>
         <section>
           <p>Paris Agreement set the long-term target of keeping a global temperature rise this century well below 2 degrees Celsius above pre-industrial levels and to pursue efforts to limit the temperature increase even further to 1.5 degrees Celsius.</p>
-          <p>From climate physics, we know that reaching these targets implies limiting the cumulative CO₂ emissions to a very tight <span class="info" v-tooltip="'The cumulative emissions correspond to the area below the emissions curve in the graph. Obviously, this area can only be limited to a restricted size by reducing emissions to zero'">carbon budget</span>. The latest <a href="https://www.ipcc.ch/sr15/" target="_blank">IPCC report</a> has shown that therefore the 2°C target means that CO₂ emission has to be reduced to zero around 2075. For limiting warming to 1.5°C, CO₂ emissions have to be reduced to zero around 2050.</p>
+          <p>From climate physics, we know that reaching these targets implies limiting the cumulative CO₂ emissions to a very tight <span class="info" v-tooltip="'The cumulative emissions correspond to the area below the emissions curve in the graph. Obviously, this area can only be limited to a restricted size by reducing emissions to zero.'">carbon budget</span>. The latest <a href="https://www.ipcc.ch/sr15/" target="_blank">IPCC report</a> has shown that therefore the 2°C target means that CO₂ emission has to be reduced to zero around 2075. For limiting warming to 1.5°C, CO₂ emissions have to be reduced to zero around 2050.</p>
         </section>
       </article>
       <article v-if="step === 2" key="step2">
@@ -30,14 +30,14 @@
         </header>
         <section>
           <p><a href="https://www.climatescenarios.org/primer/">Scenarios from integrated assessment models</a> help us explore what near-term and long-term targets. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays.</p>
-          <p>The problem is: As we have seen in the previous step, we need to dramatically reduce emissions and not stay on the same level.</p>
-          <p>Scenario source: <span class="info" v-tooltip="'The scenarios shown in coloured lines in this module are from a recent scientific publication with the REMIND-MAgPIE modeling framework (Kriegler et al. 2018 plus link). The qualitative insights are identical to similar studies with other models (Luderer et al. 2018 plus link, Rogelj et al. 2015 plus link)'">REMIND-MAgPIE</span>.</p>
+          <p>The problem is: As we have seen in the previous step, we need to reduce emissions dramatically and not stay at the same level.</p>
+          <p>Scenario source: <span class="info" v-tooltip="'The scenarios shown in coloured lines in this module are from a recent scientific publication with the REMIND-MAgPIE modelling framework (Kriegler et al. 2018 plus link). The qualitative insights are identical to similar studies with other models (Luderer et al. 2018 plus link, Rogelj et al. 2015 plus link)'">REMIND-MAgPIE</span>.</p>
         </section>
       </article>
       <article v-if="step === 3" key="step3">
         <h1>How do we get there?</h1>
         <h3>What would immediate action look like in contrast?</h3>
-        <p>Under the assumption that some strengthening of policies is achieved already in 2020 and that globally coordinated <span class="info ndc" v-tooltip="'Under the assumption of functioning markets and perfect foresight, pricing of all greenhouse-gas emissions, either via a carbon tax or a scheme of tradable emission permits are the cost-effective policy.'" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">cost-effective policies</span> are in place in 2025, strong reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for <span class="info" v-tooltip="'Key strategies for decarbonization are 1) early decarbonization of power supply, mostly via renewables but also via nuclear or combination of efficient natural gas plants with carbon capture and storage. 2) Secondly, strong electrification of energy end-uses (via battery-electric or fuel-cell vehicles in transport, heat pumps in buildings and industry, etc.) and 3) the reduction of carbon-intensity of remaining solid, liquid and gaseous fuel use via use of bio-energy, synthetic fuels and or employment of carbon capture and storage (CCS).'">mitigation technologies</span></p>
+        <p>Under the assumption that some strengthening of policies is achieved already in 2020 and that globally coordinated <span class="info ndc" v-tooltip="'Under the assumption of functioning markets and perfect foresight, pricing of all greenhouse-gas emissions, either via a carbon tax or a scheme of tradable emission permits are the cost-effective policy.'" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">cost-effective policies</span> are in place in 2025, sharp reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for <span class="info" v-tooltip="'Key strategies for decarbonization are 1) early decarbonization of power supply, mostly via renewables but also via nuclear or combination of efficient natural gas plants with carbon capture and storage. 2) Secondly, substantial electrification of energy end-uses (via battery-electric or fuel-cell vehicles in transport, heat pumps in buildings and industry, etc.) and 3) the reduction of carbon-intensity of remaining solid, liquid and gaseous fuel the use via use of bio-energy, synthetic fuels and or employment of carbon capture and storage (CCS).'">mitigation technologies</span>.</p>
       </article>
       <article v-if="step === 4" key="step4">
         <h1>How do we get there?</h1>
@@ -50,9 +50,9 @@
           <h3>What are the alternatives?</h3>
         </header>
         <section>
-          <p>Abrupt emission reduction (as seen in the <span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDC scenario</span> in 2030 and in the <span class="eff" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">cost-effective scenario</span> would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants and an enormously fast ramp-up of low-carbon alternatives.</p>
-          <p>This is also reflected in the investment requirements shown on the right side: The NDC scenario would require a huge jump in investments after 2030, while in the cost-effective scenario a huge jump would be needed now.<p>
-          <p>For these reason, both these pathways seem an unlikely way to reach the long-term targets.</p>
+          <p>Abrupt emission reduction (as seen in the <span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDC scenario</span> in 2030 and the <span class="eff" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">cost-effective scenario</span>) would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants and an enormously fast ramp-up of low-carbon alternatives.</p>
+          <p>This is also reflected in the investment requirements shown on the right side: The NDC scenario would require a considerable jump in investments after 2030, while in the cost-effective scenario a huge jump would be needed now.<p>
+          <p>For these reasons, both these pathways seem an unlikely way to reach the long-term targets.</p>
         </section>
       </article>
       <article v-if="step === 6" key="step6">
@@ -61,7 +61,7 @@
           <h3>What are the alternatives?</h3>
         </header>
         <section>
-          <p>Therefore, the question is how an intermediate scenario could look like that neither requires full global policy harmonization within the next few years, nor requires massive abrupt strengthening in 2030. One such scenario is the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“Bridge” scenario</span> that explores how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-effective. Policies that can contribute to such a Bridge scenario could be based on an analysis of policy successes as already observed in some legislations, or policies that target of the requirements to achieve net-zero emissions in all sectors in the second half of the century. As can be seen on the graph, the more nuanced policy assumptions in the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Bridge scenario</span> lead to a smoother emissions trajectory without pronounced kinks, and also the extreme breaks in investment numbers as shown on the right side are mitigated.</p>
+          <p>Therefore, the question is how an intermediate scenario could look like that neither requires full global policy harmonization within the next few years nor requires massive abrupt strengthening in 2030. One such scenario is the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“Bridge” scenario</span> that explores how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-effective. Policies that can contribute to such a Bridge scenario could be based on an analysis of policy successes as already observed in some legislations. Or policies that target the requirements to achieve net-zero emissions in all sectors in the second half of the century. As can be seen on the graph, the more nuanced policy assumptions in the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Bridge scenario</span> lead to a smoother emissions trajectory without pronounced kinks. Also, the extreme breaks in investment numbers as shown on the right side are mitigated.</p>
         </section>
       </article>
       <article v-if="step === 7" key="step7">
@@ -69,7 +69,7 @@
           <h1>Looking at the full century</h1>
         </header>
         <section>
-          <p>The 1.5°C scenario shown here belongs to the class of 1.5°C scenarios with high overshoot within the IPCC report on 1.5°C scenarios. “Overshoot” means that the allowable carbon budget is temporarily exceeded, which is compensated by net negative CO₂ emissions in the second half of the century. Scenarios with lower overshoot (as e.g. the 1.5°C with lower CDR that you can select in the next frame) need less of such negative emissions in the 2nd half of the century, but then need even faster emissions reductions in the next decades.</p>
+          <p>The 1.5°C scenario shown here belongs to the class of 1.5°C scenarios with high overshoot within the IPCC report on 1.5°C scenarios. “Overshoot” means that the allowable carbon budget is temporarily exceeded, which is compensated by net negative CO₂ emissions in the second half of the century. Scenarios with lower overshoot (as e.g. the 1.5°C with lower CDR that you can select in the next frame) need less of such negative emissions in the 2nd half of the century, but then need even faster emissions reductions in the following decades.</p>
         </section>
       </article>
       <article v-if="step === 8" key="step8">
