@@ -87,7 +87,7 @@
         display: inline-block;
         text-align: center;
         cursor: pointer;
-        color: palette(grey, 60);
+        color: getColor(gray, 60);
         font-weight: $font-weight-bold;
         font-size: $size-default;
         transition: all 0.5s ease;
@@ -101,8 +101,8 @@
         }
 
         &:hover, &:focus {
-          color: palette(grey, 30);
-          border-color: palette(grey, 70);
+          color: getColor(gray, 30);
+          border-color: getColor(gray, 70);
         }
 
         &.isActive {
@@ -118,11 +118,11 @@
   .list {
     li {
       font-weight: $font-weight-bold;
-      color: palette(grey, 60);
+      color: getColor(gray, 60);
       cursor: pointer;
 
       &:hover, &:focus {
-        color: palette(grey, 30);
+        color: getColor(gray, 30);
       }
 
       &.isActive {

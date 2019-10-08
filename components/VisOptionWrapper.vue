@@ -47,7 +47,7 @@
     }
 
     .detail {
-      color: palette(grey, 40);
+      color: getColor(gray, 40);
     }
 
     button.block {
