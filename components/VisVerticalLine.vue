@@ -28,7 +28,7 @@ export default {
       type: Object
     },
     data: {
-      type: Object
+      type: Array
     },
     scaleX: {
       type: Function
