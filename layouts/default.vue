@@ -1,48 +1,20 @@
 <template>
   <div class="page">
-    <header class="page-head">
-      <section class="page-header">
-        <h1>
-          <n-link to="/">
-            Senses Toolkit
-          </n-link>
-        </h1>
-        <nav class="page-nav">
-          <ul>
-            <li>
-              <n-link to="/">
-                Learn
-              </n-link>
-            </li>
-            <li>
-              <n-link to="/">
-                Explore
-              </n-link>
-            </li>
-            <li>
-              <n-link to="/">
-                Share
-              </n-link>
-            </li>
-          </ul>
-        </nav>
-      </section>
-    </header>
+    <SensesMenu />
     <div class="page-content" role="main">
       <nuxt />
     </div>
-    <footer class="page-foot">
-      <section class="page-footer">
-        <span class="footer">2018 – The SENSES Toolkit is part of the SENSES Project. Visit senses-project.org for more information.</span>
-      </section>
-    </footer>
   </div>
 </template>
 
 <script>
 import get from 'lodash/get'
+import SensesMenu from 'library/src/components/SensesMenu.vue'
 
 export default {
+  components: {
+    SensesMenu
+  },
   computed: {
     isModule () {
       return get(this.$route, 'name', false) === 'module'
