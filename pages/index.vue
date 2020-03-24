@@ -2,18 +2,21 @@
   <div class="module">
     <Vis />
     <Navigation />
+    <SensesMeta id="stocktake-1" />
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import SensesMeta from 'library/src/components/SensesMeta.vue'
 import Vis from '~/components/Vis.vue'
 import Navigation from '~/components/Navigation.vue'
 
 export default {
   components: {
     Vis,
-    Navigation
+    Navigation,
+    SensesMeta
   },
   created () {
     this.loadData()
