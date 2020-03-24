@@ -6,6 +6,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import VisOptionInlineWrapper from '~/components/VisOptionInlineWrapper.vue'
 
 const optionsDegree = [
   ['1p5C', '1.5° C'],
@@ -33,6 +34,9 @@ const optionsVariable = [
 ]
 
 export default {
+  components: {
+    VisOptionInlineWrapper
+  },
   data () {
     return {
       optionsDegree,

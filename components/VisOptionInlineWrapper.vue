@@ -22,18 +22,18 @@ import { mapActions } from 'vuex'
 import { get, isEqual, find, map } from 'lodash'
 
 export default {
+  name: 'VisOptionInlineWrapper',
   props: {
     options: {
       type: Array
     },
     current: {
-      type: Object
+      type: String
     },
     slug: {
       type: String
     }
   },
-  props: ['options', 'current', 'slug'],
   computed: {
     currentLabel () {
       return get(find(this.options, (option) => {
