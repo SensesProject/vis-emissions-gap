@@ -11,14 +11,15 @@
         <i class="glyph-angle-right" />
       </li>
     </ul>
-    <svg class="progress">
-      <line x1="0%" :x2="`${100 / steps.length * (step + 1)}%`" y1="50%" y2="50%" />
-    </svg>
+    <nav class="steps">
+      <button v-for="{ key, isCurrent, isPast } in elements" :key="key" :class="['step', { isCurrent, isPast }]" @click="() => setStep(key)" />
+    </nav>
   </footer>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import { range, map } from 'lodash'
 import Story from '~/components/Story.vue'
 
 export default {
@@ -28,7 +29,16 @@ export default {
     }),
     ...mapState([
       'steps'
-    ])
+    ]),
+    elements () {
+      return map(range(this.steps.length), (i) => {
+        return {
+          key: i,
+          isCurrent: i === this.step,
+          isPast: i < this.step
+        }
+      })
+    }
   },
   methods: {
     ...mapActions([
@@ -67,6 +77,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: $spacing * 2;
   }
 
   .nav {
@@ -145,14 +156,34 @@ export default {
     }
   }
 
-  .progress {
-    width: 100%;
-    height: 5px;
+  .steps {
+    @include wrapper-primary();
+    @include center();
+    justify-content: space-between;
+    max-width: 400px;
 
-    line {
-      stroke: $color-blue;
-      stroke-width: 5px;
-      transition: all 0.5s;
+    .step {
+      width: 10px;
+      height: 10px;
+      border: none;
+      background-color: getColor(gray, 80);
+      border-radius: 50%;
+      transition: background-color $transition;
+      cursor: pointer;
+
+      &.isPast {
+        background-color: getColor(gray, 60);
+      }
+
+      &:hover, &:focus {
+        background-color: getColor(blue, 60);
+        outline: none;
+      }
+
+      &.isCurrent {
+        background-color: $color-blue;
+        cursor: default;
+      }
     }
   }
 </style>
