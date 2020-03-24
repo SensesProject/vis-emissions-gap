@@ -50,6 +50,15 @@ button {
 a, .clickable {
   text-decoration: none;
   cursor: pointer;
+  background: none;
+}
+
+a {
+  &:hover, &:focus {
+    color: getColor(blue, 40);
+    background: none;
+    text-decoration: underline;
+  }
 }
 
 *, *:before, *:after {
