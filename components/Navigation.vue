@@ -2,13 +2,13 @@
   <footer>
     <ul class="nav">
       <li :class="{ 'nav-item': true, inactive: step === 0 }" @click="previousStep">
-        <i class="icon-angle-left" />
+        <i class="glyph-angle-left" />
       </li>
       <li class="content">
         <Story />
       </li>
       <li :class="{ 'nav-item': true, inactive: step === steps.length - 1, start: step === 0 }" @click="nextStep">
-        <i class="icon-angle-right" />
+        <i class="glyph-angle-right" />
       </li>
     </ul>
     <svg class="progress">
