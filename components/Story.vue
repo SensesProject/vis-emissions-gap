@@ -137,6 +137,8 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 
     & > * {
       width: 100%;
@@ -144,6 +146,17 @@ export default {
 
     section {
       flex: 1;
+    }
+
+    h1 {
+      font-size: $size-biggest;
+      line-height: 1.1;
+      margin-bottom: $spacing / 3;
+    }
+
+    h3 {
+      font-size: $size-big;
+      margin-bottom: $spacing / 4;
     }
 
     .footnotes {
