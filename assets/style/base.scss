@@ -3,36 +3,6 @@ $font-prefix: "../../node_modules/library/src/assets/fonts";
 @import "library/src/style/base.scss";
 @import "./global";
 
-button {
-  font: normal normal 105%/1.7 $font-family-default;
-}
-
-.mobile-invisible {
-	visibility: hidden;
-  display: none;
-}
-
-@include media-query($on-tablet-portrait) {
-  .mobile-invisible {
-  	visibility: visible;
-    display: inherit;
-  }
-}
-
-a, .clickable {
-  text-decoration: none;
-  cursor: pointer;
-  background: none;
-}
-
-a {
-  &:hover, &:focus {
-    color: getColor(blue, 40);
-    background: none;
-    text-decoration: underline;
-  }
-}
-
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -42,44 +12,6 @@ ul li {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-nav li, nav ol {
-  display: inline-block;
-}
-
-figure > img {
-  display: block;
-  width: 100%;
-}
-
-figure.placeholder {
-  background-color: #fff;
-  max-width: 600px;
-  height: 400px;
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
-}
-
-table {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: separate;
-
-  tr, td, th {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-address {
-  font-style: inherit;
-
-  span {
-    display: inline-block;
-    padding-right: 0.2em;
-  }
 }
 
 .fade-enter-active, .fade-leave-active {

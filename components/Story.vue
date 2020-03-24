@@ -140,6 +140,22 @@ export default {
     max-width: 900px;
     margin: 0 auto;
 
+    a {
+      color: $color-blue;
+      background: none;
+
+      &.bold {
+        text-decoration: underline;
+        font-weight: $font-weight-bold;
+      }
+
+      &:hover, &:focus {
+        color: getColor(blue, 40);
+        background: none;
+        text-decoration: underline;
+      }
+    }
+
     & > * {
       width: 100%;
     }
@@ -158,27 +174,5 @@ export default {
       font-size: $size-big;
       margin-bottom: $spacing / 4;
     }
-
-    .footnotes {
-      align-self: flex-end;
-      padding-left: 1em;
-      margin-bottom: $spacing;
-    }
-  }
-
-  [aria-describedby="footnotes"] {
-    counter-increment: footnotes;
-    text-decoration: none;
-    color: inherit;
-    cursor: default;
-    outline: none;
-  }
-
-  [aria-describedby="footnotes"]::after {
-    content: '[' counter(footnotes) ']';
-    vertical-align: super;
-    font-size: 0.6em;
-    margin-left: 2px;
-    cursor: default;
   }
 </style>

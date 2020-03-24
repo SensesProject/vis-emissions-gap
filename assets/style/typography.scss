@@ -66,17 +66,6 @@ sub {
   }
 }
 
-.footnotes li {
-  color: getColor(gray, 50);
-  font-size: $size-default;
-  margin-bottom: 0.7em;
-
-  &:target{
-    animation-duration: 2s;
-    animation-name: highlight;
-  }
-}
-
 @keyframes highlight {
   0% {
     color: getColor(gray, 50);
@@ -108,39 +97,5 @@ span {
 
   &.info {
     border-bottom: 1px dashed $color-blue;
-  }
-}
-
-a {
-  color: $color-blue;
-
-  &.bold {
-    text-decoration: underline;
-    font-weight: $font-weight-bold;
-  }
-}
-
-.btn {
-  margin-top: $spacing / 2;
-  padding: $spacing / 4 $spacing;
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-  color: getColor(gray, 60);
-  font-weight: $font-weight-bold;
-  font-size: $size-default;
-  border-radius: $radius-default;
-  transition: all 0.5s ease;
-  background-color: $color-blue;
-  color: #fff;
-
-  &.btn--center {
-    @include center();
-  }
-
-  &.btn--inline {
-    font-weight: $font-weight-regular;
-    margin-top: 0;
-    padding: $spacing / 4 $spacing / 4;
   }
 }
