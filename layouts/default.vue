@@ -46,7 +46,6 @@ export default {
           grid-template-rows: 100%;
           height: 6vh;
           min-height: 60px;
-          // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         &.module-header {
