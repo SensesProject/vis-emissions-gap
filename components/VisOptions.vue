@@ -5,69 +5,61 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
-  import VisOptionInlineWrapper from '~/components/VisOptionInlineWrapper.vue'
-  import VisOptionWrapper from '~/components/VisOptionWrapper.vue'
-  import VisOption from '~/components/VisOption.vue'
+import { mapState, mapActions } from 'vuex'
 
-  const optionsDegree = [
-    ['1p5C', '1.5° C'],
-    ['2C', '2.0° C']
-  ]
+const optionsDegree = [
+  ['1p5C', '1.5° C'],
+  ['2C', '2.0° C']
+]
 
-  const optionsRegion = [
-    ['World', 'World'],
-    ['China', 'China'],
-    ['USA', 'USA'],
-    ['EU', 'EU'],
-    ['India', 'India'],
-    ['Russia', 'Russia'],
-    ['Japan', 'Japan']
-  ]
+const optionsRegion = [
+  ['World', 'World'],
+  ['China', 'China'],
+  ['USA', 'USA'],
+  ['EU', 'EU'],
+  ['India', 'India'],
+  ['Russia', 'Russia'],
+  ['Japan', 'Japan']
+]
 
-  const optionsPart = [
-    ['full', 'full'],
-    ['red', 'reduced']
-  ]
+const optionsPart = [
+  ['full', 'full'],
+  ['red', 'reduced']
+]
 
-  const optionsVariable = [
-    ['CO2|Energy and Industrial Processes', 'Energy and Industrial Processes'],
-    ['CO2|AFOLU', 'AFOLU']
-  ]
+const optionsVariable = [
+  ['CO2|Energy and Industrial Processes', 'Energy and Industrial Processes'],
+  ['CO2|AFOLU', 'AFOLU']
+]
 
-  export default {
-    data: function () {
-      return {
-        optionsDegree,
-        optionsRegion,
-        optionsPart,
-        optionsVariable
-      }
-    },
-    computed: {
-      ...mapState({
-        'degree': state => state.scenario.scenario.degree,
-        'part': state => state.scenario.scenario.part,
-        'variable': state => state.scenario.scenario.variable,
-        'range': state => state.scenario.scenario.range,
-        'region': state => state.scenario.scenario.region,
-        'aside': state => state.scenario.scenario.aside
-      }),
-      ...mapState([
-        'options'
-      ])
-    },
-    methods: {
-      ...mapActions([
-        'setScenario'
-      ])
-    },
-    components: {
-      VisOptionWrapper,
-      VisOptionInlineWrapper,
-      VisOption
+export default {
+  data () {
+    return {
+      optionsDegree,
+      optionsRegion,
+      optionsPart,
+      optionsVariable
     }
+  },
+  computed: {
+    ...mapState({
+      degree: state => state.scenario.scenario.degree,
+      part: state => state.scenario.scenario.part,
+      variable: state => state.scenario.scenario.variable,
+      range: state => state.scenario.scenario.range,
+      region: state => state.scenario.scenario.region,
+      aside: state => state.scenario.scenario.aside
+    }),
+    ...mapState([
+      'options'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'setScenario'
+    ])
   }
+}
 </script>
 
 <style lang="scss">

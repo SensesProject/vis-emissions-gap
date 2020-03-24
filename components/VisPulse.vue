@@ -1,33 +1,47 @@
 <template>
-	<g v-tooltip="label">
+  <g v-tooltip="label">
     <circle
       class="p2"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="12px" />
-	  <circle
-	    class="p1"
-	    :cx="x + 'px'"
-	    :cy="y + 'px'"
-	    r="4px" />
+      r="12px"
+    />
+    <circle
+      class="p1"
+      :cx="x + 'px'"
+      :cy="y + 'px'"
+      r="4px"
+    />
     <circle
       class="p3"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="10px" />
+      r="10px"
+    />
     <circle
       :style="{ transformOrigin: `${x}px ${y}px`}"
       class="p4"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="15px" />
-	</g>
+      r="15px"
+    />
+  </g>
 </template>
 
 <script>
-  export default {
-    props: ['x', 'y', 'label']
+export default {
+  props: {
+    x: {
+      type: Number
+    },
+    y: {
+      type: Number
+    },
+    label: {
+      type: String
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>

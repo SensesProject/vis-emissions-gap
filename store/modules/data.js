@@ -4,8 +4,9 @@ import get from 'lodash/get'
 import map from 'lodash/map'
 
 function processData (data) {
-  return map(data, datum => {
-    let [scenario, degree, part, policy] = datum.scenario.split('_')
+  return map(data, (datum) => {
+    const [scenario, degree, part, _policy] = datum.scenario.split('_')
+    let policy = _policy
     if (datum.scenario === 'historic') {
       policy = 'historic'
     } else if (datum.scenario === 'historic-landuse') {
@@ -46,13 +47,12 @@ const actions = {
     const status = get(dataRank, 'status', false)
     if (status !== 'loading') {
       commit('DATA_CHANGE', { status: 'loading' })
-      const url = `./data/data.json`
+      const url = './data/data.json'
       axios.get(url)
-        .then(response => {
+        .then((response) => {
           commit('DATA_CHANGE', { status: 'success', data: processData(response.data.data) })
         })
-        .catch(error => {
-          console.log('error', error)
+        .catch((error) => {
           commit('DATA_CHANGE', { status: 'error', message: error })
         })
     }

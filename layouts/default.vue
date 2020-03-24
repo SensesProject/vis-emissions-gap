@@ -2,18 +2,34 @@
   <div class="page">
     <header class="page-head">
       <section class="page-header">
-        <h1><n-link to="/">Senses Toolkit</n-link></h1>
+        <h1>
+          <n-link to="/">
+            Senses Toolkit
+          </n-link>
+        </h1>
         <nav class="page-nav">
           <ul>
-            <li><n-link to="/">Learn</n-link></li>
-            <li><n-link to="/">Explore</n-link></li>
-            <li><n-link to="/">Share</n-link></li>
+            <li>
+              <n-link to="/">
+                Learn
+              </n-link>
+            </li>
+            <li>
+              <n-link to="/">
+                Explore
+              </n-link>
+            </li>
+            <li>
+              <n-link to="/">
+                Share
+              </n-link>
+            </li>
           </ul>
         </nav>
       </section>
     </header>
     <div class="page-content" role="main">
-      <nuxt/>
+      <nuxt />
     </div>
     <footer class="page-foot">
       <section class="page-footer">
@@ -24,15 +40,15 @@
 </template>
 
 <script>
-  import get from 'lodash/get'
+import get from 'lodash/get'
 
-  export default {
-    computed: {
-      isModule: function () {
-        return get(this.$route, 'name', false) === 'module'
-      }
+export default {
+  computed: {
+    isModule () {
+      return get(this.$route, 'name', false) === 'module'
     }
   }
+}
 </script>
 
 <style lang="scss">

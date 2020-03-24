@@ -6,26 +6,24 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
-  import Vis from '~/components/Vis.vue'
-  import Story from '~/components/Story.vue'
-  import Navigation from '~/components/Navigation.vue'
+import { mapActions } from 'vuex'
+import Vis from '~/components/Vis.vue'
+import Navigation from '~/components/Navigation.vue'
 
-  export default {
-    components: {
-      Vis,
-      Story,
-      Navigation
-    },
-    methods: {
-      ...mapActions([
-        'loadData'
-      ])
-    },
-    created () {
-      this.loadData()
-    }
+export default {
+  components: {
+    Vis,
+    Navigation
+  },
+  created () {
+    this.loadData()
+  },
+  methods: {
+    ...mapActions([
+      'loadData'
+    ])
   }
+}
 </script>
 
 <style lang="scss" scoped>

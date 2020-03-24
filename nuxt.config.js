@@ -2,7 +2,7 @@ module.exports = {
   head: {
     title: 'Senses Project – Global Stocktake',
     htmlAttrs: {
-      lang: 'en-GB',
+      lang: 'en-GB'
     },
     meta: [
       { charset: 'utf-8' },
@@ -24,24 +24,16 @@ module.exports = {
   router: {
     base: '/stocktake/'
   },
-  loading: { color: '#4e40b2' },
+  loading: { color: '#fff' },
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module'
+  ],
   build: {
+    /*
+    ** You can extend webpack config here
+    */
     extend (config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-      if (ctx.isServer) {
-        config.externals = [
-          require('webpack-node-externals')({
-            whitelist: [/^vue-slick/]
-          })
-        ]
-      }
     }
   }
 }

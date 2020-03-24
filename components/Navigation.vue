@@ -1,11 +1,13 @@
 <template>
   <footer>
     <ul class="nav">
-      <li @click="previousStep" :class="{ 'nav-item': true, inactive: step === 0 }">
+      <li :class="{ 'nav-item': true, inactive: step === 0 }" @click="previousStep">
         <i class="icon-angle-left" />
       </li>
-      <li class="content"><Story /></li>
-      <li @click="nextStep" :class="{ 'nav-item': true, inactive: step === steps.length - 1, start: step === 0 }">
+      <li class="content">
+        <Story />
+      </li>
+      <li :class="{ 'nav-item': true, inactive: step === steps.length - 1, start: step === 0 }" @click="nextStep">
         <i class="icon-angle-right" />
       </li>
     </ul>
@@ -16,29 +18,29 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
-  import Story from '~/components/Story.vue'
+import { mapState, mapActions } from 'vuex'
+import Story from '~/components/Story.vue'
 
-  export default {
-    computed: {
-      ...mapState({
-        'step': state => state.navigation.step
-      }),
-      ...mapState([
-        'steps'
-      ])
-    },
-    methods: {
-      ...mapActions([
-        'nextStep',
-        'previousStep',
-        'setStep'
-      ])
-    },
-    components: {
-      Story
-    }
+export default {
+  computed: {
+    ...mapState({
+      step: state => state.navigation.step
+    }),
+    ...mapState([
+      'steps'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'nextStep',
+      'previousStep',
+      'setStep'
+    ])
+  },
+  components: {
+    Story
   }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,10 +1,12 @@
 <template slot-scope="{ signal }">
   <section :class="{ option: true, isWide }">
-    <span class="description">{{ label }}</span> <span v-if="tooltip" class="detail" v-tooltip="tooltip">?</span>
+    <span class="description">{{ label }}</span> <span v-if="tooltip" v-tooltip="tooltip" class="detail">?</span>
     <section v-if="isDropdown">
       <v-popover>
-        <button class="block">{{ currentLabel }} <i class="icon-angle-right" /></button>
-        <ul class="list" slot="popover">
+        <button class="block">
+          {{ currentLabel }} <i class="icon-angle-right" />
+        </button>
+        <ul slot="popover" class="list">
           <slot />
         </ul>
       </v-popover>
@@ -18,16 +20,32 @@
 </template>
 
 <script>
-  import { get, lowerCase, startCase } from 'lodash'
+import { get, lowerCase, startCase } from 'lodash'
 
-  export default {
-    props: ['label', 'isWide', 'tooltip', 'isDropdown', 'current'],
-    computed: {
-      currentLabel: function () {
-        return startCase(lowerCase(get(this, 'current', '')))
-      }
+export default {
+  props: {
+    label: {
+      type: String
+    },
+    isWide: {
+      type: Boolean
+    },
+    tooltip: {
+      type: Object
+    },
+    isDropdown: {
+      type: Boolean
+    },
+    current: {
+      type: String
+    }
+  },
+  computed: {
+    currentLabel () {
+      return startCase(lowerCase(get(this, 'current', '')))
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

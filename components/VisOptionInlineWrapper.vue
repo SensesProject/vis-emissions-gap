@@ -1,12 +1,15 @@
 <template slot-scope="{signal}">
   <section class="option">
     <v-popover>
-      <button class="inline"><span v-bind:style="{ 'min-width': minWidth }">{{ currentLabel }}</span> <i class="icon-angle-right" /></button>
-      <ul class="list" slot="popover">
+      <button class="inline">
+        <span :style="{ 'min-width': minWidth }">{{ currentLabel }}</span> <i class="icon-angle-right" />
+      </button>
+      <ul slot="popover" class="list">
         <li
           v-for="option in options"
           :class="{ isActive: isEqual(current, option[0]), 'option': true }"
-          @click="setScenario({ [slug]: option[0] })">
+          @click="setScenario({ [slug]: option[0] })"
+        >
           {{ option[1] }}
         </li>
       </ul>
@@ -15,31 +18,42 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
-  import { get, isEqual, find, map } from 'lodash'
+import { mapActions } from 'vuex'
+import { get, isEqual, find, map } from 'lodash'
 
-  export default {
-    props: ['options', 'current', 'slug'],
-    computed: {
-      currentLabel: function () {
-        return get(find(this.options, option => {
-          return option[0] === this.current
-        }), '1', this.current)
-      },
-      minWidth: function () {
-        const max = Math.max(...map(this.options, option => {
-          return option[1].length
-        }))
-        return `${max * 9}px`
-      }
+export default {
+  props: {
+    options: {
+      type: Array
     },
-    methods: {
-      ...mapActions([
-        'setScenario'
-      ]),
-      isEqual
+    current: {
+      type: Object
+    },
+    slug: {
+      type: String
     }
+  },
+  props: ['options', 'current', 'slug'],
+  computed: {
+    currentLabel () {
+      return get(find(this.options, (option) => {
+        return option[0] === this.current
+      }), '1', this.current)
+    },
+    minWidth () {
+      const max = Math.max(...map(this.options, (option) => {
+        return option[1].length
+      }))
+      return `${max * 9}px`
+    }
+  },
+  methods: {
+    ...mapActions([
+      'setScenario'
+    ]),
+    isEqual
   }
+}
 </script>
 
 <style lang="scss">

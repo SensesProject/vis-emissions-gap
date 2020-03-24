@@ -22,13 +22,12 @@ const mutations = {
 const actions = {
   loadData ({ commit, state }) {
     commit('DATA_ASIDE_CHANGE', { status: 'loading' })
-    const url = `./data/aside.json`
+    const url = './data/aside.json'
     axios.get(url)
-      .then(response => {
+      .then((response) => {
         commit('DATA_ASIDE_CHANGE', { status: 'success', data: response.data.data })
       })
-      .catch(error => {
-        console.log(error)
+      .catch((error) => {
         commit('DATA_ASIDE_CHANGE', { status: 'error', message: error })
       })
   }

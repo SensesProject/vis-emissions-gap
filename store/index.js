@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VTooltip from 'v-tooltip'
+import { map, find, compact, filter, get } from 'lodash'
 import highlight from './modules/highlight'
 import scenario from './modules/scenario'
 import navigation from './modules/navigation'
 import data from './modules/data'
 import aside from './modules/aside'
 import { elements } from './settings/elements.js'
-import { map, find, compact, filter, get } from 'lodash'
 const { steps } = require('./settings/steps.js')
 const { legend } = require('./settings/legend.js')
 const { options } = require('./settings/options.js')
@@ -33,11 +33,11 @@ export const modules = {
 }
 
 export const getters = {
-  paths: state => {
+  paths: (state) => {
     const { model, scenario, degree, part, variable, range, region } = state.scenario.scenario
     const { data } = state.data.data
     // Find items in the data that match the current options
-    const paths = compact(map(state.legend, policy => {
+    const paths = compact(map(state.legend, (policy) => {
       let obj
       let label = policy.label
       if (policy.attribute === 'historic') {
@@ -91,8 +91,8 @@ export const getters = {
 
     // Filter the data for the given years
     const [l, h] = range
-    return map(paths, path => {
-      const values = filter(path.values, d => {
+    return map(paths, (path) => {
+      const values = filter(path.values, (d) => {
         return d[0] <= h && d[0] >= l
       })
       return {
@@ -107,7 +107,7 @@ export const getters = {
     const { steps } = state
     const { step } = state.navigation
 
-    return map(paths, path => {
+    return map(paths, (path) => {
       return {
         ...path,
         clip: get(steps, `${step}.clips.${path.policy}`)

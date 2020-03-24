@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-  favicon: function () {
+  favicon () {
     return [
     	{ rel: 'apple-touch-icon-precomposed', sizes: '57x57', href: './apple-touch-icon-57x57.png' },
       { rel: 'apple-touch-icon-precomposed', sizes: '114x114', href: './apple-touch-icon-114x114.png' },
@@ -18,7 +18,7 @@ module.exports = {
       { rel: 'icon', type: 'image/png', href: './favicon-128.png', sizes: '128x128' }
     ]
   },
-  msapplication: function () {
+  msapplication () {
     return [
     	{ name: 'msapplication-TileColor', content: '#FFFFFF' },
       { name: 'msapplication-TileImage', content: './mstile-144x144.png' },
