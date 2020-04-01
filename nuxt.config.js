@@ -1,7 +1,7 @@
 module.exports = {
   mode: 'spa',
   head: {
-    title: 'Senses Project – Global Stocktake',
+    title: 'Senses Project – Emissions Gap',
     htmlAttrs: {
       lang: 'en-GB'
     },
@@ -23,18 +23,11 @@ module.exports = {
     }
   },
   router: {
-    base: '/stocktake/'
+    base: '/emissions-gap/'
   },
   loading: { color: '#fff' },
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
-  ],
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
-  }
+  ]
 }

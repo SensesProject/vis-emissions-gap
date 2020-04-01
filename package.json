@@ -1,7 +1,7 @@
 {
-  "name": "senses-global-stocktake",
+  "name": "senses-emissions-gap",
   "version": "0.0.1",
-  "description": "Senses - Global Stocktake",
+  "description": "Senses - Emissions Gap",
   "author": "Jonas Parnow <parnow@fh-potsdam.de>",
   "private": true,
   "scripts": {
