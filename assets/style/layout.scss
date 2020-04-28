@@ -12,7 +12,14 @@
   flex: 2;
 }
 
+$vis-height: 500px !default;
+
+.intro {
+  min-height: $vis-height;
+}
+
 .vis-wrapper {
+  max-height: $vis-height;
   display: flex;
   flex-direction: row;
   @include wrapper-primary();
@@ -29,11 +36,12 @@
 }
 
 .vis-footer {
-  margin-top: $spacing / 2;
+  height: $vis-height;
+  // margin-top: $spacing / 2;
   margin-left: $spacing / 2;
 
   .vis-footer-wrapper {
-    height: calc(100% - #{$spacing / 2});
+    height: 100%;
     display: flex;
     flex-direction: column;
 
