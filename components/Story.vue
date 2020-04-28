@@ -31,7 +31,7 @@
         <section>
           <p><a href="https://www.climatescenarios.org/primer/">Scenarios from integrated assessment models</a> help us explore what near-term and long-term targets. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays.</p>
           <p>The problem is: As we have seen in the previous step, we need to reduce emissions dramatically and not stay at the same level.</p>
-          <p>Scenario source: <span v-tooltip="'The scenarios shown in coloured lines in this module are from a recent scientific publication with the REMIND-MAgPIE modelling framework (Kriegler et al. 2018 plus link). The qualitative insights are identical to similar studies with other models (Luderer et al. 2018 plus link, Rogelj et al. 2015 plus link)'" class="info">REMIND-MAgPIE</span>.</p>
+          <p>Scenario source: <span v-tooltip="'The scenarios shown in coloured lines in this module are from a recent scientific publication with the REMIND-MAgPIE modelling framework (Kriegler et al. 2018). The qualitative insights are identical to similar studies with other models (Luderer et al. 2018, Rogelj et al. 2015)'" class="info">REMIND-MAgPIE</span>.</p>
         </section>
       </article>
       <article v-if="step === 3" key="step3">
@@ -44,7 +44,16 @@
         <h3>What do these short-term alternatives imply for achieving the long-term target of 1.5°C?</h3>
         <p>If coordinated policies only start after following the <span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDC</span> trajectory until 2030, very abrupt emission reductions would be required between 2030 and 2050, and more <span v-tooltip="'Combining bioenergy with carbon capture and storage leads to a removal of CO₂ from the atmosphere, as the CO₂ that plants take up during growth is eventually stored in geological reservoirs. Similarly, active afforestation can reduce the concentration of CO₂ in the atmosphere, by increasing the stock of CO₂ bound within standing trees. The need for CDR is higher in the NDC scenario than in the cost-effective one, as the additional emissions before the point of crossing of the two trajectories have to be compensated by lower emissions (or even more negative emissions) after this point of crossing.'" class="info">carbon dioxide removal</span> (CDR) would be needed in the second half of the century.</p>
       </article>
-      <article v-if="step === 5" key="step5">
+      <article v-if="step === 5" key="step6">
+        <header>
+          <h1>How do we get there?</h1>
+          <h3>What are the alternatives?</h3>
+        </header>
+        <section>
+          <p>Therefore, the question is how an intermediate scenario could look like that neither requires full global policy harmonization within the next few years nor requires massive abrupt strengthening in 2030. One such scenario is the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“Bridge” scenario</span> that explores how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-effective. Policies that can contribute to such a Bridge scenario could be based on an analysis of policy successes as already observed in some legislations. Or policies that target the requirements to achieve net-zero emissions in all sectors in the second half of the century. As can be seen on the graph, the more nuanced policy assumptions in the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Bridge scenario</span> lead to a smoother emissions trajectory without pronounced kinks. Also, the extreme breaks in investment numbers as shown on the right side are mitigated.</p>
+        </section>
+      </article>
+      <article v-if="step === 6" key="step5">
         <header>
           <h1>How do we get there?</h1>
           <h3>What are the alternatives?</h3>
@@ -52,15 +61,6 @@
         <section>
           <p>Abrupt emission reduction (as seen in the <span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDC scenario</span> in 2030 and the <span class="eff" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">cost-effective scenario</span>) would require the pre-mature retirement of carbon-intensive infrastructure, especially coal-fired power plants and an enormously fast ramp-up of low-carbon alternatives.</p>
           <p>This is also reflected in the investment requirements shown on the right side: The NDC scenario would require a considerable jump in investments after 2030, while in the cost-effective scenario a huge jump would be needed now.</p><p /><p>For these reasons, both these pathways seem an unlikely way to reach the long-term targets.</p>
-        </section>
-      </article>
-      <article v-if="step === 6" key="step6">
-        <header>
-          <h1>How do we get there?</h1>
-          <h3>What are the alternatives?</h3>
-        </header>
-        <section>
-          <p>Therefore, the question is how an intermediate scenario could look like that neither requires full global policy harmonization within the next few years nor requires massive abrupt strengthening in 2030. One such scenario is the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“Bridge” scenario</span> that explores how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-effective. Policies that can contribute to such a Bridge scenario could be based on an analysis of policy successes as already observed in some legislations. Or policies that target the requirements to achieve net-zero emissions in all sectors in the second half of the century. As can be seen on the graph, the more nuanced policy assumptions in the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Bridge scenario</span> lead to a smoother emissions trajectory without pronounced kinks. Also, the extreme breaks in investment numbers as shown on the right side are mitigated.</p>
         </section>
       </article>
       <article v-if="step === 7" key="step7">
