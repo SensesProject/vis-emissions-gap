@@ -130,10 +130,10 @@ const barLabels = {
 }
 
 const tabs = [
-  ['temperature', 'Temperature', 'icon-temperature'],
+  ['investment', 'Investment', 'icon-investment'],
   ['strandedAssests', 'Stranded Assests', 'icon-assets'],
-  ['landuse', 'Land Use', 'icon-landuse'],
-  ['investment', 'Investment', 'icon-investment']
+  ['temperature', 'Temperature', 'icon-temperature'],
+  ['landuse', 'Land Use', 'icon-landuse']
 ]
 
 const policies = {
