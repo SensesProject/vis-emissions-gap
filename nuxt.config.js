@@ -1,7 +1,7 @@
 module.exports = {
   mode: 'spa',
   head: {
-    title: 'Senses Project – Emissions Gap',
+    title: 'Senses Project – Closing the emissions Gap',
     htmlAttrs: {
       lang: 'en-GB'
     },
