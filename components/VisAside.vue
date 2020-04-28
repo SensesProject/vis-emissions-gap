@@ -41,6 +41,21 @@
             :class="i === titles.length - 1 ? 'axis small' : 'axis'"
             text-anchor="middle"
           >{{ title }}</text>
+          <g v-for="reference in references">
+            <text
+              :x="reference.x"
+              :y="reference.labelY"
+              text-anchor="middle"
+              class="reference">{{ reference.label }}</text>
+            <line
+              :x1="reference.x"
+              :x2="reference.x"
+              :y1="reference.y1"
+              :y2="reference.y2"
+              class="reference"
+              stroke-dasharray="1"
+            />
+          </g>
           <transition-group name="fade" tag="g">
             <g v-for="tick in axis.ticks" :key="tick.label">
               <line
@@ -352,6 +367,26 @@ export default {
           return get(step, ['data', 'aside']) === tab[0]
         })]
       })
+    },
+    references () {
+      if (this.variable === 'temperature') {
+        const values = [
+          ['1.5', 0.15],
+          ['2.0', 0.35],
+          ['Today', 0.5]
+        ]
+        return map(values, ([label, value]) => {
+          return {
+            label,
+            x: this.scaleX(value),
+            y1: this.margin.top - 35,
+            y2: this.height - this.margin.bottom,
+            labelY: this.margin.top - 40
+          }
+        })
+      } else {
+        return []
+      }
     }
   },
   mounted () {
