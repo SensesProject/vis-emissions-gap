@@ -1,18 +1,11 @@
+const { getHead } = require('library/src/assets/js/head.js')
+
 module.exports = {
   mode: 'spa',
-  head: {
-    title: 'Senses Project – Closing the emissions Gap',
-    htmlAttrs: {
-      lang: 'en-GB'
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-    ]
-  },
-  // env: {
-  //   dataURL: './'
-  // },
+  head: getHead({
+    title: 'Closing the emissions Gap',
+    description: 'This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.'
+  }),
   css: [
     'normalize-scss',
     '@/assets/style/base.scss'
