@@ -15,7 +15,7 @@ module.exports = {
     yLabel: 'historic-landuse-addition',
     goal: 0,
     data: {
-      aside: 'temperature',
+      aside: 'investment',
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
       degree: '1p5C',
@@ -38,7 +38,7 @@ module.exports = {
     yLabel: 'historic-landuse-addition',
     goal: 0,
     data: {
-      aside: 'temperature',
+      aside: 'investment',
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
       degree: '1p5C',
@@ -61,7 +61,7 @@ module.exports = {
     yLabel: 'historic',
     goal: 2030,
     data: {
-      aside: 'temperature',
+      aside: 'investment',
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
       degree: '1p5C',
@@ -84,7 +84,7 @@ module.exports = {
     yLabel: 'historic',
     goal: 2030,
     data: {
-      aside: 'temperature',
+      aside: 'investment',
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
       degree: '1p5C',
@@ -107,7 +107,7 @@ module.exports = {
     yLabel: 'historic',
     goal: 2050,
     data: {
-      aside: 'temperature',
+      aside: 'investment',
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
       degree: '1p5C',
@@ -121,7 +121,7 @@ module.exports = {
       NDC: 'end',
       eff: 'end',
       goodpractice: 'start',
-      netzero: 'start',
+      netzero: 2050,
       'historic-landuse-addition': 'start',
       'historic-landuse': 'end'
     },
@@ -130,7 +130,7 @@ module.exports = {
     yLabel: 'historic',
     goal: 2050,
     data: {
-      aside: 'strandedAssests',
+      aside: 'investment',
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
       degree: '1p5C',
@@ -161,6 +161,29 @@ module.exports = {
       region: 'World',
       variable: 'CO2|Energy and Industrial Processes',
       range: [1990, 2050]
+    }
+  }, {
+    visibility: [],
+    legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
+    yLabel: 'historic',
+    goal: 2050,
+    clips: {
+      NDC: 'end',
+      eff: 'end',
+      goodpractice: 'end',
+      netzero: 'end',
+      'historic-landuse-addition': 'start',
+      'historic-landuse': 'end'
+    },
+    data: {
+      aside: 'temperature',
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP',
+      degree: '1p5C',
+      part: 'full',
+      region: 'World',
+      variable: 'CO2|Energy and Industrial Processes',
+      range: [1990, 2100]
     }
   }, {
     visibility: [],
@@ -199,7 +222,7 @@ module.exports = {
       'historic-landuse': 'end'
     },
     data: {
-      aside: 'investment',
+      aside: 'landuse',
       model: 'REMIND-MAgPIE 1.7-3.0',
       scenario: 'PEP',
       degree: '1p5C',
