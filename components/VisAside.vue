@@ -404,6 +404,7 @@ export default {
   .vis-aside {
     width: 100%;
     height: 100%;
+    min-height: 360px;
     color: getColor(gray, 30);
     font-weight: $font-weight-bold;
     font-size: $size-default;
