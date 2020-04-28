@@ -1,22 +1,30 @@
 <template>
   <div class="module">
-    <Vis />
+    <Intro v-if="step === 0" />
+    <Vis v-if="step !== 0" />
     <Navigation />
     <SensesMeta id="emissions-gap" />
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import SensesMeta from 'library/src/components/SensesMeta.vue'
 import Vis from '~/components/Vis.vue'
 import Navigation from '~/components/Navigation.vue'
+import Intro from '~/components/Intro.vue'
 
 export default {
   components: {
     Vis,
     Navigation,
-    SensesMeta
+    SensesMeta,
+    Intro
+  },
+  computed: {
+    ...mapState({
+      step: state => state.navigation.step
+    })
   },
   created () {
     this.loadData()

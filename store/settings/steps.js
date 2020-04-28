@@ -33,6 +33,29 @@ module.exports = {
       'historic-landuse-addition': 2030,
       'historic-landuse': 'end'
     },
+    visibility: ['landuse'],
+    legend: ['historic', 'landuse'],
+    yLabel: 'historic-landuse-addition',
+    goal: 0,
+    data: {
+      aside: 'investment',
+      model: 'REMIND-MAgPIE 1.7-3.0',
+      scenario: 'PEP',
+      degree: '1p5C',
+      part: 'full',
+      region: 'World',
+      variable: 'CO2|Energy and Industrial Processes',
+      range: [1990, 2050]
+    }
+  }, {
+    clips: {
+      NDC: 'start',
+      eff: 'start',
+      goodpractice: 'start',
+      netzero: 'start',
+      'historic-landuse-addition': 2030,
+      'historic-landuse': 'end'
+    },
     visibility: ['budget', 'arrowup', 'arrowdown', 'landuse'],
     legend: [],
     yLabel: 'historic-landuse-addition',
