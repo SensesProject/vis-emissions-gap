@@ -1,12 +1,12 @@
 <template>
   <transition-group name="fade" tag="g">
-    <VisPulse
-      v-if="step === 0"
+<!--     <VisPulse
+      v-if="step === 1"
       key="negativeEmission"
       :x="(x2 - x1) / 3"
       :y="y - 20"
       label="Due to the long lifetime of CO₂ in the atmosphere, the concentration of CO₂, which causes the warming effect will increase as long as yearly emissions are positive. This means that yearly emissions have to be reduced to zero in order to stabilize the concentration in the atmosphere and thus warming. If net negative emissions are reached by employing more carbon dioxide removal than positive residual emissions, the concentration of CO₂ in the atmosphere can be reduced and thus the warming reduced."
-    />
+    /> -->
     <VisPulse
       v-if="region !== 'World'"
       key="nonWorld"
@@ -22,14 +22,14 @@
       label="Achieving the very demanding emission reductions implied by the 1.5°C target with only reduced availability of CDR is only possible with the model specifications when assuming cost-effective policies already in 2025."
     />
     <VisPulse
-      v-if="step === 0"
+      v-if="step === 1"
       key="landUse"
       :x="middleHistoric[0]"
       :y="middleHistoric[1]"
-      label="Land Use added…"
+      label="Land Use emissions are shown in the green shaded area. The rest of this learn module however focuses on the CO2 emissions from fossil fuel use and industrial processes shown in grey"
     />
     <VisPulse
-      v-if="step === 1"
+      v-if="step === 2"
       key="budget"
       :x="year2045"
       :y="lowerThird"
