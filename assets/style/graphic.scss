@@ -42,6 +42,11 @@ path {
     stroke-width: 1px;
     fill: none;
   }
+
+  &.reference {
+    fill: getColor(gray, 70);
+    opacity: 0.15;
+  }
 }
 
 rect {

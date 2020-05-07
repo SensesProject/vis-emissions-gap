@@ -73,6 +73,25 @@ def formatDoubleVariable (arr1, arr2, variable)
 	end
 end
 
+def formatTemperature (med, p66, p95)
+	med.map do |d|
+		_p66 = p66.select { |p|
+			p['Scenario'] == d['Scenario']
+		}
+		_p95 = p95.select { |p|
+			p['Scenario'] == d['Scenario']
+		}
+		model, target, cdr, policy = d['Scenario'].split('_')
+		valueMed2050 = formatNumber(d['2050'])
+		valueP662050 = formatNumber(_p66[0]['2050'])
+		valueP952050 = formatNumber(_p95[0]['2050'])
+		valueMed2100 = formatNumber(d['2100'])
+		valueP662100 = formatNumber(_p66[0]['2100'])
+		valueP952100 = formatNumber(_p95[0]['2100'])
+		formatOutput(target, cdr, policy, "World", [[2050, { med: valueMed2050, p66: valueP662050, p95: valueP952050 }], [2100, { med: valueMed2100, p66: valueP662100, p95: valueP952100 }]], "temperature")
+	end
+end
+
 def formatSingleVariable (arr, variable)
 	arr.map do |d|
 		target, cdr = splitTarget(d['target'])
@@ -84,7 +103,7 @@ end
 data = readCSV('investment_numbers_regi.csv')
 
 # Group price data
-periods = data.group_by { |i| i['period'] }
+periods = data.select { |p| p['region'].eql? 'World' }.group_by { |i| i['period'] }
 first = periods['2020-2030']
 second = periods['2030-2050']
 
@@ -94,17 +113,25 @@ datum = formatDoubleVariable(first, second, 'investment')
 data = readCSV('LearnModule.csv')
 landUse = data.select { |p| p['variable'].eql? 'Land area used' }
 strandedAssests = data.select { |p| p['variable'].eql? 'Stranded assests' }
-temperature = data.select { |p| p['variable'].eql? 'Temperature' }
+# temperature = data.select { |p| p['variable'].eql? 'Temperature' }
 
 datum.push(*formatSingleVariable(landUse, 'landuse'))
 datum.push(*formatSingleVariable(strandedAssests, 'strandedAssests'))
 
 # Group temperature data
-temperatures = temperature.group_by { |i| i['period'] }
-first = temperatures['2030']
-second = temperatures['2050']
+# temperatures = temperature.group_by { |i| i['period'] }
+# first = temperatures['2030']
+# second = temperatures['2050']
 
-datum.push(*formatDoubleVariable(first, second, 'temperature'))
+data = readCSV('PEP_temp_iamc-1.5c-explorer_snapshot_1588168249.csv')
+variables = data.group_by { |i| i['Variable'] }
+med = variables['AR5 climate diagnostics|Temperature|Global Mean|MAGICC6|MED']
+p66 = variables['AR5 climate diagnostics|Temperature|Global Mean|MAGICC6|P66']
+p95 = variables['AR5 climate diagnostics|Temperature|Global Mean|MAGICC6|P95']
+datum.push(*formatTemperature(med, p66, p95))
+
+
+# datum.push(*formatDoubleVariable(first, second, 'temperature'))
 
 File.open('aside.json', 'w') do |f|
   f.write(JSON.pretty_generate({ data: datum }))

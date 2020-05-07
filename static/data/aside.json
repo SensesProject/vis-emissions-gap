@@ -4,1332 +4,6 @@
       "degree": "2C",
       "part": "full",
       "policy": "NDC",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          147.9209
-        ],
-        [
-          2050,
-          325.099525
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          205.421875
-        ],
-        [
-          2050,
-          312.8395625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          237.5056
-        ],
-        [
-          2050,
-          306.292275
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "eff",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          269.975225
-        ],
-        [
-          2050,
-          298.67015
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "NDC",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          147.9209
-        ],
-        [
-          2050,
-          262.1269
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "goodpractice",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          205.421875
-        ],
-        [
-          2050,
-          269.7389125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "netzero",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          237.5056
-        ],
-        [
-          2050,
-          266.74695
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "eff",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          275.256225
-        ],
-        [
-          2050,
-          277.3646625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          147.9209
-        ],
-        [
-          2050,
-          313.898525
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          205.421875
-        ],
-        [
-          2050,
-          303.4778125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          237.5056
-        ],
-        [
-          2050,
-          299.808425
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "eff",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          295.0435
-        ],
-        [
-          2050,
-          293.3671
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "red",
-      "policy": "eff",
-      "region": "China",
-      "values": [
-        [
-          2030,
-          267.74475
-        ],
-        [
-          2050,
-          190.33675
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          87.850475
-        ],
-        [
-          2050,
-          142.6783375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          84.774725
-        ],
-        [
-          2050,
-          136.7525625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          86.0676
-        ],
-        [
-          2050,
-          126.958575
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "eff",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          100.754425
-        ],
-        [
-          2050,
-          131.511175
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "NDC",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          87.850475
-        ],
-        [
-          2050,
-          183.3598875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "goodpractice",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          84.774725
-        ],
-        [
-          2050,
-          173.14505
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "netzero",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          86.0676
-        ],
-        [
-          2050,
-          161.0337875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "eff",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          111.0454
-        ],
-        [
-          2050,
-          145.4367125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          87.850475
-        ],
-        [
-          2050,
-          161.57245
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          84.774725
-        ],
-        [
-          2050,
-          157.3904125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          86.0676
-        ],
-        [
-          2050,
-          144.845175
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "eff",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          117.054825
-        ],
-        [
-          2050,
-          143.252825
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "red",
-      "policy": "eff",
-      "region": "EU",
-      "values": [
-        [
-          2030,
-          162.02245
-        ],
-        [
-          2050,
-          185.282125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          49.874575
-        ],
-        [
-          2050,
-          222.12665
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          55.55165
-        ],
-        [
-          2050,
-          201.3585375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          67.4774
-        ],
-        [
-          2050,
-          204.3349375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "eff",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          98.701475
-        ],
-        [
-          2050,
-          213.0548875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "NDC",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          49.874575
-        ],
-        [
-          2050,
-          279.84235
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "goodpractice",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          55.55165
-        ],
-        [
-          2050,
-          266.62245
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "netzero",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          67.4774
-        ],
-        [
-          2050,
-          257.9471625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "eff",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          113.1664
-        ],
-        [
-          2050,
-          236.82785
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          49.874575
-        ],
-        [
-          2050,
-          249.3909125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          55.55165
-        ],
-        [
-          2050,
-          237.8754
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          67.4774
-        ],
-        [
-          2050,
-          237.189275
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "eff",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          117.44305
-        ],
-        [
-          2050,
-          233.4873875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "red",
-      "policy": "eff",
-      "region": "India",
-      "values": [
-        [
-          2030,
-          141.728625
-        ],
-        [
-          2050,
-          303.5996875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          8.948875
-        ],
-        [
-          2050,
-          37.361
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          13.13785
-        ],
-        [
-          2050,
-          34.8996875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          14.6223
-        ],
-        [
-          2050,
-          34.1677125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "eff",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          19.947525
-        ],
-        [
-          2050,
-          33.4738375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "NDC",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          8.948875
-        ],
-        [
-          2050,
-          50.4615625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "goodpractice",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          13.13785
-        ],
-        [
-          2050,
-          46.728025
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "netzero",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          14.6223
-        ],
-        [
-          2050,
-          44.29375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "eff",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          24.1848
-        ],
-        [
-          2050,
-          40.87385
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          8.948875
-        ],
-        [
-          2050,
-          46.5307875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          13.13785
-        ],
-        [
-          2050,
-          43.951725
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          14.6223
-        ],
-        [
-          2050,
-          42.1600875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "eff",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          25.1441
-        ],
-        [
-          2050,
-          38.7034625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "red",
-      "policy": "eff",
-      "region": "Japan",
-      "values": [
-        [
-          2030,
-          42.1845
-        ],
-        [
-          2050,
-          51.524525
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          10.74805
-        ],
-        [
-          2050,
-          38.6724875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          17.72505
-        ],
-        [
-          2050,
-          36.0156125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          24.4965
-        ],
-        [
-          2050,
-          32.7315875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "eff",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          28.7382
-        ],
-        [
-          2050,
-          32.7442875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "NDC",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          10.74805
-        ],
-        [
-          2050,
-          48.1062625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "goodpractice",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          17.72505
-        ],
-        [
-          2050,
-          42.726225
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "netzero",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          24.4965
-        ],
-        [
-          2050,
-          38.2340125
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "eff",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          34.243475
-        ],
-        [
-          2050,
-          34.1784625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          10.74805
-        ],
-        [
-          2050,
-          45.9648375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          17.72505
-        ],
-        [
-          2050,
-          41.9006375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          24.4965
-        ],
-        [
-          2050,
-          37.361025
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "eff",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          34.682025
-        ],
-        [
-          2050,
-          34.18425
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "red",
-      "policy": "eff",
-      "region": "Russia",
-      "values": [
-        [
-          2030,
-          45.51955
-        ],
-        [
-          2050,
-          38.1137625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          81.278275
-        ],
-        [
-          2050,
-          163.7782875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          83.607625
-        ],
-        [
-          2050,
-          152.827775
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          87.58125
-        ],
-        [
-          2050,
-          142.2970875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "eff",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          111.9916
-        ],
-        [
-          2050,
-          149.94445
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "NDC",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          81.278275
-        ],
-        [
-          2050,
-          200.361375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "goodpractice",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          83.607625
-        ],
-        [
-          2050,
-          187.1843625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "netzero",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          87.58125
-        ],
-        [
-          2050,
-          175.3598625
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "eff",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          128.898275
-        ],
-        [
-          2050,
-          166.4114375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "NDC",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          81.278275
-        ],
-        [
-          2050,
-          191.5307875
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          83.607625
-        ],
-        [
-          2050,
-          178.1020375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          87.58125
-        ],
-        [
-          2050,
-          162.5770375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "eff",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          139.70305
-        ],
-        [
-          2050,
-          167.67785
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "1p5C",
-      "part": "red",
-      "policy": "eff",
-      "region": "USA",
-      "values": [
-        [
-          2030,
-          198.68605
-        ],
-        [
-          2050,
-          201.0993375
-        ]
-      ],
-      "variable": "investment"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "NDC",
       "region": "World",
       "values": [
         [
@@ -1886,137 +560,26 @@
       "variable": "strandedAssests"
     },
     {
-      "degree": "2C",
+      "degree": "1p5C",
       "part": "full",
       "policy": "NDC",
       "region": "World",
       "values": [
         [
-          2030,
-          0.496055738
+          2050,
+          {
+            "med": 1.828234679,
+            "p66": 1.97333578,
+            "p95": 2.624063482
+          }
         ],
         [
-          2050,
-          0.869920458
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.477784191
-        ],
-        [
-          2050,
-          0.808145845
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "netzero",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.479780404
-        ],
-        [
-          2050,
-          0.779327419
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "2C",
-      "part": "full",
-      "policy": "eff",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.474316218
-        ],
-        [
-          2050,
-          0.724052374
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "NDC",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.495162494
-        ],
-        [
-          2050,
-          0.792535297
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "goodpractice",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.477289085
-        ],
-        [
-          2050,
-          0.738433582
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "netzero",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.47876653
-        ],
-        [
-          2050,
-          0.719552491
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "2C",
-      "part": "red",
-      "policy": "eff",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.469564071
-        ],
-        [
-          2050,
-          0.639349191
+          2100,
+          {
+            "med": 1.299729017,
+            "p66": 1.461439772,
+            "p95": 2.184078291
+          }
         ]
       ],
       "variable": "temperature"
@@ -2024,33 +587,24 @@
     {
       "degree": "1p5C",
       "part": "full",
-      "policy": "NDC",
+      "policy": "eff",
       "region": "World",
       "values": [
         [
-          2030,
-          0.495702194
+          2050,
+          {
+            "med": 1.659844102,
+            "p66": 1.794493458,
+            "p95": 2.357260504
+          }
         ],
         [
-          2050,
-          0.797225137
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "goodpractice",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.47753291
-        ],
-        [
-          2050,
-          0.741905589
+          2100,
+          {
+            "med": 1.287237111,
+            "p66": 1.445826904,
+            "p95": 2.132934594
+          }
         ]
       ],
       "variable": "temperature"
@@ -2062,29 +616,20 @@
       "region": "World",
       "values": [
         [
-          2030,
-          0.479660947
+          2050,
+          {
+            "med": 1.754664836,
+            "p66": 1.897217677,
+            "p95": 2.508645816
+          }
         ],
         [
-          2050,
-          0.724219809
-        ]
-      ],
-      "variable": "temperature"
-    },
-    {
-      "degree": "1p5C",
-      "part": "full",
-      "policy": "eff",
-      "region": "World",
-      "values": [
-        [
-          2030,
-          0.468645807
-        ],
-        [
-          2050,
-          0.628751015
+          2100,
+          {
+            "med": 1.286157674,
+            "p66": 1.442528991,
+            "p95": 2.152772653
+          }
         ]
       ],
       "variable": "temperature"
@@ -2096,12 +641,170 @@
       "region": "World",
       "values": [
         [
-          2030,
-          0.442972642
+          2050,
+          {
+            "med": 1.516379758,
+            "p66": 1.644974292,
+            "p95": 2.164579879
+          }
         ],
         [
+          2100,
+          {
+            "med": 1.267645159,
+            "p66": 1.416248533,
+            "p95": 2.073226247
+          }
+        ]
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        [
           2050,
-          0.485402653
+          {
+            "med": 1.90093,
+            "p66": 2.046896639,
+            "p95": 2.718899644
+          }
+        ],
+        [
+          2100,
+          {
+            "med": 1.591550002,
+            "p66": 1.787079742,
+            "p95": 2.588260218
+          }
+        ]
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        [
+          2050,
+          {
+            "med": 1.755145461,
+            "p66": 1.894836305,
+            "p95": 2.493538743
+          }
+        ],
+        [
+          2100,
+          {
+            "med": 1.577368985,
+            "p66": 1.765828841,
+            "p95": 2.529883242
+          }
+        ]
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "full",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        [
+          2050,
+          {
+            "med": 1.809772446,
+            "p66": 1.950271691,
+            "p95": 2.589497368
+          }
+        ],
+        [
+          2100,
+          {
+            "med": 1.575798335,
+            "p66": 1.766462591,
+            "p95": 2.538538373
+          }
+        ]
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "NDC",
+      "region": "World",
+      "values": [
+        [
+          2050,
+          {
+            "med": 1.823561001,
+            "p66": 1.968997692,
+            "p95": 2.617376273
+          }
+        ],
+        [
+          2100,
+          {
+            "med": 1.570928415,
+            "p66": 1.754940941,
+            "p95": 2.533010413
+          }
+        ]
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "eff",
+      "region": "World",
+      "values": [
+        [
+          2050,
+          {
+            "med": 1.670326296,
+            "p66": 1.808586457,
+            "p95": 2.372991103
+          }
+        ],
+        [
+          2100,
+          {
+            "med": 1.558851664,
+            "p66": 1.736297503,
+            "p95": 2.472292883
+          }
+        ]
+      ],
+      "variable": "temperature"
+    },
+    {
+      "degree": "2C",
+      "part": "red",
+      "policy": "netzero",
+      "region": "World",
+      "values": [
+        [
+          2050,
+          {
+            "med": 1.749688208,
+            "p66": 1.892671105,
+            "p95": 2.504118185
+          }
+        ],
+        [
+          2100,
+          {
+            "med": 1.554963892,
+            "p66": 1.735746157,
+            "p95": 2.490238879
+          }
         ]
       ],
       "variable": "temperature"

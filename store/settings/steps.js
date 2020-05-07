@@ -189,7 +189,7 @@ module.exports = {
     visibility: [],
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     yLabel: 'historic',
-    goal: 2050,
+    goal: 2100,
     clips: {
       NDC: 'end',
       eff: 'end',
@@ -212,7 +212,7 @@ module.exports = {
     visibility: [],
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     yLabel: 'historic',
-    goal: 2050,
+    goal: 2100,
     clips: {
       NDC: 'end',
       eff: 'end',
@@ -235,7 +235,7 @@ module.exports = {
     visibility: [],
     legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
     yLabel: 'historic',
-    goal: 2050,
+    goal: 2100,
     clips: {
       NDC: 'end',
       eff: 'end',

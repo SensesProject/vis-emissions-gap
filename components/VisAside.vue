@@ -56,6 +56,17 @@
               stroke-dasharray="1"
             />
           </g>
+          <g v-for="area in areas">
+            <text
+              :x="area.labelX"
+              :y="area.labelY"
+              text-anchor="middle"
+              class="reference">{{ area.label }}</text>
+            <path
+              :d="area.d"
+              class="reference"
+            />
+          </g>
           <transition-group name="fade" tag="g">
             <g v-for="tick in axis.ticks" :key="tick.label">
               <line
@@ -92,8 +103,28 @@
             >{{ group.label }}</text>
             <g v-for="bar in group.bars">
               <rect
+                v-if="goal >= bar.year && bar.widthP95"
+                v-tooltip="{ content: bar.tooltip[2], offset: 5 }"
+                :class="`bar-${bar.year}`"
+                :style="{ opacity: 0.33 }"
+                :width="bar.widthP95 - bar.widthP66"
+                :height="group.singleBarHeight"
+                :y="bar.y"
+                :x="group.x + bar.widthP66"
+              />
+              <rect
+                v-if="goal >= bar.year && bar.widthP66"
+                v-tooltip="{ content: bar.tooltip[1], offset: 5 }"
+                :class="`bar-${bar.year}`"
+                :style="{ opacity: 0.66 }"
+                :width="bar.widthP66 - bar.width"
+                :height="group.singleBarHeight"
+                :y="bar.y"
+                :x="group.x + bar.width"
+              />
+              <rect
                 v-if="goal >= bar.year"
-                v-tooltip="{ content: `${bar.policyLabel}: ${bar.valueLabel}`, offset: 5 }"
+                v-tooltip="{ content: bar.tooltip[0], offset: 5 }"
                 :class="`bar-${bar.year}`"
                 :width="bar.width"
                 :height="group.singleBarHeight"
@@ -118,6 +149,12 @@
             </g>
           </g>
         </transition-group>
+        <VisPulse
+          v-if="variable === 'temperature'"
+          :x="margin.left + (width - margin.left - margin.right) / 5 * 4"
+          :y="margin.top + (height - margin.top - margin.bottom) / 3"
+          label='Due to inherent uncertainties about warming related to a particular emissions pathways, the temperature outcome for 2050 and 2100 can only be described probabilistically. The "median" values show the temperature value that lies in the middle of the distribution. The "95%" percentile values show hoch much higher the temperature outcomes are, that have a very high likelihood of not beeing exceeded. On the other hand, even with a stringend pathway aiming at staying below 2°C with 66% likelihood, there is a 5% probability of 2100 temperature exceeding 2.5°C.'
+        />
       </svg>
     </div>
   </div>
@@ -129,6 +166,7 @@ import { map, find, flatten, get, mean, compact, isUndefined, times, slice, some
 import { scaleLinear, scaleBand } from 'd3-scale'
 import { extent } from 'd3-array'
 import { format } from 'd3-format'
+import VisPulse from '~/components/VisPulse.vue'
 
 const titles = {
   temperature: ['Increase in global mean temparature', '(rel. to 2015, in °C, global)'],
@@ -138,7 +176,7 @@ const titles = {
 }
 
 const barLabels = {
-  temperature: ['2030', '2050'],
+  temperature: ['2050', '2100'],
   investment: ['2020–2030', '2030–2050'],
   landuse: false,
   strandedAssests: false
@@ -242,9 +280,15 @@ export default {
       // Used to calculate the domain in the x-direction
       return extent(flatten(map(this.bars, (policy) => {
         const values = get(policy, 'values', [[0, 0]])
-        return map(values, (value) => {
-          return get(value, '1', 0)
-        })
+        if (this.variable === 'temperature') {
+          return flatten(map(values, (value) => {
+            return [get(value, ['1', 'med'], 0), get(value, ['1', 'p66'], 0), get(value, ['1', 'p95'], 0)]
+          }))
+        } else {
+          return map(values, (value) => {
+            return get(value, '1', 0)
+          })
+        }
       })))
     },
     scaleX () {
@@ -284,13 +328,32 @@ export default {
         const singleBarHeight = Math.min(this.scaleYBar.bandwidth(), 25)
         const bars = map(values, (datum, n) => {
           const isTop = n === 0
-          const [year, value] = datum
+          const year = datum[0]
+          let value = datum[1]
+          // let [year, value] = datum
+          if (this.variable === 'temperature') {
+            value = value.med
+          }
           const valueLabel = f2(value)
           const labelText = get(labelsX, n, f(value))
           const width = this.scaleX(value) - x
           const y = yPolicy + this.scaleYBar(n)
           const centerX = x + (hasLabel ? width / 2 : width)
           const labelY = y + (isTop ? 0 : singleBarHeight)
+          let widthP66
+          let widthP95
+          let tooltip
+          if (this.variable === 'temperature') {
+            widthP66 = this.scaleX(datum[1].p66) - x
+            widthP95 = this.scaleX(datum[1].p95) - x
+            tooltip = [
+              `${policyLabel} (${year}): ${valueLabel} (Median)`,
+              `${policyLabel} (${year}): ${f2(datum[1].p66)} (66% percentile)`,
+              `${policyLabel} (${year}): ${f2(datum[1].p95)} (95% percentile)`
+            ]
+          } else {
+            tooltip = [`${policyLabel} (${year}): ${valueLabel}`]
+          }
           // Maybe use this additionally:
           // const [anchor, translate1] = placeLabel(x1, [leftBorder, rightBorder], bar2030Width)
           const label = (hasLabel && i === 0) || !hasLabel ? {
@@ -302,9 +365,13 @@ export default {
             y2: labelY + (isTop ? -d2 : d2),
             anchor: hasLabel ? 'middle' : 'end'
           } : false
+          console.log({ valueLabel, width, y })
           return {
+            tooltip,
             year,
             width,
+            widthP66,
+            widthP95,
             y,
             value,
             policy,
@@ -371,9 +438,7 @@ export default {
     references () {
       if (this.variable === 'temperature') {
         const values = [
-          ['1.5', 0.15],
-          ['2.0', 0.35],
-          ['Today', 0.5]
+          ['2019', 0.5]
         ]
         return map(values, ([label, value]) => {
           return {
@@ -381,6 +446,28 @@ export default {
             x: this.scaleX(value),
             y1: this.margin.top - 35,
             y2: this.height - this.margin.bottom,
+            labelY: this.margin.top - 40
+          }
+        })
+      } else {
+        return []
+      }
+    },
+    areas () {
+      if (this.variable === 'temperature') {
+        const values = [
+          ['Paris Target Area', 1.5, 2.0]
+        ]
+        return map(values, ([label, start, end]) => {
+          const x1 = this.scaleX(start)
+          const x2 = this.scaleX(end)
+          const y1 = this.margin.top - 35
+          const y2 = this.height - this.margin.bottom
+          const d = `M${x1} ${y1} V ${y2} H ${x2} V ${y1} Z`
+          return {
+            label,
+            d,
+            labelX: this.scaleX(start + ((end - start) / 2)),
             labelY: this.margin.top - 40
           }
         })
@@ -412,6 +499,9 @@ export default {
       'setHighlight',
       'setScenario'
     ])
+  },
+  components: {
+    VisPulse
   }
 }
 </script>
