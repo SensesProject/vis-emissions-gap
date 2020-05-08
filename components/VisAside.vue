@@ -131,6 +131,14 @@
                 :y="bar.y"
                 :x="group.x"
               />
+              <line
+                v-if="goal >= bar.year && bar.refX1"
+                :class="`bar-ref`"
+                :y1="bar.refY"
+                :y2="bar.refY"
+                :x1="bar.refX1"
+                :x2="bar.refX2"
+              />
               <g v-if="bar.label && goal >= bar.year">
                 <line
                   :x1="bar.label.x"
@@ -162,7 +170,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import { map, find, flatten, get, mean, compact, isUndefined, times, slice, some } from 'lodash'
+import { map, find, flatten, get, mean, compact, isUndefined, times, slice, some, filter } from 'lodash'
 import { scaleLinear, scaleBand } from 'd3-scale'
 import { extent } from 'd3-array'
 import { format } from 'd3-format'
@@ -302,6 +310,10 @@ export default {
       return this.scaleX.domain()[1] && this.width && this.height
     },
     elements () {
+      const references = {
+        investment: 363
+      }
+      const reference = get(references, this.variable)
       // Custom labels might be present for this variable
       const labelsX = this.barLabels
       const hasLabel = !!labelsX
@@ -328,32 +340,60 @@ export default {
         const singleBarHeight = Math.min(this.scaleYBar.bandwidth(), 25)
         const bars = map(values, (datum, n) => {
           const isTop = n === 0
+
+          // Get the year
           const year = datum[0]
+
+          // Value could be a value or an object for temperature values
           let value = datum[1]
-          // let [year, value] = datum
           if (this.variable === 'temperature') {
             value = value.med
           }
+
+          // Format the value
           const valueLabel = f2(value)
           const labelText = get(labelsX, n, f(value))
+
           const width = this.scaleX(value) - x
           const y = yPolicy + this.scaleYBar(n)
           const centerX = x + (hasLabel ? width / 2 : width)
           const labelY = y + (isTop ? 0 : singleBarHeight)
+
+          // This is used for the temperature
           let widthP66
           let widthP95
           let tooltip
           if (this.variable === 'temperature') {
             widthP66 = this.scaleX(datum[1].p66) - x
             widthP95 = this.scaleX(datum[1].p95) - x
+
+            // Create multiple tooltips for temperature
             tooltip = [
               `${policyLabel} (${year}): ${valueLabel} (Median)`,
               `${policyLabel} (${year}): ${f2(datum[1].p66)} (66% percentile)`,
               `${policyLabel} (${year}): ${f2(datum[1].p95)} (95% percentile)`
             ]
           } else {
+            // Create only one tooltip for other variables
             tooltip = [`${policyLabel} (${year}): ${valueLabel}`]
           }
+
+          // Create reference bars
+          let refX1
+          let refX2
+          let refY
+
+          if (!isUndefined(reference)) {
+            if (isTop) {
+              refX1 = this.scaleX(reference)
+            } else {
+              // This will cause problems if not only investment has reference values but also temperature
+              refX1 = this.scaleX(get(values, [n - 1, 1]))
+            }
+            refX2 = this.scaleX(value)
+            refY = y + singleBarHeight / 2
+          }
+
           // Maybe use this additionally:
           // const [anchor, translate1] = placeLabel(x1, [leftBorder, rightBorder], bar2030Width)
           const label = (hasLabel && i === 0) || !hasLabel ? {
@@ -365,7 +405,6 @@ export default {
             y2: labelY + (isTop ? -d2 : d2),
             anchor: hasLabel ? 'middle' : 'end'
           } : false
-          console.log({ valueLabel, width, y })
           return {
             tooltip,
             year,
@@ -377,7 +416,10 @@ export default {
             policy,
             label,
             policyLabel,
-            valueLabel
+            valueLabel,
+            refX1,
+            refX2,
+            refY
           }
         })
         const labelY = yPolicy - 10
@@ -436,22 +478,22 @@ export default {
       })
     },
     references () {
-      if (this.variable === 'temperature') {
-        const values = [
-          ['2019', 0.5]
-        ]
-        return map(values, ([label, value]) => {
-          return {
-            label,
-            x: this.scaleX(value),
-            y1: this.margin.top - 35,
-            y2: this.height - this.margin.bottom,
-            labelY: this.margin.top - 40
-          }
-        })
-      } else {
-        return []
-      }
+      const values = [
+        ['2019', 1.1, 'temperature'],
+        ['2019', 363, 'investment']
+      ]
+      const ticks = filter(values, ([, , variable]) => {
+        return variable === this.variable
+      })
+      return map(ticks, ([label, value]) => {
+        return {
+          label,
+          x: this.scaleX(value),
+          y1: this.margin.top - 35,
+          y2: this.height - this.margin.bottom,
+          labelY: this.margin.top - 40
+        }
+      })
     },
     areas () {
       if (this.variable === 'temperature') {
