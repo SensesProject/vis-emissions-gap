@@ -18,6 +18,18 @@
     </header>
     <div class="vis-aside-wrapper">
       <svg ref="vis" class="vis-aside">
+        <defs>
+          <pattern id="diagonal-stripe-more" patternUnits="userSpaceOnUse" width="4" height="4">
+            <path
+              d="M-1,1 l2,-2
+                M0,4 l4,-4
+                M3,5 l2,-2"
+              stroke="#fff"
+              style="opacity: 0.8"
+              stroke-width="1.5"
+            />
+          </pattern>
+        </defs>
         <g v-if="goal >= 2030">
           <line
             :x1="axis.x1"
@@ -131,13 +143,14 @@
                 :y="bar.y"
                 :x="group.x"
               />
-              <line
+              <rect
                 v-if="goal >= bar.year && bar.refX1"
                 :class="`bar-ref`"
-                :y1="bar.refY"
-                :y2="bar.refY"
-                :x1="bar.refX1"
-                :x2="bar.refX2"
+                :style="{ fill: 'url(#diagonal-stripe-more)' }"
+                :width="bar.refX1 - group.x"
+                :height="group.singleBarHeight"
+                :y="bar.y"
+                :x="group.x"
               />
               <g v-if="bar.label && goal >= bar.year">
                 <line
