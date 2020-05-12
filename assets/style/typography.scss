@@ -97,5 +97,6 @@ span {
 
   &.info {
     border-bottom: 1px dashed $color-blue;
+    white-space: nowrap;
   }
 }
