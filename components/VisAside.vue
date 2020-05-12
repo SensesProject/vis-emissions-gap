@@ -176,6 +176,30 @@
           :y="margin.top + (height - margin.top - margin.bottom) / 3"
           label='Due to inherent uncertainties about warming related to a particular emissions pathways, the temperature outcome for 2050 and 2100 can only be described probabilistically. The "median" values show the temperature value that lies in the middle of the distribution. The "95%" percentile values show hoch much higher the temperature outcomes are, that have a very high likelihood of not beeing exceeded. On the other hand, even with a stringend pathway aiming at staying below 2°C with 66% likelihood, there is a 5% probability of 2100 temperature exceeding 2.5°C.'
         />
+        <VisPulse
+          v-if="variable === 'temperature'"
+          key="info"
+          :isSmall="true"
+          :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
+          :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
+          label='Total human-induced warming with respect to pre-industrial levels until 2015 was approximately 1.0°C (1.8 °Fahrenheit), according to HadCRUT4.'
+        />
+        <VisPulse
+          v-if="variable === 'strandedAssests'"
+          key="info"
+          :isSmall="true"
+          :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
+          :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
+          label='To put the capacities risking being stranded into context: The total global coal power fleet currently in operation has a capacity of 2079 GW, according to IEA.'
+        />
+        <VisPulse
+          v-if="variable === 'landuse'"
+          key="info"
+          :isSmall="true"
+          :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
+          :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
+          label='To put the required areas into context: global cropland area as of 2010 was around 1500 Mio ha, and pasture area an additional 3300 Mio ha, according to FAO.'
+        />
       </svg>
     </div>
   </div>

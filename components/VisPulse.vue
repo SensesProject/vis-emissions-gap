@@ -4,26 +4,26 @@
       class="p2"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="12px"
+      :r="`${isSmall ? 7 : 12}px`"
     />
     <circle
       class="p1"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="4px"
+      :r="`${isSmall ? 2 : 4}px`"
     />
     <circle
       class="p3"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="10px"
+      :r="`${isSmall ? 6 : 10}px`"
     />
     <circle
       :style="{ transformOrigin: `${x}px ${y}px`}"
       class="p4"
       :cx="x + 'px'"
       :cy="y + 'px'"
-      r="15px"
+      :r="`${isSmall ? 8 : 15}px`"
     />
   </g>
 </template>
@@ -39,6 +39,10 @@ export default {
     },
     label: {
       type: String
+    },
+    isSmall: {
+      type: Boolean,
+      default: false
     }
   }
 }
