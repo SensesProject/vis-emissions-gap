@@ -99,6 +99,14 @@ function moveEls (els, direction) {
 }
 
 export default {
+  components: {
+    VisAxis,
+    VisElement,
+    VisAside,
+    VisPath,
+    VisZeroLine,
+    ConditionalElements
+  },
   data () {
     return {
       width: 0,
@@ -251,14 +259,6 @@ export default {
         }
       })
     }
-  },
-  components: {
-    VisAxis,
-    VisElement,
-    VisAside,
-    VisPath,
-    VisZeroLine,
-    ConditionalElements
   }
 }
 </script>

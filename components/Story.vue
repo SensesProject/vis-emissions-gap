@@ -6,9 +6,6 @@
           <h1>Where are we coming from?</h1>
         </header>
         <section>
-<!--           <p>
-            This module explores how current <span v-tooltip="'Each country has submitted a “Nationally determined contribution” (NDC), which contains - among other things - decarbonization targets for the year 2025 or 2030'" class="info">decarbonization plans until 2030</span> relate to the <span v-tooltip="'Holding the increase in the global average temperature to well below 2 °C above pre-industrial levels and pursuing efforts to limit the temperature increase to 1.5 °C above pre-industrial levels.'" class="info">long-term targets of the Paris Agreement</span>.
-          </p> -->
           <p>
             Let’s start with the historical CO₂ emissions from 1990 until 2016, coming from the combustion of fossil fuels (coal, oil and natural gas) and cement production, and from land-use. As we can see, these emissions have increased sharply in the first decade of the 21st century, and are still on an upward trajectory.
           </p>
@@ -84,6 +81,9 @@ import { mapState, mapActions } from 'vuex'
 import VisOptions from '~/components/VisOptions.vue'
 
 export default {
+  components: {
+    VisOptions
+  },
   computed: {
     ...mapState({
       step: state => state.navigation.step
@@ -93,9 +93,6 @@ export default {
     ...mapActions([
       'setHighlight'
     ])
-  },
-  components: {
-    VisOptions
   }
 }
 </script>

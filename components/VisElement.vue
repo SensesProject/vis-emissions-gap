@@ -34,6 +34,17 @@ function capitalizeFirstLetter (string) {
 }
 
 export default {
+  components: {
+    VisMarker,
+    VisLine,
+    VisArea,
+    VisDot,
+    VisArrow,
+    VisHorizontalLine,
+    VisVerticalLine,
+    VisBracket,
+    VisAddition
+  },
   props: ['el', 'scaleX', 'scaleY', 'visibility', 'dataset', 'width'],
   computed: {
     ...mapState({
@@ -72,17 +83,6 @@ export default {
       const data = el.data
       return get(data, dataset, get(data, 0))
     }
-  },
-  components: {
-    VisMarker,
-    VisLine,
-    VisArea,
-    VisDot,
-    VisArrow,
-    VisHorizontalLine,
-    VisVerticalLine,
-    VisBracket,
-    VisAddition
   }
 }
 </script>

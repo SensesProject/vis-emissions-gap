@@ -10,7 +10,6 @@
     <transition-group name="fade" tag="g">
       <g
         v-for="tick in axis.ticks"
-        v-if="tick.isVisible"
         :key="tick.key"
       >
         <text
@@ -41,6 +40,7 @@
       />
       <text
         v-for="group in ['label label--background', 'axis']"
+        :key="group"
         ref="text"
         :class="`${group} axis--reading outline`"
         :y="label.today[1] + 'px'"
@@ -48,7 +48,7 @@
       >
         <tspan
           v-for="(text, i) in label.texts"
-          v-if="text"
+          :key="text"
           ref="texts"
           :dominant-baseline="i === 0 ? 'middle' : 'baseline'"
           :x="0 + 'px'"
@@ -127,7 +127,7 @@ export default {
             isVisible,
             x: d
           }
-        })
+        }).filter(d => d.isVisible)
       }
     },
     yLabel () {
@@ -147,7 +147,7 @@ export default {
           `${this.region === 'World' ? 'Global' : this.region} CO₂ emissions (Gt CO₂/yr) `,
           `from ${get(replacements, this.variable, this.variable)}`,
           this.yLabel === 'historic-landuse' ? 'and additionally from land-use' : false
-      ]
+      ].filter(d => d)
 
       return {
         today: [this.scaleX(new Date(today[0], 0, 1)), this.scaleY(today[1])],

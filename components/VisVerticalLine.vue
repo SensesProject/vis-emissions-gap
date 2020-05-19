@@ -25,16 +25,22 @@ import { timeParse } from 'd3-time-format'
 export default {
   props: {
     el: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {}
+      }
     },
     data: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     scaleX: {
-      type: Function
+      type: Function,
+      default: () => {}
     },
     scaleY: {
-      type: Function
+      type: Function,
+      default: () => {}
     }
   },
   computed: {

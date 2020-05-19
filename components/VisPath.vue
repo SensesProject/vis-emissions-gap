@@ -43,16 +43,22 @@ import * as pathHelper from 'svg-path-properties'
 export default {
   props: {
     el: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {}
+      }
     },
     scaleY: {
-      type: Function
+      type: Function,
+      default: () => {}
     },
     scaleX: {
-      type: Function
+      type: Function,
+      default: () => {}
     },
     legend: {
-      type: Array
+      type: Array,
+      default: () => []
     }
   },
   computed: {

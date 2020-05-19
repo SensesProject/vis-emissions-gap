@@ -14,7 +14,7 @@
       class="label label--path label--background"
       text-anchor="middle"
     >
-      {{ el.label }}
+      {{ el.label }}
     </text>
     <text
       :x="center[0]"
@@ -22,7 +22,7 @@
       class="label label--path"
       text-anchor="middle"
     >
-      {{ el.label }}
+      {{ el.label }}
     </text>
   </g>
 </template>

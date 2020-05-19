@@ -23,6 +23,9 @@ import { range, map } from 'lodash'
 import Story from '~/components/Story.vue'
 
 export default {
+  components: {
+    Story
+  },
   computed: {
     ...mapState({
       step: state => state.navigation.step
@@ -46,9 +49,6 @@ export default {
       'previousStep',
       'setStep'
     ])
-  },
-  components: {
-    Story
   }
 }
 </script>

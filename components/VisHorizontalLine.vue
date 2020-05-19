@@ -14,7 +14,7 @@
       :y="0"
       dominant-baseline="middle"
     >
-      {{ el.label }}
+      {{ el.label }}
     </text>
   </g>
 </template>

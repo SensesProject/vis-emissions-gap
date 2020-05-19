@@ -4,6 +4,7 @@
       <ul class="tabs tabs-disruptions">
         <li
           v-for="tab in tabs"
+          :key="tab[1]"
           :class="{
             'tab': true,
             'tab--active': variable === tab[0],
@@ -47,35 +48,48 @@
           />
           <text
             v-for="(title, i) in titles"
+            :key="title"
             :x="axis.labelX"
             :y="0"
             :dy="`${i * 1.2 + (i === titles.length - 1 ? 2.2 : 1.2)}em`"
             :class="i === titles.length - 1 ? 'axis small' : 'axis'"
             text-anchor="middle"
           >{{ title }}</text>
-          <g v-for="reference in references">
+          <g
+            v-for="{ labelY, label, x, y1, y2 } in references"
+            :key="label"
+          >
             <text
-              :x="reference.x"
-              :y="reference.labelY"
+              :x="x"
+              :y="labelY"
               text-anchor="middle"
-              class="reference">{{ reference.label }}</text>
+              class="reference"
+            >
+              {{ label }}
+            </text>
             <line
-              :x1="reference.x"
-              :x2="reference.x"
-              :y1="reference.y1"
-              :y2="reference.y2"
+              :x1="x"
+              :x2="x"
+              :y1="y1"
+              :y2="y2"
               class="reference"
               stroke-dasharray="1"
             />
           </g>
-          <g v-for="area in areas">
+          <g
+            v-for="{ labelX, labelY, label, d } in areas"
+            :key="label"
+          >
             <text
-              :x="area.labelX"
-              :y="area.labelY"
+              :x="labelX"
+              :y="labelY"
               text-anchor="middle"
-              class="reference">{{ area.label }}</text>
+              class="reference"
+            >
+              {{ label }}
+            </text>
             <path
-              :d="area.d"
+              :d="d"
               class="reference"
             />
           </g>
@@ -99,10 +113,9 @@
             </g>
           </transition-group>
         </g>
-        <transition-group name="fade" tag="g">
+        <transition-group v-if="isReady" name="fade" tag="g">
           <g
             v-for="group in elements"
-            v-if="isReady"
             :key="group.key"
             :class="group.klass"
             @mouseover="setHighlight(group.policy)"
@@ -113,7 +126,10 @@
               :x="group.x + 5"
               :y="group.labelY"
             >{{ group.label }}</text>
-            <g v-for="bar in group.bars">
+            <g
+              v-for="bar in group.bars"
+              :key="bar.label.label"
+            >
               <rect
                 v-if="goal >= bar.year && bar.widthP95"
                 v-tooltip="{ content: bar.tooltip[2], offset: 5 }"
@@ -174,7 +190,7 @@
           v-if="variable === 'temperature'"
           :x="margin.left + (width - margin.left - margin.right) / 5 * 4"
           :y="margin.top + (height - margin.top - margin.bottom) / 3"
-          label='Due to inherent uncertainties about warming related to a particular emissions pathways, the temperature outcome for 2050 and 2100 can only be described probabilistically. The "median" values show the temperature value that lies in the middle of the distribution. The "95%" percentile values show hoch much higher the temperature outcomes are, that have a very high likelihood of not beeing exceeded. On the other hand, even with a stringend pathway aiming at staying below 2°C with 66% likelihood, there is a 5% probability of 2100 temperature exceeding 2.5°C.'
+          label="Due to inherent uncertainties about warming related to a particular emissions pathways, the temperature outcome for 2050 and 2100 can only be described probabilistically. The “median” values show the temperature value that lies in the middle of the distribution. The “95%” percentile values show hoch much higher the temperature outcomes are, that have a very high likelihood of not beeing exceeded. On the other hand, even with a stringend pathway aiming at staying below 2°C with 66% likelihood, there is a 5% probability of 2100 temperature exceeding 2.5°C."
         />
         <VisPulse
           v-if="variable === 'temperature'"
@@ -182,7 +198,7 @@
           :isSmall="true"
           :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
           :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
-          label='Total human-induced warming with respect to pre-industrial levels until 2015 was approximately 1.0°C (1.8 °Fahrenheit), according to HadCRUT4.'
+          label="Total human-induced warming with respect to pre-industrial levels until 2015 was approximately 1.0°C (1.8 °Fahrenheit), according to HadCRUT4."
         />
         <VisPulse
           v-if="variable === 'strandedAssests'"
@@ -190,7 +206,7 @@
           :isSmall="true"
           :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
           :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
-          label='To put the capacities risking being stranded into context: The total global coal power fleet currently in operation has a capacity of 2079 GW, according to IEA.'
+          label="To put the capacities risking being stranded into context: The total global coal power fleet currently in operation has a capacity of 2079 GW, according to IEA."
         />
         <VisPulse
           v-if="variable === 'landuse'"
@@ -198,7 +214,7 @@
           :isSmall="true"
           :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
           :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
-          label='To put the required areas into context: global cropland area as of 2010 was around 1500 Mio ha, and pasture area an additional 3300 Mio ha, according to FAO.'
+          label="To put the required areas into context: global cropland area as of 2010 was around 1500 Mio ha, and pasture area an additional 3300 Mio ha, according to FAO."
         />
       </svg>
     </div>
@@ -244,6 +260,9 @@ const f = format('.0f')
 const f2 = format('.2f')
 
 export default {
+  components: {
+    VisPulse
+  },
   data () {
     return {
       width: 0,
@@ -578,9 +597,6 @@ export default {
       'setHighlight',
       'setScenario'
     ])
-  },
-  components: {
-    VisPulse
   }
 }
 </script>

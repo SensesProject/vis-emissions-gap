@@ -25,19 +25,26 @@ import { get, lowerCase, startCase } from 'lodash'
 export default {
   props: {
     label: {
-      type: String
+      type: String,
+      default: ''
     },
     isWide: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     tooltip: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {}
+      }
     },
     isDropdown: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     current: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {

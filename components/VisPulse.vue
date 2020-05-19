@@ -32,13 +32,16 @@
 export default {
   props: {
     x: {
-      type: Number
+      type: Number,
+      default: 0
     },
     y: {
-      type: Number
+      type: Number,
+      default: 0
     },
     label: {
-      type: String
+      type: String,
+      default: ''
     },
     isSmall: {
       type: Boolean,

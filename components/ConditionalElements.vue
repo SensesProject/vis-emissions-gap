@@ -1,12 +1,5 @@
 <template>
   <transition-group name="fade" tag="g">
-<!--     <VisPulse
-      v-if="step === 1"
-      key="negativeEmission"
-      :x="(x2 - x1) / 3"
-      :y="y - 20"
-      label="Due to the long lifetime of CO₂ in the atmosphere, the concentration of CO₂, which causes the warming effect will increase as long as yearly emissions are positive. This means that yearly emissions have to be reduced to zero in order to stabilize the concentration in the atmosphere and thus warming. If net negative emissions are reached by employing more carbon dioxide removal than positive residual emissions, the concentration of CO₂ in the atmosphere can be reduced and thus the warming reduced."
-    /> -->
     <VisPulse
       v-if="region !== 'World'"
       key="nonWorld"
@@ -44,6 +37,9 @@ import { mean, get, last, find } from 'lodash'
 import VisPulse from '~/components/VisPulse.vue'
 
 export default {
+  components: {
+    VisPulse
+  },
   props: ['margin', 'height', 'width', 'scaleX', 'scaleY'],
   computed: {
     ...mapState({
@@ -120,9 +116,6 @@ export default {
 
       return [this.scaleX(new Date(x, 0, 1)), this.scaleY(y)]
     }
-  },
-  components: {
-    VisPulse
   }
 }
 </script>

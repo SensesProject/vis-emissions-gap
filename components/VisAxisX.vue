@@ -18,15 +18,17 @@
               class="tick"
               :x="label.x + 'px'"
               dy="0"
-              v-html="label.year"
-            />
+            >
+              {{ label.year }}
+            </tspan>
             <tspan
               v-if="label.label"
               :x="label.x + 'px'"
               dy="-1.4em"
               class="tick important"
-              v-html="label.label + (!isLongTerm && label.long ? label.long : '')"
-            />
+            >
+              {{ label.label + (!isLongTerm && label.long ? label.long : '') }}
+            </tspan>
           </text>
           <line
             :y1="margin.top + 'px'"

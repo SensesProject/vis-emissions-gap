@@ -6,11 +6,12 @@
       </button>
       <ul slot="popover" class="list">
         <li
-          v-for="option in options"
-          :class="{ isActive: isEqual(current, option[0]), 'option': true }"
-          @click="setScenario({ [slug]: option[0] })"
+          v-for="[key, label] in options"
+          :key="key"
+          :class="{ isActive: isEqual(current, key), 'option': true }"
+          @click="setScenario({ [slug]: key })"
         >
-          {{ option[1] }}
+          {{ label }}
         </li>
       </ul>
     </v-popover>
@@ -25,13 +26,16 @@ export default {
   name: 'VisOptionInlineWrapper',
   props: {
     options: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     current: {
-      type: String
+      type: String,
+      default: ''
     },
     slug: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {

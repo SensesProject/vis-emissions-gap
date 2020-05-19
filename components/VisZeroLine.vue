@@ -49,19 +49,31 @@ import { mapState } from 'vuex'
 export default {
   props: {
     margin: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0
+        }
+      }
     },
     height: {
-      type: Number
+      type: Number,
+      default: 0
     },
     width: {
-      type: Number
+      type: Number,
+      default: 0
     },
     scaleX: {
-      type: Function
+      type: Function,
+      default: () => {}
     },
     scaleY: {
-      type: Function
+      type: Function,
+      default: () => {}
     }
   },
   computed: {
