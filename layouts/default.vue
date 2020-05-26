@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <SensesMenu id="emissions-gap" :min-width="1024"/>
+    <SensesMenu id="emissions-gap" :min-width="1024" />
     <div class="page-content" role="main">
       <nuxt />
     </div>
