@@ -1,6 +1,6 @@
 <template>
   <div class="vis-options">
-    <p>The study has looked further into the sensitivities, exploring not only <VisOptionInlineWrapper slug="degree" :options="optionsDegree" :current="degree" /> trajectories for <VisOptionInlineWrapper :options="optionsRegion" slug="region" :current="region" />, scenarios with <VisOptionInlineWrapper slug="part" :options="optionsPart" :current="part" /> availability of carbon dioxide removal options, but also <VisOptionInlineWrapper slug="variable" :options="optionsVariable" :current="variable" /> emissions.</p>
+    <p>The study has looked further into the sensitivities, exploring not only <VisOptionInlineWrapper slug="degree" :options="optionsDegree" :current="degree" /> trajectories for <VisOptionInlineWrapper :options="optionsRegion" slug="region" :current="region" />, scenarios with <VisOptionInlineWrapper slug="part" :options="optionsPart" :current="part" /> availability of carbon dioxide removal options, but also <VisOptionInlineWrapper slug="variable" :options="optionsVariable" :current="variable" /> emissions. The right-hand side panel allows you to include 4 different variables, including area requirements for bioenergy and afforestation.</p>
   </div>
 </template>
 

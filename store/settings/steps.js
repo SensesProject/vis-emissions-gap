@@ -231,28 +231,5 @@ module.exports = {
       variable: 'CO2|Energy and Industrial Processes',
       range: [1990, 2100]
     }
-  }, {
-    visibility: [],
-    legend: ['NDC', 'eff', 'goodpractice', 'netzero'],
-    yLabel: 'historic',
-    goal: 2100,
-    clips: {
-      NDC: 'end',
-      eff: 'end',
-      goodpractice: 'end',
-      netzero: 'end',
-      'historic-landuse-addition': 'start',
-      'historic-landuse': 'end'
-    },
-    data: {
-      aside: 'landuse',
-      model: 'REMIND-MAgPIE 1.7-3.0',
-      scenario: 'PEP',
-      degree: '1p5C',
-      part: 'full',
-      region: 'World',
-      variable: 'CO2|Energy and Industrial Processes',
-      range: [1990, 2100]
-    }
   }]
 }
