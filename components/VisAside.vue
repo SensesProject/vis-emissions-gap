@@ -222,7 +222,7 @@ import { format } from 'd3-format'
 import VisPulse from '~/components/VisPulse.vue'
 
 const titles = {
-  temperature: ['Increase in global mean temparature', '(rel. to 2015, in °C, global)'],
+  temperature: ['Increase in global mean temparature', '(rel. to 1850-1900, in °C, global)'],
   investment: ['Average yearly low-carbon', 'power sector investments', '(billion US$)'],
   landuse: ['Area for bioenergy and afforestation', '(2050, million ha, global)'],
   strandedAssests: ['Maximum idle coal capacity', '(GW, global)']
@@ -527,7 +527,7 @@ export default {
     },
     references () {
       const values = [
-        ['2019', 1.1, 'temperature'],
+        ['2019', 1.047784314, 'temperature'], // https://crudata.uea.ac.uk/cru/data/temperature/
         ['2019', 363, 'investment']
       ]
       const ticks = filter(values, ([, , variable]) => {
