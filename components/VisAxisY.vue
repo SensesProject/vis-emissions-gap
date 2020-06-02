@@ -49,7 +49,7 @@
         <tspan
           v-for="(text, i) in label.texts"
           :key="text"
-          ref="texts"
+          :ref="i === 0 ? 'value' : 'texts'"
           :dominant-baseline="i === 0 ? 'middle' : 'baseline'"
           :x="0 + 'px'"
           :dy="i === 0 ? '' : '1.5em'"
@@ -168,8 +168,8 @@ export default {
   },
   methods: {
     calcSizes () {
-      const { texts, text } = this.$refs
-      this.boxWidth = texts[0].getComputedTextLength() || 0
+      const { texts, text, value } = this.$refs
+      this.boxWidth = value[0].getComputedTextLength() || 0
       this.boxMaxWidth = Math.max(...map(texts, (text) => {
         return text.getComputedTextLength()
       }))

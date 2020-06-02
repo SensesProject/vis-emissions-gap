@@ -104,8 +104,8 @@ export default {
         &.isActive {
           cursor: default;
           background-color: #fff;
-          border-color: $color-blue;
-          color: $color-blue;
+          border-color: $color-neon;
+          color: $color-neon;
         }
       }
     }
@@ -123,7 +123,7 @@ export default {
 
       &.isActive {
         cursor: default;
-        color: $color-blue;
+        color: $color-neon;
       }
     }
   }

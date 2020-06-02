@@ -197,7 +197,7 @@
           key="info"
           :isSmall="true"
           :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
-          :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
+          :y="(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12"
           label="To put the capacities risking being stranded into context: The total global coal power fleet currently in operation has a capacity of 2079 GW, according to IEA."
         />
         <VisPulse
@@ -205,7 +205,7 @@
           key="info"
           :isSmall="true"
           :x="axis.labelX + (titles[titles.length - 1].length / 2 * 6)"
-          :y="`${(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12}`"
+          :y="(2 * 1.2 + (2 === titles.length - 1 ? 2.2 : 1.2)) * 12"
           label="To put the required areas into context: global cropland area as of 2010 was around 1500 Mio ha, and pasture area an additional 3300 Mio ha, according to FAO."
         />
       </svg>
@@ -223,7 +223,7 @@ import VisPulse from '~/components/VisPulse.vue'
 
 const titles = {
   temperature: ['Increase in global mean temparature', '(rel. to 1850-1900, in °C, global)'],
-  investment: ['Average yearly low-carbon', 'power sector investments', '(billion US$)'],
+  investment: ['Average yearly low-carbon', 'power sector investments', '(billion US$/year, global)'],
   landuse: ['Area for bioenergy and afforestation', '(2050, million ha, global)'],
   strandedAssests: ['Maximum idle coal capacity', '(GW, global)']
 }

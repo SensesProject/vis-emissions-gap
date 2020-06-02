@@ -72,13 +72,13 @@ export default {
       padding: 0;
       padding-left: $spacing / 8;
       font-weight: $font-weight-bold;
-      color: $color-blue;
+      color: $color-neon;
       margin: 0;
       display: inline-block;
       border: none;
       cursor: pointer;
-      background-color: rgba($color-blue, 0.05);
-      border: 1px solid rgba($color-blue, 0.1);
+      background-color: rgba($color-neon, 0.05);
+      border: 1px solid rgba($color-neon, 0.1);
       line-height: 1.4;
       border-radius: 5px;
       transition: background-color 0.2s ease;
@@ -111,7 +111,7 @@ export default {
 
       &.isActive {
         cursor: default;
-        color: $color-blue;
+        color: $color-neon;
       }
     }
   }

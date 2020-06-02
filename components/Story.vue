@@ -26,7 +26,7 @@
           <h3>Are the Paris Agreement’s near-term plans appropriate?</h3>
         </header>
         <section>
-          <p><a href="https://www.climatescenarios.org/primer/">Scenarios from integrated assessment models</a> help us explore what near-term and long-term targets imply in terms of emission trajectories. With the mitigation efforts pledged by countries in their nationally determined contributions (<span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">NDCs</span>), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays.</p>
+          <p><a href="https://www.climatescenarios.org/primer/">Scenarios from integrated assessment models</a> help us explore what near-term and long-term targets imply in terms of emission trajectories. With the mitigation efforts pledged by countries in their <span class="ndc" @mouseover="setHighlight('NDC')" @mouseleave="setHighlight(false)">nationally determined contributions</span> (NDCs), global emissions would reach a plateau from 2020–2030, so that 2030 emissions are only slightly higher than todays.</p>
           <p>The problem is: As we have seen in the previous step, we need to reduce emissions dramatically and not stay at the same level in order to not breach the long-term temperature targets.</p>
           <p>Scenario source: <span v-tooltip="'The scenarios shown in coloured lines in this module are from a recent scientific publication with the REMIND-MAgPIE modelling framework (Kriegler et al. 2018). The qualitative insights are identical to similar studies with other models (Luderer et al. 2018, Rogelj et al. 2015)'" class="info">REMIND-MAgPIE</span>.</p>
         </section>
@@ -34,7 +34,7 @@
       <article v-if="step === 4" key="step3">
         <h1>How do we get there?</h1>
         <h3>What would immediate action look like in contrast?</h3>
-        <p>Under the assumption that some strengthening of policies is achieved already in 2020 and that globally coordinated <span v-tooltip="'Under the assumption of functioning markets and perfect foresight, pricing of all greenhouse-gas emissions, either via a carbon tax or a scheme of tradable emission permits are the cost-effective policy.'" class="info ndc" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">cost-effective policies</span> are in place in 2025, sharp reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for <span v-tooltip="'Key strategies for decarbonization are 1) early decarbonization of power supply, mostly via renewables but also via nuclear or combination of efficient natural gas plants with carbon capture and storage. 2) Secondly, substantial electrification of energy end-uses (via battery-electric or fuel-cell vehicles in transport, heat pumps in buildings and industry, etc.) and 3) the reduction of carbon-intensity of remaining solid, liquid and gaseous fuel the use via use of bio-energy, synthetic fuels and or employment of carbon capture and storage (CCS).'" class="info">mitigation technologies</span>, requiring more than a doubling of low-carbon power sector investments in the coming years (see right-hand side panel).</p>
+        <p>Under the assumption that some strengthening of policies is achieved already in 2020 and that globally coordinated <span v-tooltip="'Under the assumption of functioning markets and perfect foresight, pricing of all greenhouse-gas emissions, either via a carbon tax or a scheme of tradable emission permits are the cost-effective policy.'" class="info eff" @mouseover="setHighlight('eff')" @mouseleave="setHighlight(false)">cost-effective policies</span> are in place in 2025, sharp reductions of emissions already until 2030 would result. This would mean that the rate of warming is reduced early on, reducing climate impacts, and would furthermore mean an early push for <span v-tooltip="'Key strategies for decarbonization are 1) early decarbonization of power supply, mostly via renewables but also via nuclear or combination of efficient natural gas plants with carbon capture and storage. 2) Secondly, substantial electrification of energy end-uses (via battery-electric or fuel-cell vehicles in transport, heat pumps in buildings and industry, etc.) and 3) the reduction of carbon-intensity of remaining solid, liquid and gaseous fuel the use via use of bio-energy, synthetic fuels and or employment of carbon capture and storage (CCS).'" class="info">mitigation technologies</span>, requiring more than a doubling of low-carbon power sector investments in the coming years (see right-hand side panel).</p>
       </article>
       <article v-if="step === 5" key="step4">
         <h1>How do we get there?</h1>
@@ -47,7 +47,7 @@
           <h3>What are the alternatives?</h3>
         </header>
         <section>
-          <p>Therefore, the question is how an intermediate scenario could look like that neither requires full global policy harmonization within the next few years nor requires massive abrupt strengthening in 2030. One such scenario is the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“Bridge” scenario</span> that explores how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-effective. Policies that can contribute to such a Bridge scenario could be based on an analysis of policy successes as already observed in some legislations. Or policies that target the requirements to achieve net-zero emissions in all sectors in the second half of the century. As can be seen on the graph, the more nuanced policy assumptions in the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Bridge scenario</span> lead to a smoother emissions trajectory without pronounced kinks. Also, the extreme jumps in investment numbers as shown on the right side are mitigated, and investments gradually increase over the coming decades.</p>
+          <p>Therefore, the question is how an intermediate scenario could look like that neither requires full global policy harmonization within the next few years nor requires massive abrupt strengthening in 2030. One such scenario is the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">“Bridge” scenario</span> (strengthened action) that explores how country-specific strengthening of policies can lead to early emission reductions and thus come closer to the cost-effective. Policies that can contribute to such a Bridge scenario could be based on an analysis of policy successes as already observed in some legislations. Or policies that target the requirements to achieve net-zero emissions in all sectors in the second half of the century. As can be seen on the graph, the more nuanced policy assumptions in the <span class="nz" @mouseover="setHighlight('netzero')" @mouseleave="setHighlight(false)">Bridge scenario</span> lead to a smoother emissions trajectory without pronounced kinks. Also, the extreme jumps in investment numbers as shown on the right side are mitigated, and investments gradually increase over the coming decades.</p>
         </section>
       </article>
       <article v-if="step === 7" key="step5">
@@ -135,22 +135,6 @@ export default {
     height: 100%;
     max-width: 900px;
     margin: 0 auto;
-
-    a {
-      color: $color-blue;
-      background: none;
-
-      &.bold {
-        text-decoration: underline;
-        font-weight: $font-weight-bold;
-      }
-
-      &:hover, &:focus {
-        color: getColor(blue, 40);
-        background: none;
-        text-decoration: underline;
-      }
-    }
 
     & > * {
       width: 100%;

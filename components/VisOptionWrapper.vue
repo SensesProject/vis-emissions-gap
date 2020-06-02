@@ -77,7 +77,7 @@ export default {
 
     button.block {
       font-size: $size-default;
-      color: $color-blue;
+      color: $color-neon;
       line-height: 1.1;
       padding: 0;
     }

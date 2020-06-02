@@ -67,7 +67,7 @@ export default {
 
   circle {
     &.p1 {
-      fill: $color-blue;
+      fill: $color-neon;
     }
 
     &.p2 {
@@ -76,15 +76,15 @@ export default {
     }
 
     &.p3 {
-      fill: $color-blue;
+      fill: $color-neon;
       fill-opacity: 0.3;
-      stroke: $color-blue;
+      stroke: $color-neon;
       stroke-opacity: 0.4;
     }
 
     &.p4 {
       fill: transparent;
-      stroke: $color-blue;
+      stroke: $color-neon;
       stroke-opacity: 0.4;
       animation: pulse 1.5s ease infinite;
     }

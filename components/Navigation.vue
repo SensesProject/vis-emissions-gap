@@ -136,7 +136,7 @@ export default {
         justify-content: flex-end;
 
         span, i {
-          color: $color-blue;
+          color: $color-neon;
         }
       }
 
@@ -161,6 +161,7 @@ export default {
     @include center();
     justify-content: space-between;
     max-width: 400px;
+    margin-top: $spacing / 2;
 
     .step {
       width: 10px;
@@ -176,12 +177,12 @@ export default {
       }
 
       &:hover, &:focus {
-        background-color: getColor(blue, 60);
+        background-color: getColor(neon, 60);
         outline: none;
       }
 
       &.isCurrent {
-        background-color: $color-blue;
+        background-color: $color-neon;
         cursor: default;
       }
     }

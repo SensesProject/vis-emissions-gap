@@ -59,9 +59,28 @@ sub {
 
     &.tab--active {
       cursor: default;
-      border-bottom: 2px solid $color-blue;
+      border-bottom: 2px solid $color-neon;
       margin-bottom: -2px;
       height: calc(100% + 2px);
+    }
+  }
+}
+
+article, .intro {
+  a {
+    color: $color-neon;
+    text-decoration: underline;
+    background: none;
+
+    &.bold {
+      text-decoration: underline;
+      font-weight: $font-weight-bold;
+    }
+
+    &:hover, &:focus {
+      color: getColor(neon, 40);
+      background: none;
+      text-decoration: underline;
     }
   }
 }
@@ -79,6 +98,13 @@ sub {
 }
 
 span {
+  &.info {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: $color-neon;
+    white-space: nowrap;
+  }
+
   &.ndc {
     border-bottom: 2px solid #b7005e;
   }
@@ -93,10 +119,5 @@ span {
 
   &.nz {
     border-bottom: 2px solid #e67c3e;
-  }
-
-  &.info {
-    border-bottom: 1px dashed $color-blue;
-    white-space: nowrap;
   }
 }

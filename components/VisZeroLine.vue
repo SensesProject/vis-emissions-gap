@@ -18,7 +18,7 @@
       v-if="isUsed"
       class="negative--area"
       fill="url(#grad1)"
-      :d="`M${margin.left} ${0 + 5} H${width} V${end} H${margin.left} V${0 + 5}`"
+      :d="`M${margin.left} ${0 + 5} H${width} V50 H${margin.left} V${0 + 5}`"
     />
     <text
       v-if="isUsed"

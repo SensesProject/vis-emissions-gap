@@ -40,6 +40,20 @@ export default {
       width: 100%;
       text-align: left;
       margin-bottom: $spacing;
+
+      h1 {
+        font-size: 3rem;
+        margin: 0 $spacing / 2;
+      }
+    }
+
+    // & > * {
+    //   margin: 0 $spacing / 2;
+    // }
+
+    p {
+      line-height: 1.9;
+      margin: 0 $spacing / 2;
     }
   }
 
