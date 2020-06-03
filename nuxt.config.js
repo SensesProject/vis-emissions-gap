@@ -1,3 +1,4 @@
+const { getUrlToResources } = require('library/src/assets/js/utils.js')
 const { getHead } = require('library/src/assets/js/head.js')
 
 module.exports = {
@@ -5,7 +6,7 @@ module.exports = {
   head: getHead({
     title: 'Closing the emissions Gap',
     description: 'This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.',
-    images: 'https://dev.climatescenarios.org/share/og-emissions-gap.jpg'
+    image: 'https://climatescenarios.org/share/og-emissions-gap.jpg'
   }),
   css: [
     'normalize-scss',
