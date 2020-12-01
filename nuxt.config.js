@@ -24,5 +24,12 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
-  ]
+  ],
+  build: {
+    extend (config, ctx) {
+    },
+    transpile: [
+      'library'
+    ]
+  }
 }
