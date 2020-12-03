@@ -1,4 +1,3 @@
-const { getUrlToResources } = require('library/src/assets/js/utils.js')
 const { getHead } = require('library/src/assets/js/head.js')
 
 module.exports = {
@@ -9,7 +8,6 @@ module.exports = {
     image: 'https://climatescenarios.org/share/og-emissions-gap.jpg'
   }),
   css: [
-    'normalize-scss',
     '@/assets/style/base.scss'
   ],
   resolve: {
@@ -21,15 +19,11 @@ module.exports = {
     base: '/emissions-gap/'
   },
   loading: { color: '#fff' },
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
-  ],
   build: {
     extend (config, ctx) {
-    },
-    transpile: [
-      'library'
-    ]
+    }
+  },
+  generate: {
+    crawler: false
   }
 }
