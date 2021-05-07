@@ -18,7 +18,7 @@
     "d3-shape": "^2.0.0",
     "d3-time-format": "^3.0.0",
     "library": "github:SensesProject/library",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "nuxt": "^2.14.9",
     "svg-path-properties": "^1.0.10",
     "v-tooltip": "^2.0.3"
